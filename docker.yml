@@ -1,0 +1,28 @@
+version: "3"
+services:
+    web:
+        image: {{APACHE IMAGE TAG}}
+        hostname: web
+        environment:
+            - ALLOW_OVERRIDE=true
+        networks:
+            - obvius
+        ports:
+            - "8081:80"
+    db:
+        image: {{MARIADB IMAGE TAG}}
+        restart:
+           unless-stopped
+        #volumes:
+        #    - ./etc/mysql/my.cnf:/etc/mysql/my.cnf
+        networks:
+            - obvius
+        environment:
+            - MYSQL_ROOT_PASSWORD=secret
+            - MYSQL_USER=ku
+            - MYSQL_PASSWORD=kudbpassword
+            - MYSQL_DATABASE=ku
+        ports:
+            - "3307:3306"
+networks: 
+    obvius:

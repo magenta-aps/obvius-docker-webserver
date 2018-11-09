@@ -82,6 +82,9 @@ RUN cpanm install JSON::PP
 RUN cpanm install Locale::Messages  
 RUN cpanm install Apache2::SizeLimit
 
+#Copy obvius and ku specific conf files
+COPY etc/ /etc
+
 #Disable conflicting Apache Module
 RUN a2dismod mpm_event
 
@@ -97,6 +100,11 @@ RUN a2enmod ssl
 RUN a2enmod access_compat
 RUN a2enmod mpm_prefork 
 
+#Enable Apache custom configuration files
+RUN a2enconf obvius
+RUN a2enconf log-to-syslog
+RUN a2enconf actualhost-logformat
+
 #Copy DBIx Patches
 COPY DBIx_patches/ /usr/share/perl5/DBIx/
 RUN touch /usr/share/perl5/DBIx/.obvius_recordset_patches_installed
@@ -105,7 +113,6 @@ RUN touch /usr/share/perl5/DBIx/.obvius_recordset_patches_installed
 RUN apt-get purge -y --auto-remove make gcc libperl-dev \
     && rm -rf /var/lib/apt/lists/*
     
-COPY etc/ /etc
 
 RUN rm -f /usr/local/apache2/logs/httpd.pid
 CMD  apachectl -D FOREGROUND

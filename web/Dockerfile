@@ -71,6 +71,7 @@ RUN apt-get install -y poppler-utils
 RUN apt-get install -y software-properties-common
 RUN apt-get install -y vim
 RUN apt-get install -y net-tools
+RUN apt-get install -y locales
  
 #Install CPAN modules
 RUN cpanm install Crypt::TripleDES  
@@ -105,9 +106,15 @@ RUN a2enconf obvius
 RUN a2enconf log-to-syslog
 RUN a2enconf actualhost-logformat
 
+#Build internal certificate
+RUN /etc/apache2/certificates/rebuild_magenta_certificate.sh
+
 #Copy DBIx Patches
 COPY DBIx_patches/ /usr/share/perl5/DBIx/
 RUN touch /usr/share/perl5/DBIx/.obvius_recordset_patches_installed
+
+#Install locales
+RUN locale-gen da_DK.utf8 da_DK en_US en_US.utf8
 
 # Clean up
 RUN apt-get purge -y --auto-remove make gcc libperl-dev \

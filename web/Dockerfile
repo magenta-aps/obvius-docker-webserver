@@ -1,4 +1,9 @@
-FROM httpd:2.4
+FROM debian:stretch-slim
+
+#Install Apache
+RUN set -x \
+    && apt-get update \
+    && apt-get install -y apache2 
 
 # Add mod_perl and apreq source code
 ADD http://mirrors.dotsrc.org/apache/perl/mod_perl-2.0.10.tar.gz \
@@ -7,32 +12,30 @@ ADD http://mirrors.dotsrc.org/apache/perl/mod_perl-2.0.10.tar.gz \
 
 # Add mod_perl build dependencies
 RUN set -x \
-    && apt-get update \
     && apt-get install -y libfile-spec-native-perl make gcc libperl-dev
 
     # Compile and install mod_perl
-RUN ln -s /usr/lib/x86_64-linux-gnu/libgdbm.so.3.0.0 /usr/lib/libgdbm.so \
-    && tar -zxvf mod_perl-2.0.10.tar.gz \
-    && rm mod_perl-2.0.10.tar.gz \
-    && cd mod_perl-2.0.10 \
-    && perl Makefile.PL MP_AP_PREFIX=/usr/local/apache2 \
-    && make \ 
-    && make install 
+#RUN ln -s /usr/lib/x86_64-linux-gnu/libgdbm.so.3.0.0 /usr/lib/libgdbm.so \
+#    && tar -zxvf mod_perl-2.0.10.tar.gz \
+#    && rm mod_perl-2.0.10.tar.gz \
+#    && cd mod_perl-2.0.10 \
+#    && perl Makefile.PL MP_AP_PREFIX=/usr/include/apache2 \
+#    && make \ 
+#    && make install 
 
     # Compile and install mod_apreq
-RUN tar -zxvf libapreq2-2.13.tar.gz \
-    && cd libapreq2-2.13 \
-    && ./configure \
-    && make \
-    && make install 
+#RUN tar -zxvf libapreq2-2.13.tar.gz \
+#    && cd libapreq2-2.13 \
+#    && ./configure \
+#    && make \
+#    && make install 
 
 #Install obvius package dependencies
-RUN apt-get install -y apache2   
-RUN apt-get install -y apache2-dev   
 RUN apt-get install -y build-essential  
 RUN apt-get install -y cpanminus  
 RUN apt-get install -y git   
 RUN apt-get install -y git-flow  
+RUN apt-get install -y libapache2-mod-perl2
 RUN apt-get install -y libapache2-mod-apreq2  
 RUN apt-get install -y libapache2-request-perl   
 RUN apt-get install -y libapache-session-perl  
@@ -66,6 +69,8 @@ RUN apt-get install -y links
 RUN apt-get install -y libgraphics-magick-perl  
 RUN apt-get install -y poppler-utils  
 RUN apt-get install -y software-properties-common
+RUN apt-get install -y vim
+RUN apt-get install -y net-tools
  
 #Install CPAN modules
 RUN cpanm install Crypt::TripleDES  
@@ -77,11 +82,30 @@ RUN cpanm install JSON::PP
 RUN cpanm install Locale::Messages  
 RUN cpanm install Apache2::SizeLimit
 
+#Disable conflicting Apache Module
+RUN a2dismod mpm_event
+
+#Enable Apache Modules
+RUN a2enmod apreq2
+RUN a2enmod expires 
+RUN a2enmod headers 
+RUN a2enmod proxy 
+RUN a2enmod proxy_http 
+RUN a2enmod proxy_connect
+RUN a2enmod rewrite
+RUN a2enmod ssl
+RUN a2enmod access_compat
+RUN a2enmod mpm_prefork 
+
+#Copy DBIx Patches
+COPY DBIx_patches/ /usr/share/perl5/DBIx/
+RUN touch /usr/share/perl5/DBIx/.obvius_recordset_patches_installed
+
 # Clean up
-RUN rm -r mod_perl-2.0.10  \
-    && rm -r libapreq2-2.13 \
-    && apt-get purge -y --auto-remove make gcc libperl-dev \
+RUN apt-get purge -y --auto-remove make gcc libperl-dev \
     && rm -rf /var/lib/apt/lists/*
     
 COPY etc/ /etc
 
+RUN rm -f /usr/local/apache2/logs/httpd.pid
+CMD  apachectl -D FOREGROUND

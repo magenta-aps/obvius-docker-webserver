@@ -5,6 +5,10 @@ services:
         hostname: web
         container_name: "web"
         #command: /usr/local/bin/entrypoint.sh
+        volumes: 
+            - ./web/volumes/www.ku.dk:/var/www/www.ku.dk
+            - ./web/volumes/obvius:/var/www/obvius
+            - ./web/volumes/tinymce3:/var/www/tinymce3
         environment:
             - ALLOW_OVERRIDE=true
         networks:
@@ -17,7 +21,7 @@ services:
         restart:
            unless-stopped
         #volumes:
-        #    - ./etc/mysql/my.cnf:/etc/mysql/my.cnf
+           #- ./etc/mysql/my.cnf:/etc/mysql/my.cnf
         container_name: "db"
         networks:
             - obvius

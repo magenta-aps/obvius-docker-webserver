@@ -106,6 +106,9 @@ RUN a2enconf obvius
 RUN a2enconf log-to-syslog
 RUN a2enconf actualhost-logformat
 
+#Enable KU Site
+RUN a2ensite ku
+
 #Build internal certificate
 RUN /etc/apache2/certificates/rebuild_magenta_certificate.sh
 

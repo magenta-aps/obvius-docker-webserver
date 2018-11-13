@@ -20,6 +20,7 @@ services:
             - "443:443"
     db:
         image: maria-git
+        hostname: db
         restart:
            unless-stopped
         #volumes:
@@ -34,5 +35,6 @@ services:
             - MYSQL_DATABASE=ku
         ports:
             - "3307:3306"
+        container_name: db
 networks: 
     obvius:

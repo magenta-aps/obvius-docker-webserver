@@ -150,7 +150,20 @@ RUN touch /usr/share/perl5/DBIx/.obvius_recordset_patches_installed
 COPY etc/locale.gen /etc/locale.gen
 RUN locale-gen
 
-RUN chown www-data /var/www/www.ku.dk/var/
+#Add ignored directories:
+RUN mkdir -p /var/www/www.ku.dk/docs/upload && chown -R www-data /var/www/www.ku.dk/docs/upload
+RUN mkdir -p /var/www/www.ku.dk/var && chown www-data /var/www/www.ku.dk/var
+RUN mkdir -p /var/www/www.ku.dk/logs && chown www-data /var/www/www.ku.dk/logs
+RUN mkdir -p /var/www/www.ku.dk/var/document_cache && chown -R www-data /var/www/www.ku.dk/var/document_cache
+
+RUN ln -s /var/www/www.ku.dk/var/document_cache /var/www/www.ku.dk/docs/cache
+
+#Add ignored conf files
+COPY ./conf_files/hostmap.conf /var/www/www.ku.dk/conf/hostmap.conf
+COPY ./conf_files/tripleDES.txt /var/www/www.ku.dk/conf/tripleDES.txt
+COPY ./conf_files/names.conf /var/www/www.ku.dk/conf/names.conf
+COPY ./conf_files/https_hostmap.conf /var/www/www.ku.dk/var/https_hostmap.conf
+
 
 # Clean up
 RUN apt-get purge -y --auto-remove make gcc libperl-dev \

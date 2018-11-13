@@ -1,5 +1,5 @@
 # envvars - default environment variables for apache2ctl
-APACHE_ARGUMENTS="$APACHE_ARGUMENTS -DNO_SMALL_APACHES -DLOG_TO_SYSLOG" 
+APACHE_ARGUMENTS="$APACHE_ARGUMENTS -DNO_SMALL_APACHES" #-DLOG_TO_SYSLOG" 
 export APACHE_ARGUMENTS
 
 # this won't be correct after changing uid

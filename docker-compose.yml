@@ -4,11 +4,13 @@ services:
         image: apache-test
         hostname: web
         container_name: "web"
-        #command: /usr/local/bin/entrypoint.sh
+        command: "apachectl -D FOREGROUND"
         volumes: 
             - ./web/volumes/www.ku.dk:/var/www/www.ku.dk
             - ./web/volumes/obvius:/var/www/obvius
             - ./web/volumes/tinymce3:/var/www/tinymce3
+        depends_on:
+            - db
         environment:
             - ALLOW_OVERRIDE=true
         networks:

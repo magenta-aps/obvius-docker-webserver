@@ -147,7 +147,8 @@ COPY DBIx_patches/ /usr/share/perl5/DBIx/
 RUN touch /usr/share/perl5/DBIx/.obvius_recordset_patches_installed
 
 #Install locales
-RUN locale-gen da_DK.utf8 da_DK en_US en_US.utf8
+COPY etc/locale.gen /etc/locale.gen
+RUN locale-gen
 
 # Clean up
 RUN apt-get purge -y --auto-remove make gcc libperl-dev \

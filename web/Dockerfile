@@ -150,7 +150,7 @@ RUN touch /usr/share/perl5/DBIx/.obvius_recordset_patches_installed
 COPY etc/locale.gen /etc/locale.gen
 RUN locale-gen
 
-RUN chmod www-data /var/www/www.ku.dk/var/
+RUN chown www-data /var/www/www.ku.dk/var/
 
 # Clean up
 RUN apt-get purge -y --auto-remove make gcc libperl-dev \

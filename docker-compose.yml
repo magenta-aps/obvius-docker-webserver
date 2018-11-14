@@ -4,7 +4,7 @@ services:
         image: apache-test
         hostname: web
         container_name: "web"
-        command: "apachectl -D FOREGROUND"
+        command: "bash entrypoint.sh"
         volumes: 
             - ./web/volumes/www.ku.dk:/var/www/www.ku.dk
             - ./web/volumes/obvius:/var/www/obvius

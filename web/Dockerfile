@@ -103,7 +103,6 @@ RUN apt-get install -y perlmagick
 RUN apt-get install -y vim
 RUN apt-get install -y net-tools
 RUN apt-get install -y locales
-
  
 #Install CPAN modules
 RUN cpanm Crypt::TripleDES  
@@ -150,11 +149,8 @@ RUN touch /usr/share/perl5/DBIx/.obvius_recordset_patches_installed
 COPY etc/locale.gen /etc/locale.gen
 RUN locale-gen
 
-#Change permmision on ignored directories:
-RUN chown -R www-data /var/www/www.ku.dk/docs/upload
-RUN chown www-data /var/www/www.ku.dk/var
-RUN chown www-data /var/www/www.ku.dk/logs
-RUN chown -R www-data /var/www/www.ku.dk/var/document_cache
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 # Clean up
 RUN apt-get purge -y --auto-remove make gcc libperl-dev \

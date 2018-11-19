@@ -96,8 +96,6 @@ RUN apt-get install -y perl
 RUN apt-get install -y perl-doc
 RUN apt-get install -y libgraphics-magick-perl
 RUN apt-get install -y poppler-utils
-RUN apt-get install -y ruby-activesupport
-RUN apt-get install -y ruby-dev
 RUN apt-get install -y software-properties-common
 RUN apt-get install -y perlmagick
 RUN apt-get install -y vim

@@ -150,6 +150,8 @@ RUN locale-gen
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
+COPY full_import_json.pl /full_import_json.pl
+
 # Clean up
 RUN apt-get purge -y --auto-remove make gcc libperl-dev \
     && rm -rf /var/lib/apt/lists/*

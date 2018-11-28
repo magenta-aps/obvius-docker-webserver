@@ -5,7 +5,7 @@ Uses the file docker.yml for docker-compose.
 
 Remember to build images for services and refer to their tags in docker.yml.
 Run following command to start the services in docker.yml:
-`docker-compose -f docker.yml up -d`
+`docker-compose up -d`
 
 web and db services live in their respective folders.
 To build web and db images run and replace `{{ TAG }}` with desired image tag:
@@ -13,6 +13,16 @@ To build web and db images run and replace `{{ TAG }}` with desired image tag:
 
 The db entrypoint is overwritten with custom entrypoint located at `db/entrypoint.sh`.
 
+After building the images:
+Add the following repositories to web/volumes
+www.ku.dk
+obvius
+tinymce3
+
+Run the add_ignored.sh bash script inside web/:
+```bash
+sudo bash add_ignored.sh
+```
 ##### Suggested `.bashrc` aliases:
 * `dcomp` runs docker-compose
 ```bash
@@ -59,3 +69,5 @@ When an entrypoint is failing the container shuts down instantly denying any way
 ```bash
 alias dbug='docker commit $(docker ps -a --filter "name=web" --format "{{.ID}}") my-broken-container && docker run -it my-broken-container /bin/bash '
 ```
+
+

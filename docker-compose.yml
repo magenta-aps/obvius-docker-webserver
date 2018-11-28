@@ -18,6 +18,7 @@ services:
         ports:
             - "80:80"
             - "443:443"
+    
     db:
         image: db-image
         hostname: db
@@ -34,5 +35,23 @@ services:
         ports:
             - "3307:3306"
         container_name: db
+    
+    solr:
+        image: solr
+        hostname: solr
+        container_name: "solr"
+        #restart:
+                #    unless-stopped
+        networks:
+            - obvius
+        volumes:
+            - ./solr/obvius-conf:/opt/solr/server/solr/configsets/obvius
+        entrypoint:
+            - docker-entrypoint.sh
+            - solr-precreate
+            - obvius
+            - /opt/solr/server/solr/configsets/obvius
+        ports:
+            - "8983:8983"
 networks: 
     obvius:

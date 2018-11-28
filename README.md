@@ -1,6 +1,10 @@
 # obvius-docker-webserver
 A webserver for Obvius applications, based on the `httpd` image.
 
+Before building the web image the file `magentaCA2.key` needs to be copied to
+`web/etc/apache2/certificates/`. The file can be downloaded from
+https://redmine.magenta-aps.dk/projects/magenta/wiki/SSL.
+
 web and db services live in their respective folders.
 To build web and db images run and replace `{{ TAG }}` with desired image tag:
 `docker build -t {{ TAG }} .`

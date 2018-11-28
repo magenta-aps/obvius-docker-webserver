@@ -1,11 +1,6 @@
 # obvius-docker-webserver
 A webserver for Obvius applications, based on the `httpd` image.
 
-Remember to build images for services and refer to their tags in docker-compose.yml.
-Run following command to start the services in docker-compose.yml:
-
-`docker-compose up -d`
-
 web and db services live in their respective folders.
 To build web and db images run and replace `{{ TAG }}` with desired image tag:
 `docker build -t {{ TAG }} .`
@@ -27,6 +22,12 @@ Run the add_ignored.sh bash script inside web/:
 ```bash
 sudo bash add_ignored.sh
 ```
+
+Remember to build images for services and refer to their tags in docker-compose.yml.
+Run following command to start the services in docker-compose.yml:
+
+`docker-compose up -d`
+
 
 ##### Suggested `.bashrc` aliases:
 * `dcomp` runs docker-compose

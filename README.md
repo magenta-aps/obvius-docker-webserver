@@ -1,11 +1,9 @@
 # obvius-docker-webserver
 A webserver for Obvius applications, based on the `httpd` image.
 
-Uses the file docker.yml for docker-compose.
-
-Remember to build images for services and refer to their tags in docker.yml.
-Run following command to start the services in docker.yml:
-`docker-compose -f docker.yml up -d`
+Remember to build images for services and refer to their tags in docker-compose.yml.
+Run following command to start the services in docker-compose.yml:
+`docker-compose up -d`
 
 web and db services live in their respective folders.
 To build web and db images run and replace `{{ TAG }}` with desired image tag:
@@ -36,18 +34,23 @@ function dbash () {
 }
 ```
 
-* `dbuild` accepts either db or web and builds the specified image with the correct context no matter cwd 
+* `dbuild` accepts either db or web and builds the specified image. Leave blank to build both. Must be run from docker root folder
 ```bash
 function dbuild () {
         if [ "$1" == "web" ]
         then
-                docker build -t web-image /home/mads/obvius-docker-webserver/web
+                docker build -t web-image web/
         elif [ "$1" == "db" ]
         then
-                docker build -t db-image /home/mads/obvius-docker-webserver/db
+                docker build -t db-image db/
+	elif [ "$1" == "" ]
+	then
+		docker build -t web-image web/
+		docker build -t db-image db/
         else
-                echo 'You must specify which image to build: web or db'
+                echo 'Unknown image. Did you mean web or db? Leave blank to build both'
         fi
+}
 ```
 
 ###### For debugging 

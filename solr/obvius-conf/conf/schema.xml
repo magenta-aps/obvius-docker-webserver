@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="obvius_search" version="1.6">
+
+  <field name="_version_" type="long" indexed="true" stored="false" />
+  <field name="_root_" type="string" indexed="true" stored="false" docValues="false" />
+
+
+  <types>
+    <fieldType name="string"
+               class="solr.TextField"
+               sortMissingLast="true"
+               omitNorms="true">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory" />
+        <filter class="solr.WordDelimiterGraphFilterFactory"
+                generateWordParts="1"
+                generateNumberParts="1"
+                catenateWords="0"
+                catenateNumbers="0"
+                catenateAll="0"
+                preserveOriginal="1"
+        />
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
+
+    <fieldType name="htmltext"
+               class="solr.TextField"
+               indexed="true" >
+      <analyzer>
+        <charFilter class="solr.HTMLStripCharFilterFactory"/>
+        <tokenizer class="solr.StandardTokenizerFactory" />
+        <filter class="solr.WordDelimiterGraphFilterFactory"
+                generateWordParts="1"
+                generateNumberParts="1"
+                catenateWords="0"
+                catenateNumbers="0"
+                catenateAll="0"
+                preserveOriginal="1"
+        />
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
+
+    <fieldType name="text"
+               class="solr.TextField"
+               indexed="true" >
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory" />
+        <filter class="solr.WordDelimiterGraphFilterFactory"
+                generateWordParts="1"
+                generateNumberParts="1"
+                catenateWords="0"
+                catenateNumbers="0"
+                catenateAll="0"
+                preserveOriginal="1"
+        />
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
+
+    <fieldType name="tags" class="solr.TextField" indexed="true" >
+      <analyzer>
+        <tokenizer class="solr.PatternTokenizerFactory" pattern=", " />
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
+
+    <fieldtype name="long" class="LongPointField" docValues="true" />
+
+    <fieldType name="pdate" class="solr.DatePointField" indexed="true" docValues="true"/>
+
+    <fieldType name="path" class="solr.StrField" indexed="true" />
+
+    <fieldType name="random" class="solr.RandomSortField" indexed="true" />
+
+    <!-- Types used in Dynamic fields -->
+
+    <!-- ci_identifiers (CaseInsensitive Identifiers) -->
+    <fieldType name="ci_identifiers" class="solr.TextField">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory" />
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
+
+  </types>
+  <fields>
+    <field name="id"           type="string" indexed="true"  stored="true" required="true" />
+    <field name="published"    type="pdate"   indexed="true"  stored="true" />
+    <field name="docdate"      type="pdate"   indexed="true"  stored="true" /> 
+    <field name="content"      type="htmltext"   indexed="true"  stored="true" /> 
+    <field name="teaser"       type="htmltext"   indexed="true"  stored="true" />
+    <field name="path"         type="path"   indexed="true"  stored="true" />
+    <field name="title"        type="text"   indexed="true"  stored="true" />
+    <field name="tags"         type="tags"   indexed="true"  stored="true" />
+    <field name="lang"         type="string" indexed="true"  stored="true" />
+    <field name="type"         type="string" indexed="true"  stored="true" />
+    <field name="imagepath"    type="path"   indexed="false" stored="true" />
+    <field name="docdate_str"  type="string" indexed="true"  stored="true" />
+    <field name="tags_initial" type="string" indexed="true"  stored="true" multiValued="true"/>
+    
+    <!-- Dynamic field(s) for supporting pseudo-ramdomized sorted extracts -->
+    <dynamicField name="random_*" type="random" /> 
+
+   <!-- Fields with content from copyFields below -->
+   <field name="title_initial" type="string" indexed="true" stored="false" />
+   <field name="year_str"      type="string" indexed="true" stored="false" />
+
+   <!-- Dynamic field declarations -->
+   <dynamicField name="*_ci_ident" type="ci_identifiers" indexed="true" 
+                 stored="true" multiValued="true" />
+   <dynamicField name="*_ident" type="ci_identifiers" indexed="true" 
+                 stored="true" multiValued="false" />
+   <dynamicField name="*_freetext" type="text" indexed="true" 
+                 stored="true" />
+  </fields>
+
+  <!-- Fields whose value are based on copying real fields -->
+  <copyField source="title"       dest="title_initial" maxChars="1" />
+  <copyField source="docdate_str" dest="year_str"      maxChars="4" />
+
+  <uniqueKey>id</uniqueKey>
+  <df>content</df>
+
+  
+</schema>

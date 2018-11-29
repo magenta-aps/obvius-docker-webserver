@@ -6,30 +6,9 @@ RUN set -x \
     && apt-get install -y apache2 \
     && apt-get install -y apache2-dev 
 
-# Add mod_perl and apreq source code
-ADD http://mirrors.dotsrc.org/apache/perl/mod_perl-2.0.10.tar.gz \
-    http://mirrors.dotsrc.org/apache/httpd/libapreq/libapreq2-2.13.tar.gz \
-    ./
-
 # Add mod_perl build dependencies
 RUN set -x \
     && apt-get install -y libfile-spec-native-perl make gcc libperl-dev
-
-    # Compile and install mod_perl
-#RUN ln -s /usr/lib/x86_64-linux-gnu/libgdbm.so.3.0.0 /usr/lib/libgdbm.so \
-#    && tar -zxvf mod_perl-2.0.10.tar.gz \
-#    && rm mod_perl-2.0.10.tar.gz \
-#    && cd mod_perl-2.0.10 \
-#    && perl Makefile.PL MP_AP_PREFIX=/usr/include/apache2 \
-#    && make \ 
-#    && make install 
-
-    # Compile and install mod_apreq
-#RUN tar -zxvf libapreq2-2.13.tar.gz \
-#    && cd libapreq2-2.13 \
-#    && ./configure \
-#    && make \
-#    && make install 
 
 #Install obvius package dependencies
 RUN apt-get install -y build-essential
@@ -126,7 +105,6 @@ RUN a2enmod proxy
 RUN a2enmod proxy_http 
 RUN a2enmod proxy_connect
 RUN a2enmod rewrite
-RUN a2enmod ssl
 RUN a2enmod access_compat
 RUN a2enmod mpm_prefork 
 
@@ -134,9 +112,6 @@ RUN a2enmod mpm_prefork
 RUN a2enconf obvius
 RUN a2enconf log-to-syslog
 RUN a2enconf actualhost-logformat
-
-#Build internal certificate
-RUN /etc/apache2/certificates/rebuild_magenta_certificate.sh
 
 #Copy DBIx Patches
 COPY DBIx_patches/ /usr/share/perl5/DBIx/

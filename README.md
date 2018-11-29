@@ -32,6 +32,9 @@ Run following command to start the services in docker-compose.yml:
 
 `docker-compose up -d`
 
+##### Local https reverse proxy
+To emulate https handling, copy the contents of `host_files/` to the relevant dirs on your host, rebuild certificates and enable the ku_docker site.
+
 
 ##### Suggested `.bashrc` aliases:
 * `dcomp` runs docker-compose

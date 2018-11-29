@@ -6,9 +6,7 @@ services:
         container_name: "web"
         command: "bash entrypoint.sh"
         volumes: 
-            - ./web/volumes/www.ku.dk:/var/www/www.ku.dk
-            - ./web/volumes/obvius:/var/www/obvius
-            - ./web/volumes/tinymce3:/var/www/tinymce3
+            - cmsdata:/data
         depends_on:
             - db
         environment:
@@ -16,8 +14,8 @@ services:
         networks:
             - obvius
         ports:
-            - "80:80"
-            - "443:443"
+            - "10080:80"
+            - "10443:443"
     
     db:
         image: db-image
@@ -34,7 +32,6 @@ services:
             - MYSQL_DATABASE=ku
         ports:
             - "3307:3306"
-        container_name: db
     
     solr:
         image: solr
@@ -52,6 +49,23 @@ services:
             - obvius
             - /opt/solr/server/solr/configsets/obvius
         ports:
-            - "8983:8983"
+            - "18983:8983"
+
+    cron:
+        image: cron-image
+        hostname: cron
+        container_name: "cron"
+        depends_on:
+            - db
+        networks:
+            - obvius
+        volumes:
+            - "cmsdata:/data"
+        ports:
+            - "5544:5544"
+
 networks: 
     obvius:
+
+volumes:
+    cmsdata:

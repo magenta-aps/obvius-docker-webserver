@@ -133,3 +133,5 @@ RUN apt-get purge -y --auto-remove make gcc libperl-dev \
     
 
 RUN rm -f /usr/local/apache2/logs/httpd.pid
+
+ADD volumes/ /var/www/

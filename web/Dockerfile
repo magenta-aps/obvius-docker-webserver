@@ -90,6 +90,7 @@ RUN cpanm HTML::Diff
 RUN cpanm JSON::PP  
 RUN cpanm Locale::Messages
 RUN cpanm Apache2::SizeLimit
+RUN cpanm Net::IDN::Encode
 
 #Copy obvius and ku specific conf files
 COPY etc/ /etc

@@ -7,8 +7,25 @@ services:
         command: "bash entrypoint.sh"
         volumes: 
             - cmsdata:/data
-        depends_on:
-            - db
+        environment:
+            - ALLOW_OVERRIDE=true
+        networks:
+            - obvius
+        ports:
+            - "10081:80"
+            - "10444:443"
+        links:
+            - db-slim:db
+
+    web-dev:
+        image: web-image
+        hostname: web-dev
+        container_name: "web-dev"
+        command: "bash entrypoint.sh"
+        volumes:
+            - cmsdata:/data
+            - ku_code:/var/www/www.ku.dk
+            - obvius_code:/var/www/obvius
         environment:
             - ALLOW_OVERRIDE=true
         networks:
@@ -16,13 +33,15 @@ services:
         ports:
             - "10080:80"
             - "10443:443"
-    
-    db:
+        links:
+            - db-seeded:db
+
+    db-slim:
         image: db-image
-        hostname: db
+        hostname: db-slim
         restart:
            unless-stopped
-        container_name: "db"
+        container_name: "db-slim"
         networks:
             - obvius
         environment:
@@ -32,6 +51,24 @@ services:
             - MYSQL_DATABASE=ku
         ports:
             - "3307:3306"
+
+    db-seeded:
+        image: db-image
+        hostname: db-seeded
+        restart:
+           unless-stopped
+        volumes:
+           - "/var/lib/mysql_bak:/var/lib/mysql"
+        container_name: "db-seeded"
+        networks:
+            - obvius
+        environment:
+            - MYSQL_ROOT_PASSWORD=secret
+            - MYSQL_USER=ku
+            - MYSQL_PASSWORD=kudbpassword
+            - MYSQL_DATABASE=ku
+        ports:
+            - "3308:3306"
     
     solr:
         image: solr
@@ -55,8 +92,6 @@ services:
         image: cron-image
         hostname: cron
         container_name: "cron"
-        depends_on:
-            - db
         networks:
             - obvius
         volumes:
@@ -69,3 +104,17 @@ networks:
 
 volumes:
     cmsdata:
+    ku_code:
+        driver: local
+        driver_opts:
+            device: /var/www/www.ku.dk
+            o: bind
+    obvius_code:
+        driver: local
+        driver_opts:
+            device: /var/www/obvius
+            o: bind
+    db_content:
+        driver: local
+        driver_opts:
+            device: /var/www/obvius-docker-webserver/db_content

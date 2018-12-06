@@ -107,3 +107,5 @@ RUN chmod +x /entrypoint.sh
 ADD volumes/ /var/www/
 
 COPY conf_files/* /var/www/www.ku.dk/conf/
+
+ENV PERL5LIB=/var/www/www.ku.dk/perl:/var/www/obvius/perl

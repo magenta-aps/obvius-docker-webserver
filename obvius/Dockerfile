@@ -101,9 +101,6 @@ RUN locale-gen
 RUN apt-get purge -y --auto-remove make gcc libperl-dev \
     && rm -rf /var/lib/apt/lists/*
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
 ADD volumes/ /var/www/
 
 COPY conf_files/* /var/www/www.ku.dk/conf/

@@ -1,1 +1,0 @@
-echo 'Entering entrypoint.sh'

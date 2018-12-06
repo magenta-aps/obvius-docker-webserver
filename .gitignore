@@ -1,2 +1,4 @@
 /*.komodoproject
 web/volumes/*
+obvius/volumes/*
+.idea/*

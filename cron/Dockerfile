@@ -1,4 +1,4 @@
-FROM web-image:latest
+FROM obvius:latest
 
 #COPY entrypoint-cron.sh /entrypoint-cron.sh
 #RUN chmod +x /entrypoint-cron.sh

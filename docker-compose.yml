@@ -1,31 +1,30 @@
 version: "3"
 services:
+    #The obvius image must be used briefly as a service for it to be built as Docker Compose does not support task-style services that do not run on 'docker-compose up'
+    obvius:
+        build: ./obvius
+        image: obvius
+        hostname: obvius
+        container_name: "obvius"
+        command: echo "obvius is ok!"
+        restart: "no"
+        networks:
+            - obvius
+
     web:
-        image: web-image
+        #Image inherits from obvius image
+        build: ./web
+        image: web-obvius
         hostname: web
         container_name: "web"
         command: "bash entrypoint.sh"
         volumes: 
-            - cmsdata:/data
-        environment:
-            - ALLOW_OVERRIDE=true
-        networks:
-            - obvius
-        ports:
-            - "10081:80"
-            - "10444:443"
-        links:
-            - db-slim:db
-
-    web-dev:
-        image: web-image
-        hostname: web-dev
-        container_name: "web-dev"
-        command: "bash entrypoint.sh"
-        volumes:
-            - cmsdata:/data
-            - ku_code:/var/www/www.ku.dk
-            - obvius_code:/var/www/obvius
+            - cmsdata:/var/www/www.ku.dk/data
+            - logs:/var/www/www.ku.dk/logs
+            - uploaddata:/var/www/www.ku.dk/docs/upload
+#Optional dev setup with bind mounted codebase. Adjust ku_code and obvius_code in the 'volumes' section to match your local path
+#            - ku_code:/var/www/www.ku.dk
+#            - obvius_code:/var/www/obvius
         environment:
             - ALLOW_OVERRIDE=true
         networks:
@@ -34,14 +33,18 @@ services:
             - "10080:80"
             - "10443:443"
         links:
-            - db-seeded:db
+            - db-slim:db
+            #- db-seeded:db
+#Note: 'links' is deprecated and only used if running multiple dbs that we need to alias to 'db'
 
     db-slim:
-        image: db-image
+        build: ./db
+        image: db
         hostname: db-slim
         restart:
            unless-stopped
         container_name: "db-slim"
+        #command: "bash entrypoint.sh"
         networks:
             - obvius
         environment:
@@ -52,30 +55,30 @@ services:
         ports:
             - "3307:3306"
 
-    db-seeded:
-        image: db-image
-        hostname: db-seeded
-        restart:
-           unless-stopped
-#        volumes:
-#           - "/var/lib/mysql_bak:/var/lib/mysql"
-        container_name: "db-seeded"
-        networks:
-            - obvius
-        environment:
-            - MYSQL_ROOT_PASSWORD=secret
-            - MYSQL_USER=ku
-            - MYSQL_PASSWORD=kudbpassword
-            - MYSQL_DATABASE=ku
-        ports:
-            - "3308:3306"
-    
+#Optional seeded db - create a db-seeded/ folder with a larger sql file and adjust Dockerfile accordingly - alternately, mount local mysql volumes (remember to fix permissions) to run pre-seeded db
+#    db-seeded:
+#        build: ./db-seeded
+#        image: db-seeded
+#        hostname: db-seeded
+#        restart:
+#           unless-stopped
+##        volumes:
+##           - "/var/lib/mysql:/var/lib/mysql"
+#        container_name: "db-seeded"
+#        networks:
+#            - obvius
+#        environment:
+#            - MYSQL_ROOT_PASSWORD=secret
+#            - MYSQL_USER=ku_normal
+#            - MYSQL_PASSWORD=XVIm3iPjYDk
+#            - MYSQL_DATABASE=ku
+#        ports:
+#            - "3308:3306"
+
     solr:
         image: solr
         hostname: solr
         container_name: "solr"
-        #restart:
-                #    unless-stopped
         networks:
             - obvius
         volumes:
@@ -88,10 +91,11 @@ services:
         ports:
             - "18983:8983"
 
-    cron:
-        image: cron-image
-        hostname: cron
-        container_name: "cron"
+    always-cron:
+        build: ./cron
+        image: cron
+        hostname: always-cron
+        container_name: "always-cron"
         networks:
             - obvius
         volumes:
@@ -99,11 +103,14 @@ services:
         ports:
             - "5544:5544"
 
-networks: 
+networks:
     obvius:
 
 volumes:
     cmsdata:
+    uploaddata:
+    logs:
+    #Adjust according to local code path!
     ku_code:
         driver: local
         driver_opts:

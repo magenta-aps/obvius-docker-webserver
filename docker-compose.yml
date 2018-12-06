@@ -6,7 +6,6 @@ services:
         image: obvius
         hostname: obvius
         container_name: "obvius"
-        command: echo "obvius is ok!"
         restart: "no"
         networks:
             - obvius
@@ -32,18 +31,16 @@ services:
         ports:
             - "10080:80"
             - "10443:443"
-        links:
-            - db-slim:db
-            #- db-seeded:db
-#Note: 'links' is deprecated and only used if running multiple dbs that we need to alias to 'db'
+        depends_on:
+          - obvius #Need to ensure obvius image is built first when running docker-compose up --build
 
-    db-slim:
+    db:
         build: ./db
         image: db
-        hostname: db-slim
+        hostname: db
         restart:
            unless-stopped
-        container_name: "db-slim"
+        container_name: "db"
         #command: "bash entrypoint.sh"
         networks:
             - obvius
@@ -54,26 +51,6 @@ services:
             - MYSQL_DATABASE=ku
         ports:
             - "3307:3306"
-
-#Optional seeded db - create a db-seeded/ folder with a larger sql file and adjust Dockerfile accordingly - alternately, mount local mysql volumes (remember to fix permissions) to run pre-seeded db
-#    db-seeded:
-#        build: ./db-seeded
-#        image: db-seeded
-#        hostname: db-seeded
-#        restart:
-#           unless-stopped
-##        volumes:
-##           - "/var/lib/mysql:/var/lib/mysql"
-#        container_name: "db-seeded"
-#        networks:
-#            - obvius
-#        environment:
-#            - MYSQL_ROOT_PASSWORD=secret
-#            - MYSQL_USER=ku_normal
-#            - MYSQL_PASSWORD=XVIm3iPjYDk
-#            - MYSQL_DATABASE=ku
-#        ports:
-#            - "3308:3306"
 
     solr:
         image: solr
@@ -96,12 +73,16 @@ services:
         image: cron
         hostname: always-cron
         container_name: "always-cron"
+        command: "cron && tail -f /var/log/cron.log"
+        restart: always
         networks:
             - obvius
         volumes:
             - "cmsdata:/data"
         ports:
             - "5544:5544"
+        depends_on:
+          - obvius #Need to ensure obvius image is built first when running docker-compose up --build
 
 networks:
     obvius:

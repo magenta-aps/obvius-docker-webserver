@@ -16,6 +16,8 @@ RUN apt-get install -y libapache-session-perl
 RUN apt-get install -y libcatalyst-devel-perl
 RUN apt-get install -y libcatalyst-modules-perl
 
+ADD etc/apache2 /etc/apache2
+
 # Enable KU site in apache config
 RUN a2ensite ku
 
@@ -33,8 +35,6 @@ RUN a2enmod rewrite
 RUN a2enmod access_compat
 RUN a2enmod mpm_prefork
 RUN a2enmod perl
-
-ADD etc/apache2 /etc/apache2
 
 #Enable Apache custom configuration files
 RUN a2enconf obvius

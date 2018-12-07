@@ -101,7 +101,7 @@ RUN locale-gen
 RUN apt-get purge -y --auto-remove make gcc libperl-dev \
     && rm -rf /var/lib/apt/lists/*
 
-ADD volumes/ /var/www/
+COPY ./src /var/www
 
 COPY conf_files/* /var/www/www.ku.dk/conf/
 

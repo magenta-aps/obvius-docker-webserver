@@ -2942,7 +2942,7 @@ CREATE TABLE `subsites2` (
 
 LOCK TABLES `subsites2` WRITE;
 /*!40000 ALTER TABLE `subsites2` DISABLE KEYS */;
-INSERT INTO `subsites2` VALUES (166,1,'somesubsite.ku.obviusdev.magenta-aps.dk',1,'/https_subsite/',115658,'https subsite3','',NULL,NULL,'Det Humanistiske Fakultet',4,'Kommentar','da','',NULL,NULL,NULL,1,0,0,0,'/120921.docid',21,NULL,0,'','',1),(753,45,'subsite.ku.obviusdev.magenta-aps.dk',0,'/subsite/',110201,'Test af funky nav_head titel Ã† Ã˜ Ã…','','Det Natur- og Biovidenskabelige Fakultet',8,'Det Humanistiske Fakultet',5,NULL,'da','inherit this','yes',NULL,'http://english.ku.dk/',1,1,1,0,'',19,'',0,'','',12);
+INSERT INTO `subsites2` VALUES (166,1,'somesubsite.ku.localhost.magenta.dk',1,'/https_subsite/',115658,'https subsite3','',NULL,NULL,'Det Humanistiske Fakultet',4,'Kommentar','da','',NULL,NULL,NULL,1,0,0,0,'/120921.docid',21,NULL,0,'','',1),(753,45,'subsite.ku.localhost.magenta.dk',0,'/subsite/',110201,'Test af funky nav_head titel Ã† Ã˜ Ã…','','Det Natur- og Biovidenskabelige Fakultet',8,'Det Humanistiske Fakultet',5,NULL,'da','inherit this','yes',NULL,'http://english.ku.dk/',1,1,1,0,'',19,'',0,'','',12);
 /*!40000 ALTER TABLE `subsites2` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -3159,7 +3159,7 @@ CREATE TABLE `subsites_secondary_domains` (
 
 LOCK TABLES `subsites_secondary_domains` WRITE;
 /*!40000 ALTER TABLE `subsites_secondary_domains` DISABLE KEYS */;
-INSERT INTO `subsites_secondary_domains` VALUES (1503,753,1,'ss.ku.obviusdev.magenta-aps.dk'),(1504,753,2,'testss.ku.obviusdev.magenta-aps.dk');
+INSERT INTO `subsites_secondary_domains` VALUES (1503,753,1,'ss.ku.localhost.magenta.dk'),(1504,753,2,'testss.ku.localhost.magenta.dk');
 /*!40000 ALTER TABLE `subsites_secondary_domains` ENABLE KEYS */;
 UNLOCK TABLES;
 

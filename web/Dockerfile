@@ -16,6 +16,9 @@ RUN apt-get install -y libapache-session-perl
 RUN apt-get install -y libcatalyst-devel-perl
 RUN apt-get install -y libcatalyst-modules-perl
 
+# Enable KU site in apache config
+RUN a2ensite ku
+
 #Disable conflicting Apache Module
 RUN a2dismod mpm_event
 
@@ -35,7 +38,6 @@ ADD etc/apache2 /etc/apache2
 
 #Enable Apache custom configuration files
 RUN a2enconf obvius
-RUN a2enconf log-to-syslog
 RUN a2enconf actualhost-logformat
 
 COPY entrypoint.sh /entrypoint.sh

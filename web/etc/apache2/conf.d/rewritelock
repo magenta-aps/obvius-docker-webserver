@@ -1,1 +1,0 @@
-RewriteLock /var/lock/apache2/apacherewrite.lock

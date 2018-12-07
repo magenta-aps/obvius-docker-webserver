@@ -96,9 +96,11 @@ volumes:
         driver: local
         driver_opts:
             device: /var/www/www.ku.dk
+#            device: ${PWD}/obvius/src/www.ku.dk
             o: bind
     obvius_code:
         driver: local
         driver_opts:
             device: /var/www/obvius
+ #           device: ${PWD}/obvius/src/obvius
             o: bind

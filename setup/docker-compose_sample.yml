@@ -66,22 +66,7 @@ services:
             - "5544:5544"
         depends_on:
           - obvius #Need to ensure obvius image is built first when running docker-compose up --build
-networks:
-    obvius:
 volumes:
     cmsdata:
     uploaddata:
     logs:
-    #Adjust according to local code path!
-    ku_code:
-        driver: local
-        driver_opts:
-            device: /var/www/www.ku.dk
-#            device: ${PWD}/obvius/src/www.ku.dk
-            o: bind
-    obvius_code:
-        driver: local
-        driver_opts:
-            device: /var/www/obvius
- #           device: ${PWD}/obvius/src/obvius
-            o: bind

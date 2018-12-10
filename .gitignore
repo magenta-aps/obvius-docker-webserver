@@ -2,3 +2,5 @@
 web/volumes/*
 obvius/src/*
 .idea/*
+docker-compose.yml
+setup/project.config

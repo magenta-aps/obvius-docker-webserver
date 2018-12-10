@@ -1,0 +1,27 @@
+{
+	"bind_mounts": [
+		{
+			"name": "ku_code",
+			"path": "${PWD}/obvius/src/www.ku.dk"
+		},
+		{
+			"name": "obvius_code",
+			"path": "${PWD}/obvius/src/obvius"
+		}
+	],
+	"service_options": [
+		{
+			"name": "web",
+			"volumes": [
+				{
+					"name": "ku_code",
+					"path": "/var/www/www.ku.dk"
+				},
+				{
+					"name": "obvius_code",
+					"path": "/var/www/obvius"
+				}
+			]
+		}
+	]
+}

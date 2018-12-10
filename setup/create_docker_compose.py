@@ -23,12 +23,12 @@ def main(argv):
 
     yaml = ruamel.yaml.YAML()
     yaml.preserve_quotes = True
-    yamgl.indent(4)
+    yaml.indent(4)
     with open(input_file) as sample:
         data = yaml.load(sample)
     if json_config_file_path != '':
         data = modify_yaml(data, json_config_file_path)
-    yaml.dump(data, Path(output_file))
+    yaml.dump(data, Path(output_file) if output_file else sys.stdout)
 
 
 def modify_yaml(data, json_config_file_path):

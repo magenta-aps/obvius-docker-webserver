@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+set -e
+
 BASE_DIR=$PWD
 python3 setup/setup.py
 
@@ -8,10 +11,10 @@ if [ ! -d ./obvius/src ]; then
     mkdir ./obvius/src
 fi
 
-for repo in $(echo $Repos | sed "s/;/ /g")
+for repo in $(echo ${Repos} | sed "s/;/ /g")
 do
     if [ ! -d ./obvius/src/$repo ]; then
-        git clone $VCS_path$repo ./obvius/src/$repo
+        git clone ${Platon_username}\@${VCS_path}${repo} ./obvius/src/${repo}
     fi
 done
 

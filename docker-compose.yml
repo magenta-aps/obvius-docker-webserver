@@ -84,6 +84,19 @@ services:
         depends_on:
           - obvius #Need to ensure obvius image is built first when running docker-compose up --build
 
+    awstats_web:
+        build: ./awstats_web
+        image: awstats_web
+        hostname: awstats_web
+        container_name: "awstats_web"
+        restart: always
+        command: "/usr/sbin/httpd -DFOREGROUND"
+        ports:
+            - "8081:8080"
+        volumes:
+            - awstats_config:/etc/awstats:ro
+            - awstats_data:/var/lib/awstats:ro
+
 networks:
     obvius:
 
@@ -104,3 +117,5 @@ volumes:
             device: /var/www/obvius
  #           device: ${PWD}/obvius/src/obvius
             o: bind
+    awstats_config:
+    awstats_data:

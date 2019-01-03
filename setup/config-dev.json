@@ -1,0 +1,40 @@
+{
+	"bind_mounts": [
+		{
+			"name": "ku_code",
+			"path": "${PWD}/obvius/src/www.ku.dk"
+		},
+		{
+			"name": "obvius_code",
+			"path": "${PWD}/obvius/src/obvius"
+		},
+		{
+			"name": "seeded_db",
+			"path": "${PWD}/var/lib/mysql"
+		}
+	],
+	"service_options": [
+		{
+			"name": "web",
+			"volumes": [
+				{
+					"name": "ku_code",
+					"path": "/var/www/www.ku.dk"
+				},
+				{
+					"name": "obvius_code",
+					"path": "/var/www/obvius"
+				}
+			]
+		},
+		{
+			"name": "db",
+			"volumes": [
+				{
+					"name": "seeded_db",
+					"path": "/var/lib/mysql"
+				}
+			]
+		}
+	]
+}

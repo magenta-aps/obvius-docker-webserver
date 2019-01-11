@@ -26,6 +26,8 @@ services:
 #            - obvius_code:/var/www/obvius
         environment:
             - ALLOW_OVERRIDE=true
+#           Uncomment this to change the root domain the site will use
+#            - OBVIUS_ROOT_DOMAIN=cmstest04.ku.dk
         networks:
             - obvius
         ports:

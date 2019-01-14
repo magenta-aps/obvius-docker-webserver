@@ -1,8 +1,8 @@
-cd volumes
+cd /var/www/
 
-mkdir -p www.ku.dk/docs/upload
+#mkdir -p www.ku.dk/docs/upload
 mkdir -p www.ku.dk/var 
-mkdir -p www.ku.dk/logs 
+#mkdir -p www.ku.dk/logs
 mkdir -p www.ku.dk/var/document_cache
 
 cd www.ku.dk/docs

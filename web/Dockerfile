@@ -51,3 +51,5 @@ RUN apt-get purge -y --auto-remove make gcc libperl-dev \
     && rm -rf /var/lib/apt/lists/*
 
 RUN rm -f /usr/local/apache2/logs/httpd.pid
+
+COPY conf_files/ /var/conf_files/

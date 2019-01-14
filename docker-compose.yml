@@ -28,12 +28,14 @@ services:
             - ALLOW_OVERRIDE=true
             - WAIT_FOR_DB_TIMER=11
 #           Uncomment this to change the root domain the site will use
-#            - OBVIUS_ROOT_DOMAIN=cmstest04.ku.dk
+            - OBVIUS_ROOT_DOMAIN=cmstest04.ku.dk
+            - OBVIUS_HTTP_PREFIX=
+            - OBVIUS_HTTPS_PREFIX=cms.secure.
         networks:
             - obvius
         ports:
-            - "10080:80"
-            - "10443:443"
+            - "8080:80"
+#            - "443:443"
         depends_on:
           - obvius #Need to ensure obvius image is built first when running docker-compose up --build
 

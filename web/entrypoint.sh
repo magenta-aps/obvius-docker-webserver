@@ -16,10 +16,12 @@ if [[ "x${OBVIUS_ROOT_DOMAIN}" != "x" ]]; then
     grep "${OBVIUS_ROOT_DOMAIN}" /etc/obvius/ku.conf
     if [[ $? != 0 ]]; then
         # Replace hostnames in Obvius config
-        sed -i "s/.localhost.magenta.dk/.${OBVIUS_ROOT_DOMAIN}/g" "/etc/obvius/ku.conf"
+        sed -i "s/cms.ku.localhost.magenta.dk/${OBVIUS_HTTP_PREFIX}${OBVIUS_ROOT_DOMAIN}/g" "/etc/obvius/ku.conf"
+        sed -i "s/cms.ku-ssl.localhost.magenta.dk/${OBVIUS_HTTPS_PREFIX}${OBVIUS_ROOT_DOMAIN}/g" "/etc/obvius/ku.conf"
 
         # Replace hostnames in apache setup
-        sed -i "s/.localhost.magenta.dk/.${OBVIUS_ROOT_DOMAIN}/g" "/etc/apache2/sites-available/ku.conf"
+        sed -i "s/cms.ku.localhost.magenta.dk/${OBVIUS_HTTP_PREFIX}${OBVIUS_ROOT_DOMAIN}/g" "/etc/apache2/sites-available/ku.conf"
+        sed -i "s/cms.ku-ssl.localhost.magenta.dk/${OBVIUS_HTTPS_PREFIX}${OBVIUS_ROOT_DOMAIN}/g" "/etc/apache2/sites-available/ku.conf"
 
         perl -MObvius -MObvius::Config -e '
             Obvius->new(Obvius::Config->new("ku"))->dbh->do(qq|

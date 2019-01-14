@@ -1,3 +1,4 @@
+#!/bin/bash
 cd /var/www/
 
 #mkdir -p www.ku.dk/docs/upload
@@ -6,6 +7,7 @@ mkdir -p www.ku.dk/var
 mkdir -p www.ku.dk/var/document_cache
 
 cd www.ku.dk/docs
+rm cache
 ln -s ../var/document_cache cache
 cd ../../
 

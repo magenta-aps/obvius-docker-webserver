@@ -103,6 +103,4 @@ RUN apt-get purge -y --auto-remove make gcc libperl-dev \
 
 COPY ./src /var/www
 
-COPY conf_files/* /var/www/www.ku.dk/conf/
-
 ENV PERL5LIB=/var/www/www.ku.dk/perl:/var/www/obvius/perl

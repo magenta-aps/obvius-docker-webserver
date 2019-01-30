@@ -9,7 +9,6 @@ use strict;
 use warnings;
 use Data::Dumper;
 
-use LWP::UserAgent;
 use JSON;
 
 use Obvius;
@@ -17,9 +16,7 @@ use Obvius::Config;
 use File::Basename;
 use Cwd qw(abs_path);
 
-my $hostname=`/bin/hostname`; chomp($hostname);
 my $confname = $ARGV[0] || 'ku';
-my $debug = $#ARGV > 0 ? $ARGV[1] : 0;
 
 my $config = new Obvius::Config($confname);
 my $obvius = Obvius->new($config);
@@ -31,9 +28,6 @@ my $dbh = DBI->connect(
     $config->param('normal_db_passwd'),
 );
 $dbh->do("set names utf8");
-my $contenttype = "application/json;charset=utf-8";
-my $ua = LWP::UserAgent->new();
-my $update_url = "http://solr:8983/solr/obvius/update/json?commit=true&stream.file=test.json&stream.contentType=${contenttype}";
 
 #################################
 #### Create dump file
@@ -46,7 +40,8 @@ if ( $is_new_db_model ) {
 }
 $stmt = $dbh->prepare($stmt);
 $stmt->execute();
-open(OUT, "> test.json");
+my $ku_dump_path = "ku_db_dump.json";
+open(OUT, ">" . $ku_dump_path);
 print OUT "[";
 while ( my $row = $stmt->fetchrow_hashref() ) {
     my $did = $row->{$rowField};
@@ -69,18 +64,12 @@ close(OUT);
 
 print "Created dumpfile with $oks records/documents\n";
 
-# Tell SOLR to do the import
-system("curl", $update_url);
-
-# Post the file to cmsnav02 if we're running from cmsnav01
-#if($hostname =~ m!^cmsnav01!) {
-#    system(
-#        "curl",
-#        "http://cmsnav02.adm.ku.dk:8983/solr/update/json?commit=true",
-#        '-H', 'Content-type:application/json; charset=utf-8',
-#        '--data-binary', '@' . $ku_dump_path
-#    );
-#}
+    system(
+        "curl",
+        "http://solr:8983/solr/obvius/update/json?commit=true",
+        '-H', 'Content-type:application/json; charset=utf-8',
+        '--data-binary', '@' . $ku_dump_path
+    );
 
 
 exit(0);

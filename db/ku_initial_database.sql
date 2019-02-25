@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.1.34-MariaDB, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.17  Distrib 10.3.11-MariaDB, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: ku
 -- ------------------------------------------------------
--- Server version	10.1.34-MariaDB-0ubuntu0.18.04.1
+-- Server version	10.3.11-MariaDB-1:10.3.11+maria~bionic
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -25,12 +25,12 @@ DROP TABLE IF EXISTS `access_specifications`;
 CREATE TABLE `access_specifications` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `apply_type` enum('only','also','not','always','never') DEFAULT NULL,
-  `view` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `create` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `edit` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `publish` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `delete` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `change_access` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `view` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `create` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `edit` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `publish` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `delete` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `change_access` tinyint(1) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -54,8 +54,8 @@ DROP TABLE IF EXISTS `admin_leftmenu_cache`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `admin_leftmenu_cache` (
   `id` varchar(255) NOT NULL,
-  `cache_data` blob,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `cache_data` blob DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -66,6 +66,7 @@ CREATE TABLE `admin_leftmenu_cache` (
 
 LOCK TABLES `admin_leftmenu_cache` WRITE;
 /*!40000 ALTER TABLE `admin_leftmenu_cache` DISABLE KEYS */;
+INSERT INTO `admin_leftmenu_cache` VALUES ('1','\n\0\0\0\0\0\0\0\0\0\n 500 Fejl - Internal server error\0\0\0title\0\0\0is_subsite_root\n1\0\0\0show_in_leftmenuObvius::Version\0\0\0≤\0\0\0IDÅ\0\0\0PARENT\n\n/error500/\0\0\0PATHÇ\0\0\0TYPE\n 500 Fejl - Internal server error\0\0\0TITLE\nda\0\0\0LANG≤\0\0\0PUBLIC_OR_LATEST_VERSIONÄ\0\0\0VALID∆\0\0\0SEQ\n2011-05-19 14:12:45\0\0\0VERSION	\0Æt\0\0\0DOCIDObvius::Data\0\0\0\n 500 Fejl - Internal server error\0\0\0SHORT_TITLE\n 500 Fejl - Internal server error\0\0\0TITLE∆\0\0\0SEQ\0\0\0FIELDSÅ\0\0\0USERÅ\0\0\0PUBLIC\0\0\0vdoc∆\0\0\0seqObvius::Document\0\0\0	Å\0\0\0PARENTÅ\0\0\0OWNER	\0Æt\0\0\0ID\0\0\0ACCESSRULESÇ\0\0\0TYPEÅ\0\0\0INHERIT_ACCESS\nerror500\0\0\0NAMEÅ\0\0\0GRP\0\0\0\0\0\0\0VERSIONS\0\0\0doc\nerror500\0\0\0name\0\0\0\nerror404\0\0\0name\0\0\0	\nerror404\0\0\0NAMEÇ\0\0\0TYPE\0\0\0ACCESSRULESÅ\0\0\0INHERIT_ACCESS	\0Æu\0\0\0IDÅ\0\0\0OWNERÅ\0\0\0PARENT\0\0\0\0\0\0\0VERSIONSÅ\0\0\0GRP\0\0\0doc\0\0\0\0\n2016-10-31 12:02:03\0\0\0VERSION	\0Æu\0\0\0DOCID–\0\0\0SEQ\0\0\0\n404 Fejl - Not Found\0\0\0SHORT_TITLE\n404 Fejl - Not found\0\0\0TITLE–\0\0\0SEQ\0\0\0FIELDS≠\0\0\0USERÅ\0\0\0PUBLIC	\0\0π˙\0\0\0IDÅ\0\0\0PARENT\n\n/error404/\0\0\0PATHÇ\0\0\0TYPE\n404 Fejl - Not found\0\0\0TITLEÄ\0\0\0VALID\nda\0\0\0LANG	\0\0π˙\0\0\0PUBLIC_OR_LATEST_VERSION\0\0\0vdoc–\0\0\0seq\n1\0\0\0show_in_leftmenu\n404 Fejl - Not Found\0\0\0title\0\0\0is_subsite_root\0\0\0\nsubsite\0\0\0nameÓ\0\0\0seq\0\0\0\0Å\0\0\0PUBLIC\n2018-09-10 13:04:13\0\0\0VERSION	\0Æy\0\0\0DOCIDÓ\0\0\0SEQ\0\0\0\nA subsite (changed)\0\0\0TITLE\n	A subsite\0\0\0SHORT_TITLEÓ\0\0\0SEQ\0\0\0FIELDS≠\0\0\0USERû\0\0\0TYPE\nA subsite (changed)\0\0\0TITLEÄ\0\0\0VALID\nda\0\0\0LANG	\0\0∫Û\0\0\0PUBLIC_OR_LATEST_VERSION	\0\0∫Û\0\0\0IDÅ\0\0\0PARENT\n	/subsite/\0\0\0PATH\0\0\0vdoc\0\0\0	\0\0\0\0\0\0\0VERSIONSÅ\0\0\0GRP\nsubsite\0\0\0NAMEÅ\0\0\0INHERIT_ACCESSÇ\0\0\0TYPE\n3INHERIT\r\njubk!view,create,edit,publish,delete,modes\0\0\0ACCESSRULES	\0Æy\0\0\0IDÅ\0\0\0PARENTÅ\0\0\0OWNER\0\0\0doc\n1\0\0\0show_in_leftmenuÅ\0\0\0is_subsite_root\n	A subsite\0\0\0title\0\0\0Å\0\0\0is_subsite_root\n\rhttps subsite\0\0\0title\n1\0\0\0show_in_leftmenu\0\0\0	\0\0\0\0\0\0\0VERSIONSÅ\0\0\0GRP\n\rhttps_subsite\0\0\0NAMEÇ\0\0\0TYPEÅ\0\0\0INHERIT_ACCESS\n\0\0\0\0ACCESSRULES	\0√ \0\0\0IDÅ\0\0\0OWNERÅ\0\0\0PARENT\0\0\0doc\0\0\0\0Å\0\0\0PUBLIC\n2018-09-10 13:03:16\0\0\0VERSION	\0\0\0†\0\0\0SEQ	\0√ \0\0\0DOCID\0\0\0\n\rhttps subsite\0\0\0TITLE\n\rhttps subsite\0\0\0SHORT_TITLE	\0\0\0†\0\0\0SEQ\0\0\0FIELDS≠\0\0\0USERû\0\0\0TYPE\n\rhttps subsite\0\0\0TITLEÄ\0\0\0VALID	\0\0∫Ú\0\0\0PUBLIC_OR_LATEST_VERSION\nda\0\0\0LANG\n/https_subsite/\0\0\0PATHÅ\0\0\0PARENT	\0\0∫Ú\0\0\0ID\0\0\0vdoc	\0\0\0†\0\0\0seq\n\rhttps_subsite\0\0\0name\0\0\0\0\0\0\0Å\0\0\0PUBLIC\0\0\0\nForside\0\0\0TITLE\n\0\0\0\0SHORT_TITLE	\0\0\0™\0\0\0SEQ\0\0\0FIELDSÅ\0\0\0USER\n2019-02-25 11:44:01\0\0\0VERSION	\0\0\0™\0\0\0SEQ	\0m5\0\0\0DOCID	\0\0∫ı\0\0\0PUBLIC_OR_LATEST_VERSION\nda\0\0\0LANGÄ\0\0\0VALIDÇ\0\0\0TYPE\nForside\0\0\0TITLEÅ\0\0\0PARENT\n	/forside/\0\0\0PATH	\0\0∫ı\0\0\0ID\0\0\0vdoc	\0\0\0™\0\0\0seq\0\0\0	\0\0\0\0\0\0\0VERSIONSÅ\0\0\0GRP\nforside\0\0\0NAME\0\0\0ACCESSRULESÅ\0\0\0INHERIT_ACCESSÇ\0\0\0TYPE	\0m5\0\0\0IDÅ\0\0\0OWNERÅ\0\0\0PARENT\0\0\0doc\nforside\0\0\0name\nForside\0\0\0titleÅ\0\0\0is_subsite_root\n1\0\0\0show_in_leftmenu\0\0\0\nAdministration\0\0\0title\0\0\0is_subsite_root\0\0\0\0Å\0\0\0PUBLIC	ˇˇ˛¢\0\0\0SEQ\n2018-09-10 13:11:44\0\0\0VERSION	\0Æm\0\0\0DOCID≠\0\0\0USER\0\0\0	ˇˇ˛¢\0\0\0SEQ\nAdministration\0\0\0SHORT_TITLE\nAdministration\0\0\0TITLE\0\0\0FIELDSÜ\0\0\0TYPE\nAdministration\0\0\0TITLEÄ\0\0\0VALID	\0\0∫Ù\0\0\0PUBLIC_OR_LATEST_VERSION\nda\0\0\0LANG	\0\0∫Ù\0\0\0IDÅ\0\0\0PARENT\n/admin/\0\0\0PATH\0\0\0vdoc\0\0\0	\n\0\0\0\0ACCESSRULESÅ\0\0\0INHERIT_ACCESSÜ\0\0\0TYPE\nadmin\0\0\0NAMEÅ\0\0\0OWNERÅ\0\0\0PARENT	\0Æm\0\0\0IDÅ\0\0\0GRP\0\0\0\0\0\0\0VERSIONS\0\0\0docÅ\0\0\0first_hidden\n\0\0\0\0show_in_leftmenu	ˇˇ˛¢\0\0\0seq\nadmin\0\0\0name\0\0\0\nbootstrap-styling\0\0\0name\0\0\0	\nbootstrap-styling\0\0\0NAME“\0\0\0TYPEÅ\0\0\0INHERIT_ACCESS\0\0\0ACCESSRULES	\0m&\0\0\0IDÅ\0\0\0PARENT≠\0\0\0OWNER\0\0\0\0\0\0\0VERSIONSÅ\0\0\0GRP\0\0\0doc\0\0\0\0Å\0\0\0PUBLIC\0\0\0SEQ	\0m&\0\0\0DOCID\n2017-03-13 16:33:45\0\0\0VERSION≠\0\0\0USER\0\0\0\nMappe med bootstrap styling\0\0\0TITLE\n\0\0\0\0SHORT_TITLE\n-1.0\0\0\0SEQ\0\0\0FIELDS“\0\0\0TYPE\nMappe med bootstrap styling\0\0\0TITLE\nda\0\0\0LANG	\0\0∫\0\0\0PUBLIC_OR_LATEST_VERSIONÄ\0\0\0VALIDÅ\0\0\0PARENT\n/bootstrap-styling/\0\0\0PATH	\0\0∫\0\0\0ID\0\0\0vdoc\n-1.0\0\0\0seq\n\0\0\0\0show_in_leftmenu\0\0\0is_subsite_root\nMappe med bootstrap styling\0\0\0title','2019-02-25 12:02:14'),('110189','\n\0\0\0\0\0\0\0','2019-02-25 11:47:32'),('110196','\n\0\0\0\0\0\0\0','2019-02-25 11:43:24'),('110201','\n\0\0\0\0\0\0\0\0\0\n1\0\0\0show_in_leftmenuObvius::Document\0\0\0	Å\0\0\0GRP	\0Æy\0\0\0PARENTÅ\0\0\0INHERIT_ACCESS≠\0\0\0OWNERØ\0\0\0TYPE\0\0\0ACCESSRULES	\0kÒ\0\0\0IDObvius::Data\0\0\0\0\0\0\0VERSIONS\ninforedigering2\0\0\0NAME\0\0\0doc	\0\0Ã\0\0\0seq\ninforedigering2\0\0\0name\0\0\0is_subsite_root\nInforedigering\0\0\0titleObvius::Version\0\0\0\n2015-10-29 15:02:20\0\0\0VERSION\0\0\0	\0\0Ã\0\0\0SEQ\nInforedigering\0\0\0TITLE\nInforedigering\0\0\0SHORT_TITLE\0\0\0FIELDSÄ\0\0\0VALIDÅ\0\0\0PUBLIC\nda\0\0\0LANG\nInforedigering\0\0\0TITLE≠\0\0\0USER	\0\0ππ\0\0\0PUBLIC_OR_LATEST_VERSIONØ\0\0\0TYPE	\0\0ππ\0\0\0ID	\0kÒ\0\0\0DOCID	\0\0Ã\0\0\0SEQ	\0Æy\0\0\0PARENT\n/subsite/inforedigering2/\0\0\0PATH\0\0\0vdoc','2019-02-25 11:43:29'),('159029','\n\0\0\0\0\0\0\0\0\0\nen-underside\0\0\0nameObvius::Document\0\0\0	Å\0\0\0OWNER	\0m5\0\0\0PARENT	\0m6\0\0\0ID\nen-underside\0\0\0NAMEÅ\0\0\0INHERIT_ACCESS\0\0\0ACCESSRULESÇ\0\0\0TYPEÅ\0\0\0GRPObvius::Data\0\0\0\0\0\0\0VERSIONS\0\0\0docä\0\0\0seqObvius::Version\0\0\0	\0\0∫ˆ\0\0\0PUBLIC_OR_LATEST_VERSIONÄ\0\0\0VALID\nda\0\0\0LANGÇ\0\0\0TYPE\nEn underside\0\0\0TITLE\n/forside/en-underside/\0\0\0PATH	\0m5\0\0\0PARENT	\0\0∫ˆ\0\0\0IDÅ\0\0\0PUBLICÅ\0\0\0USER\0\0\0ä\0\0\0SEQ\nEn underside\0\0\0TITLE\n\0\0\0\0SHORT_TITLE\0\0\0FIELDS\n2019-02-25 11:46:01\0\0\0VERSIONä\0\0\0SEQ	\0m6\0\0\0DOCID\0\0\0vdoc\n1\0\0\0show_in_leftmenu\nEn underside\0\0\0title\0\0\0is_subsite_root\0\0\0\n1\0\0\0show_in_leftmenu\nEn side mere\0\0\0title\0\0\0is_subsite_root\nen-side-mere\0\0\0name\0\0\0\0		\0m7\0\0\0ID	\0m5\0\0\0PARENTÅ\0\0\0OWNERÅ\0\0\0INHERIT_ACCESS\0\0\0ACCESSRULESÇ\0\0\0TYPE\nen-side-mere\0\0\0NAME\0\0\0\0\0\0\0VERSIONSÅ\0\0\0GRP\0\0\0doc\0\0\0\0\0\0\n\0\0\0\0SHORT_TITLE\nEn side mere\0\0\0TITLEî\0\0\0SEQ\0\0\0FIELDSÅ\0\0\0USER\n2019-02-25 12:02:38\0\0\0VERSION	\0m7\0\0\0DOCIDî\0\0\0SEQÅ\0\0\0PUBLIC	\0\0∫˜\0\0\0ID	\0m5\0\0\0PARENT\n/forside/en-side-mere/\0\0\0PATH	\0\0∫˜\0\0\0PUBLIC_OR_LATEST_VERSIONÄ\0\0\0VALID\nda\0\0\0LANGÇ\0\0\0TYPE\nEn side mere\0\0\0TITLE\0\0\0vdocî\0\0\0seq','2019-02-25 12:02:42'),('159030','\n\0\0\0\0\0\0\0','2019-02-25 11:46:01'),('159031','\n\0\0\0\0\0\0\0','2019-02-25 12:02:38');
 /*!40000 ALTER TABLE `admin_leftmenu_cache` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -101,11 +102,11 @@ DROP TABLE IF EXISTS `annotations`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `annotations` (
   `id` int(8) unsigned NOT NULL AUTO_INCREMENT,
-  `docid` int(8) unsigned NOT NULL DEFAULT '0',
+  `docid` int(8) unsigned NOT NULL DEFAULT 0,
   `version` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `user` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `text` text,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `user` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `text` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `docid` (`docid`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -129,8 +130,8 @@ DROP TABLE IF EXISTS `apache_edit_sessions`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `apache_edit_sessions` (
   `id` char(32) NOT NULL,
-  `a_session` mediumblob,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `a_session` mediumblob DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -141,6 +142,7 @@ CREATE TABLE `apache_edit_sessions` (
 
 LOCK TABLES `apache_edit_sessions` WRITE;
 /*!40000 ALTER TABLE `apache_edit_sessions` DISABLE KEYS */;
+INSERT INTO `apache_edit_sessions` VALUES ('07f1dd4e521cc12e04bb4dbd55e680bf','\n\0\0\0\n 07f1dd4e521cc12e04bb4dbd55e680bf\0\0\0_session_id','2019-02-25 12:02:07'),('17025417323a396e436034c23d777b8e','\n\0\0\0\n 17025417323a396e436034c23d777b8e\0\0\0_session_id','2019-02-25 12:02:45'),('1d9b8f65ee8a841e20a4c7279b246f9a','\n\0\0\0\n 1d9b8f65ee8a841e20a4c7279b246f9a\0\0\0_session_id','2019-02-25 12:06:17'),('2b07eb0a1f77e5837fb8a56968cfda43','\n\0\0\0\n 2b07eb0a1f77e5837fb8a56968cfda43\0\0\0_session_id','2019-02-25 11:56:08'),('3e066e64b3b054d20df5fa1ade7f49c6','\n\0\0\0\n 3e066e64b3b054d20df5fa1ade7f49c6\0\0\0_session_id','2019-02-25 11:43:46'),('48b6e2c5d1448a90e58e0fedc45cd8a2','\n\0\0\0\n 48b6e2c5d1448a90e58e0fedc45cd8a2\0\0\0_session_id','2019-02-25 12:01:01'),('4cee571a3584ad6ab73f82c6cf6a0271','\n\0\0\0\n 4cee571a3584ad6ab73f82c6cf6a0271\0\0\0_session_id','2019-02-25 11:47:35'),('4fed42f4222f8127c6ad4a4455f119f4','\n\0\0\0\r\0\0\0\0\0\0\0\0\0\0\0\0\nPreview\0\0\0label\nexisting\0\0\0object\0\0\0preview\0\0\0\0\0\0\nSave and publish\0\0\0label\nexisting\0\0\0object\0\0\0save_and_publish\0\0\0\nexisting\0\0\0object\nSave\0\0\0label\0\0\0save\0\0\0	functions\0\0\0\nTemporary_Data\0\0\0source\n	Temporary\0\0\0class\0\0\0\nkey\0\0\0identifiers\0\0\0organization\0\0\0\0\0\0\ntext\0\0\0typeÄ\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0\nextra_html_head_thisonly\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspec\0\0\0extra_html_head_thisonly\0\0\0\nline\0\0\0typeÅ\0\0\0	mandatory\0\0\0key\0\0\0Å\0\0\0	mandatoryÄ\0\0\0\nrepeatable\nkontaktfelt\0\0\0type\0\0\0Å\0\0\0	doctypeid\nenhed\0\0\0name\0\0\0validate_by_fieldspec\0\0\0enhed\0\0\0\0\0\0\n\rfree_keywords\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÅ\0\0\0	mandatoryÄ\0\0\0\nrepeatable\nline\0\0\0type\0\0\0\rfree_keywords\0\0\0\0\0\0Ç\0\0\0	doctypeid\ndocref\0\0\0name\0\0\0validate_by_fieldspecÅ\0\0\0	mandatory\nline\0\0\0typeÄ\0\0\0\nrepeatable\0\0\0docref\0\0\0\0\0\0\nkeyword\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0	mandatoryÅ\0\0\0\nrepeatable\n\rhumfakkeyword\0\0\0type\0\0\0keyword\0\0\0\0\0\0Ç\0\0\0	doctypeid\nauthor\0\0\0name\0\0\0validate_by_fieldspec\nauthor\0\0\0typeÄ\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0author\0\0\0\ndatetime\0\0\0typeÄ\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0Å\0\0\0	doctypeid\nexpires\0\0\0name\0\0\0validate_by_fieldspec\0\0\0expires\0\0\0\0\0\0\nupdatealertuser\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0	mandatory\nupdatealertuser\0\0\0typeÄ\0\0\0\nrepeatable\0\0\0updatealertuser\0\0\0Ä\0\0\0\nrepeatable\ntext\0\0\0typeÅ\0\0\0	mandatory\0\0\0\nextra_html_body_thisonly\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspec\0\0\0extra_html_body_thisonly\0\0\0\0\0\0Å\0\0\0	doctypeid\n	enhed_url\0\0\0name\0\0\0validate_by_fieldspec\nkontaktfelt\0\0\0typeÄ\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0	enhed_url\0\0\0\0\0\0\nteaser\0\0\0nameÇ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\ntinymce4\0\0\0typeÅ\0\0\0	mandatory\0\0\0teaser\0\0\0\ndate\0\0\0typeÄ\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0Å\0\0\0	doctypeid\ndocdate\0\0\0name\0\0\0validate_by_fieldspec\0\0\0docdate\0\0\0\0\0\0\nenable_comments\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÅ\0\0\0	mandatoryÄ\0\0\0\nrepeatable\nradio\0\0\0type\0\0\0enable_comments\0\0\0\0\0\0Ç\0\0\0	doctypeid\n\nshow_title\0\0\0name\0\0\0validate_by_fieldspec\ncheckbox\0\0\0typeÄ\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0\nshow_title\0\0\0\nline\0\0\0typeÄ\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0\nsource\0\0\0nameÇ\0\0\0	doctypeid\0\0\0validate_by_fieldspec\0\0\0source\0\0\0\0\0\0Å\0\0\0	doctypeid\nseq\0\0\0name\0\0\0validate_by_fieldspecÅ\0\0\0	mandatoryÄ\0\0\0\nrepeatable\nsequence\0\0\0type\0\0\0seq\0\0\0\0\0\0Ç\0\0\0	doctypeid\ncontent\0\0\0name\0\0\0validate_by_fieldspecÅ\0\0\0	mandatory\ntinymce4\0\0\0typeÄ\0\0\0\nrepeatable\0\0\0content\0\0\0\0\0\0\nkontakt_tlf\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspec\nkontaktfelt\0\0\0typeÄ\0\0\0\nrepeatableÄ\0\0\0	mandatory\0\0\0kontakt_tlf\0\0\0\0\0\0\ntitle\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspec\ntitle\0\0\0typeÄ\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0title\0\0\0\n\nrobotsmeta\0\0\0typeÄ\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0\n\nrobotsmeta\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspec\0\0\0\nrobotsmeta\0\0\0Ä\0\0\0	mandatory\ndatetime\0\0\0typeÄ\0\0\0\nrepeatable\0\0\0Å\0\0\0	doctypeid\nupdatealerttime\0\0\0name\0\0\0validate_by_fieldspec\0\0\0updatealerttime\0\0\0\0\0\0Å\0\0\0	doctypeid\n\rkontakt_email\0\0\0name\0\0\0validate_by_fieldspec\nkontaktfelt\0\0\0typeÄ\0\0\0\nrepeatableÄ\0\0\0	mandatory\0\0\0\rkontakt_email\0\0\0\0\0\0Å\0\0\0	doctypeid\n\nrightboxes\0\0\0name\0\0\0validate_by_fieldspec\n	multipath\0\0\0typeÅ\0\0\0\nrepeatableÄ\0\0\0	mandatory\0\0\0\nrightboxes\0\0\0\0\0\0\nkontakt_navn\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0	mandatoryÄ\0\0\0\nrepeatable\nkontaktfelt\0\0\0type\0\0\0kontakt_navn\0\0\0\0\0\0Å\0\0\0	doctypeid\nkontakt_adresse\0\0\0name\0\0\0validate_by_fieldspecÅ\0\0\0	mandatory\nkontaktfelt\0\0\0typeÄ\0\0\0\nrepeatable\0\0\0kontakt_adresse\0\0\0\0\0\0Ç\0\0\0	doctypeid\ncontributors\0\0\0name\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\nline\0\0\0typeÅ\0\0\0	mandatory\0\0\0contributors\0\0\0\0\0\0\nupdatealertsent\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspec\nupdatealertsent\0\0\0typeÄ\0\0\0\nrepeatableÄ\0\0\0	mandatory\0\0\0updatealertsent\0\0\0Å\0\0\0	mandatoryÄ\0\0\0\nrepeatable\nline\0\0\0type\0\0\0\nshort_title\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspec\0\0\0short_title\0\0\0data\0\0\0storage\0\0\0%\0\0\0Å\0\0\0obvius_command_edit\n	editstart\0\0\0name\0\0\0\n4\n3\n1\n2\0\0\0all_nums\nmarkup\0\0\0content\0\0\0\nÿvrige oplysninger\0\0\0label\n	startpage\0\0\0name\nmarkup\0\0\0content\n\0\0\0\0description\nobvius-edit-page-4\0\0\0id\0\0\0\nenable_comments\0\0\0name\ndata\0\0\0content\0\0\0\nYes\0\0\0label_1\nNo\0\0\0label_0\n1\0\0\0reverse_options\0\0\0options\nKommentarer\0\0\0label\n0|1\0\0\0	edit_args\0\0\0\n(Ekstra HTML i head-tag som ikke nedarves\0\0\0label\n\0\0\0\0	edit_args\0\0\0\n4\0\0\0rows\0\0\0options\ndata\0\0\0content\nextra_html_head_thisonly\0\0\0name\0\0\0\n\0\0\0\0	edit_args\n(Ekstra HTML i body-tag som ikke nedarves\0\0\0label\0\0\0\n4\0\0\0rows\0\0\0options\ndata\0\0\0content\nextra_html_body_thisonly\0\0\0name\0\0\0\nmarkup\0\0\0content\nendpage\0\0\0name\0\0\0\nobvius-edit-page-3\0\0\0id\0\07PÂ alle websider indsÊtter CMS\'et f¯lgende n¯gleord automatisk: K¯benhavns Universitet, Det Humanistiske Fakultet, Humanistisk Fakultet, Humaniora og enhedens eller uddannelsens navn. Men du kan ogsÂ selv indsÊtte nogle mere specifikke n¯gleord ved at vÊlge fra listerne herunder eller skrive dem i tekstfeltet.\0\0\0description\n	startpage\0\0\0name\nmarkup\0\0\0content\nMeta\0\0\0label\0\0\0\nVÊlg n¯gleord for siden:\0\0\0label\n\0\0\0\0	edit_args\0\0\0\nN¯gleord\0\0\0subtitle\n1\0\0\0	nopagenav\0\0\0options\ndata\0\0\0content\nkeyword\0\0\0name\0\0\0\0\0\0\0\0\0\0options\näFrie n¯gleord: Her kan du skrive n¯gleord, der ikke er i listerne ovenfor. Hvis du skriver flere ord eller udtryk, skal der komma imellem.\0\0\0label\n\0\0\0\0	edit_args\n\rfree_keywords\0\0\0name\ndata\0\0\0content\0\0\0\ndata\0\0\0content\ndocref\0\0\0name\n	Reference\0\0\0label\n\0\0\0\0	edit_args\0\0\0\nMetadata\0\0\0subtitle\n1\0\0\0	nopagenav\0\0\0options\0\0\0\0\0\0\0\0\0\0options\n\0\0\0\0	edit_args\nBidragydere\0\0\0label\ncontributors\0\0\0name\ndata\0\0\0content\0\0\0\0\0\0\0\0\0\0options\n\0\0\0\0	edit_args\nKilde\0\0\0label\nsource\0\0\0name\ndata\0\0\0content\0\0\0\0\0\0\0\0\0\0options\nBesked til s¯gemaskiner\0\0\0label\n\0\0\0\0	edit_args\n\nrobotsmeta\0\0\0name\ndata\0\0\0content\0\0\0\nendpage\0\0\0name\nmarkup\0\0\0content\0\0\0\nmarkup\0\0\0content\n	startpage\0\0\0name\nIndhold\0\0\0label\nobvius-edit-page-1\0\0\0id\n\0\0\0\0description\0\0\0\ntitle\0\0\0name\ndata\0\0\0content\0\0\0\0\0\0\0options\nTitle\0\0\0label\n\0\0\0\0	edit_args\0\0\0\n\nshow_title\0\0\0name\ndata\0\0\0content\0\0\0\0\0\0\0options\n\0\0\0\0	edit_args\n.Brug titel som overskrift pÂ siden (anbefales)\0\0\0label\0\0\0\ndata\0\0\0content\nshort_title\0\0\0name\nShort title\0\0\0label\n\0\0\0\0	edit_args\0\0\0\0\0\0\0options\0\0\0\n\0\0\0\0	edit_args\nOrder of succession\0\0\0label\0\0\0\0\0\0\0options\ndata\0\0\0content\nseq\0\0\0name\0\0\0\0\0\0\n10\0\0\0rows\0\0\0options\n\0\0\0\0	edit_args\nTeaser\0\0\0label\nteaser\0\0\0name\ndata\0\0\0content\0\0\0\0\0\0\n20\0\0\0rows\0\0\0options\n\0\0\0\0	edit_args\nText\0\0\0label\ncontent\0\0\0name\ndata\0\0\0content\0\0\0\0\0\0\n1\0\0\0distinct\0\0\0options\n\0\0\0\0	edit_args\nSidens kontaktperson\0\0\0label\nauthor\0\0\0name\ndata\0\0\0content\0\0\0\nkontakt_navn\0\0\0name\ndata\0\0\0content\0\0\0\nSidefod\0\0\0subtitle\0\0\0options\n\0\0\0\0	edit_args\nNavn\0\0\0label\0\0\0\n\rkontakt_email\0\0\0name\ndata\0\0\0content\0\0\0\0\0\0\0options\nEmail\0\0\0label\n\0\0\0\0	edit_args\0\0\0\0\0\0\0\0\0\0options\n\0\0\0\0	edit_args\nTelefon\0\0\0label\nkontakt_tlf\0\0\0name\ndata\0\0\0content\0\0\0\0\0\0\n1\0\0\0showinheritedvalue\0\0\0options\nAdresse\0\0\0label\n\0\0\0\0	edit_args\nkontakt_adresse\0\0\0name\ndata\0\0\0content\0\0\0\0\0\0\n1\0\0\0showinheritedvalue\0\0\0options\n\0\0\0\0	edit_args\nEnhed\0\0\0label\nenhed\0\0\0name\ndata\0\0\0content\0\0\0\0\0\0\n1\0\0\0showinheritedvalue\0\0\0options\nAdresse til enhedens hjemmeside\0\0\0label\n\0\0\0\0	edit_args\n	enhed_url\0\0\0name\ndata\0\0\0content\0\0\0\ndocdate\0\0\0name\ndata\0\0\0content\0\0\0\0\0\0\0options\n\0\0\0\0	edit_args\nOprettelsesdato (dd-mm-ÂÂÂÂ)\0\0\0label\0\0\0\n\0\0\0\0	edit_args\nForÊldelsestidspunkt\0\0\0label\0\0\0\0\0\0\0options\ndata\0\0\0content\nexpires\0\0\0name\0\0\0\nupdatealerttime\0\0\0name\ndata\0\0\0content\0\0\0\0\0\0\0options\n\0\0\0\0	edit_args\nTidspunkt for opdateringsalarm\0\0\0label\0\0\0\nupdatealertuser\0\0\0name\ndata\0\0\0content\0\0\0options\n\'Bruger opdateringsalarm skal sendes til\0\0\0label\n\0\0\0\0	edit_args\0\0\0\ndata\0\0\0content\nupdatealertsent\0\0\0name\n\0\0\0\0	edit_args\n,Bruges internt som flag til opdateringsalarm\0\0\0label\0\0\0options\0\0\0\nendpage\0\0\0name\nmarkup\0\0\0content\0\0\0\nmarkup\0\0\0content\n	startpage\0\0\0name\nRight boxes\0\0\0label\n\0\0\0\0description\nobvius-edit-page-2\0\0\0id\0\0\0\ndata\0\0\0content\n\nrightboxes\0\0\0name\nVÊlg h¯jrebokse\0\0\0label\n\0\0\0\0	edit_args\0\0\0\0\0\0\0options\0\0\0\nendpage\0\0\0name\nmarkup\0\0\0content\0\0\0display\nscheme/editsheet\0\0\0type\nEdit\0\0\0label\nreturn onsubmit_handler(event);\0\0\0javascript_onsubmit\0\0\0\neditpage\0\0\0context\0\0\0style\0\0\0edit\0\0\0\neditscheme\n 4fed42f4222f8127c6ad4a4455f119f4\0\0\0_session_id\n0\0\0\0cesi_debug_recursion\n0\0\0\0\rcesi_validate\0\0\0\0\0\0\n0000-00-00 00:00:00\0\0\0updatealerttime\nindex,follow\0\0\0\nrobotsmeta\nForside\0\0\0title\n\0\0\0\0kontakt_tlf\n<p>Hej med dig.</p>\0\0\0content\n170\0\0\0seq\n\0\0\0\0source\n\0\0\0\0short_title\n0\0\0\0updatealertsent\n\0\0\0\0contributors\n\0\0\0\0kontakt_adresse\n\0\0\0\0kontakt_navn\n\0\0\0\0\rkontakt_email\nadmin\0\0\0updatealertuser\n9999-01-01 00:00:00\0\0\0expires\nadmin\0\0\0author\n\0\0\0\0\rfree_keywords\n\0\0\0\0docref\n\0\0\0\0enhed\n\0\0\0\0extra_html_head_thisonly\n1\0\0\0\nshow_title\n170\0\0\0	seq_radio\n0\0\0\0enable_comments\n\0\0\0\0teaser\n\n2019-02-25\0\0\0docdate\n\0\0\0\0	enhed_url\n\0\0\0\0extra_html_body_thisonly\0\0\0KRAKOW\0\0\0Temporary_Data\n1\0\0\0obvius_new_grpid\nForside\0\0\0obvius_new_document_title\nda\0\0\0obvius_new_language\0\0\0\0\0\0\nedit:do\0\0\0edit[save]store\n\npreview:do\0\0\0edit[preview]store\nsave_and_publish:do\0\0\0edit[save_and_publish]store\nedit:cancel\0\0\0edit[]cancel\0\0\0actions\0\0\0\0\0\0\0\0\0edit[]cancel\0\0\0edit[save_and_publish]store\0\0\0edit[preview]store\0\0\0edit[save]store\0\0\0sink\0\0\0pool\0\0\0\0\0\0Å\0\0\0sink\0\0\0edit[save_and_publish]store\0\0\0Å\0\0\0sink\0\0\0edit[]cancel\0\0\0Å\0\0\0sink\0\0\0edit[preview]store\0\0\0Å\0\0\0sink\0\0\0edit[save]store\0\0\0edges\0\0\0\0\0\0\0queue\0\0\0cesi\nedit\0\0\0\nold_actionÅ\0\0\0use_save_and_publish\n0\0\0\0\rcesi_log_data\0\0\0(\0\0\0contributors\0\0\0kontakt_adresse\0\0\0mimetype\0\0\0short_title\n0\0\0\0updatealertsent\0\0\0content\n10.00\0\0\0seq\n0\0\0\0show_subdoc_date\0\0\0	farvevalg\n0\0\0\0enable_comments\0\0\0teaser\n1\0\0\0	show_news\nnone\0\0\0\rsubscribeable\n0\0\0\0	show_date\n+seq,+title\0\0\0	sortorder\0\0\0extra_html_head_thisonly\0\0\0keyword\0\0\0pagesize\0\0\0\nrightboxes\0\0\0kontakt_navn\0\0\0picture\0\0\0\rkontakt_email\n0\0\0\0show_subdocs\0\0\0source\n0000-00-00 00:00:00\0\0\0updatealerttime\nindex,follow\0\0\0\nrobotsmeta\nForside\0\0\0title\0\0\0kontakt_tlf\n\n2019-02-25\0\0\0docdate\n0\0\0\0show_subdoc_teaser\0\0\0	enhed_url\0\0\0extra_html_body_thisonly\n1\0\0\0\nshow_title\0\0\0docref\0\0\0\rfree_keywords\0\0\0enhed\0\0\0updatealertuser\n9999-01-01 00:00:00\0\0\0expires\0\0\0author\n1\0\0\0show_teaser\0\0\0edit_data_in','2019-02-25 11:44:01'),('5dde6cd8a37e6edffd3d024829a0c119','\n\0\0\0\n 5dde6cd8a37e6edffd3d024829a0c119\0\0\0_session_id','2019-02-25 11:45:49'),('682734095d1bbbbba17886d9f56ecc2b','\n\0\0\0\n 682734095d1bbbbba17886d9f56ecc2b\0\0\0_session_id','2019-02-25 12:01:21'),('6e50958f7801fbd8c894ca76cbef6131','\n\0\0\0\r\n 6e50958f7801fbd8c894ca76cbef6131\0\0\0_session_id\n0\0\0\0\rcesi_validate\nEn side mere\0\0\0obvius_new_document_title\0\0\0\0\0\0\n9999-01-01 00:00:00\0\0\0expires\nadmin\0\0\0author\n0\0\0\0updatealertsent\n\0\0\0\0kontakt_tlf\n0000-00-00 00:00:00\0\0\0updatealerttime\n\0\0\0\0	enhed_url\n20\0\0\0	seq_radio\nindex,follow\0\0\0\nrobotsmeta\n\0\0\0\0extra_html_body_thisonly\n0\0\0\0enable_comments\n1\0\0\0\nshow_title\n\0\0\0\0source\n\0\0\0\0kontakt_adresse\n\0\0\0\0contributors\n\n2019-02-25\0\0\0docdate\n\0\0\0\0teaser\n\0\0\0\0docref\n20\0\0\0seq\n\0\0\0\0\rkontakt_email\nadmin\0\0\0updatealertuser\nEn side mere\0\0\0title\n\0\0\0\0short_title\n\0\0\0\0extra_html_head_thisonly\n\0\0\0\0enhed\n\0\0\0\0\rfree_keywords\n<p>Med lidt indhold.</p>\0\0\0content\n\0\0\0\0kontakt_navn\0\0\0KRAKOW\0\0\0Temporary_Data\n0\0\0\0\rcesi_log_data\0\0\0\0\0\0\0\0\0%\0\0\0\nmarkup\0\0\0content\0\0\0\n4\n1\n2\n3\0\0\0all_nums\n	editstart\0\0\0nameÅ\0\0\0obvius_command_edit\0\0\0\n\0\0\0\0description\nobvius-edit-page-4\0\0\0id\nÿvrige oplysninger\0\0\0label\nmarkup\0\0\0content\n	startpage\0\0\0name\0\0\0\n0|1\0\0\0	edit_args\0\0\0\nNo\0\0\0label_0\n1\0\0\0reverse_options\nYes\0\0\0label_1\0\0\0options\nKommentarer\0\0\0label\ndata\0\0\0content\nenable_comments\0\0\0name\0\0\0\n(Ekstra HTML i head-tag som ikke nedarves\0\0\0label\ndata\0\0\0content\0\0\0\n4\0\0\0rows\0\0\0options\nextra_html_head_thisonly\0\0\0name\n\0\0\0\0	edit_args\0\0\0\ndata\0\0\0content\0\0\0\n4\0\0\0rows\0\0\0options\n(Ekstra HTML i body-tag som ikke nedarves\0\0\0label\nextra_html_body_thisonly\0\0\0name\n\0\0\0\0	edit_args\0\0\0\nendpage\0\0\0name\nmarkup\0\0\0content\0\0\0\n\0\0\0\0description\nobvius-edit-page-1\0\0\0id\nIndhold\0\0\0label\nmarkup\0\0\0content\n	startpage\0\0\0name\0\0\0\ntitle\0\0\0name\ndata\0\0\0content\nTitle\0\0\0label\0\0\0\0\0\0\0options\n\0\0\0\0	edit_args\0\0\0\ndata\0\0\0content\0\0\0\0\0\0\0options\n.Brug titel som overskrift pÂ siden (anbefales)\0\0\0label\n\nshow_title\0\0\0name\n\0\0\0\0	edit_args\0\0\0\n\0\0\0\0	edit_args\nshort_title\0\0\0name\0\0\0\0\0\0\0options\nShort title\0\0\0label\ndata\0\0\0content\0\0\0\n\0\0\0\0	edit_args\nseq\0\0\0name\ndata\0\0\0content\nOrder of succession\0\0\0label\0\0\0\0\0\0\0options\0\0\0\nTeaser\0\0\0label\ndata\0\0\0content\0\0\0\n10\0\0\0rows\0\0\0options\nteaser\0\0\0name\n\0\0\0\0	edit_args\0\0\0\ncontent\0\0\0name\0\0\0\n20\0\0\0rows\0\0\0options\nText\0\0\0label\ndata\0\0\0content\n\0\0\0\0	edit_args\0\0\0\n\0\0\0\0	edit_args\0\0\0\n1\0\0\0distinct\0\0\0options\nSidens kontaktperson\0\0\0label\ndata\0\0\0content\nauthor\0\0\0name\0\0\0\nkontakt_navn\0\0\0name\ndata\0\0\0content\nNavn\0\0\0label\0\0\0\nSidefod\0\0\0subtitle\0\0\0options\n\0\0\0\0	edit_args\0\0\0\n\0\0\0\0	edit_args\n\rkontakt_email\0\0\0name\ndata\0\0\0content\nEmail\0\0\0label\0\0\0\0\0\0\0options\0\0\0\nTelefon\0\0\0label\ndata\0\0\0content\0\0\0\0\0\0\0options\nkontakt_tlf\0\0\0name\n\0\0\0\0	edit_args\0\0\0\n\0\0\0\0	edit_args\nkontakt_adresse\0\0\0name\ndata\0\0\0content\0\0\0\n1\0\0\0showinheritedvalue\0\0\0options\nAdresse\0\0\0label\0\0\0\n\0\0\0\0	edit_args\nEnhed\0\0\0label\ndata\0\0\0content\0\0\0\n1\0\0\0showinheritedvalue\0\0\0options\nenhed\0\0\0name\0\0\0\n\0\0\0\0	edit_args\n	enhed_url\0\0\0name\nAdresse til enhedens hjemmeside\0\0\0label\ndata\0\0\0content\0\0\0\n1\0\0\0showinheritedvalue\0\0\0options\0\0\0\n\0\0\0\0	edit_args\ndocdate\0\0\0name\ndata\0\0\0content\nOprettelsesdato (dd-mm-ÂÂÂÂ)\0\0\0label\0\0\0\0\0\0\0options\0\0\0\n\0\0\0\0	edit_args\nexpires\0\0\0name\ndata\0\0\0content\nForÊldelsestidspunkt\0\0\0label\0\0\0\0\0\0\0options\0\0\0\nupdatealerttime\0\0\0name\ndata\0\0\0content\0\0\0\0\0\0\0options\nTidspunkt for opdateringsalarm\0\0\0label\n\0\0\0\0	edit_args\0\0\0\n\0\0\0\0	edit_args\nupdatealertuser\0\0\0name\n\'Bruger opdateringsalarm skal sendes til\0\0\0label\ndata\0\0\0content\0\0\0options\0\0\0\nupdatealertsent\0\0\0name\n,Bruges internt som flag til opdateringsalarm\0\0\0label\0\0\0options\ndata\0\0\0content\n\0\0\0\0	edit_args\0\0\0\nendpage\0\0\0name\nmarkup\0\0\0content\0\0\0\n	startpage\0\0\0name\nRight boxes\0\0\0label\nmarkup\0\0\0content\nobvius-edit-page-2\0\0\0id\n\0\0\0\0description\0\0\0\0\0\0\0\0\0\0options\nVÊlg h¯jrebokse\0\0\0label\ndata\0\0\0content\n\nrightboxes\0\0\0name\n\0\0\0\0	edit_args\0\0\0\nendpage\0\0\0name\nmarkup\0\0\0content\0\0\0\nobvius-edit-page-3\0\0\0id\0\07PÂ alle websider indsÊtter CMS\'et f¯lgende n¯gleord automatisk: K¯benhavns Universitet, Det Humanistiske Fakultet, Humanistisk Fakultet, Humaniora og enhedens eller uddannelsens navn. Men du kan ogsÂ selv indsÊtte nogle mere specifikke n¯gleord ved at vÊlge fra listerne herunder eller skrive dem i tekstfeltet.\0\0\0description\n	startpage\0\0\0name\nmarkup\0\0\0content\nMeta\0\0\0label\0\0\0\ndata\0\0\0content\0\0\0\nN¯gleord\0\0\0subtitle\n1\0\0\0	nopagenav\0\0\0options\nVÊlg n¯gleord for siden:\0\0\0label\nkeyword\0\0\0name\n\0\0\0\0	edit_args\0\0\0\näFrie n¯gleord: Her kan du skrive n¯gleord, der ikke er i listerne ovenfor. Hvis du skriver flere ord eller udtryk, skal der komma imellem.\0\0\0label\ndata\0\0\0content\0\0\0\0\0\0\0options\n\rfree_keywords\0\0\0name\n\0\0\0\0	edit_args\0\0\0\n\0\0\0\0	edit_args\n	Reference\0\0\0label\ndata\0\0\0content\0\0\0\nMetadata\0\0\0subtitle\n1\0\0\0	nopagenav\0\0\0options\ndocref\0\0\0name\0\0\0\n\0\0\0\0	edit_args\0\0\0\0\0\0\0options\ndata\0\0\0content\nBidragydere\0\0\0label\ncontributors\0\0\0name\0\0\0\nKilde\0\0\0label\0\0\0\0\0\0\0options\ndata\0\0\0content\nsource\0\0\0name\n\0\0\0\0	edit_args\0\0\0\n\0\0\0\0	edit_args\0\0\0\0\0\0\0options\ndata\0\0\0content\nBesked til s¯gemaskiner\0\0\0label\n\nrobotsmeta\0\0\0name\0\0\0\nmarkup\0\0\0content\nendpage\0\0\0name\0\0\0display\nEdit\0\0\0label\nscheme/editsheet\0\0\0type\0\0\0\0\0\0\0\0\0Å\0\0\0	mandatory\0\0\0\ndocdate\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\ndate\0\0\0type\0\0\0docdate\0\0\0\ntinymce4\0\0\0type\0\0\0Ç\0\0\0	doctypeid\nteaser\0\0\0name\0\0\0validate_by_fieldspecÅ\0\0\0	mandatoryÄ\0\0\0\nrepeatable\0\0\0teaser\0\0\0\nline\0\0\0typeÄ\0\0\0\nrepeatable\0\0\0Ç\0\0\0	doctypeid\ndocref\0\0\0name\0\0\0validate_by_fieldspecÅ\0\0\0	mandatory\0\0\0docref\0\0\0Å\0\0\0	mandatory\0\0\0Å\0\0\0	doctypeid\nseq\0\0\0name\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\nsequence\0\0\0type\0\0\0seq\0\0\0\nkontaktfelt\0\0\0typeÄ\0\0\0\nrepeatableÄ\0\0\0	mandatory\0\0\0Å\0\0\0	doctypeid\n\rkontakt_email\0\0\0name\0\0\0validate_by_fieldspec\0\0\0\rkontakt_email\0\0\0Ä\0\0\0\nrepeatable\0\0\0Å\0\0\0	doctypeid\nupdatealertuser\0\0\0name\0\0\0validate_by_fieldspecÄ\0\0\0	mandatory\nupdatealertuser\0\0\0type\0\0\0updatealertuser\0\0\0Å\0\0\0	mandatory\0\0\0Å\0\0\0	doctypeid\ntitle\0\0\0name\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\ntitle\0\0\0type\0\0\0title\0\0\0Å\0\0\0	mandatory\0\0\0\nshort_title\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\nline\0\0\0type\0\0\0short_title\0\0\0Ä\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0\nextra_html_head_thisonly\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspec\ntext\0\0\0type\0\0\0extra_html_head_thisonly\0\0\0\nkontaktfelt\0\0\0typeÄ\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0\nenhed\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspec\0\0\0enhed\0\0\0\nline\0\0\0type\0\0\0\n\rfree_keywords\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÅ\0\0\0	mandatoryÄ\0\0\0\nrepeatable\0\0\0\rfree_keywords\0\0\0Ä\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0\ncontent\0\0\0nameÇ\0\0\0	doctypeid\0\0\0validate_by_fieldspec\ntinymce4\0\0\0type\0\0\0content\0\0\0Ä\0\0\0\nrepeatable\0\0\0\nkontakt_navn\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0	mandatory\nkontaktfelt\0\0\0type\0\0\0kontakt_navn\0\0\0Å\0\0\0	mandatory\0\0\0\nexpires\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\ndatetime\0\0\0type\0\0\0expires\0\0\0Å\0\0\0\nrepeatableÄ\0\0\0	mandatory\0\0\0\n\nrightboxes\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspec\n	multipath\0\0\0type\0\0\0\nrightboxes\0\0\0\nauthor\0\0\0typeÅ\0\0\0	mandatory\0\0\0\nauthor\0\0\0nameÇ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\0\0\0author\0\0\0\nline\0\0\0typeÅ\0\0\0	mandatory\0\0\0key\0\0\0Ä\0\0\0	mandatory\0\0\0\nupdatealertsent\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\nupdatealertsent\0\0\0type\0\0\0updatealertsent\0\0\0Ä\0\0\0\nrepeatable\0\0\0\nkontakt_tlf\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0	mandatory\nkontaktfelt\0\0\0type\0\0\0kontakt_tlf\0\0\0\0\0\0\nupdatealerttime\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0	mandatoryÄ\0\0\0\nrepeatable\ndatetime\0\0\0type\0\0\0updatealerttime\0\0\0\n\rhumfakkeyword\0\0\0typeÅ\0\0\0\nrepeatableÄ\0\0\0	mandatory\0\0\0Å\0\0\0	doctypeid\nkeyword\0\0\0name\0\0\0validate_by_fieldspec\0\0\0keyword\0\0\0Ä\0\0\0\nrepeatable\0\0\0Å\0\0\0	doctypeid\n	enhed_url\0\0\0name\0\0\0validate_by_fieldspecÅ\0\0\0	mandatory\nkontaktfelt\0\0\0type\0\0\0	enhed_url\0\0\0\n\nrobotsmeta\0\0\0typeÄ\0\0\0\nrepeatable\0\0\0\n\nrobotsmeta\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÅ\0\0\0	mandatory\0\0\0\nrobotsmeta\0\0\0\nradio\0\0\0typeÄ\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0\nenable_comments\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspec\0\0\0enable_comments\0\0\0Å\0\0\0	mandatory\0\0\0\nextra_html_body_thisonly\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\ntext\0\0\0type\0\0\0extra_html_body_thisonly\0\0\0Ä\0\0\0\nrepeatable\0\0\0\n\nshow_title\0\0\0nameÇ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÅ\0\0\0	mandatory\ncheckbox\0\0\0type\0\0\0\nshow_title\0\0\0\0\0\0\nsource\0\0\0nameÇ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÅ\0\0\0	mandatoryÄ\0\0\0\nrepeatable\nline\0\0\0type\0\0\0source\0\0\0Å\0\0\0	mandatory\0\0\0Å\0\0\0	doctypeid\nkontakt_adresse\0\0\0name\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\nkontaktfelt\0\0\0type\0\0\0kontakt_adresse\0\0\0\nline\0\0\0typeÄ\0\0\0\nrepeatable\0\0\0\ncontributors\0\0\0nameÇ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÅ\0\0\0	mandatory\0\0\0contributors\0\0\0data\0\0\0\nTemporary_Data\0\0\0source\n	Temporary\0\0\0class\0\0\0\nkey\0\0\0identifiers\0\0\0organization\0\0\0\nPreview\0\0\0label\nexisting\0\0\0object\0\0\0preview\0\0\0\0\0\0\nSave and publish\0\0\0label\nexisting\0\0\0object\0\0\0save_and_publish\0\0\0\nexisting\0\0\0object\nSave\0\0\0label\0\0\0save\0\0\0	functions\0\0\0storage\nreturn onsubmit_handler(event);\0\0\0javascript_onsubmit\0\0\0\neditpage\0\0\0context\0\0\0style\0\0\0edit\0\0\0\neditscheme\0\0\0(\0\0\0extra_html_head_thisonly\0\0\0\rfree_keywords\n0\0\0\0show_subdoc_date\0\0\0enhed\0\0\0mimetype\0\0\0kontakt_navn\nnone\0\0\0\rsubscribeable\0\0\0picture\n\n2019-02-25\0\0\0docdate\0\0\0teaser\0\0\0docref\n1\0\0\0show_teaser\0\0\0keyword\0\0\0	enhed_url\n0000-00-00 00:00:00\0\0\0updatealerttime\0\0\0	farvevalg\0\0\0extra_html_body_thisonly\0\0\0contributors\0\0\0source\0\0\0kontakt_adresse\n9999-01-01 00:00:00\0\0\0expires\0\0\0\nrightboxes\0\0\0author\0\0\0short_title\0\0\0pagesize\nEn side mere\0\0\0title\n+seq,+title\0\0\0	sortorder\0\0\0content\n0\0\0\0show_subdoc_teaser\0\0\0\rkontakt_email\n0\0\0\0	show_date\n10.00\0\0\0seq\0\0\0updatealertuser\0\0\0kontakt_tlf\nindex,follow\0\0\0\nrobotsmeta\n1\0\0\0\nshow_title\n0\0\0\0enable_comments\n0\0\0\0show_subdocs\n0\0\0\0updatealertsent\n1\0\0\0	show_news\0\0\0edit_data_in\0\0\0\0\0\0\0\0\0\0queue\0\0\0\nedit:do\0\0\0edit[save]store\nedit:cancel\0\0\0edit[]cancel\nsave_and_publish:do\0\0\0edit[save_and_publish]store\n\npreview:do\0\0\0edit[preview]store\0\0\0actions\0\0\0\0\0\0\0\0\0edit[preview]store\0\0\0edit[save_and_publish]store\0\0\0edit[save]store\0\0\0edit[]cancel\0\0\0sink\0\0\0pool\0\0\0\0\0\0Å\0\0\0sink\0\0\0edit[save_and_publish]store\0\0\0Å\0\0\0sink\0\0\0edit[]cancel\0\0\0Å\0\0\0sink\0\0\0edit[save]store\0\0\0Å\0\0\0sink\0\0\0edit[preview]store\0\0\0edges\0\0\0cesi\n0\0\0\0cesi_debug_recursion\n1\0\0\0obvius_new_grpid\nedit\0\0\0\nold_action\nda\0\0\0obvius_new_languageÅ\0\0\0use_save_and_publish','2019-02-25 12:02:38'),('95279236be51b70709f0427b093ba1b1','\n\0\0\0\n 95279236be51b70709f0427b093ba1b1\0\0\0_session_id','2019-02-25 12:02:21'),('97cbdfe8a49e5f764b36803487589a8c','\n\0\0\0\n 97cbdfe8a49e5f764b36803487589a8c\0\0\0_session_id','2019-02-25 11:47:35'),('a7a1c3ce9ebe1bc0a075147b66ae731b','\n\0\0\0\n a7a1c3ce9ebe1bc0a075147b66ae731b\0\0\0_session_id','2019-02-25 12:06:38'),('a9afa6863c9bf1ed9b028b418c61b96d','\n\0\0\0\n a9afa6863c9bf1ed9b028b418c61b96d\0\0\0_session_id','2019-02-25 12:01:50'),('c2babd50febec578e39ed7f71a2ad4a2','\n\0\0\0\n c2babd50febec578e39ed7f71a2ad4a2\0\0\0_session_id','2019-02-25 11:53:33'),('c47e4eed0ce09e1f00cbb439b0f03e9f','\n\0\0\0\r\n0\0\0\0\rcesi_validate\n c47e4eed0ce09e1f00cbb439b0f03e9f\0\0\0_session_id\0\0\0\0\0\0\0\0\0\neditpage\0\0\0context\0\0\0style\nreturn onsubmit_handler(event);\0\0\0javascript_onsubmit\0\0\0\0\0\0\0\0\0\nkey\0\0\0identifiers\nTemporary_Data\0\0\0source\n	Temporary\0\0\0class\0\0\0organization\0\0\0\0\0\0\nkontaktfelt\0\0\0typeÄ\0\0\0\nrepeatable\0\0\0Å\0\0\0	doctypeid\nkontakt_navn\0\0\0name\0\0\0validate_by_fieldspecÄ\0\0\0	mandatory\0\0\0kontakt_navn\0\0\0Ä\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0\ncontent\0\0\0nameÇ\0\0\0	doctypeid\0\0\0validate_by_fieldspec\ntinymce4\0\0\0type\0\0\0content\0\0\0\nkontaktfelt\0\0\0typeÅ\0\0\0	mandatory\0\0\0\nenhed\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\0\0\0enhed\0\0\0Ä\0\0\0\nrepeatable\0\0\0\n\rfree_keywords\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÅ\0\0\0	mandatory\nline\0\0\0type\0\0\0\rfree_keywords\0\0\0\ntitle\0\0\0typeÄ\0\0\0\nrepeatable\0\0\0Å\0\0\0	doctypeid\ntitle\0\0\0name\0\0\0validate_by_fieldspecÅ\0\0\0	mandatory\0\0\0title\0\0\0\nline\0\0\0type\0\0\0Å\0\0\0	doctypeid\nshort_title\0\0\0name\0\0\0validate_by_fieldspecÅ\0\0\0	mandatoryÄ\0\0\0\nrepeatable\0\0\0short_title\0\0\0\ntext\0\0\0typeÅ\0\0\0	mandatory\0\0\0\nextra_html_head_thisonly\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\0\0\0extra_html_head_thisonly\0\0\0\nupdatealertuser\0\0\0type\0\0\0\nupdatealertuser\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0	mandatoryÄ\0\0\0\nrepeatable\0\0\0updatealertuser\0\0\0Ä\0\0\0\nrepeatable\0\0\0Ç\0\0\0	doctypeid\ndocref\0\0\0name\0\0\0validate_by_fieldspecÅ\0\0\0	mandatory\nline\0\0\0type\0\0\0docref\0\0\0Å\0\0\0	mandatory\0\0\0Å\0\0\0	doctypeid\nseq\0\0\0name\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\nsequence\0\0\0type\0\0\0seq\0\0\0\nkontaktfelt\0\0\0typeÄ\0\0\0\nrepeatable\0\0\0Å\0\0\0	doctypeid\n\rkontakt_email\0\0\0name\0\0\0validate_by_fieldspecÄ\0\0\0	mandatory\0\0\0\rkontakt_email\0\0\0\ntinymce4\0\0\0typeÄ\0\0\0\nrepeatable\0\0\0Ç\0\0\0	doctypeid\nteaser\0\0\0name\0\0\0validate_by_fieldspecÅ\0\0\0	mandatory\0\0\0teaser\0\0\0\ndate\0\0\0typeÅ\0\0\0	mandatory\0\0\0\ndocdate\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\0\0\0docdate\0\0\0\nkontaktfelt\0\0\0typeÅ\0\0\0	mandatory\0\0\0Å\0\0\0	doctypeid\nkontakt_adresse\0\0\0name\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\0\0\0kontakt_adresse\0\0\0\nline\0\0\0typeÄ\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0Ç\0\0\0	doctypeid\nsource\0\0\0name\0\0\0validate_by_fieldspec\0\0\0source\0\0\0\nline\0\0\0typeÅ\0\0\0	mandatory\0\0\0\ncontributors\0\0\0nameÇ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\0\0\0contributors\0\0\0Ä\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0Å\0\0\0	doctypeid\nenable_comments\0\0\0name\0\0\0validate_by_fieldspec\nradio\0\0\0type\0\0\0enable_comments\0\0\0\ntext\0\0\0typeÄ\0\0\0\nrepeatableÅ\0\0\0	mandatory\0\0\0Å\0\0\0	doctypeid\nextra_html_body_thisonly\0\0\0name\0\0\0validate_by_fieldspec\0\0\0extra_html_body_thisonly\0\0\0\ncheckbox\0\0\0typeÄ\0\0\0\nrepeatable\0\0\0Ç\0\0\0	doctypeid\n\nshow_title\0\0\0name\0\0\0validate_by_fieldspecÅ\0\0\0	mandatory\0\0\0\nshow_title\0\0\0\0\0\0\n\nrobotsmeta\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÅ\0\0\0	mandatoryÄ\0\0\0\nrepeatable\n\nrobotsmeta\0\0\0type\0\0\0\nrobotsmeta\0\0\0\nkontaktfelt\0\0\0typeÄ\0\0\0\nrepeatable\0\0\0Å\0\0\0	doctypeid\n	enhed_url\0\0\0name\0\0\0validate_by_fieldspecÅ\0\0\0	mandatory\0\0\0	enhed_url\0\0\0Ä\0\0\0	mandatory\0\0\0\nkontakt_tlf\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\nkontaktfelt\0\0\0type\0\0\0kontakt_tlf\0\0\0Å\0\0\0\nrepeatable\0\0\0\nkeyword\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0	mandatory\n\rhumfakkeyword\0\0\0type\0\0\0keyword\0\0\0\ndatetime\0\0\0type\0\0\0\nupdatealerttime\0\0\0nameÅ\0\0\0	doctypeid\0\0\0validate_by_fieldspecÄ\0\0\0	mandatoryÄ\0\0\0\nrepeatable\0\0\0updatealerttime\0\0\0\0\0\0Å\0\0\0	doctypeid\nupdatealertsent\0\0\0name\0\0\0validate_by_fieldspecÄ\0\0\0	mandatoryÄ\0\0\0\nrepeatable\nupdatealertsent\0\0\0type\0\0\0updatealertsent\0\0\0Å\0\0\0	mandatory\nline\0\0\0type\0\0\0key\0\0\0\n	multipath\0\0\0typeÅ\0\0\0\nrepeatable\0\0\0Å\0\0\0	doctypeid\n\nrightboxes\0\0\0name\0\0\0validate_by_fieldspecÄ\0\0\0	mandatory\0\0\0\nrightboxes\0\0\0Å\0\0\0	mandatory\0\0\0Ç\0\0\0	doctypeid\nauthor\0\0\0name\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\nauthor\0\0\0type\0\0\0author\0\0\0Å\0\0\0	mandatory\0\0\0Å\0\0\0	doctypeid\nexpires\0\0\0name\0\0\0validate_by_fieldspecÄ\0\0\0\nrepeatable\ndatetime\0\0\0type\0\0\0expires\0\0\0data\0\0\0\0\0\0\nexisting\0\0\0object\nSave and publish\0\0\0label\0\0\0save_and_publish\0\0\0\nSave\0\0\0label\nexisting\0\0\0object\0\0\0save\0\0\0	functions\0\0\0\nexisting\0\0\0object\nPreview\0\0\0label\0\0\0preview\0\0\0storage\nEdit\0\0\0label\0\0\0%\0\0\0\nmarkup\0\0\0contentÅ\0\0\0obvius_command_edit\n	editstart\0\0\0name\0\0\0\n2\n1\n3\n4\0\0\0all_nums\0\0\0\nmarkup\0\0\0content\nRight boxes\0\0\0label\n	startpage\0\0\0name\n\0\0\0\0description\nobvius-edit-page-2\0\0\0id\0\0\0\ndata\0\0\0content\0\0\0\0\0\0\0options\nVÊlg h¯jrebokse\0\0\0label\n\nrightboxes\0\0\0name\n\0\0\0\0	edit_args\0\0\0\nendpage\0\0\0name\nmarkup\0\0\0content\0\0\0\n\0\0\0\0description\nobvius-edit-page-1\0\0\0id\nIndhold\0\0\0label\nmarkup\0\0\0content\n	startpage\0\0\0name\0\0\0\n\0\0\0\0	edit_args\ndata\0\0\0content\0\0\0\0\0\0\0options\nTitle\0\0\0label\ntitle\0\0\0name\0\0\0\n\0\0\0\0	edit_args\ndata\0\0\0content\0\0\0\0\0\0\0options\n.Brug titel som overskrift pÂ siden (anbefales)\0\0\0label\n\nshow_title\0\0\0name\0\0\0\n\0\0\0\0	edit_args\0\0\0\0\0\0\0options\ndata\0\0\0content\nShort title\0\0\0label\nshort_title\0\0\0name\0\0\0\ndata\0\0\0content\0\0\0\0\0\0\0options\nOrder of succession\0\0\0label\nseq\0\0\0name\n\0\0\0\0	edit_args\0\0\0\nteaser\0\0\0name\0\0\0\n10\0\0\0rows\0\0\0options\ndata\0\0\0content\nTeaser\0\0\0label\n\0\0\0\0	edit_args\0\0\0\n\0\0\0\0	edit_args\ncontent\0\0\0name\0\0\0\n20\0\0\0rows\0\0\0options\nText\0\0\0label\ndata\0\0\0content\0\0\0\n\0\0\0\0	edit_args\0\0\0\n1\0\0\0distinct\0\0\0options\nSidens kontaktperson\0\0\0label\ndata\0\0\0content\nauthor\0\0\0name\0\0\0\nNavn\0\0\0label\0\0\0\nSidefod\0\0\0subtitle\0\0\0options\ndata\0\0\0content\nkontakt_navn\0\0\0name\n\0\0\0\0	edit_args\0\0\0\n\rkontakt_email\0\0\0name\0\0\0\0\0\0\0options\ndata\0\0\0content\nEmail\0\0\0label\n\0\0\0\0	edit_args\0\0\0\n\0\0\0\0	edit_args\0\0\0\0\0\0\0options\nTelefon\0\0\0label\ndata\0\0\0content\nkontakt_tlf\0\0\0name\0\0\0\n\0\0\0\0	edit_args\nkontakt_adresse\0\0\0name\nAdresse\0\0\0label\0\0\0\n1\0\0\0showinheritedvalue\0\0\0options\ndata\0\0\0content\0\0\0\n\0\0\0\0	edit_args\nenhed\0\0\0name\nEnhed\0\0\0label\ndata\0\0\0content\0\0\0\n1\0\0\0showinheritedvalue\0\0\0options\0\0\0\n\0\0\0\0	edit_args\n	enhed_url\0\0\0name\nAdresse til enhedens hjemmeside\0\0\0label\ndata\0\0\0content\0\0\0\n1\0\0\0showinheritedvalue\0\0\0options\0\0\0\nOprettelsesdato (dd-mm-ÂÂÂÂ)\0\0\0label\ndata\0\0\0content\0\0\0\0\0\0\0options\ndocdate\0\0\0name\n\0\0\0\0	edit_args\0\0\0\n\0\0\0\0	edit_args\nexpires\0\0\0name\ndata\0\0\0content\nForÊldelsestidspunkt\0\0\0label\0\0\0\0\0\0\0options\0\0\0\n\0\0\0\0	edit_args\nupdatealerttime\0\0\0name\ndata\0\0\0content\0\0\0\0\0\0\0options\nTidspunkt for opdateringsalarm\0\0\0label\0\0\0\ndata\0\0\0content\n\'Bruger opdateringsalarm skal sendes til\0\0\0label\0\0\0options\nupdatealertuser\0\0\0name\n\0\0\0\0	edit_args\0\0\0\n\0\0\0\0	edit_args\ndata\0\0\0content\n,Bruges internt som flag til opdateringsalarm\0\0\0label\0\0\0options\nupdatealertsent\0\0\0name\0\0\0\nendpage\0\0\0name\nmarkup\0\0\0content\0\0\0\nmarkup\0\0\0content\nMeta\0\0\0label\n	startpage\0\0\0name\0\07PÂ alle websider indsÊtter CMS\'et f¯lgende n¯gleord automatisk: K¯benhavns Universitet, Det Humanistiske Fakultet, Humanistisk Fakultet, Humaniora og enhedens eller uddannelsens navn. Men du kan ogsÂ selv indsÊtte nogle mere specifikke n¯gleord ved at vÊlge fra listerne herunder eller skrive dem i tekstfeltet.\0\0\0description\nobvius-edit-page-3\0\0\0id\0\0\0\n\0\0\0\0	edit_args\ndata\0\0\0content\nVÊlg n¯gleord for siden:\0\0\0label\0\0\0\n1\0\0\0	nopagenav\nN¯gleord\0\0\0subtitle\0\0\0options\nkeyword\0\0\0name\0\0\0\n\0\0\0\0	edit_args\näFrie n¯gleord: Her kan du skrive n¯gleord, der ikke er i listerne ovenfor. Hvis du skriver flere ord eller udtryk, skal der komma imellem.\0\0\0label\0\0\0\0\0\0\0options\ndata\0\0\0content\n\rfree_keywords\0\0\0name\0\0\0\n\0\0\0\0	edit_args\0\0\0\n1\0\0\0	nopagenav\nMetadata\0\0\0subtitle\0\0\0options\ndata\0\0\0content\n	Reference\0\0\0label\ndocref\0\0\0name\0\0\0\n\0\0\0\0	edit_args\nBidragydere\0\0\0label\0\0\0\0\0\0\0options\ndata\0\0\0content\ncontributors\0\0\0name\0\0\0\n\0\0\0\0	edit_args\nsource\0\0\0name\0\0\0\0\0\0\0options\nKilde\0\0\0label\ndata\0\0\0content\0\0\0\0\0\0\0\0\0\0options\ndata\0\0\0content\nBesked til s¯gemaskiner\0\0\0label\n\nrobotsmeta\0\0\0name\n\0\0\0\0	edit_args\0\0\0\nmarkup\0\0\0content\nendpage\0\0\0name\0\0\0\n	startpage\0\0\0name\nmarkup\0\0\0content\nÿvrige oplysninger\0\0\0label\nobvius-edit-page-4\0\0\0id\n\0\0\0\0description\0\0\0\nenable_comments\0\0\0name\0\0\0\nYes\0\0\0label_1\nNo\0\0\0label_0\n1\0\0\0reverse_options\0\0\0options\ndata\0\0\0content\nKommentarer\0\0\0label\n0|1\0\0\0	edit_args\0\0\0\n(Ekstra HTML i head-tag som ikke nedarves\0\0\0label\0\0\0\n4\0\0\0rows\0\0\0options\ndata\0\0\0content\nextra_html_head_thisonly\0\0\0name\n\0\0\0\0	edit_args\0\0\0\n\0\0\0\0	edit_args\0\0\0\n4\0\0\0rows\0\0\0options\n(Ekstra HTML i body-tag som ikke nedarves\0\0\0label\ndata\0\0\0content\nextra_html_body_thisonly\0\0\0name\0\0\0\nendpage\0\0\0name\nmarkup\0\0\0content\0\0\0display\nscheme/editsheet\0\0\0type\0\0\0edit\0\0\0\neditscheme\n0\0\0\0\rcesi_log_data\0\0\0\0\0\0\n\0\0\0\0docref\n10\0\0\0seq\n\0\0\0\0\rkontakt_email\nadmin\0\0\0updatealertuser\n\n2019-02-25\0\0\0docdate\n\0\0\0\0teaser\n<p>Med lidt indhold.</p>\0\0\0content\n\0\0\0\0kontakt_navn\nEn underside\0\0\0title\n\0\0\0\0extra_html_head_thisonly\n\0\0\0\0short_title\n\0\0\0\0enhed\n\0\0\0\0\rfree_keywords\n0\0\0\0updatealertsent\n9999-01-01 00:00:00\0\0\0expires\nadmin\0\0\0author\n0\0\0\0enable_comments\n\0\0\0\0extra_html_body_thisonly\n1\0\0\0\nshow_title\n\0\0\0\0kontakt_adresse\n\0\0\0\0source\n\0\0\0\0contributors\n0000-00-00 00:00:00\0\0\0updatealerttime\n\0\0\0\0	enhed_url\n\0\0\0\0kontakt_tlf\nindex,follow\0\0\0\nrobotsmeta\n10\0\0\0	seq_radio\0\0\0KRAKOW\0\0\0Temporary_Data\nEn underside\0\0\0obvius_new_document_title\n0\0\0\0cesi_debug_recursion\0\0\0\0\0\0\0\0\0Å\0\0\0sink\0\0\0edit[]cancel\0\0\0Å\0\0\0sink\0\0\0edit[save]store\0\0\0Å\0\0\0sink\0\0\0edit[save_and_publish]store\0\0\0Å\0\0\0sink\0\0\0edit[preview]store\0\0\0edges\0\0\0\0\0\0\0\0\0edit[preview]store\0\0\0edit[]cancel\0\0\0edit[save]store\0\0\0edit[save_and_publish]store\0\0\0sink\0\0\0pool\0\0\0\nedit:do\0\0\0edit[save]store\nedit:cancel\0\0\0edit[]cancel\nsave_and_publish:do\0\0\0edit[save_and_publish]store\n\npreview:do\0\0\0edit[preview]store\0\0\0actions\0\0\0\0\0\0\0queue\0\0\0cesi\0\0\0(\n1\0\0\0	show_news\n0\0\0\0updatealertsent\n0\0\0\0show_subdocs\n1\0\0\0\nshow_title\n0\0\0\0enable_comments\nindex,follow\0\0\0\nrobotsmeta\0\0\0kontakt_tlf\0\0\0updatealertuser\n0\0\0\0	show_date\0\0\0\rkontakt_email\n10.00\0\0\0seq\n0\0\0\0show_subdoc_teaser\0\0\0content\n+seq,+title\0\0\0	sortorder\0\0\0short_title\nEn underside\0\0\0title\0\0\0pagesize\0\0\0author\0\0\0\nrightboxes\n9999-01-01 00:00:00\0\0\0expires\0\0\0contributors\0\0\0source\0\0\0kontakt_adresse\0\0\0extra_html_body_thisonly\0\0\0	farvevalg\0\0\0keyword\0\0\0	enhed_url\n0000-00-00 00:00:00\0\0\0updatealerttime\n1\0\0\0show_teaser\0\0\0docref\0\0\0teaser\n\n2019-02-25\0\0\0docdate\nnone\0\0\0\rsubscribeable\0\0\0kontakt_navn\0\0\0picture\0\0\0\rfree_keywords\n0\0\0\0show_subdoc_date\0\0\0mimetype\0\0\0enhed\0\0\0extra_html_head_thisonly\0\0\0edit_data_in\nedit\0\0\0\nold_actionÅ\0\0\0use_save_and_publish\n1\0\0\0obvius_new_grpid\nda\0\0\0obvius_new_language','2019-02-25 11:46:01'),('c93a85f9e6d1deb866abf9148064498b','\n\0\0\0\n c93a85f9e6d1deb866abf9148064498b\0\0\0_session_id','2019-02-25 12:01:58'),('ceca30a159e76db862767bf32a5218d1','\n\0\0\0\n ceca30a159e76db862767bf32a5218d1\0\0\0_session_id','2019-02-25 11:53:44'),('db7664993a16b91fcf05bca2aeb3e71c','\n\0\0\0\n db7664993a16b91fcf05bca2aeb3e71c\0\0\0_session_id','2019-02-25 11:56:09'),('e0cad5165d00c8ba26efddae377fa558','\n\0\0\0\n e0cad5165d00c8ba26efddae377fa558\0\0\0_session_id','2019-02-25 12:04:44'),('e2fa1a3c260ac467aae59c030cec8fa6','\n\0\0\0\n e2fa1a3c260ac467aae59c030cec8fa6\0\0\0_session_id','2019-02-25 11:53:30');
 /*!40000 ALTER TABLE `apache_edit_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -153,8 +155,8 @@ DROP TABLE IF EXISTS `apache_user_sessions`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `apache_user_sessions` (
   `id` char(32) NOT NULL,
-  `a_session` mediumblob,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `a_session` mediumblob DEFAULT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -190,6 +192,7 @@ CREATE TABLE `apachecache_home` (
 
 LOCK TABLES `apachecache_home` WRITE;
 /*!40000 ALTER TABLE `apachecache_home` DISABLE KEYS */;
+INSERT INTO `apachecache_home` VALUES ('/forside/','','/cache/text/html/da/196c6b968500ceccdd0c45b8b035a751');
 /*!40000 ALTER TABLE `apachecache_home` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -302,7 +305,7 @@ DROP TABLE IF EXISTS `comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `comments` (
-  `docid` int(8) unsigned NOT NULL DEFAULT '0',
+  `docid` int(8) unsigned NOT NULL DEFAULT 0,
   `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `name` varchar(127) NOT NULL DEFAULT '',
   `email` varchar(63) NOT NULL DEFAULT '',
@@ -333,10 +336,10 @@ CREATE TABLE `config` (
   `config_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
   `value` text COLLATE utf8_bin NOT NULL,
-  `description` text COLLATE utf8_bin,
+  `description` text COLLATE utf8_bin DEFAULT NULL,
   PRIMARY KEY (`config_id`),
   KEY `config_name_idx` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -345,7 +348,7 @@ CREATE TABLE `config` (
 
 LOCK TABLES `config` WRITE;
 /*!40000 ALTER TABLE `config` DISABLE KEYS */;
-INSERT INTO `config` VALUES (1,'globalmenu_da','','Dansk globalmenu'),(2,'globalmenu_en','','Engelsk globalmenu'),(3,'globaltools_da','<li><a href=\"http://kalender.ku.dk\">Kalender</a></li>\r\n<li><a href=\"http://velkommen.ku.dk/kontakt/\">Kontakt</a></li>\r\n<li><a href=\"http://findvej.ku.dk\">Find vej</a></li>\r\n<li><a href=\"http://www.ku.dk/vejviser/\">Telefonbog</a></li>\r\n<li><a href=\"http://velkommen.ku.dk/job_og_karriere/\">Job</a></li>\r\n<li><a href=\"http://velkommen.ku.dk/indeks/\">A-√Ö-indeks</a></li>\r\n<li><a href=\"http://alumni.ku.dk\">Alumni</a></li>\r\n<li><a href=\"https://intranet.ku.dk/\">KUnet</a></li>\r\n<li class=\"global-sprog\"><a href=\"{LANG_LINK}\" class=\"english\">English</a></li>','Danske globale v√¶rkt√∏jslinks'),(4,'globaltools_en','<li><a href=\"http://introduction.ku.dk/contact/\">Contact</a></li>\r\n<li><a href=\"http://findvej.ku.dk/english/\">Map</a></li>\r\n<li><a href=\"http://www.ku.dk/vejviser/phone.html\">Phone Book</a></li>\r\n<li><a href=\"http://alumni.ku.dk/englishkubulusalumni/\">Alumni</a></li>\r\n<li><a href=\"https://intranet.ku.dk/en\">KUnet</a></li>\r\n<li class=\"global-sprog\"><a href=\"{LANG_LINK}\" class=\"dansk\">Dansk</a></li>','Engelske globale v√¶rkt√∏jslinks'),(9,'enable_beredskab','nej','G√∏r brug af beredskabs-funktion?'),(10,'pure_error_message_da','<p>\r\nVi er i gang med at opdatere medarbejdersiderne, publikationsvisningerne og \"Find en forsker\".\r\n</p>\r\n<p>\r\nDu kan derfor opleve, at siderne ikke virker.\r\n</p>\r\n<p>\r\nVi forventer, at siderne er oppe igen i l√∏bet af dagen.\r\n</p>\r\n<p>\r\nVi beklager ulejligheden.\r\n</p>','Dansk fejlbesked hvis pure-integrationen ikke kan f√• fat i pure-portalen'),(11,'pure_error_message_en','<p>\r\nWe are updating \"Find a researcher\" and pages related to employers and publications.\r\n</p>\r\n<p>\r\nYou can therefore experience that you cannot access these pages.\r\n</p>\r\n<p>\r\nWe expect that the pages are up and running during Monday December 1st.\r\n</p>\r\n<p>\r\nWe apologize for the inconvenience.\r\n</p>\r\n','Engelsk fejlbesked hvis pure-integrationen ikke kan f√• fat i pure-portalen'),(12,'link_check_filter','*magenta.dk*\r\n','Link check filter, en adresse per linie, med support for brug af wildcard (*)'),(13,'link_check_external_urls','https://subsite.ku.jubk.magenta-aps.dk/test/\r\n/subsite/path/\r\n','Adresser der skal checkes via eksterne kald i linkcheckeren. Angives med en adresse per linie. De angivne adresser og alle understier vil blive checket via eksterne kald. Man kan angive stier som enten CMS-URI\'er eller som fulde URL\'er.'),(15,'expired_user_mail','<p>K√¶re [[NAVN]]</p>\r\n<p>\r\nDa din bruger i Obvius CMS ikke har v√¶ret aktiv indenfor de seneste 2 √•r, er den automatisk blevet deaktiveret, s√•ledes at du ikke l√¶ngere vil kunne logge p√• systemet.\r\n</p>\r\n<p>\r\n√ònsker du fortsat at have mulighed for at benytte din bruger i Obvius CMS, skal du kontakte den webansvarlige p√• dit fakultet, for at f√• reaktiveret brugeren. Bliver brugeren ikke reaktiveret indenfor de n√¶ste 6 m√•neder, vil brugeren blive slettet permanent.\r\n</p>\r\n<p>\r\nEventuelle sp√∏rgsm√•l skal rettes til den webansvarlige p√• dit eget fakultet.\r\n</p>\r\n<p>\r\nMed venlig hilsen<br />\r\nObvius Admin\r\n</p>\r\n','HTML-tekst der vil blive brugt i emails sendt til udl√∏bne hvis CMS-konto er udl√∏bet. [[NAVN]] vil blive erstattet med brugerens navn.'),(16,'curis_error_da','Der opstod et problem under kommunikation med medarbejderwebservicen.','Dansk fejlbesked hvis CURIS-baserede dokumenttyper fejler'),(17,'curis_error_en','A problem occured while communicating with the employee data webservice.','Engelsk fejlbesked hvis CURIS-baserede dokumenttyper fejler'),(18,'create_user_newsletter_docidpath','/110202.docid','Sti til det nyhedsbrev nyoprettede brugere automatisk tilmeldes'),(25,'peoplexs_report_id','156789','Id p√• den rapport host peopleXS der hentes stillingsopslag fra.'),(26,'peoplexs_da_data','12920:156789','Portal-id og rapport-id brugt til at hente danske opdateringer fra PeopleXS. Skal angives som <portal-id>:<rapport-id>.'),(27,'peoplexs_en_data','12921:156789','Portal-id og rapport-id brugt til at hente engelske opdateringer fra PeopleXS. Skal angives som <portal-id>:<rapport-id>.'),(28,'globalfooter_da','    <div class=\"footercolumn\">\r\n        <h3 class=\"footer-heading\">Kontakt</h3>\r\n        <ul class=\"footerlinks\">\r\n            <li><a href=\"http://kommunikation.ku.dk/\">Kommunikation</a></li>\r\n            <li><a href=\"http://www.ku.dk/\">K√∏benhavns Universitet</a>\r\n                <span>N√∏rregade 10\r\n                <br />Postboks 2177\r\n                <br />1017 K√∏benhavn K</span></li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"footercolumn\">\r\n        <h3 class=\"footer-heading\">Heading</h3>\r\n        <ul class=\"footerlinks\">\r\n            <li><a href=\"#\">Dansk footer</a></li>\r\n            <li><a href=\"#\">Link Link Link Link Link Link Link Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"footercolumn\">\r\n        <h3 class=\"footer-heading\">Heading</h3>\r\n        <ul class=\"footerlinks\">\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"footercolumn\">\r\n        <h3 class=\"footer-heading\">Heading</h3>\r\n        <ul class=\"footerlinks\">\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li>\r\n                <div class=\"social-items\">\r\n                    <div class=\"social-item\">\r\n                        <a target=\"_blank\" href=\"https://www.facebook.com/Det-Humanistiske-Fakultet-K%C3%B8benhavns-Universitet-361218003980615/\" class=\"social-icon\" title=\"Facebook\"><i class=\"icon-facebook\"></i></a>\r\n                    </div>\r\n                    <div class=\"social-item\">\r\n                        <a target=\"_blank\" href=\"http://facebook.com\" class=\"social-icon\" title=\"Instagram\"><i class=\"icon-instagram\"></i></a>\r\n                    </div>\r\n                    <div class=\"social-item\">\r\n                        <a target=\"_blank\" href=\"http://facebook.com\" class=\"social-icon\" title=\"linkedIn\"><i class=\"icon-linkedin\"></i></a>\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n','Global footer for danske sider'),(29,'globalfooter_en','    <div class=\"footercolumn\">\r\n        <h3 class=\"footer-heading\">Kontakt</h3>\r\n        <ul class=\"footerlinks\">\r\n            <li><a href=\"http://kommunikation.ku.dk/\">Kommunikation</a></li>\r\n            <li><a href=\"http://www.ku.dk/\">K√∏benhavns Universitet</a>\r\n                <span>N√∏rregade 10\r\n                <br />Postboks 2177\r\n                <br />1017 K√∏benhavn K</span></li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"footercolumn\">\r\n        <h3 class=\"footer-heading\">Heading</h3>\r\n        <ul class=\"footerlinks\">\r\n            <li><a href=\"#\">Engelsk footer</a></li>\r\n            <li><a href=\"#\">Link Link Link Link Link Link Link Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"footercolumn\">\r\n        <h3 class=\"footer-heading\">Heading</h3>\r\n        <ul class=\"footerlinks\">\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"footercolumn\">\r\n        <h3 class=\"footer-heading\">Heading</h3>\r\n        <ul class=\"footerlinks\">\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li>\r\n                <div class=\"social-items\">\r\n                    <div class=\"social-item\">\r\n                        <a target=\"_blank\" href=\"https://www.facebook.com/Det-Humanistiske-Fakultet-K%C3%B8benhavns-Universitet-361218003980615/\" class=\"social-icon\" title=\"Facebook\"><i class=\"icon-facebook\"></i></a>\r\n                    </div>\r\n                    <div class=\"social-item\">\r\n                        <a target=\"_blank\" href=\"http://facebook.com\" class=\"social-icon\" title=\"Instagram\"><i class=\"icon-instagram\"></i></a>\r\n                    </div>\r\n                    <div class=\"social-item\">\r\n                        <a target=\"_blank\" href=\"http://facebook.com\" class=\"social-icon\" title=\"linkedIn\"><i class=\"icon-linkedin\"></i></a>\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n','Global footer for engelske sider'),(30,'dead_page_notification_da','<h1>Denne side er markeret som d√∏d</h1>\r\n<p>\r\n    Denne side har meget f√• bes√∏gende og er ikke blevet opdateret i\r\n    mere end to √•r. Hvis siden ikke er relevant l√¶ngere,\r\n    bedes du slette den. Hvis den stadig er relevant b√∏r du opdatere\r\n    den og g√∏re den lettere at finde for de bes√∏gende.\r\n</p>\r\n','Tekst til advarsel om d√∏de sider - dansk'),(31,'dead_page_notification_en','<h1>This page has been marked as dead</h1>\r\n<p>\r\n    This page has very few visits and has not been updated in\r\n    more than two years. If the page is no longer relevant,\r\n    please delete it. If it is still relevant you should update\r\n    it and make it easier to locate for visitors to the site.\r\n</p>\r\n','Tekst til advarsel om d√∏de sider - engelsk'),(32,'globalmenu_news_path_da','/subsite/nyheder/','Sti hvor nyheder i dansk globalmenu hentes fra.'),(33,'globalmenu_news_path_en','/science-sites/institutter/nexs/english/news/','Sti hvor nyheder i engelsk globalmenu hentes fra.'),(34,'globalmenu_news_amount_da','1','Antal nyheder i den danske globalmenu.'),(35,'globalmenu_news_amount_en','1','Antal nyheder i den engelske globalmenu.'),(36,'non_https_hostnames','asdfasdf.hat.muh\r\nsubsite.ku.jubk.magenta-aps.dk\r\n\r\n\r\n','Hostnavne der tvinges til ikke at k√∏re https, et per linie');
+INSERT INTO `config` VALUES (1,'globalmenu_da','','Dansk globalmenu'),(2,'globalmenu_en','','Engelsk globalmenu'),(3,'globaltools_da','<li><a href=\"http://kalender.ku.dk\">Kalender</a></li>\r\n<li><a href=\"http://velkommen.ku.dk/kontakt/\">Kontakt</a></li>\r\n<li><a href=\"http://findvej.ku.dk\">Find vej</a></li>\r\n<li><a href=\"http://www.ku.dk/vejviser/\">Telefonbog</a></li>\r\n<li><a href=\"http://velkommen.ku.dk/job_og_karriere/\">Job</a></li>\r\n<li><a href=\"http://velkommen.ku.dk/indeks/\">A-√Ö-indeks</a></li>\r\n<li><a href=\"http://alumni.ku.dk\">Alumni</a></li>\r\n<li><a href=\"https://intranet.ku.dk/\">KUnet</a></li>\r\n<li class=\"global-sprog\"><a href=\"{LANG_LINK}\" class=\"english\">English</a></li>','Danske globale v√¶rkt√∏jslinks'),(4,'globaltools_en','<li><a href=\"http://introduction.ku.dk/contact/\">Contact</a></li>\r\n<li><a href=\"http://findvej.ku.dk/english/\">Map</a></li>\r\n<li><a href=\"http://www.ku.dk/vejviser/phone.html\">Phone Book</a></li>\r\n<li><a href=\"http://alumni.ku.dk/englishkubulusalumni/\">Alumni</a></li>\r\n<li><a href=\"https://intranet.ku.dk/en\">KUnet</a></li>\r\n<li class=\"global-sprog\"><a href=\"{LANG_LINK}\" class=\"dansk\">Dansk</a></li>','Engelske globale v√¶rkt√∏jslinks'),(9,'enable_beredskab','nej','G√∏r brug af beredskabs-funktion?'),(10,'pure_error_message_da','<p>\r\nVi er i gang med at opdatere medarbejdersiderne, publikationsvisningerne og \"Find en forsker\".\r\n</p>\r\n<p>\r\nDu kan derfor opleve, at siderne ikke virker.\r\n</p>\r\n<p>\r\nVi forventer, at siderne er oppe igen i l√∏bet af dagen.\r\n</p>\r\n<p>\r\nVi beklager ulejligheden.\r\n</p>','Dansk fejlbesked hvis pure-integrationen ikke kan f√• fat i pure-portalen'),(11,'pure_error_message_en','<p>\r\nWe are updating \"Find a researcher\" and pages related to employers and publications.\r\n</p>\r\n<p>\r\nYou can therefore experience that you cannot access these pages.\r\n</p>\r\n<p>\r\nWe expect that the pages are up and running during Monday December 1st.\r\n</p>\r\n<p>\r\nWe apologize for the inconvenience.\r\n</p>\r\n','Engelsk fejlbesked hvis pure-integrationen ikke kan f√• fat i pure-portalen'),(12,'link_check_filter','*magenta.dk*\r\n','Link check filter, en adresse per linie, med support for brug af wildcard (*)'),(13,'link_check_external_urls','https://subsite.ku.jubk.magenta-aps.dk/test/\r\n/subsite/path/\r\n','Adresser der skal checkes via eksterne kald i linkcheckeren. Angives med en adresse per linie. De angivne adresser og alle understier vil blive checket via eksterne kald. Man kan angive stier som enten CMS-URI\'er eller som fulde URL\'er.'),(15,'expired_user_mail','<p>K√¶re [[NAVN]]</p>\r\n<p>\r\nDa din bruger i Obvius CMS ikke har v√¶ret aktiv indenfor de seneste 2 √•r, er den automatisk blevet deaktiveret, s√•ledes at du ikke l√¶ngere vil kunne logge p√• systemet.\r\n</p>\r\n<p>\r\n√ònsker du fortsat at have mulighed for at benytte din bruger i Obvius CMS, skal du kontakte den webansvarlige p√• dit fakultet, for at f√• reaktiveret brugeren. Bliver brugeren ikke reaktiveret indenfor de n√¶ste 6 m√•neder, vil brugeren blive slettet permanent.\r\n</p>\r\n<p>\r\nEventuelle sp√∏rgsm√•l skal rettes til den webansvarlige p√• dit eget fakultet.\r\n</p>\r\n<p>\r\nMed venlig hilsen<br />\r\nObvius Admin\r\n</p>\r\n','HTML-tekst der vil blive brugt i emails sendt til udl√∏bne hvis CMS-konto er udl√∏bet. [[NAVN]] vil blive erstattet med brugerens navn.'),(16,'curis_error_da','Der opstod et problem under kommunikation med medarbejderwebservicen.','Dansk fejlbesked hvis CURIS-baserede dokumenttyper fejler'),(17,'curis_error_en','A problem occured while communicating with the employee data webservice.','Engelsk fejlbesked hvis CURIS-baserede dokumenttyper fejler'),(18,'create_user_newsletter_docidpath','/110202.docid','Sti til det nyhedsbrev nyoprettede brugere automatisk tilmeldes'),(25,'peoplexs_report_id','156789','Id p√• den rapport host peopleXS der hentes stillingsopslag fra.'),(26,'peoplexs_da_data','12920:156789','Portal-id og rapport-id brugt til at hente danske opdateringer fra PeopleXS. Skal angives som <portal-id>:<rapport-id>.'),(27,'peoplexs_en_data','12921:156789','Portal-id og rapport-id brugt til at hente engelske opdateringer fra PeopleXS. Skal angives som <portal-id>:<rapport-id>.'),(28,'globalfooter_da','    <div class=\"footercolumn\">\r\n        <h3 class=\"footer-heading\">Kontakt</h3>\r\n        <ul class=\"footerlinks\">\r\n            <li><a href=\"http://kommunikation.ku.dk/\">Kommunikation</a></li>\r\n            <li><a href=\"http://www.ku.dk/\">K√∏benhavns Universitet</a>\r\n                <span>N√∏rregade 10\r\n                <br />Postboks 2177\r\n                <br />1017 K√∏benhavn K</span></li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"footercolumn\">\r\n        <h3 class=\"footer-heading\">Heading</h3>\r\n        <ul class=\"footerlinks\">\r\n            <li><a href=\"#\">Dansk footer</a></li>\r\n            <li><a href=\"#\">Link Link Link Link Link Link Link Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"footercolumn\">\r\n        <h3 class=\"footer-heading\">Heading</h3>\r\n        <ul class=\"footerlinks\">\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"footercolumn\">\r\n        <h3 class=\"footer-heading\">Heading</h3>\r\n        <ul class=\"footerlinks\">\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li>\r\n                <div class=\"social-items\">\r\n                    <div class=\"social-item\">\r\n                        <a target=\"_blank\" href=\"https://www.facebook.com/Det-Humanistiske-Fakultet-K%C3%B8benhavns-Universitet-361218003980615/\" class=\"social-icon\" title=\"Facebook\"><i class=\"icon-facebook\"></i></a>\r\n                    </div>\r\n                    <div class=\"social-item\">\r\n                        <a target=\"_blank\" href=\"http://facebook.com\" class=\"social-icon\" title=\"Instagram\"><i class=\"icon-instagram\"></i></a>\r\n                    </div>\r\n                    <div class=\"social-item\">\r\n                        <a target=\"_blank\" href=\"http://facebook.com\" class=\"social-icon\" title=\"linkedIn\"><i class=\"icon-linkedin\"></i></a>\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n','Global footer for danske sider'),(29,'globalfooter_en','    <div class=\"footercolumn\">\r\n        <h3 class=\"footer-heading\">Kontakt</h3>\r\n        <ul class=\"footerlinks\">\r\n            <li><a href=\"http://kommunikation.ku.dk/\">Kommunikation</a></li>\r\n            <li><a href=\"http://www.ku.dk/\">K√∏benhavns Universitet</a>\r\n                <span>N√∏rregade 10\r\n                <br />Postboks 2177\r\n                <br />1017 K√∏benhavn K</span></li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"footercolumn\">\r\n        <h3 class=\"footer-heading\">Heading</h3>\r\n        <ul class=\"footerlinks\">\r\n            <li><a href=\"#\">Engelsk footer</a></li>\r\n            <li><a href=\"#\">Link Link Link Link Link Link Link Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"footercolumn\">\r\n        <h3 class=\"footer-heading\">Heading</h3>\r\n        <ul class=\"footerlinks\">\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n        </ul>\r\n    </div>\r\n    <div class=\"footercolumn\">\r\n        <h3 class=\"footer-heading\">Heading</h3>\r\n        <ul class=\"footerlinks\">\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li><a href=\"#\">Link</a></li>\r\n            <li>\r\n                <div class=\"social-items\">\r\n                    <div class=\"social-item\">\r\n                        <a target=\"_blank\" href=\"https://www.facebook.com/Det-Humanistiske-Fakultet-K%C3%B8benhavns-Universitet-361218003980615/\" class=\"social-icon\" title=\"Facebook\"><i class=\"icon-facebook\"></i></a>\r\n                    </div>\r\n                    <div class=\"social-item\">\r\n                        <a target=\"_blank\" href=\"http://facebook.com\" class=\"social-icon\" title=\"Instagram\"><i class=\"icon-instagram\"></i></a>\r\n                    </div>\r\n                    <div class=\"social-item\">\r\n                        <a target=\"_blank\" href=\"http://facebook.com\" class=\"social-icon\" title=\"linkedIn\"><i class=\"icon-linkedin\"></i></a>\r\n                    </div>\r\n                </div>\r\n            </li>\r\n        </ul>\r\n    </div>\r\n','Global footer for engelske sider'),(30,'dead_page_notification_da','<h1>Denne side er markeret som d√∏d</h1>\r\n<p>\r\n    Denne side har meget f√• bes√∏gende og er ikke blevet opdateret i\r\n    mere end to √•r. Hvis siden ikke er relevant l√¶ngere,\r\n    bedes du slette den. Hvis den stadig er relevant b√∏r du opdatere\r\n    den og g√∏re den lettere at finde for de bes√∏gende.\r\n</p>\r\n','Tekst til advarsel om d√∏de sider - dansk'),(31,'dead_page_notification_en','<h1>This page has been marked as dead</h1>\r\n<p>\r\n    This page has very few visits and has not been updated in\r\n    more than two years. If the page is no longer relevant,\r\n    please delete it. If it is still relevant you should update\r\n    it and make it easier to locate for visitors to the site.\r\n</p>\r\n','Tekst til advarsel om d√∏de sider - engelsk'),(32,'globalmenu_news_path_da','/subsite/nyheder/','Sti hvor nyheder i dansk globalmenu hentes fra.'),(33,'globalmenu_news_path_en','/science-sites/institutter/nexs/english/news/','Sti hvor nyheder i engelsk globalmenu hentes fra.'),(34,'globalmenu_news_amount_da','1','Antal nyheder i den danske globalmenu.'),(35,'globalmenu_news_amount_en','1','Antal nyheder i den engelske globalmenu.'),(36,'non_https_hostnames','asdfasdf.hat.muh\r\nsubsite.ku.jubk.magenta-aps.dk\r\n\r\n\r\n','Hostnavne der tvinges til ikke at k√∏re https, et per linie'),(37,'gdpr_form_text_da','','Standard-GDPR-tekst for formularer p√• danske sider'),(38,'gdpr_form_text_en','','Standard-GDPR-tekst for formularer p√• engelske sider'),(39,'gdpr_newsletter_text_da','Jeg giver tilladelse til, at universitetet kan registrere ovenst√•ende oplysninger om mig. Oplysningerne bruges kun til at udsende nyhedsbrevet. De opbevares sikkert og fortroligt i overensstemmelse med <a href=\'https://informationssikkerhed.ku.dk/persondatabeskyttelse/privatlivspolitik/\'>KU\'s privatlivspolitik</a>. Du kan til enhver tid afmelde dig nyhedsbrevet, hvorefter oplysningerne vil blive slettet igen.','Standard-GDPR-tekst for nyhedsbrevstilmelding p√• danske sider'),(40,'gdpr_newsletter_text_en','','Standard-GDPR-tekst for nyhedsbrevstilmelding p√• engelske sider'),(41,'unvisited_page_notification_da','<h1>Denne side er markeret som ubes√∏gt</h1>\r\n<p>\r\n    Denne side har meget f√• bes√∏gende.\r\n    Hvis siden ikke er relevant l√¶ngere,\r\n    bedes du slette den. Hvis den stadig er relevant b√∏r du opdatere\r\n    den og g√∏re den lettere at finde for de bes√∏gende.\r\n</p>\r\n','Tekst til advarsel om ubes√∏gte sider - dansk'),(42,'unvisited_page_notification_en','<h1>This page has been marked as unvisited</h1>\r\n<p>\r\n    This page has very few visits.\r\n    If the page is no longer relevant,\r\n    please delete it. If it is still relevant you should update\r\n    it and make it easier to locate for visitors to the site.\r\n</p>\r\n','Tekst til advarsel om ubes√∏gte sider - engelsk'),(43,'link_check_filter','*magenta.dk*\r\n','Link check filter, en adresse per linie, med support for brug af wildcard (*)'),(44,'search_filters_da','allKU.url = https://soeg.cmstest01.ku.dk\r\nallKU.querykey = q\r\nallKU.param.gcse = 003802773804381141234:2j5u8uupemo\r\nallKU.label = Hele KU\r\n\r\nnews.url = http://nyheder.ku.dk\r\nnews.querykey = query\r\nnews.param.obvius_mode = search\r\nnews.param.doctype = Nyhed\r\nnews.param.path = /fa-sites/nyhedssites/nyheder/alle_nyheder/\r\nnews.label = Nyheder\r\n\r\nstudies.url = https://soeg.cmstest01.ku.dk\r\nstudies.querykey = q\r\nstudies.param.gcse = 003802773804381141234:vo1ekpyvifm\r\nstudies.label = Studier\r\n\r\npostgraduate.url = http://efteruddannelse.kurser.ku.dk/dansk\r\npostgraduate.querykey = SearchWord\r\npostgraduate.param.PageNumber = 1\r\npostgraduate.label = Efteruddannelse\r\n\r\nscientists.url = http://forskning.ku.dk/find-en-forsker\r\nscientists.querykey = search\r\nscientists.param.pure = da/persons/search.html\r\nscientists.label = Forskere\r\n\r\npublications.url = http://forskning.ku.dk/find-en-forsker\r\npublications.querykey = search\r\npublications.param.pure = da/publications/search.html\r\npublications.label = Publikationer\r\n\r\njob.url = http://jobportal.ku.dk/alle-opslag/\r\njob.querykey = pxs_search\r\njob.method = POST\r\njob.label = Job','Danske s√∏gefiltre til den globale s√∏gemenu. Hvert filter skal skrives som flere linjer i formatet <filter>.<key>=<value>, f.eks.:\nallKU.url=soeg.ku.dk\nallKU.querykey=q\nallKU.param.gcse=003802773804381141234:2j5u8uupemo\nallKU.label=Hele ku.dk'),(45,'search_filters_en','allKU.url = https://search.cmstest01.ku.dk\r\nallKU.querykey = q\r\nallKU.param.gcse = 003802773804381141234:oayrskffd-0\r\nallKU.label = All\r\n\r\nnews.url = http://news.ku.dk\r\nnews.querykey = query\r\nnews.param.obvius_mode = search\r\nnews.param.doctype = Nyhed\r\nnews.param.path = /fa-sites/nyhedssites/news/all_news/\r\nnews.label = News\r\n\r\nstudies.url = https://search.cmstest01.ku.dk\r\nstudies.querykey = q\r\nstudies.param.gcse = 014167723083474301078:bw1udng1rlu\r\nstudies.label = Master\'s Programmes\r\n\r\npostgraduate.url = http://efteruddannelse.kurser.ku.dk/english\r\npostgraduate.querykey = SearchWord\r\npostgraduate.param.PageNumber = 1\r\npostgraduate.label = Continuing Education\r\n\r\nscientists.url = http://research.ku.dk/find-a-researcher\r\nscientists.querykey = search\r\nscientists.param.pure = en/persons/search.html\r\nscientists.label = Researchers\r\n\r\npublications.url = http://research.ku.dk/find-a-researcher\r\npublications.querykey = search\r\npublications.param.pure = en/publications/search.html\r\npublications.label = Publications\r\n\r\njob.url = http://employment.ku.dk/all-vacancies/\r\njob.querykey = pxs_search\r\njob.method = POST\r\njob.label = Jobs','Wngelske s√∏gefiltre til den globale s√∏gemenu. Hvert filter skal skrives som flere linjer i formatet <filter>.<key>=<value>, f.eks.:\nallKU.url=soeg.ku.dk\nallKU.querykey=q\nallKU.param.gcse=003802773804381141234:2j5u8uupemo\nallKU.label=Hele ku.dk');
 /*!40000 ALTER TABLE `config` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -413,7 +416,7 @@ CREATE TABLE `cron_servers` (
   `hostname` varchar(255) NOT NULL,
   `type_id` int(10) unsigned DEFAULT NULL,
   `environment_id` int(10) unsigned DEFAULT NULL,
-  `is_primary` tinyint(1) NOT NULL DEFAULT '0',
+  `is_primary` tinyint(1) NOT NULL DEFAULT 0,
   `last_run` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `cron_server_hostname` (`hostname`),
@@ -465,7 +468,7 @@ CREATE TABLE `custom_redirects` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pattern` varchar(700) NOT NULL,
   `dest` varchar(700) NOT NULL,
-  `statuscode` int(11) NOT NULL DEFAULT '301',
+  `statuscode` int(11) NOT NULL DEFAULT 301,
   PRIMARY KEY (`id`),
   UNIQUE KEY `pattern` (`pattern`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -490,7 +493,7 @@ DROP TABLE IF EXISTS `dead_documents`;
 CREATE TABLE `dead_documents` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `docid` int(8) unsigned NOT NULL,
-  `dead_status` enum('dead','protected') DEFAULT 'dead',
+  `dead_status` enum('dead','unvisited','protected') DEFAULT 'dead',
   `registered` datetime NOT NULL,
   `unpublish_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -536,7 +539,7 @@ CREATE TABLE `docid_path` (
 
 LOCK TABLES `docid_path` WRITE;
 /*!40000 ALTER TABLE `docid_path` DISABLE KEYS */;
-INSERT INTO `docid_path` VALUES ('/',1),('/admin/',110189),('/error500/',110196),('/error404/',110197),('/subsite/',110201),('/https_subsite/',115658),('/admin/previews/',120935),('/subsite/inforedigering2/',158705),('/admin/previews/110902/',120936),('/admin/previews/120937/',120938),('/admin/previews/110201/',158706),('/admin/previews/110214/',158707),('/bootstrap-styling/',159014),('/bootstrap-styling/fonts/',159015),('/bootstrap-styling/fonts/image002.jpg/',159016);
+INSERT INTO `docid_path` VALUES ('/',1),('/admin/',110189),('/error500/',110196),('/error404/',110197),('/subsite/',110201),('/https_subsite/',115658),('/admin/previews/',120935),('/subsite/inforedigering2/',158705),('/admin/previews/110902/',120936),('/admin/previews/120937/',120938),('/admin/previews/110201/',158706),('/admin/previews/110214/',158707),('/bootstrap-styling/',159014),('/bootstrap-styling/fonts/',159015),('/bootstrap-styling/fonts/image002.jpg/',159016),('/forside/',159029),('/forside/en-underside/',159030),('/forside/en-side-mere/',159031);
 /*!40000 ALTER TABLE `docid_path` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -552,10 +555,10 @@ CREATE TABLE `docparams_backup` (
   `deletion_time` datetime NOT NULL,
   `docid` int(8) unsigned NOT NULL,
   `name` varchar(127) NOT NULL,
-  `value` longtext,
+  `value` longtext DEFAULT NULL,
   `type` int(8) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=977 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=978 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -564,6 +567,7 @@ CREATE TABLE `docparams_backup` (
 
 LOCK TABLES `docparams_backup` WRITE;
 /*!40000 ALTER TABLE `docparams_backup` DISABLE KEYS */;
+INSERT INTO `docparams_backup` VALUES (977,'2019-02-25 12:00:31',110201,'GLOBALMENU_EN_LINK','http://english.ku.dk/',0);
 /*!40000 ALTER TABLE `docparams_backup` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -576,10 +580,10 @@ DROP TABLE IF EXISTS `docparms`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `docparms` (
   `docparam_id` int(8) unsigned NOT NULL AUTO_INCREMENT,
-  `docid` int(8) unsigned NOT NULL DEFAULT '0',
+  `docid` int(8) unsigned NOT NULL DEFAULT 0,
   `name` varchar(127) NOT NULL DEFAULT '',
-  `value` longtext,
-  `type` int(8) unsigned NOT NULL DEFAULT '0',
+  `value` longtext DEFAULT NULL,
+  `type` int(8) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`docparam_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=988 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -590,7 +594,7 @@ CREATE TABLE `docparms` (
 
 LOCK TABLES `docparms` WRITE;
 /*!40000 ALTER TABLE `docparms` DISABLE KEYS */;
-INSERT INTO `docparms` VALUES (942,1,'GLOBAL_PURE_URI','/subsite/pure-integration/',0),(943,1,'PURE_BASE_URL','http://localhost:8888/portal/',0),(944,1,'PURE_STATIC_URL','http://static-curis.ku.dk/portal/',0),(945,1,'PURE_EXTRA_PREFIXES','http://testcurisrh55.adm.ku.dk:8080/portal/,\r\nhttp://p1kitapp01lcur.adm.ku.dk:8081/portal/',0),(946,1,'ADMIN_DOCTYPES_AVAILABLE','Standard,Sitemap,Link,CalendarEvent,Calendar,Arrangementsliste,Linksliste,Fritekstboks,Banner,Nyhed,Proxy,Forside,Form,Medarbejderoversigt,Medarbejder,Kursusliste,Alerts,Cv,Artikel,Publikationsliste,KeywordSearch,NyNyhedsliste,NyArrangementsliste,Newsletter',0),(982,110201,'MIT_EGET_DOCPARAM','asdf',0),(983,110201,'FOOTER-CONTACT-USER','ase',0),(984,110201,'FACULTYTRACKER','test-test-test',0),(985,110201,'PURE_BASE_URL','https://curis.ku.dk/portal/',0),(986,110201,'GLOBALMENU_EN_LINK','http://english.ku.dk/',0),(987,110201,'PURE_EXTRA_PREFIXES','http://testcurisrh55.adm.ku.dk:8080/portal/, http://p1kitapp01lcur.adm.ku.dk:8081/portal/',0);
+INSERT INTO `docparms` VALUES (942,1,'GLOBAL_PURE_URI','/subsite/pure-integration/',0),(943,1,'PURE_BASE_URL','http://localhost:8888/portal/',0),(944,1,'PURE_STATIC_URL','http://static-curis.ku.dk/portal/',0),(945,1,'PURE_EXTRA_PREFIXES','http://testcurisrh55.adm.ku.dk:8080/portal/,\r\nhttp://p1kitapp01lcur.adm.ku.dk:8081/portal/',0),(946,1,'ADMIN_DOCTYPES_AVAILABLE','Standard,Sitemap,Link,CalendarEvent,Calendar,Arrangementsliste,Linksliste,Fritekstboks,Banner,Nyhed,Proxy,Forside,Form,Medarbejderoversigt,Medarbejder,Kursusliste,Alerts,Cv,Artikel,Publikationsliste,KeywordSearch,NyNyhedsliste,NyArrangementsliste,Newsletter',0),(982,110201,'MIT_EGET_DOCPARAM','asdf',0),(983,110201,'FOOTER-CONTACT-USER','ase',0),(984,110201,'FACULTYTRACKER','test-test-test',0),(985,110201,'PURE_BASE_URL','https://curis.ku.dk/portal/',0),(987,110201,'PURE_EXTRA_PREFIXES','http://testcurisrh55.adm.ku.dk:8080/portal/, http://p1kitapp01lcur.adm.ku.dk:8081/portal/',0);
 /*!40000 ALTER TABLE `docparms` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -602,7 +606,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 trigger post_docparams_delete after delete on docparms
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger post_docparams_delete after delete on docparms
 for each row
 begin
         insert into docparams_backup (docid, name, value, type, deletion_time) values
@@ -627,8 +631,8 @@ CREATE TABLE `docparms_defs` (
   `da_shortdescr` varchar(200) DEFAULT NULL,
   `en_shortdescr` varchar(200) DEFAULT NULL,
   `usagedescr` varchar(200) DEFAULT NULL,
-  `show_in_menu` int(1) DEFAULT '0',
-  `deprecated` int(1) DEFAULT '0'
+  `show_in_menu` int(1) DEFAULT 0,
+  `deprecated` int(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -649,10 +653,10 @@ DROP TABLE IF EXISTS `docparms_test`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `docparms_test` (
-  `docid` int(8) unsigned NOT NULL DEFAULT '0',
+  `docid` int(8) unsigned NOT NULL DEFAULT 0,
   `name` varchar(127) NOT NULL DEFAULT '',
-  `value` longtext,
-  `type` int(8) unsigned NOT NULL DEFAULT '0'
+  `value` longtext DEFAULT NULL,
+  `type` int(8) unsigned NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -699,8 +703,8 @@ CREATE TABLE `doctypes` (
   `id` int(8) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(127) NOT NULL DEFAULT '',
   `parent` int(8) unsigned NOT NULL,
-  `basis` int(1) unsigned NOT NULL DEFAULT '0',
-  `searchable` int(1) NOT NULL DEFAULT '1',
+  `basis` int(1) unsigned NOT NULL DEFAULT 0,
+  `searchable` int(1) NOT NULL DEFAULT 1,
   `sortorder_field_is` varchar(127) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
@@ -726,18 +730,18 @@ DROP TABLE IF EXISTS `documents`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `documents` (
   `id` int(8) unsigned NOT NULL AUTO_INCREMENT,
-  `parent` int(8) unsigned NOT NULL DEFAULT '0',
+  `parent` int(8) unsigned NOT NULL DEFAULT 0,
   `name` varchar(127) NOT NULL DEFAULT '',
-  `type` int(8) unsigned NOT NULL DEFAULT '0',
-  `owner` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `grp` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `accessrules` mediumtext,
-  `inherit_access` int(1) unsigned DEFAULT '1',
+  `type` int(8) unsigned NOT NULL DEFAULT 0,
+  `owner` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `grp` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `accessrules` mediumtext DEFAULT NULL,
+  `inherit_access` int(1) unsigned DEFAULT 1,
   PRIMARY KEY (`id`),
   UNIQUE KEY `parent` (`parent`,`name`),
   KEY `parent_2` (`parent`),
   KEY `doc_docid_public` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=159029 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=159032 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -746,7 +750,7 @@ CREATE TABLE `documents` (
 
 LOCK TABLES `documents` WRITE;
 /*!40000 ALTER TABLE `documents` DISABLE KEYS */;
-INSERT INTO `documents` VALUES (1,0,'dummy',2,1,1,'admin=create,edit,delete,publish,modes\r\nOWNER=create,edit,delete,publish,modes\r\nGROUP+create,edit,delete,publish\r\nALL+view',0),(110189,1,'admin',6,1,1,'',1),(110196,1,'error500',2,1,1,NULL,1),(110197,1,'error404',2,1,1,NULL,1),(110201,1,'subsite',2,1,1,'INHERIT\r\njubk!view,create,edit,publish,delete,modes',1),(115658,1,'https_subsite',2,1,1,'',1),(120935,110189,'previews',2,1,1,NULL,1),(120936,120935,'110902',6,1,1,'ALL=view,create,edit,publish,delete,modes',0),(120938,120935,'120937',2,1,1,'ALL=view,create,edit,publish,delete,modes',0),(158705,110201,'inforedigering2',47,45,1,NULL,1),(158706,120935,'110201',30,45,1,'ALL=view,create,edit,publish,delete,modes',1),(158707,120935,'110214',2,45,1,'ALL=view,create,edit,publish,delete,modes',1),(159014,1,'bootstrap-styling',82,45,1,NULL,1),(159015,159014,'fonts',82,45,1,NULL,1),(159016,159015,'image002.jpg',15,45,1,'INHERIT\r\n',1);
+INSERT INTO `documents` VALUES (1,0,'dummy',2,1,1,'admin=create,edit,delete,publish,modes\r\nOWNER=create,edit,delete,publish,modes\r\nGROUP+create,edit,delete,publish\r\nALL+view',0),(110189,1,'admin',6,1,1,'',1),(110196,1,'error500',2,1,1,NULL,1),(110197,1,'error404',2,1,1,NULL,1),(110201,1,'subsite',2,1,1,'INHERIT\r\njubk!view,create,edit,publish,delete,modes',1),(115658,1,'https_subsite',2,1,1,'',1),(120935,110189,'previews',2,1,1,NULL,1),(120936,120935,'110902',6,1,1,'ALL=view,create,edit,publish,delete,modes',0),(120938,120935,'120937',2,1,1,'ALL=view,create,edit,publish,delete,modes',0),(158705,110201,'inforedigering2',47,45,1,NULL,1),(158706,120935,'110201',30,45,1,'ALL=view,create,edit,publish,delete,modes',1),(158707,120935,'110214',2,45,1,'ALL=view,create,edit,publish,delete,modes',1),(159014,1,'bootstrap-styling',82,45,1,NULL,1),(159015,159014,'fonts',82,45,1,NULL,1),(159016,159015,'image002.jpg',15,45,1,'INHERIT\r\n',1),(159029,1,'forside',2,1,1,NULL,1),(159030,159029,'en-underside',2,1,1,NULL,1),(159031,159029,'en-side-mere',2,1,1,NULL,1);
 /*!40000 ALTER TABLE `documents` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -758,7 +762,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 trigger post_document_insert after insert on documents
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger post_document_insert after insert on documents
 for each row begin
     INSERT INTO documents_extra
         (id, public_or_latest_version, has_public_path, closest_subsite)
@@ -784,7 +788,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 trigger post_document_update after update on documents
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger post_document_update after update on documents
 for each row begin
     
     if (new.parent != old.parent) then
@@ -813,7 +817,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 trigger post_document_delete after delete on documents
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger post_document_delete after delete on documents
 for each row
 begin
         declare p text default NULL;
@@ -840,12 +844,12 @@ DROP TABLE IF EXISTS `documents_backup`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `documents_backup` (
   `id` int(8) unsigned NOT NULL AUTO_INCREMENT,
-  `parent` int(8) unsigned NOT NULL DEFAULT '0',
+  `parent` int(8) unsigned NOT NULL DEFAULT 0,
   `name` char(127) NOT NULL DEFAULT '',
   `type` int(8) unsigned NOT NULL,
-  `owner` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `grp` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `accessrules` text,
+  `owner` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `grp` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `accessrules` text DEFAULT NULL,
   `path` varchar(1024) NOT NULL,
   `date_deleted` datetime NOT NULL,
   `delete_user` int(10) unsigned NOT NULL,
@@ -874,7 +878,7 @@ DROP TABLE IF EXISTS `documents_extra`;
 CREATE TABLE `documents_extra` (
   `id` int(8) unsigned NOT NULL AUTO_INCREMENT,
   `public_or_latest_version` int(10) unsigned DEFAULT NULL,
-  `has_public_path` int(1) unsigned DEFAULT '0',
+  `has_public_path` int(1) unsigned DEFAULT 0,
   `closest_subsite` int(16) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `doc_public_or_latest` (`public_or_latest_version`),
@@ -884,7 +888,7 @@ CREATE TABLE `documents_extra` (
   CONSTRAINT `doc_closest_subsite_ref` FOREIGN KEY (`closest_subsite`) REFERENCES `subsites2` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `doc_extra_doc_ref` FOREIGN KEY (`id`) REFERENCES `documents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `pol_version_ref` FOREIGN KEY (`public_or_latest_version`) REFERENCES `versions` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=159029 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=159032 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -893,7 +897,7 @@ CREATE TABLE `documents_extra` (
 
 LOCK TABLES `documents_extra` WRITE;
 /*!40000 ALTER TABLE `documents_extra` DISABLE KEYS */;
-INSERT INTO `documents_extra` VALUES (1,3,1,NULL),(110189,47860,1,NULL),(110196,50,1,NULL),(110197,47610,1,NULL),(110201,47859,1,753),(115658,47858,1,166),(120935,9750,1,NULL),(120936,9751,1,NULL),(120938,9753,1,NULL),(158705,47545,1,753),(158706,47546,1,NULL),(158707,47547,1,NULL),(159014,47622,1,NULL),(159015,47623,1,NULL),(159016,47624,1,NULL);
+INSERT INTO `documents_extra` VALUES (1,3,1,NULL),(110189,47860,1,NULL),(110196,50,1,NULL),(110197,47610,1,NULL),(110201,47859,1,753),(115658,47858,1,166),(120935,9750,1,NULL),(120936,9751,1,NULL),(120938,9753,1,NULL),(158705,47545,1,753),(158706,47546,1,NULL),(158707,47547,1,NULL),(159014,47622,1,NULL),(159015,47623,1,NULL),(159016,47624,1,NULL),(159029,47861,1,921),(159030,47862,1,921),(159031,47863,1,921);
 /*!40000 ALTER TABLE `documents_extra` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -967,13 +971,13 @@ CREATE TABLE `driftsinfo` (
   `time_created` datetime NOT NULL,
   `time_begin` datetime DEFAULT NULL,
   `time_end` datetime DEFAULT NULL,
-  `description` text COLLATE utf8_danish_ci,
-  `solution` text COLLATE utf8_danish_ci,
+  `description` text COLLATE utf8_danish_ci DEFAULT NULL,
+  `solution` text COLLATE utf8_danish_ci DEFAULT NULL,
   `audience` varchar(100) COLLATE utf8_danish_ci DEFAULT NULL,
   `importance` int(11) NOT NULL,
   `faculties` varchar(100) COLLATE utf8_danish_ci DEFAULT NULL,
   `systems` varchar(100) COLLATE utf8_danish_ci DEFAULT NULL,
-  `last_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `last_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1074,8 +1078,8 @@ CREATE TABLE `faculties` (
   `brandinglogo` varchar(255) COLLATE utf8_danish_ci DEFAULT NULL,
   `css` varchar(255) COLLATE utf8_danish_ci DEFAULT NULL,
   `favicon` varchar(255) COLLATE utf8_danish_ci DEFAULT NULL,
-  `new_user_email_template` text COLLATE utf8_danish_ci,
-  `expired_user_email_template` text COLLATE utf8_danish_ci,
+  `new_user_email_template` text COLLATE utf8_danish_ci DEFAULT NULL,
+  `expired_user_email_template` text COLLATE utf8_danish_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1098,7 +1102,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 TRIGGER post_faculties_update AFTER UPDATE ON faculties
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER post_faculties_update AFTER UPDATE ON faculties
     FOR EACH ROW BEGIN
         DECLARE fac_hist_id int(10) unsigned;
         INSERT INTO faculties_history
@@ -1139,9 +1143,9 @@ CREATE TABLE `faculties_history` (
   `brandinglogo` varchar(255) COLLATE utf8_danish_ci DEFAULT NULL,
   `css` varchar(255) COLLATE utf8_danish_ci DEFAULT NULL,
   `favicon` varchar(255) COLLATE utf8_danish_ci DEFAULT NULL,
-  `new_user_email_template` text COLLATE utf8_danish_ci,
-  `expired_user_email_template` text COLLATE utf8_danish_ci,
-  `updated` datetime DEFAULT CURRENT_TIMESTAMP,
+  `new_user_email_template` text COLLATE utf8_danish_ci DEFAULT NULL,
+  `expired_user_email_template` text COLLATE utf8_danish_ci DEFAULT NULL,
+  `updated` datetime DEFAULT current_timestamp(),
   `by_user` varchar(255) COLLATE utf8_danish_ci DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `faculty_orig_id_ref` (`original_id`),
@@ -1232,9 +1236,9 @@ CREATE TABLE `fieldspecs` (
   `searchable` tinyint(1) unsigned NOT NULL,
   `sortable` tinyint(1) unsigned NOT NULL,
   `publish` tinyint(1) unsigned NOT NULL,
-  `threshold` tinyint(1) unsigned NOT NULL DEFAULT '128',
-  `default_value` text,
-  `extra` text,
+  `threshold` tinyint(1) unsigned NOT NULL DEFAULT 128,
+  `default_value` text DEFAULT NULL,
+  `extra` text DEFAULT NULL,
   PRIMARY KEY (`doctypeid`,`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1265,7 +1269,7 @@ CREATE TABLE `fieldtypes` (
   `validate_args` text NOT NULL,
   `search` varchar(127) NOT NULL DEFAULT 'none',
   `search_args` text NOT NULL,
-  `bin` tinyint(1) NOT NULL DEFAULT '0',
+  `bin` tinyint(1) NOT NULL DEFAULT 0,
   `value_field` enum('text','int','double','date') NOT NULL DEFAULT 'text',
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
@@ -1423,8 +1427,8 @@ DROP TABLE IF EXISTS `formdata`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `formdata` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `docid` int(10) unsigned NOT NULL DEFAULT '0',
-  `entry` longtext,
+  `docid` int(10) unsigned NOT NULL DEFAULT 0,
+  `entry` longtext DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `docid` (`docid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=98 DEFAULT CHARSET=latin1;
@@ -1448,8 +1452,8 @@ DROP TABLE IF EXISTS `formdata_backup`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `formdata_backup` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `docid` int(10) unsigned NOT NULL DEFAULT '0',
-  `entry` longtext,
+  `docid` int(10) unsigned NOT NULL DEFAULT 0,
+  `entry` longtext DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `docid` (`docid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=latin1;
@@ -1476,7 +1480,7 @@ CREATE TABLE `formdata_entry` (
   `docid` int(10) unsigned NOT NULL,
   `entry_nr` int(10) unsigned NOT NULL,
   `time` datetime NOT NULL,
-  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`entry_id`),
   UNIQUE KEY `docid` (`docid`,`entry_nr`)
 ) ENGINE=MyISAM AUTO_INCREMENT=192 DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
@@ -1501,10 +1505,10 @@ DROP TABLE IF EXISTS `formdata_entry_data`;
 CREATE TABLE `formdata_entry_data` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(10) unsigned NOT NULL,
-  `name` varchar(255) COLLATE utf8_danish_ci NOT NULL,
+  `NAME` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `value` text COLLATE utf8_danish_ci NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`,`entry_id`),
+  UNIQUE KEY `name` (`NAME`,`entry_id`),
   KEY `entry_id` (`entry_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2519 DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1532,7 +1536,7 @@ CREATE TABLE `front_faculties` (
   `brandinglogo` varchar(255) COLLATE utf8_danish_ci DEFAULT NULL,
   `css` varchar(255) COLLATE utf8_danish_ci DEFAULT NULL,
   `favicon` varchar(255) COLLATE utf8_danish_ci DEFAULT NULL,
-  `pagemap_html` text COLLATE utf8_danish_ci,
+  `pagemap_html` text COLLATE utf8_danish_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1545,6 +1549,31 @@ LOCK TABLES `front_faculties` WRITE;
 /*!40000 ALTER TABLE `front_faculties` DISABLE KEYS */;
 INSERT INTO `front_faculties` VALUES (1,'Det Humanistiske Fakultet',10,'/grafik/images/topgrafik/hum.svg','/css/units/hum.css','/grafik/images/favicons/favicon_hum.ico','<!--\n<PageMap>\n    <DataObject type=\"metatags\">\n        <Attribute name=\"faculty\" value=\"hum\"/>\n    </DataObject>\n</PageMap>\n-->\n'),(2,'Det Juridiske Fakultet',20,'/grafik/images/topgrafik/jur.svg','/css/units/jura.css','/grafik/images/favicons/favicon_jur.ico','<!--\n<PageMap>\n    <DataObject type=\"metatags\">\n        <Attribute name=\"faculty\" value=\"jura\"/>\n    </DataObject>\n</PageMap>\n-->\n'),(3,'NAT',30,'/grafik/images/topgrafik/nat.svg','/css/units/nat.css','/grafik/images/favicons/favicon_nat.ico','<!--\n<PageMap>\n    <DataObject type=\"metatags\">\n        <Attribute name=\"faculty\" value=\"science\"/>\n    </DataObject>\n</PageMap>\n-->\n'),(4,'Det Samfundsvidenskabelige Fakultet',40,'/grafik/images/topgrafik/samf.svg','/css/units/samf.css','/grafik/images/favicons/favicon_samf.ico','<!--\n<PageMap>\n    <DataObject type=\"metatags\">\n        <Attribute name=\"faculty\" value=\"samf\"/>\n    </DataObject>\n</PageMap>\n-->\n'),(5,'Det Sundhedsvidenskabelige Fakultet',50,'/grafik/images/topgrafik/sund.svg','/css/units/sund.css','/grafik/images/favicons/favicon_sund.ico','<!--\n<PageMap>\n    <DataObject type=\"metatags\">\n        <Attribute name=\"faculty\" value=\"sund\"/>\n    </DataObject>\n</PageMap>\n-->\n'),(6,'Det Teologiske Fakultet',60,'/grafik/images/topgrafik/teo.svg','/css/units/teo.css','/grafik/images/favicons/favicon_teo.ico','<!--\n<PageMap>\n    <DataObject type=\"metatags\">\n        <Attribute name=\"faculty\" value=\"teo\"/>\n    </DataObject>\n</PageMap>\n-->\n'),(7,'KU',70,'/grafik/images/topgrafik/faelles.svg','/css/units/ku-faelles.css','/grafik/images/favicons/favicon_fa.ico','<!--\n<PageMap>\n    <DataObject type=\"metatags\">\n        <Attribute name=\"faculty\" value=\"fa\"/>\n    </DataObject>\n</PageMap>\n-->\n'),(8,'Det Natur- og Biovidenskabelige Fakultet',35,'/grafik/images/topgrafik/science.svg','/css/units/science.css','/grafik/images/favicons/favicon_science.ico','<!--\n<PageMap>\n    <DataObject type=\"metatags\">\n        <Attribute name=\"faculty\" value=\"science\"/>\n    </DataObject>\n</PageMap>\n-->\n');
 /*!40000 ALTER TABLE `front_faculties` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `fuldt_offentlige_perioder`
+--
+
+DROP TABLE IF EXISTS `fuldt_offentlige_perioder`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `fuldt_offentlige_perioder` (
+  `fop_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `periode_start` date NOT NULL,
+  `periode_slut` date NOT NULL,
+  PRIMARY KEY (`fop_id`),
+  KEY `periode_combi` (`periode_start`,`periode_slut`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `fuldt_offentlige_perioder`
+--
+
+LOCK TABLES `fuldt_offentlige_perioder` WRITE;
+/*!40000 ALTER TABLE `fuldt_offentlige_perioder` DISABLE KEYS */;
+/*!40000 ALTER TABLE `fuldt_offentlige_perioder` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1612,7 +1641,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 trigger post_groups_delete after delete on groups
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger post_groups_delete after delete on groups
 for each row
 begin
 	update documents set grp=1 where grp=old.id;
@@ -1632,8 +1661,8 @@ DROP TABLE IF EXISTS `grp_user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `grp_user` (
-  `grp` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `user` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `grp` smallint(5) unsigned NOT NULL DEFAULT 0,
+  `user` smallint(5) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`grp`,`user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -1656,10 +1685,10 @@ DROP TABLE IF EXISTS `href_target_2012_03_07_10_48_36`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `href_target_2012_03_07_10_48_36` (
-  `docid` int(8) unsigned NOT NULL DEFAULT '0',
+  `docid` int(8) unsigned NOT NULL DEFAULT 0,
   `version` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `name` varchar(127) NOT NULL DEFAULT '',
-  `text_value` longtext,
+  `text_value` longtext DEFAULT NULL,
   `int_value` int(8) DEFAULT NULL,
   `double_value` double DEFAULT NULL,
   `date_value` datetime DEFAULT NULL,
@@ -1885,7 +1914,7 @@ CREATE TABLE `linkchecker_statistics` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `subsite_id` int(16) unsigned DEFAULT NULL,
   `check_time` datetime NOT NULL,
-  `broken_count` int(10) unsigned DEFAULT '0',
+  `broken_count` int(10) unsigned DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `lck_subsites_id_ref` (`subsite_id`),
   CONSTRAINT `lck_subsites_id_ref` FOREIGN KEY (`subsite_id`) REFERENCES `subsites2` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -1916,7 +1945,7 @@ CREATE TABLE `links_to` (
   `obvius_uri` varchar(4048) DEFAULT NULL,
   `external_url` varchar(4048) DEFAULT NULL,
   `from_version` datetime DEFAULT NULL,
-  `last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `last_updated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`),
   KEY `links_to_source` (`source`,`from_version`),
   KEY `links_to_dest` (`dest`),
@@ -1961,6 +1990,7 @@ CREATE TABLE `login_sessions` (
 
 LOCK TABLES `login_sessions` WRITE;
 /*!40000 ALTER TABLE `login_sessions` DISABLE KEYS */;
+INSERT INTO `login_sessions` VALUES ('admin','9d560405172eb7c4564f2da7ea615422',1551096377,0,'172.19.0',142);
 /*!40000 ALTER TABLE `login_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2005,9 +2035,9 @@ DROP TABLE IF EXISTS `news`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `news` (
-  `newsboxid` int(8) unsigned NOT NULL DEFAULT '0',
-  `seq` int(8) unsigned NOT NULL DEFAULT '0',
-  `docid` int(8) unsigned NOT NULL DEFAULT '0',
+  `newsboxid` int(8) unsigned NOT NULL DEFAULT 0,
+  `seq` int(8) unsigned NOT NULL DEFAULT 0,
+  `docid` int(8) unsigned NOT NULL DEFAULT 0,
   `start` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `end` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`newsboxid`,`seq`),
@@ -2033,7 +2063,7 @@ DROP TABLE IF EXISTS `newsboxes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `newsboxes` (
-  `docid` int(8) unsigned NOT NULL DEFAULT '0',
+  `docid` int(8) unsigned NOT NULL DEFAULT 0,
   `type` enum('chronological','reverse_chronological','manual_placement') NOT NULL DEFAULT 'chronological',
   PRIMARY KEY (`docid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -2115,7 +2145,7 @@ CREATE TABLE `newsletter_newsletters` (
   `status` tinyint(4) NOT NULL,
   `creation_date` datetime NOT NULL,
   `sent_date` datetime NOT NULL,
-  `show_in_public` tinyint(4) NOT NULL DEFAULT '1',
+  `show_in_public` tinyint(4) NOT NULL DEFAULT 1,
   `subject` varchar(255) NOT NULL,
   `html_content` longtext NOT NULL,
   `template` varchar(255) NOT NULL,
@@ -2316,7 +2346,7 @@ CREATE TABLE `path_tree` (
   UNIQUE KEY `dt_child_depth` (`child`,`depth`,`parent`),
   CONSTRAINT `path_tree_child_ref` FOREIGN KEY (`child`) REFERENCES `documents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `path_tree_parent_ref` FOREIGN KEY (`parent`) REFERENCES `documents` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5381930 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2325,7 +2355,7 @@ CREATE TABLE `path_tree` (
 
 LOCK TABLES `path_tree` WRITE;
 /*!40000 ALTER TABLE `path_tree` DISABLE KEYS */;
-INSERT INTO `path_tree` VALUES (4892711,1,1,0),(4958246,1,110189,1),(4958253,1,110196,1),(4958254,1,110197,1),(4958257,1,110201,1),(4958264,1,115658,1),(5023784,1,120935,2),(5098438,1,120936,3),(5098439,1,120938,3),(5023853,1,158705,2),(5098440,1,158706,3),(5098441,1,158707,3),(4958273,1,159014,1),(5070797,1,159015,2),(5136212,1,159016,3),(4892712,110189,110189,0),(4958277,110189,120935,1),(5033015,110189,120936,2),(5033016,110189,120938,2),(5033017,110189,158706,2),(5033018,110189,158707,2),(4892719,110196,110196,0),(4892720,110197,110197,0),(4892723,110201,110201,0),(4958346,110201,158705,1),(4892730,115658,115658,0),(4892743,120935,120935,0),(4967508,120935,120936,1),(4967509,120935,120938,1),(4967510,120935,158706,1),(4967511,120935,158707,1),(4901974,120936,120936,0),(4901975,120938,120938,0),(4892812,158705,158705,0),(4901976,158706,158706,0),(4901977,158707,158707,0),(4892739,159014,159014,0),(5005290,159014,159015,1),(5070798,159014,159016,2),(4939756,159015,159015,0),(5005291,159015,159016,1),(4939757,159016,159016,0);
+INSERT INTO `path_tree` VALUES (1,1,1,0),(32,1,110189,1),(35,1,110196,1),(34,1,110197,1),(38,1,110201,1),(37,1,115658,1),(63,1,120935,2),(78,1,120936,3),(79,1,120938,3),(64,1,158705,2),(80,1,158706,3),(81,1,158707,3),(33,1,159014,1),(69,1,159015,2),(82,1,159016,3),(36,1,159029,1),(71,1,159030,2),(72,1,159031,2),(2,110189,110189,0),(39,110189,120935,1),(65,110189,120936,2),(66,110189,120938,2),(67,110189,158706,2),(68,110189,158707,2),(3,110196,110196,0),(4,110197,110197,0),(5,110201,110201,0),(40,110201,158705,1),(6,115658,115658,0),(9,120935,120935,0),(43,120935,120936,1),(44,120935,120938,1),(41,120935,158706,1),(42,120935,158707,1),(11,120936,120936,0),(12,120938,120938,0),(10,158705,158705,0),(13,158706,158706,0),(14,158707,158707,0),(7,159014,159014,0),(45,159014,159015,1),(70,159014,159016,2),(15,159015,159015,0),(46,159015,159016,1),(16,159016,159016,0),(8,159029,159029,0),(48,159029,159030,1),(47,159029,159031,1),(17,159030,159030,0),(18,159031,159031,0);
 /*!40000 ALTER TABLE `path_tree` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2382,14 +2412,14 @@ CREATE TABLE `peoplexs` (
   `VACATURESJOBNETFORNAVN` varchar(255) DEFAULT NULL,
   `VACATURESJOBNETTELEFON` varchar(255) DEFAULT NULL,
   `VACATURESNAAM` varchar(255) DEFAULT NULL,
-  `VACATURESOMSCHRIJVING` text,
+  `VACATURESOMSCHRIJVING` text DEFAULT NULL,
   `VACATURESPUBLISHED` int(1) DEFAULT NULL,
   `VACATURESSTILLINGKONTAKTEFTERNAVN` varchar(255) DEFAULT NULL,
   `VACATURESJOBNETEFTERNAVN` varchar(255) DEFAULT NULL,
   `VACATURESVACANCYTYPE` varchar(255) DEFAULT NULL,
   `VACATURESVACANCYTYPEUNRESOLVEDVALUE` int(7) DEFAULT NULL,
   `VACATURESVACATUREID` int(7) DEFAULT NULL,
-  `VACATURESVEREISTEOPLEIDING` text,
+  `VACATURESVEREISTEOPLEIDING` text DEFAULT NULL,
   `VACATURESRELEVANTLINK1` varchar(255) DEFAULT NULL,
   `VACATURESRELEVANTLINK2` varchar(255) DEFAULT NULL,
   `VACATURESACCOUNTPORTALDESCRIPTION2` varchar(255) DEFAULT NULL,
@@ -2437,7 +2467,7 @@ CREATE TABLE `protected_access_logging` (
   `timeofentry` datetime NOT NULL,
   `userinfo` text NOT NULL,
   `requestinfo` text NOT NULL,
-  `message` text,
+  `message` text DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -2542,12 +2572,12 @@ DROP TABLE IF EXISTS `queue`;
 CREATE TABLE `queue` (
   `id` int(8) unsigned NOT NULL AUTO_INCREMENT,
   `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `docid` int(8) unsigned NOT NULL DEFAULT '0',
-  `user` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `docid` int(8) unsigned NOT NULL DEFAULT 0,
+  `user` smallint(5) unsigned NOT NULL DEFAULT 0,
   `command` varchar(127) NOT NULL DEFAULT '',
-  `args` text,
+  `args` text DEFAULT NULL,
   `status` varchar(63) DEFAULT NULL,
-  `message` text,
+  `message` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `date` (`date`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
@@ -2574,10 +2604,10 @@ CREATE TABLE `redirects` (
   `pattern` varchar(255) NOT NULL,
   `target` varchar(255) NOT NULL,
   `http_action` varchar(40) NOT NULL,
-  `last_action` tinyint(1) NOT NULL DEFAULT '0',
+  `last_action` tinyint(1) NOT NULL DEFAULT 0,
   `expiration_date` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3509 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2627,11 +2657,11 @@ CREATE TABLE `sso_sessions` (
   `session_id` char(32) NOT NULL,
   `login` varchar(255) NOT NULL,
   `ip_match` varchar(11) NOT NULL,
-  `permanent` tinyint(1) NOT NULL DEFAULT '0',
+  `permanent` tinyint(1) NOT NULL DEFAULT 0,
   `expires` datetime NOT NULL,
   PRIMARY KEY (`sso_session_id`),
   KEY `sso_sessions_sessionid_idx` (`session_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=142 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=143 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2640,7 +2670,7 @@ CREATE TABLE `sso_sessions` (
 
 LOCK TABLES `sso_sessions` WRITE;
 /*!40000 ALTER TABLE `sso_sessions` DISABLE KEYS */;
-INSERT INTO `sso_sessions` VALUES (9,'51e2c85fcb572d8a73e3c81eacf70179','admin','10.10.136',1,'2014-01-23 09:24:48'),(11,'efbd83c56cc59ef2b84387d1545b0e8d','admin','10.50.136',1,'2014-01-29 10:33:15'),(13,'8613a44f69305624bfca8343f4b8f10e','admin','10.10.136',1,'2014-01-30 05:55:55'),(15,'b10cb5e8a86508ce654a7f22995d5b09','admin','10.10.136',1,'2014-02-04 07:55:55'),(16,'6f3cfe71803b2a510a9b4fd667ac9726','admin','10.10.136',1,'2014-02-04 09:58:20'),(17,'30522a32b107c4c78a02e5351874a59d','admin','10.10.136',1,'2014-02-06 07:23:32'),(18,'6611a744c4b2a38378e7b04089a9ba7d','admin','10.10.136',1,'2014-02-08 07:36:13'),(21,'df6bc8fb457554141b9fd6f9eab3624e','admin','10.50.136',1,'2014-02-12 09:52:10'),(22,'27544cc3537e29f6790dc22d3b0e11d6','test','10.50.136',1,'2014-02-12 09:53:10'),(23,'424b3708aa0d4b81d917d9b1c8b7738e','admin','10.10.136',0,'2014-02-18 05:33:21'),(24,'1a5985e121410e0c598a9314c916572f','admin','10.10.136',1,'2014-02-18 05:34:59'),(25,'51aca8a4caa8327f8de76608dd50e1b8','admin','10.10.136',1,'2014-02-18 06:46:03'),(26,'56f731420fc5118893ac3eeb068f1bc7','admin','10.10.136',1,'2014-02-18 07:05:44'),(28,'9571ed122c05909be33047a090da0a7a','admin','10.10.136',1,'2014-02-22 05:49:07'),(30,'b8dea2cc4d182493e7d9187711211aa3','admin','10.10.136',1,'2014-03-12 12:26:56'),(31,'47040f8a8282f5d75b53ab89cd3c3057','admin','10.10.136',1,'2014-03-14 07:33:13'),(36,'6c8ec74c99c07787239768f4c0b85b19','admin','10.10.136',1,'2014-03-18 09:05:18'),(40,'2c520131a5501e5afed1ab419728327c','admin','10.10.136',1,'2014-04-03 05:11:14'),(41,'d4821d4a9d8c14e6505ce883cb86fc17','admin','10.50.136',1,'2014-04-08 10:15:42'),(42,'129115baac9c386a660ed2ea1b26bd8e','admin','10.10.136',1,'2014-04-09 10:11:42'),(43,'b47da85120d6f5c860f0847cd48c8194','admin','10.10.136',1,'2014-04-11 09:47:20'),(46,'7dc74b6a77715bd5a91f96b552e04b07','admin','10.10.136',0,'2014-05-09 06:05:35'),(50,'e792b00fa0754ceabf94a45ba87a35be','jubk','10.10.136',0,'2014-05-10 07:19:28'),(52,'4df16fac1eaa45d540af3ccd81b22387','jubk','10.10.136',0,'2014-05-13 08:47:07'),(53,'a86f2189b9c54adff225101dd91deb60','admin','10.10.136',1,'2014-05-14 04:34:45'),(54,'ebb0a0c8b01585f27e6970a9e9bfc336','admin','10.10.136',1,'2014-05-16 05:18:24'),(56,'b388ff1013cbc85c4db4613ea3c8e21a','jubk','10.10.136',0,'2014-05-23 10:59:33'),(57,'e338f4b42646e81e5ec867c66d01712d','jubk','10.10.136',0,'2014-06-04 09:23:12'),(59,'0daf2a2f8a3c28f90ccab376a6787b63','admin','10.10.136',1,'2014-06-12 06:12:11'),(60,'cd413e871eaf2745d926912b66152323','admin','10.10.136',1,'2014-06-25 07:31:01'),(65,'15954f0822dbf24bac4b353c67ceb37f','jubk','10.50.136',0,'2014-07-31 13:35:21'),(66,'9ef9b061c1fe44d3f4fa4d75fd2ad116','jubk2','10.10.136',0,'2014-08-28 10:36:06'),(69,'ad679b85f9b0bb4fb0a78238a69db04b','jubk','10.10.136',0,'2014-10-18 08:51:55'),(70,'b4be412ac35d117a338b74e87cc997f5','admin','10.10.136',1,'2014-10-21 12:54:26'),(71,'efd42c7281ac3210e4464dc100dc9cc9','admin','10.10.136',1,'2014-10-24 06:34:12'),(72,'02a2a1e19883c1d49e235b14b9164cb8','jubk','10.10.136',0,'2014-10-30 11:00:02'),(73,'cc836d2faa67bbd7e172d5b76c778e02','admin','10.10.136',1,'2014-11-15 12:21:37'),(75,'4ab6d17664ee288e6526b55d92ae49a0','admin','10.10.136',1,'2014-12-03 11:19:00'),(76,'cbfff92c5914451ed0a5b3c20934d2ab','admin','10.10.136',1,'2014-12-10 11:24:46'),(77,'02097db007cbb462cb736bd984e84d99','admin','10.10.136',1,'2014-12-20 10:37:33'),(78,'b32bde6e075c9249521ebbd3050fc909','admin','10.51.136',1,'2015-01-10 06:04:48'),(79,'32c467ef937315eb61afb9f6d0f1d37b','jubk','10.10.136',0,'2015-01-27 06:42:35'),(81,'d8a42433e6aea530aadac39f54aed39b','jubk2','10.10.136',0,'2015-02-06 10:11:53'),(83,'cf52d04a676743920d63e30e2ff37936','jubk2','10.10.136',0,'2015-02-07 10:55:59'),(88,'15dd3dc84df01f6d2c2271f4cdc96d85','jubk2','10.10.136',0,'2015-02-17 06:54:01'),(90,'984721601cfc0441996601746317b0bb','jubk2','10.10.136',0,'2015-02-21 06:05:37'),(91,'77045afeaa0700e7088b5daedfd3632b','jubk','10.10.136',0,'2015-03-10 11:06:03'),(92,'aefeb5f3e9028ce27b95bd4013798dac','admin','10.10.136',1,'2015-03-11 09:05:45'),(93,'84ae8faefed4a191948ef438a054de07','admin','10.10.136',1,'2015-03-24 10:18:57'),(98,'acfd4e4663cf8506ec54b1cabd8d3c4b','jubktest003','10.10.136',0,'2015-06-03 11:51:23'),(101,'ea07c89024fdfe48f48df207b76e9608','jubk','10.10.136',1,'2015-07-08 08:00:44'),(102,'82b46f0f242e6da9a08539fcd2c891bc','jubk','10.10.136',1,'2015-07-08 09:37:22'),(103,'57743212c2cf2a45158f01d2463b5c65','jubk','10.10.136',1,'2015-07-14 06:14:35'),(106,'abf7c46661a8deafdd4bcf4bbbcdc687','jubk','10.10.136',1,'2015-09-05 11:01:36'),(108,'ef4d0dc8cbe74097772ae0ec8a74c0ac','jubk','10.51.136',1,'2015-09-18 10:56:06'),(110,'7c1b786ff474be456f2421f21c6fe015','jubk','10.10.136',1,'2015-10-30 11:04:25'),(111,'3dadda6575642037066dfd816abdf864','jubk','10.10.136',1,'2015-12-04 09:10:54'),(112,'f8ad58bb3258685ca56ff3a70a845ea3','jubk','10.10.136',1,'2016-02-27 10:53:33'),(115,'8a14197b72e5fbdf9b7ec55295eaf209','jubk','10.51.136',1,'2016-05-04 10:22:31'),(119,'53817615a1d06fc509d654402bc1c035','jubk','10.51.136',1,'2016-05-11 12:16:40'),(121,'cc77ad3e17e39c0dba2cc9153338a86f','jubk2','10.10.136',0,'2016-09-08 11:33:22'),(122,'29e46366ff8a3763a7e9a89cd440b242','jubk','10.10.136',0,'2016-10-12 10:21:34'),(123,'45aaf90641542a19c2adbe0198d331c6','jubk','10.10.136',1,'2016-10-12 10:24:22'),(125,'0573255d0d6a4c8723ce688259b73d89','jubk','10.51.136',1,'2016-10-26 12:00:09'),(127,'b2442bfbe8a48cc571398305be9f86fa','jubk','10.51.136',1,'2017-01-18 15:41:07'),(128,'30d03f5b5829fd458dfc12ccfce17614','jubk','10.51.136',1,'2017-01-31 15:58:25'),(129,'e6956a26e59353236a858e90b2259b49','jubk','10.10.136',1,'2017-02-01 12:54:10'),(130,'00cfd81b5aa1e2f6a2f06b7a72d349b0','jubk','10.10.136',0,'2017-09-23 06:43:53'),(132,'dae1c9cfc70b53a77e04f83edc42f7f5','jubk','10.51.136',1,'2017-11-17 05:59:47'),(133,'9b779b65fba9650f256d1aeb474c8433','jubk','10.10.136',1,'2018-01-23 06:44:03'),(135,'e23eb3f3b089b21b43352bbda161271e','jubk2','192.168.2',1,'2018-06-19 05:18:21'),(136,'dc0fb7891c0d65986272ca85014bf10a','jubk2','192.168.2',1,'2018-06-19 06:22:43'),(137,'4ebd3d9339d2d858d754097a6fd2fabc','jubk','192.168.2',0,'2018-06-20 11:01:18'),(138,'6b01404bfd1780c85f6656314083d4c7','jubk','192.168.2',0,'2018-07-20 07:50:45'),(139,'da07abba071818d64059cfb3ed435865','jubk','192.168.2',1,'2018-07-20 10:28:40'),(140,'eb9a8f3c51f6cada31e9d1e352a67581','jubk','192.168.113',0,'2018-08-23 07:07:00'),(141,'9700e1d874e515d82c6588f5d7fbe943','jubk','192.168.66',0,'2018-09-11 08:39:00');
+INSERT INTO `sso_sessions` VALUES (9,'51e2c85fcb572d8a73e3c81eacf70179','admin','10.10.136',1,'2014-01-23 09:24:48'),(11,'efbd83c56cc59ef2b84387d1545b0e8d','admin','10.50.136',1,'2014-01-29 10:33:15'),(13,'8613a44f69305624bfca8343f4b8f10e','admin','10.10.136',1,'2014-01-30 05:55:55'),(15,'b10cb5e8a86508ce654a7f22995d5b09','admin','10.10.136',1,'2014-02-04 07:55:55'),(16,'6f3cfe71803b2a510a9b4fd667ac9726','admin','10.10.136',1,'2014-02-04 09:58:20'),(17,'30522a32b107c4c78a02e5351874a59d','admin','10.10.136',1,'2014-02-06 07:23:32'),(18,'6611a744c4b2a38378e7b04089a9ba7d','admin','10.10.136',1,'2014-02-08 07:36:13'),(21,'df6bc8fb457554141b9fd6f9eab3624e','admin','10.50.136',1,'2014-02-12 09:52:10'),(22,'27544cc3537e29f6790dc22d3b0e11d6','test','10.50.136',1,'2014-02-12 09:53:10'),(23,'424b3708aa0d4b81d917d9b1c8b7738e','admin','10.10.136',0,'2014-02-18 05:33:21'),(24,'1a5985e121410e0c598a9314c916572f','admin','10.10.136',1,'2014-02-18 05:34:59'),(25,'51aca8a4caa8327f8de76608dd50e1b8','admin','10.10.136',1,'2014-02-18 06:46:03'),(26,'56f731420fc5118893ac3eeb068f1bc7','admin','10.10.136',1,'2014-02-18 07:05:44'),(28,'9571ed122c05909be33047a090da0a7a','admin','10.10.136',1,'2014-02-22 05:49:07'),(30,'b8dea2cc4d182493e7d9187711211aa3','admin','10.10.136',1,'2014-03-12 12:26:56'),(31,'47040f8a8282f5d75b53ab89cd3c3057','admin','10.10.136',1,'2014-03-14 07:33:13'),(36,'6c8ec74c99c07787239768f4c0b85b19','admin','10.10.136',1,'2014-03-18 09:05:18'),(40,'2c520131a5501e5afed1ab419728327c','admin','10.10.136',1,'2014-04-03 05:11:14'),(41,'d4821d4a9d8c14e6505ce883cb86fc17','admin','10.50.136',1,'2014-04-08 10:15:42'),(42,'129115baac9c386a660ed2ea1b26bd8e','admin','10.10.136',1,'2014-04-09 10:11:42'),(43,'b47da85120d6f5c860f0847cd48c8194','admin','10.10.136',1,'2014-04-11 09:47:20'),(46,'7dc74b6a77715bd5a91f96b552e04b07','admin','10.10.136',0,'2014-05-09 06:05:35'),(50,'e792b00fa0754ceabf94a45ba87a35be','jubk','10.10.136',0,'2014-05-10 07:19:28'),(52,'4df16fac1eaa45d540af3ccd81b22387','jubk','10.10.136',0,'2014-05-13 08:47:07'),(53,'a86f2189b9c54adff225101dd91deb60','admin','10.10.136',1,'2014-05-14 04:34:45'),(54,'ebb0a0c8b01585f27e6970a9e9bfc336','admin','10.10.136',1,'2014-05-16 05:18:24'),(56,'b388ff1013cbc85c4db4613ea3c8e21a','jubk','10.10.136',0,'2014-05-23 10:59:33'),(57,'e338f4b42646e81e5ec867c66d01712d','jubk','10.10.136',0,'2014-06-04 09:23:12'),(59,'0daf2a2f8a3c28f90ccab376a6787b63','admin','10.10.136',1,'2014-06-12 06:12:11'),(60,'cd413e871eaf2745d926912b66152323','admin','10.10.136',1,'2014-06-25 07:31:01'),(65,'15954f0822dbf24bac4b353c67ceb37f','jubk','10.50.136',0,'2014-07-31 13:35:21'),(66,'9ef9b061c1fe44d3f4fa4d75fd2ad116','jubk2','10.10.136',0,'2014-08-28 10:36:06'),(69,'ad679b85f9b0bb4fb0a78238a69db04b','jubk','10.10.136',0,'2014-10-18 08:51:55'),(70,'b4be412ac35d117a338b74e87cc997f5','admin','10.10.136',1,'2014-10-21 12:54:26'),(71,'efd42c7281ac3210e4464dc100dc9cc9','admin','10.10.136',1,'2014-10-24 06:34:12'),(72,'02a2a1e19883c1d49e235b14b9164cb8','jubk','10.10.136',0,'2014-10-30 11:00:02'),(73,'cc836d2faa67bbd7e172d5b76c778e02','admin','10.10.136',1,'2014-11-15 12:21:37'),(75,'4ab6d17664ee288e6526b55d92ae49a0','admin','10.10.136',1,'2014-12-03 11:19:00'),(76,'cbfff92c5914451ed0a5b3c20934d2ab','admin','10.10.136',1,'2014-12-10 11:24:46'),(77,'02097db007cbb462cb736bd984e84d99','admin','10.10.136',1,'2014-12-20 10:37:33'),(78,'b32bde6e075c9249521ebbd3050fc909','admin','10.51.136',1,'2015-01-10 06:04:48'),(79,'32c467ef937315eb61afb9f6d0f1d37b','jubk','10.10.136',0,'2015-01-27 06:42:35'),(81,'d8a42433e6aea530aadac39f54aed39b','jubk2','10.10.136',0,'2015-02-06 10:11:53'),(83,'cf52d04a676743920d63e30e2ff37936','jubk2','10.10.136',0,'2015-02-07 10:55:59'),(88,'15dd3dc84df01f6d2c2271f4cdc96d85','jubk2','10.10.136',0,'2015-02-17 06:54:01'),(90,'984721601cfc0441996601746317b0bb','jubk2','10.10.136',0,'2015-02-21 06:05:37'),(91,'77045afeaa0700e7088b5daedfd3632b','jubk','10.10.136',0,'2015-03-10 11:06:03'),(92,'aefeb5f3e9028ce27b95bd4013798dac','admin','10.10.136',1,'2015-03-11 09:05:45'),(93,'84ae8faefed4a191948ef438a054de07','admin','10.10.136',1,'2015-03-24 10:18:57'),(98,'acfd4e4663cf8506ec54b1cabd8d3c4b','jubktest003','10.10.136',0,'2015-06-03 11:51:23'),(101,'ea07c89024fdfe48f48df207b76e9608','jubk','10.10.136',1,'2015-07-08 08:00:44'),(102,'82b46f0f242e6da9a08539fcd2c891bc','jubk','10.10.136',1,'2015-07-08 09:37:22'),(103,'57743212c2cf2a45158f01d2463b5c65','jubk','10.10.136',1,'2015-07-14 06:14:35'),(106,'abf7c46661a8deafdd4bcf4bbbcdc687','jubk','10.10.136',1,'2015-09-05 11:01:36'),(108,'ef4d0dc8cbe74097772ae0ec8a74c0ac','jubk','10.51.136',1,'2015-09-18 10:56:06'),(110,'7c1b786ff474be456f2421f21c6fe015','jubk','10.10.136',1,'2015-10-30 11:04:25'),(111,'3dadda6575642037066dfd816abdf864','jubk','10.10.136',1,'2015-12-04 09:10:54'),(112,'f8ad58bb3258685ca56ff3a70a845ea3','jubk','10.10.136',1,'2016-02-27 10:53:33'),(115,'8a14197b72e5fbdf9b7ec55295eaf209','jubk','10.51.136',1,'2016-05-04 10:22:31'),(119,'53817615a1d06fc509d654402bc1c035','jubk','10.51.136',1,'2016-05-11 12:16:40'),(121,'cc77ad3e17e39c0dba2cc9153338a86f','jubk2','10.10.136',0,'2016-09-08 11:33:22'),(122,'29e46366ff8a3763a7e9a89cd440b242','jubk','10.10.136',0,'2016-10-12 10:21:34'),(123,'45aaf90641542a19c2adbe0198d331c6','jubk','10.10.136',1,'2016-10-12 10:24:22'),(125,'0573255d0d6a4c8723ce688259b73d89','jubk','10.51.136',1,'2016-10-26 12:00:09'),(127,'b2442bfbe8a48cc571398305be9f86fa','jubk','10.51.136',1,'2017-01-18 15:41:07'),(128,'30d03f5b5829fd458dfc12ccfce17614','jubk','10.51.136',1,'2017-01-31 15:58:25'),(129,'e6956a26e59353236a858e90b2259b49','jubk','10.10.136',1,'2017-02-01 12:54:10'),(130,'00cfd81b5aa1e2f6a2f06b7a72d349b0','jubk','10.10.136',0,'2017-09-23 06:43:53'),(132,'dae1c9cfc70b53a77e04f83edc42f7f5','jubk','10.51.136',1,'2017-11-17 05:59:47'),(133,'9b779b65fba9650f256d1aeb474c8433','jubk','10.10.136',1,'2018-01-23 06:44:03'),(135,'e23eb3f3b089b21b43352bbda161271e','jubk2','192.168.2',1,'2018-06-19 05:18:21'),(136,'dc0fb7891c0d65986272ca85014bf10a','jubk2','192.168.2',1,'2018-06-19 06:22:43'),(137,'4ebd3d9339d2d858d754097a6fd2fabc','jubk','192.168.2',0,'2018-06-20 11:01:18'),(138,'6b01404bfd1780c85f6656314083d4c7','jubk','192.168.2',0,'2018-07-20 07:50:45'),(139,'da07abba071818d64059cfb3ed435865','jubk','192.168.2',1,'2018-07-20 10:28:40'),(140,'eb9a8f3c51f6cada31e9d1e352a67581','jubk','192.168.113',0,'2018-08-23 07:07:00'),(141,'9700e1d874e515d82c6588f5d7fbe943','jubk','192.168.66',0,'2018-09-11 08:39:00'),(142,'80108ce675480367260ceae232d1496f','admin','172.19.0',0,'2019-02-26 07:42:48');
 /*!40000 ALTER TABLE `sso_sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2661,7 +2691,7 @@ CREATE TABLE `sso_tickets` (
   KEY `sso_tickets_sso_session_ref` (`sso_session_id`),
   KEY `sso_tickets_code_idx` (`ticketcode`),
   CONSTRAINT `sso_tickets_sso_session_ref` FOREIGN KEY (`sso_session_id`) REFERENCES `sso_sessions` (`sso_session_id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=185 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=186 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2686,7 +2716,7 @@ CREATE TABLE `subscribers` (
   `company` varchar(127) NOT NULL DEFAULT '',
   `passwd` varchar(63) NOT NULL DEFAULT '',
   `email` varchar(63) NOT NULL DEFAULT '',
-  `suspended` tinyint(3) NOT NULL DEFAULT '0',
+  `suspended` tinyint(3) NOT NULL DEFAULT 0,
   `cookie` varchar(64) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
@@ -2711,8 +2741,8 @@ DROP TABLE IF EXISTS `subscriptions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `subscriptions` (
-  `docid` int(8) unsigned NOT NULL DEFAULT '0',
-  `subscriber` int(10) unsigned NOT NULL DEFAULT '0',
+  `docid` int(8) unsigned NOT NULL DEFAULT 0,
+  `subscriber` int(10) unsigned NOT NULL DEFAULT 0,
   `last_update` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`docid`,`subscriber`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -2765,14 +2795,14 @@ DROP TABLE IF EXISTS `subsite_statistic_collections`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `subsite_statistic_collections` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `started` datetime DEFAULT CURRENT_TIMESTAMP,
+  `started` datetime DEFAULT current_timestamp(),
   `ended` datetime DEFAULT NULL,
-  `is_current` int(1) unsigned NOT NULL DEFAULT '0',
-  `is_latest_daily` int(1) unsigned NOT NULL DEFAULT '0',
-  `is_latest_monthly` int(1) unsigned NOT NULL DEFAULT '0',
-  `is_latest_yearly` int(1) unsigned NOT NULL DEFAULT '0',
+  `is_current` int(1) unsigned NOT NULL DEFAULT 0,
+  `is_latest_daily` int(1) unsigned NOT NULL DEFAULT 0,
+  `is_latest_monthly` int(1) unsigned NOT NULL DEFAULT 0,
+  `is_latest_yearly` int(1) unsigned NOT NULL DEFAULT 0,
   `status` varchar(255) NOT NULL DEFAULT 'RUNNING',
-  `error_output` text,
+  `error_output` text DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `ssc_started_idx` (`started`),
   KEY `ssc_current_started_idx` (`is_current`,`started`),
@@ -2855,7 +2885,7 @@ CREATE TABLE `subsite_stats` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `subsite_id` (`subsite_id`,`category`),
   CONSTRAINT `sss_subsites_id_ref` FOREIGN KEY (`subsite_id`) REFERENCES `subsites2` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8 COLLATE=utf8_danish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2864,6 +2894,7 @@ CREATE TABLE `subsite_stats` (
 
 LOCK TABLES `subsite_stats` WRITE;
 /*!40000 ALTER TABLE `subsite_stats` DISABLE KEYS */;
+INSERT INTO `subsite_stats` VALUES (66,921,'link-check-errors','0','2019-02-25 12:02:08'),(67,921,'awstats-pageshows','0','2019-02-25 12:02:08'),(68,921,'awstats-pageshows-old','0','2019-02-25 12:02:08'),(69,921,'awstats-visitors','0','2019-02-25 12:02:08'),(70,921,'awstats-visitors-old','0','2019-02-25 12:02:08');
 /*!40000 ALTER TABLE `subsite_stats` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2876,7 +2907,7 @@ DROP TABLE IF EXISTS `subsites`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `subsites` (
   `id` int(32) NOT NULL AUTO_INCREMENT,
-  `user_id` int(32) NOT NULL DEFAULT '0',
+  `user_id` int(32) NOT NULL DEFAULT 0,
   `subsite` text NOT NULL,
   `path` text NOT NULL,
   PRIMARY KEY (`id`)
@@ -2901,39 +2932,44 @@ DROP TABLE IF EXISTS `subsites2`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `subsites2` (
   `id` int(16) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(16) NOT NULL DEFAULT '0',
-  `domain` longtext COLLATE latin1_bin,
-  `is_https` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `old_path` longtext COLLATE latin1_bin,
+  `user_id` int(16) NOT NULL DEFAULT 0,
+  `domain` longtext COLLATE latin1_bin DEFAULT NULL,
+  `is_https` tinyint(1) unsigned NOT NULL DEFAULT 0,
+  `old_path` longtext COLLATE latin1_bin DEFAULT NULL,
   `root_docid` int(8) unsigned DEFAULT NULL,
   `title` longtext COLLATE latin1_bin NOT NULL,
-  `alt_title` longtext COLLATE latin1_bin,
+  `alt_title` longtext COLLATE latin1_bin DEFAULT NULL,
   `front_faculty` varchar(255) COLLATE latin1_bin DEFAULT '',
   `front_faculty_id` int(10) unsigned DEFAULT NULL,
   `backend_faculty` varchar(255) COLLATE latin1_bin DEFAULT '',
   `backend_faculty_id` int(10) unsigned DEFAULT NULL,
-  `comments` longtext COLLATE latin1_bin,
+  `comments` longtext COLLATE latin1_bin DEFAULT NULL,
   `lang` char(2) COLLATE latin1_bin NOT NULL DEFAULT 'da',
   `local_analytics` varchar(255) COLLATE latin1_bin DEFAULT '',
   `local_analytics_use_local_domain` varchar(3) COLLATE latin1_bin DEFAULT NULL,
-  `global_menu` longtext COLLATE latin1_bin,
+  `global_menu` longtext COLLATE latin1_bin DEFAULT NULL,
   `other_language_link` varchar(1024) COLLATE latin1_bin DEFAULT NULL,
-  `own_leftmenu` tinyint(1) unsigned DEFAULT '1',
-  `responsive` int(1) unsigned DEFAULT '0',
-  `use_bootstrap` int(1) unsigned DEFAULT '0',
-  `dont_inherit_local_analytics` tinyint(1) unsigned DEFAULT '0',
+  `disable_search_engine_indexing` int(1) unsigned DEFAULT 0,
+  `own_leftmenu` tinyint(1) unsigned DEFAULT 1,
+  `fourth_menu_level_active` int(1) unsigned DEFAULT 0,
+  `responsive` int(1) unsigned DEFAULT 0,
+  `use_bootstrap` int(1) unsigned DEFAULT 0,
+  `dont_inherit_local_analytics` tinyint(1) unsigned DEFAULT 0,
   `brandingunit` varchar(255) COLLATE latin1_bin DEFAULT '',
   `webteam_id` int(11) DEFAULT NULL,
-  `warning_banner` longtext COLLATE latin1_bin,
-  `dont_inherit_warning_banner` tinyint(1) unsigned DEFAULT '0',
+  `warning_banner` longtext COLLATE latin1_bin DEFAULT NULL,
+  `dont_inherit_warning_banner` tinyint(1) unsigned DEFAULT 0,
   `branding_text1` varchar(255) COLLATE latin1_bin DEFAULT '',
   `branding_text2` varchar(255) COLLATE latin1_bin DEFAULT '',
   `latest_unvisited_count` int(10) unsigned DEFAULT NULL,
+  `website_category_id` int(10) unsigned DEFAULT 1,
   PRIMARY KEY (`id`),
   KEY `subsites2_path_idx` (`old_path`(255)),
   KEY `subsites2_root_docid_idx` (`root_docid`),
-  FULLTEXT KEY `ss_fulltext` (`domain`,`old_path`,`title`,`alt_title`,`lang`,`comments`,`brandingunit`,`warning_banner`)
-) ENGINE=InnoDB AUTO_INCREMENT=921 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
+  KEY `website_category_id_ref` (`website_category_id`),
+  FULLTEXT KEY `ss_fulltext` (`domain`,`old_path`,`title`,`alt_title`,`lang`,`comments`,`brandingunit`,`warning_banner`),
+  CONSTRAINT `website_category_id_ref` FOREIGN KEY (`website_category_id`) REFERENCES `website_categories` (`id`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=922 DEFAULT CHARSET=latin1 COLLATE=latin1_bin;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2942,7 +2978,7 @@ CREATE TABLE `subsites2` (
 
 LOCK TABLES `subsites2` WRITE;
 /*!40000 ALTER TABLE `subsites2` DISABLE KEYS */;
-INSERT INTO `subsites2` VALUES (166,1,'somesubsite.ku.localhost.magenta.dk',1,'/https_subsite/',115658,'https subsite3','',NULL,NULL,'Det Humanistiske Fakultet',4,'Kommentar','da','',NULL,NULL,NULL,1,0,0,0,'/120921.docid',21,NULL,0,'','',1),(753,45,'subsite.ku.localhost.magenta.dk',0,'/subsite/',110201,'Test af funky nav_head titel √É‚Ä† √ÉÀú √É‚Ä¶','','Det Natur- og Biovidenskabelige Fakultet',8,'Det Humanistiske Fakultet',5,NULL,'da','inherit this','yes',NULL,'http://english.ku.dk/',1,1,1,0,'',19,'',0,'','',12);
+INSERT INTO `subsites2` VALUES (166,1,'somesubsite.ku.localhost.magenta.dk',1,'/https_subsite/',115658,'https subsite3','',NULL,NULL,'Det Humanistiske Fakultet',4,'Kommentar','da','',NULL,NULL,NULL,0,1,0,0,0,0,'/120921.docid',21,NULL,0,'','',1,1),(753,45,'subsite.ku.localhost.magenta.dk',0,'/subsite/',110201,'Test af funky nav_head titel √É‚Ä† √ÉÀú √É‚Ä¶','','Det Natur- og Biovidenskabelige Fakultet',8,'Det Humanistiske Fakultet',5,NULL,'da','inherit this','yes',NULL,'http://english.ku.dk/',0,1,0,1,1,0,'',19,'',0,'','',12,1),(921,1,'',0,NULL,159029,'Subsitetest','','',NULL,'',7,NULL,'da','',NULL,NULL,'',0,1,0,1,1,0,'',NULL,'',0,'','',NULL,2);
 /*!40000 ALTER TABLE `subsites2` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -2954,7 +2990,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 trigger post_subsites2_insert after insert on subsites2
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger post_subsites2_insert after insert on subsites2
 for each row
 begin
     if(new.root_docid is not null) then
@@ -2975,7 +3011,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 trigger post_subsites2_update after update on subsites2
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger post_subsites2_update after update on subsites2
 for each row
 begin
     if(new.root_docid != old.root_docid) then
@@ -3001,7 +3037,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 trigger post_subsites2_delete after delete on subsites2
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger post_subsites2_delete after delete on subsites2
 for each row
 begin
     if(old.root_docid is not null) then
@@ -3349,17 +3385,17 @@ CREATE TABLE `users` (
   `name` varchar(127) NOT NULL DEFAULT '',
   `email` varchar(127) NOT NULL DEFAULT '',
   `notes` text NOT NULL,
-  `admin` tinyint(1) NOT NULL DEFAULT '0',
+  `admin` tinyint(1) NOT NULL DEFAULT 0,
   `deactivated` int(12) DEFAULT NULL,
-  `can_manage_users` tinyint(1) NOT NULL DEFAULT '0',
-  `can_manage_groups` tinyint(1) NOT NULL DEFAULT '0',
-  `surveillance` text,
+  `can_manage_users` tinyint(1) NOT NULL DEFAULT 0,
+  `can_manage_groups` tinyint(1) NOT NULL DEFAULT 0,
+  `surveillance` text DEFAULT NULL,
   `faculty` varchar(255) DEFAULT '',
   `faculty_id` int(10) unsigned DEFAULT NULL,
   `webteam_id` int(10) unsigned DEFAULT NULL,
   `created_by` varchar(31) DEFAULT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `is_admin` int(1) unsigned DEFAULT '0',
+  `created` timestamp NOT NULL DEFAULT current_timestamp(),
+  `is_admin` int(1) unsigned DEFAULT 0,
   `phoneno` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `login` (`login`)
@@ -3384,7 +3420,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 trigger post_user_insert after insert on users 
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger post_user_insert after insert on users 
 for each row
 begin 
       call delete_user_surveillance(new.id);
@@ -3406,7 +3442,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 trigger post_user_update after update on users 
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger post_user_update after update on users 
 for each row
 begin 
       call delete_user_surveillance(new.id);
@@ -3428,7 +3464,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 trigger post_user_delete after delete on users
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger post_user_delete after delete on users
 for each row
 begin
 	call delete_user_surveillance(old.id);
@@ -3454,7 +3490,7 @@ CREATE TABLE `vacancies` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `jobid` int(10) unsigned NOT NULL,
   `title` varchar(255) CHARACTER SET utf8mb4 NOT NULL,
-  `description` text CHARACTER SET utf8mb4,
+  `description` text CHARACTER SET utf8mb4 DEFAULT NULL,
   `advertisement_url` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
   `application_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `deadline` date DEFAULT NULL,
@@ -3466,7 +3502,7 @@ CREATE TABLE `vacancies` (
   `job_type` varchar(75) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `link` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
   `language` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pxs` tinyint(4) DEFAULT '0',
+  `pxs` tinyint(4) DEFAULT 0,
   `pxs_report_key` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
@@ -3547,18 +3583,18 @@ DROP TABLE IF EXISTS `versions`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `versions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `docid` int(8) unsigned NOT NULL DEFAULT '0',
+  `docid` int(8) unsigned NOT NULL DEFAULT 0,
   `version` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `type` int(8) unsigned NOT NULL DEFAULT '0',
-  `public` tinyint(8) NOT NULL DEFAULT '0',
-  `valid` tinyint(8) NOT NULL DEFAULT '0',
+  `type` int(8) unsigned NOT NULL DEFAULT 0,
+  `public` tinyint(8) NOT NULL DEFAULT 0,
+  `valid` tinyint(8) NOT NULL DEFAULT 0,
   `lang` char(2) NOT NULL DEFAULT 'da',
   `user` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `versions_docid_version` (`docid`,`version`),
   KEY `type` (`type`),
   KEY `versions_public_id` (`public`,`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47861 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=47864 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3567,7 +3603,7 @@ CREATE TABLE `versions` (
 
 LOCK TABLES `versions` WRITE;
 /*!40000 ALTER TABLE `versions` DISABLE KEYS */;
-INSERT INTO `versions` VALUES (1,1,'2010-09-15 14:37:18',2,0,0,'da',1),(2,1,'2010-11-02 10:38:25',2,0,0,'da',1),(3,1,'2012-02-10 09:53:24',30,1,0,'da',1),(47,110196,'2010-09-15 17:51:19',2,0,0,'da',1),(48,110196,'2010-09-15 17:52:17',2,0,0,'da',1),(49,110196,'2011-05-19 14:12:37',2,0,0,'da',1),(50,110196,'2011-05-19 14:12:45',2,1,0,'da',1),(51,110197,'2010-09-15 17:51:50',2,0,0,'da',1),(9750,120935,'2014-03-10 14:09:54',2,1,0,'da',1),(9751,120936,'2014-03-10 14:10:03',6,1,0,'da',1),(9753,120938,'2014-03-10 14:11:37',2,1,0,'da',1),(47544,158705,'2015-10-29 12:53:34',47,0,0,'da',45),(47545,158705,'2015-10-29 15:02:20',47,1,0,'da',45),(47546,158706,'2015-12-10 10:22:56',30,1,0,'da',45),(47547,158707,'2015-12-21 14:29:44',2,1,0,'da',45),(47610,110197,'2016-10-31 12:02:03',2,1,0,'da',45),(47622,159014,'2017-03-13 16:33:45',82,1,0,'da',45),(47623,159015,'2017-03-13 16:34:06',82,1,0,'da',45),(47624,159016,'2017-03-13 16:34:25',15,1,0,'da',1),(47858,115658,'2018-09-10 13:03:16',30,1,0,'da',45),(47859,110201,'2018-09-10 13:04:13',30,1,0,'da',45),(47860,110189,'2018-09-10 13:11:44',6,1,0,'da',45);
+INSERT INTO `versions` VALUES (1,1,'2010-09-15 14:37:18',2,0,0,'da',1),(2,1,'2010-11-02 10:38:25',2,0,0,'da',1),(3,1,'2012-02-10 09:53:24',30,1,0,'da',1),(47,110196,'2010-09-15 17:51:19',2,0,0,'da',1),(48,110196,'2010-09-15 17:52:17',2,0,0,'da',1),(49,110196,'2011-05-19 14:12:37',2,0,0,'da',1),(50,110196,'2011-05-19 14:12:45',2,1,0,'da',1),(51,110197,'2010-09-15 17:51:50',2,0,0,'da',1),(9750,120935,'2014-03-10 14:09:54',2,1,0,'da',1),(9751,120936,'2014-03-10 14:10:03',6,1,0,'da',1),(9753,120938,'2014-03-10 14:11:37',2,1,0,'da',1),(47544,158705,'2015-10-29 12:53:34',47,0,0,'da',45),(47545,158705,'2015-10-29 15:02:20',47,1,0,'da',45),(47546,158706,'2015-12-10 10:22:56',30,1,0,'da',45),(47547,158707,'2015-12-21 14:29:44',2,1,0,'da',45),(47610,110197,'2016-10-31 12:02:03',2,1,0,'da',45),(47622,159014,'2017-03-13 16:33:45',82,1,0,'da',45),(47623,159015,'2017-03-13 16:34:06',82,1,0,'da',45),(47624,159016,'2017-03-13 16:34:25',15,1,0,'da',1),(47858,115658,'2018-09-10 13:03:16',30,1,0,'da',45),(47859,110201,'2018-09-10 13:04:13',30,1,0,'da',45),(47860,110189,'2018-09-10 13:11:44',6,1,0,'da',45),(47861,159029,'2019-02-25 11:44:01',2,1,0,'da',1),(47862,159030,'2019-02-25 11:46:01',2,1,0,'da',1),(47863,159031,'2019-02-25 12:02:38',2,1,0,'da',1);
 /*!40000 ALTER TABLE `versions` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -3579,7 +3615,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 trigger post_version_insert after insert on versions
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger post_version_insert after insert on versions
 for each row
 begin
     call update_public_or_latest(new.docid);
@@ -3599,7 +3635,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 trigger post_version_update after update on versions
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger post_version_update after update on versions
 for each row
 begin
     if(new.public != old.public) then
@@ -3623,7 +3659,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 trigger post_version_delete after delete on versions 
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger post_version_delete after delete on versions 
 for each row
 begin
       insert into versions_backup (docid, version, type, public, 
@@ -3645,11 +3681,11 @@ DROP TABLE IF EXISTS `versions_backup`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `versions_backup` (
-  `docid` int(8) unsigned NOT NULL DEFAULT '0',
+  `docid` int(8) unsigned NOT NULL DEFAULT 0,
   `version` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `type` int(8) unsigned NOT NULL DEFAULT '0',
-  `public` tinyint(8) NOT NULL DEFAULT '0',
-  `valid` tinyint(8) NOT NULL DEFAULT '0',
+  `type` int(8) unsigned NOT NULL DEFAULT 0,
+  `public` tinyint(8) NOT NULL DEFAULT 0,
+  `valid` tinyint(8) NOT NULL DEFAULT 0,
   `lang` char(2) NOT NULL DEFAULT 'da',
   `user` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`docid`,`version`),
@@ -3676,10 +3712,10 @@ DROP TABLE IF EXISTS `vfields`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vfields` (
   `vfields_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `docid` int(8) unsigned NOT NULL DEFAULT '0',
+  `docid` int(8) unsigned NOT NULL DEFAULT 0,
   `version` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `name` varchar(127) NOT NULL DEFAULT '',
-  `text_value` longtext,
+  `text_value` longtext DEFAULT NULL,
   `int_value` int(8) DEFAULT NULL,
   `double_value` double DEFAULT NULL,
   `date_value` datetime DEFAULT NULL,
@@ -3690,7 +3726,7 @@ CREATE TABLE `vfields` (
   KEY `vfields_docid_version_name_text_value_idx` (`docid`,`version`,`name`,`text_value`(16)),
   KEY `docid_version_name_idx` (`name`,`docid`,`version`),
   KEY `vfields_name_text_value_idx` (`name`,`text_value`(30))
-) ENGINE=InnoDB AUTO_INCREMENT=1645305 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=1645425 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3699,7 +3735,7 @@ CREATE TABLE `vfields` (
 
 LOCK TABLES `vfields` WRITE;
 /*!40000 ALTER TABLE `vfields` DISABLE KEYS */;
-INSERT INTO `vfields` VALUES (36,1,'2010-09-15 14:37:18','TEASER','',NULL,NULL,NULL),(37,1,'2010-09-15 14:37:18','ENABLE_COMMENTS',NULL,0,NULL,NULL),(38,1,'2010-09-15 14:37:18','SHOW_SUBDOCS',NULL,0,NULL,NULL),(39,1,'2010-09-15 14:37:18','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(40,1,'2010-09-15 14:37:18','CONTENT','',NULL,NULL,NULL),(41,1,'2010-09-15 14:37:18','ENHED_URL','',NULL,NULL,NULL),(42,1,'2010-09-15 14:37:18','KONTAKT_ADRESSE','',NULL,NULL,NULL),(43,1,'2010-09-15 14:37:18','KONTAKT_NAVN','',NULL,NULL,NULL),(44,1,'2010-09-15 14:37:18','CONTRIBUTORS','',NULL,NULL,NULL),(45,1,'2010-09-15 14:37:18','ROBOTSMETA','index,follow',NULL,NULL,NULL),(46,1,'2010-09-15 14:37:18','AUTHOR','create_root',NULL,NULL,NULL),(47,1,'2010-09-15 14:37:18','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(48,1,'2010-09-15 14:37:18','TITLE','Forside',NULL,NULL,NULL),(49,1,'2010-09-15 14:37:18','SORTORDER','+seq,+title',NULL,NULL,NULL),(50,1,'2010-09-15 14:37:18','KONTAKT_TLF','',NULL,NULL,NULL),(51,1,'2010-09-15 14:37:18','SHORT_TITLE','Forside',NULL,NULL,NULL),(52,1,'2010-09-15 14:37:18','SOURCE','Obvius',NULL,NULL,NULL),(53,1,'2010-09-15 14:37:18','SUBSCRIBEABLE','none',NULL,NULL,NULL),(54,1,'2010-09-15 14:37:18','FREE_KEYWORDS','',NULL,NULL,NULL),(55,1,'2010-09-15 14:37:18','SHOW_NEWS',NULL,1,NULL,NULL),(56,1,'2010-09-15 14:37:18','DOCDATE',NULL,NULL,NULL,'2010-02-01 00:00:00'),(57,1,'2010-09-15 14:37:18','DOCREF','',NULL,NULL,NULL),(58,1,'2010-09-15 14:37:18','KONTAKT_EMAIL','',NULL,NULL,NULL),(59,1,'2010-09-15 14:37:18','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(60,1,'2010-09-15 14:37:18','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(61,1,'2010-09-15 14:37:18','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(62,1,'2010-09-15 14:37:18','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(63,1,'2010-09-15 14:37:18','SHOW_DATE',NULL,0,NULL,NULL),(64,1,'2010-09-15 14:37:18','SHOW_TEASER',NULL,1,NULL,NULL),(65,1,'2010-09-15 14:37:18','UPDATEALERTSENT',NULL,0,NULL,NULL),(66,1,'2010-09-15 14:37:18','SEQ',NULL,NULL,10,NULL),(67,1,'2010-09-15 14:37:18','UPDATEALERTUSER','admin',NULL,NULL,NULL),(68,1,'2010-09-15 14:37:18','ENHED','',NULL,NULL,NULL),(69,1,'2010-09-15 14:37:18','MIMETYPE',NULL,NULL,NULL,NULL),(70,1,'2010-09-15 14:37:18','FARVEVALG',NULL,NULL,NULL,NULL),(71,1,'2010-09-15 14:37:18','SEC',NULL,0,NULL,NULL),(72,1,'2010-09-15 14:37:18','PUBLISHED',NULL,NULL,NULL,'2010-09-15 14:37:18'),(73,1,'2010-09-15 14:37:18','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(74,1,'2010-09-15 14:37:18','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(412,110196,'2010-09-15 17:51:19','TEASER','',NULL,NULL,NULL),(413,110196,'2010-09-15 17:51:19','ENABLE_COMMENTS',NULL,0,NULL,NULL),(414,110196,'2010-09-15 17:51:19','SHOW_SUBDOCS',NULL,0,NULL,NULL),(415,110196,'2010-09-15 17:51:19','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(416,110196,'2010-09-15 17:51:19','CONTENT','',NULL,NULL,NULL),(417,110196,'2010-09-15 17:51:19','ENHED_URL','',NULL,NULL,NULL),(418,110196,'2010-09-15 17:51:19','KONTAKT_ADRESSE','',NULL,NULL,NULL),(419,110196,'2010-09-15 17:51:19','KONTAKT_NAVN','',NULL,NULL,NULL),(420,110196,'2010-09-15 17:51:19','CONTRIBUTORS','',NULL,NULL,NULL),(421,110196,'2010-09-15 17:51:19','ROBOTSMETA','index,follow',NULL,NULL,NULL),(422,110196,'2010-09-15 17:51:19','AUTHOR','admin',NULL,NULL,NULL),(423,110196,'2010-09-15 17:51:19','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(424,110196,'2010-09-15 17:51:19','TITLE','Fejl fejl fejl!',NULL,NULL,NULL),(425,110196,'2010-09-15 17:51:19','SORTORDER','+seq,+title',NULL,NULL,NULL),(426,110196,'2010-09-15 17:51:19','KONTAKT_TLF','',NULL,NULL,NULL),(427,110196,'2010-09-15 17:51:19','SHORT_TITLE','Fejl fejl fejl!',NULL,NULL,NULL),(428,110196,'2010-09-15 17:51:19','SOURCE','',NULL,NULL,NULL),(429,110196,'2010-09-15 17:51:19','SUBSCRIBEABLE','none',NULL,NULL,NULL),(430,110196,'2010-09-15 17:51:19','FREE_KEYWORDS','',NULL,NULL,NULL),(431,110196,'2010-09-15 17:51:19','SHOW_NEWS',NULL,1,NULL,NULL),(432,110196,'2010-09-15 17:51:19','DOCDATE',NULL,NULL,NULL,'2010-09-15 00:00:00'),(433,110196,'2010-09-15 17:51:19','DOCREF','',NULL,NULL,NULL),(434,110196,'2010-09-15 17:51:19','KONTAKT_EMAIL','',NULL,NULL,NULL),(435,110196,'2010-09-15 17:51:19','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(436,110196,'2010-09-15 17:51:19','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(437,110196,'2010-09-15 17:51:19','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(438,110196,'2010-09-15 17:51:19','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(439,110196,'2010-09-15 17:51:19','SHOW_DATE',NULL,0,NULL,NULL),(440,110196,'2010-09-15 17:51:19','SHOW_TEASER',NULL,1,NULL,NULL),(441,110196,'2010-09-15 17:51:19','UPDATEALERTSENT',NULL,0,NULL,NULL),(442,110196,'2010-09-15 17:51:19','SEQ',NULL,NULL,70,NULL),(443,110196,'2010-09-15 17:51:19','UPDATEALERTUSER','admin',NULL,NULL,NULL),(444,110196,'2010-09-15 17:51:19','ENHED','',NULL,NULL,NULL),(445,110196,'2010-09-15 17:51:19','MIMETYPE',NULL,NULL,NULL,NULL),(446,110196,'2010-09-15 17:51:19','FARVEVALG',NULL,NULL,NULL,NULL),(447,110196,'2010-09-15 17:51:19','SEC',NULL,0,NULL,NULL),(448,110196,'2010-09-15 17:51:19','PUBLISHED',NULL,NULL,NULL,'2010-09-15 17:51:19'),(449,110196,'2010-09-15 17:51:19','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(450,110196,'2010-09-15 17:51:19','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(451,110197,'2010-09-15 17:51:50','TEASER','',NULL,NULL,NULL),(452,110197,'2010-09-15 17:51:50','ENABLE_COMMENTS',NULL,0,NULL,NULL),(453,110197,'2010-09-15 17:51:50','SHOW_SUBDOCS',NULL,0,NULL,NULL),(454,110197,'2010-09-15 17:51:50','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(455,110197,'2010-09-15 17:51:50','CONTENT','not found<br />\r\n',NULL,NULL,NULL),(456,110197,'2010-09-15 17:51:50','ENHED_URL','',NULL,NULL,NULL),(457,110197,'2010-09-15 17:51:50','KONTAKT_ADRESSE','',NULL,NULL,NULL),(458,110197,'2010-09-15 17:51:50','KONTAKT_NAVN','',NULL,NULL,NULL),(459,110197,'2010-09-15 17:51:50','CONTRIBUTORS','',NULL,NULL,NULL),(460,110197,'2010-09-15 17:51:50','ROBOTSMETA','index,follow',NULL,NULL,NULL),(461,110197,'2010-09-15 17:51:50','AUTHOR','admin',NULL,NULL,NULL),(462,110197,'2010-09-15 17:51:50','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(463,110197,'2010-09-15 17:51:50','TITLE','404 Fejl - Not found',NULL,NULL,NULL),(464,110197,'2010-09-15 17:51:50','SORTORDER','+seq,+title',NULL,NULL,NULL),(465,110197,'2010-09-15 17:51:50','KONTAKT_TLF','',NULL,NULL,NULL),(466,110197,'2010-09-15 17:51:50','SHORT_TITLE','404 Fejl - Not Found',NULL,NULL,NULL),(467,110197,'2010-09-15 17:51:50','SOURCE','',NULL,NULL,NULL),(468,110197,'2010-09-15 17:51:50','SUBSCRIBEABLE','none',NULL,NULL,NULL),(469,110197,'2010-09-15 17:51:50','FREE_KEYWORDS','',NULL,NULL,NULL),(470,110197,'2010-09-15 17:51:50','SHOW_NEWS',NULL,1,NULL,NULL),(471,110197,'2010-09-15 17:51:50','DOCDATE',NULL,NULL,NULL,'2010-09-15 00:00:00'),(472,110197,'2010-09-15 17:51:50','DOCREF','',NULL,NULL,NULL),(473,110197,'2010-09-15 17:51:50','KONTAKT_EMAIL','',NULL,NULL,NULL),(474,110197,'2010-09-15 17:51:50','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(475,110197,'2010-09-15 17:51:50','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(476,110197,'2010-09-15 17:51:50','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(477,110197,'2010-09-15 17:51:50','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(478,110197,'2010-09-15 17:51:50','SHOW_DATE',NULL,0,NULL,NULL),(479,110197,'2010-09-15 17:51:50','SHOW_TEASER',NULL,1,NULL,NULL),(480,110197,'2010-09-15 17:51:50','UPDATEALERTSENT',NULL,0,NULL,NULL),(481,110197,'2010-09-15 17:51:50','SEQ',NULL,NULL,80,NULL),(482,110197,'2010-09-15 17:51:50','UPDATEALERTUSER','admin',NULL,NULL,NULL),(483,110197,'2010-09-15 17:51:50','ENHED','',NULL,NULL,NULL),(484,110197,'2010-09-15 17:51:50','MIMETYPE',NULL,NULL,NULL,NULL),(485,110197,'2010-09-15 17:51:50','FARVEVALG',NULL,NULL,NULL,NULL),(486,110197,'2010-09-15 17:51:50','SEC',NULL,0,NULL,NULL),(487,110197,'2010-09-15 17:51:50','PUBLISHED',NULL,NULL,NULL,'2010-09-15 17:51:50'),(488,110197,'2010-09-15 17:51:50','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(489,110197,'2010-09-15 17:51:50','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(490,110196,'2010-09-15 17:52:17','TEASER','',NULL,NULL,NULL),(491,110196,'2010-09-15 17:52:17','ENABLE_COMMENTS',NULL,0,NULL,NULL),(492,110196,'2010-09-15 17:52:17','SHOW_SUBDOCS',NULL,0,NULL,NULL),(493,110196,'2010-09-15 17:52:17','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(494,110196,'2010-09-15 17:52:17','CONTENT','',NULL,NULL,NULL),(495,110196,'2010-09-15 17:52:17','ENHED_URL','',NULL,NULL,NULL),(496,110196,'2010-09-15 17:52:17','KONTAKT_ADRESSE','',NULL,NULL,NULL),(497,110196,'2010-09-15 17:52:17','KONTAKT_NAVN','',NULL,NULL,NULL),(498,110196,'2010-09-15 17:52:17','CONTRIBUTORS','',NULL,NULL,NULL),(499,110196,'2010-09-15 17:52:17','ROBOTSMETA','index,follow',NULL,NULL,NULL),(500,110196,'2010-09-15 17:52:17','AUTHOR','admin',NULL,NULL,NULL),(501,110196,'2010-09-15 17:52:17','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(502,110196,'2010-09-15 17:52:17','TITLE','500 Fejl - Internal server error',NULL,NULL,NULL),(503,110196,'2010-09-15 17:52:17','SORTORDER','+seq,+title',NULL,NULL,NULL),(504,110196,'2010-09-15 17:52:17','KONTAKT_TLF','',NULL,NULL,NULL),(505,110196,'2010-09-15 17:52:17','SHORT_TITLE','500 Fejl - Internal server error',NULL,NULL,NULL),(506,110196,'2010-09-15 17:52:17','SOURCE','',NULL,NULL,NULL),(507,110196,'2010-09-15 17:52:17','SUBSCRIBEABLE','none',NULL,NULL,NULL),(508,110196,'2010-09-15 17:52:17','FREE_KEYWORDS','',NULL,NULL,NULL),(509,110196,'2010-09-15 17:52:17','SHOW_NEWS',NULL,1,NULL,NULL),(510,110196,'2010-09-15 17:52:17','DOCDATE',NULL,NULL,NULL,'2010-09-15 00:00:00'),(511,110196,'2010-09-15 17:52:17','DOCREF','',NULL,NULL,NULL),(512,110196,'2010-09-15 17:52:17','KONTAKT_EMAIL','',NULL,NULL,NULL),(513,110196,'2010-09-15 17:52:17','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(514,110196,'2010-09-15 17:52:17','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(515,110196,'2010-09-15 17:52:17','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(516,110196,'2010-09-15 17:52:17','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(517,110196,'2010-09-15 17:52:17','SHOW_DATE',NULL,0,NULL,NULL),(518,110196,'2010-09-15 17:52:17','SHOW_TEASER',NULL,1,NULL,NULL),(519,110196,'2010-09-15 17:52:17','UPDATEALERTSENT',NULL,0,NULL,NULL),(520,110196,'2010-09-15 17:52:17','SEQ',NULL,NULL,70,NULL),(521,110196,'2010-09-15 17:52:17','UPDATEALERTUSER','admin',NULL,NULL,NULL),(522,110196,'2010-09-15 17:52:17','ENHED','',NULL,NULL,NULL),(523,110196,'2010-09-15 17:52:17','MIMETYPE',NULL,NULL,NULL,NULL),(524,110196,'2010-09-15 17:52:17','FARVEVALG',NULL,NULL,NULL,NULL),(525,110196,'2010-09-15 17:52:17','SEC',NULL,0,NULL,NULL),(526,110196,'2010-09-15 17:52:17','PUBLISHED',NULL,NULL,NULL,'2010-09-15 17:52:17'),(527,110196,'2010-09-15 17:52:17','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(528,110196,'2010-09-15 17:52:17','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1863,1,'2010-11-02 10:38:25','TEASER','Test √É¬¶√É¬∏√É¬•, √É‚Ä†√ÉÀú√É‚Ä¶\r\n',NULL,NULL,NULL),(1864,1,'2010-11-02 10:38:25','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1865,1,'2010-11-02 10:38:25','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1866,1,'2010-11-02 10:38:25','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1867,1,'2010-11-02 10:38:25','CONTENT','',NULL,NULL,NULL),(1868,1,'2010-11-02 10:38:25','ENHED_URL','',NULL,NULL,NULL),(1869,1,'2010-11-02 10:38:25','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1870,1,'2010-11-02 10:38:25','KONTAKT_NAVN','',NULL,NULL,NULL),(1871,1,'2010-11-02 10:38:25','CONTRIBUTORS','',NULL,NULL,NULL),(1872,1,'2010-11-02 10:38:25','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1873,1,'2010-11-02 10:38:25','AUTHOR','create_root',NULL,NULL,NULL),(1874,1,'2010-11-02 10:38:25','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1875,1,'2010-11-02 10:38:25','TITLE','Forside',NULL,NULL,NULL),(1876,1,'2010-11-02 10:38:25','SORTORDER','+seq,+title',NULL,NULL,NULL),(1877,1,'2010-11-02 10:38:25','KONTAKT_TLF','',NULL,NULL,NULL),(1878,1,'2010-11-02 10:38:25','SHORT_TITLE','Forside',NULL,NULL,NULL),(1879,1,'2010-11-02 10:38:25','SOURCE','Obvius',NULL,NULL,NULL),(1880,1,'2010-11-02 10:38:25','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1881,1,'2010-11-02 10:38:25','FREE_KEYWORDS','',NULL,NULL,NULL),(1882,1,'2010-11-02 10:38:25','SHOW_NEWS',NULL,1,NULL,NULL),(1883,1,'2010-11-02 10:38:25','DOCDATE',NULL,NULL,NULL,'2010-02-01 00:00:00'),(1884,1,'2010-11-02 10:38:25','DOCREF','',NULL,NULL,NULL),(1885,1,'2010-11-02 10:38:25','KONTAKT_EMAIL','',NULL,NULL,NULL),(1886,1,'2010-11-02 10:38:25','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1887,1,'2010-11-02 10:38:25','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1888,1,'2010-11-02 10:38:25','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1889,1,'2010-11-02 10:38:25','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1890,1,'2010-11-02 10:38:25','SHOW_DATE',NULL,0,NULL,NULL),(1891,1,'2010-11-02 10:38:25','SHOW_TEASER',NULL,1,NULL,NULL),(1892,1,'2010-11-02 10:38:25','UPDATEALERTSENT',NULL,0,NULL,NULL),(1893,1,'2010-11-02 10:38:25','SEQ',NULL,NULL,10,NULL),(1894,1,'2010-11-02 10:38:25','UPDATEALERTUSER','admin',NULL,NULL,NULL),(1895,1,'2010-11-02 10:38:25','ENHED','',NULL,NULL,NULL),(1896,1,'2010-11-02 10:38:25','MIMETYPE',NULL,NULL,NULL,NULL),(1897,1,'2010-11-02 10:38:25','FARVEVALG',NULL,NULL,NULL,NULL),(1898,1,'2010-11-02 10:38:25','SEC',NULL,0,NULL,NULL),(1899,1,'2010-11-02 10:38:25','PUBLISHED',NULL,NULL,NULL,'2010-11-02 10:38:25'),(1900,1,'2010-11-02 10:38:25','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1901,1,'2010-11-02 10:38:25','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(3819,110196,'2011-05-19 14:12:37','TEASER','<p>500 error</p>',NULL,NULL,NULL),(3820,110196,'2011-05-19 14:12:37','ENABLE_COMMENTS',NULL,0,NULL,NULL),(3821,110196,'2011-05-19 14:12:37','SHOW_SUBDOCS',NULL,0,NULL,NULL),(3822,110196,'2011-05-19 14:12:37','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(3823,110196,'2011-05-19 14:12:37','CONTENT','',NULL,NULL,NULL),(3824,110196,'2011-05-19 14:12:37','ENHED_URL','',NULL,NULL,NULL),(3825,110196,'2011-05-19 14:12:37','KONTAKT_ADRESSE','',NULL,NULL,NULL),(3826,110196,'2011-05-19 14:12:37','KONTAKT_NAVN','',NULL,NULL,NULL),(3827,110196,'2011-05-19 14:12:37','CONTRIBUTORS','',NULL,NULL,NULL),(3828,110196,'2011-05-19 14:12:37','ROBOTSMETA','index,follow',NULL,NULL,NULL),(3829,110196,'2011-05-19 14:12:37','AUTHOR','admin',NULL,NULL,NULL),(3830,110196,'2011-05-19 14:12:37','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(3831,110196,'2011-05-19 14:12:37','TITLE','500 Fejl - Internal server error',NULL,NULL,NULL),(3832,110196,'2011-05-19 14:12:37','SORTORDER','+seq,+title',NULL,NULL,NULL),(3833,110196,'2011-05-19 14:12:37','KONTAKT_TLF','',NULL,NULL,NULL),(3834,110196,'2011-05-19 14:12:37','SHORT_TITLE','500 Fejl - Internal server error',NULL,NULL,NULL),(3835,110196,'2011-05-19 14:12:37','SOURCE','',NULL,NULL,NULL),(3836,110196,'2011-05-19 14:12:37','SUBSCRIBEABLE','none',NULL,NULL,NULL),(3837,110196,'2011-05-19 14:12:37','FREE_KEYWORDS','',NULL,NULL,NULL),(3838,110196,'2011-05-19 14:12:37','SHOW_NEWS',NULL,1,NULL,NULL),(3839,110196,'2011-05-19 14:12:37','DOCDATE',NULL,NULL,NULL,'2010-09-15 00:00:00'),(3840,110196,'2011-05-19 14:12:37','DOCREF','',NULL,NULL,NULL),(3841,110196,'2011-05-19 14:12:37','KONTAKT_EMAIL','',NULL,NULL,NULL),(3842,110196,'2011-05-19 14:12:37','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(3843,110196,'2011-05-19 14:12:37','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(3844,110196,'2011-05-19 14:12:37','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(3845,110196,'2011-05-19 14:12:37','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(3846,110196,'2011-05-19 14:12:37','SHOW_DATE',NULL,0,NULL,NULL),(3847,110196,'2011-05-19 14:12:37','SHOW_TEASER',NULL,1,NULL,NULL),(3848,110196,'2011-05-19 14:12:37','UPDATEALERTSENT',NULL,0,NULL,NULL),(3849,110196,'2011-05-19 14:12:37','SEQ',NULL,NULL,70,NULL),(3850,110196,'2011-05-19 14:12:37','UPDATEALERTUSER','admin',NULL,NULL,NULL),(3851,110196,'2011-05-19 14:12:37','ENHED','',NULL,NULL,NULL),(3852,110196,'2011-05-19 14:12:37','MIMETYPE',NULL,NULL,NULL,NULL),(3853,110196,'2011-05-19 14:12:37','FARVEVALG',NULL,NULL,NULL,NULL),(3854,110196,'2011-05-19 14:12:37','SEC',NULL,0,NULL,NULL),(3855,110196,'2011-05-19 14:12:37','PUBLISHED',NULL,NULL,NULL,'2011-05-19 14:12:37'),(3856,110196,'2011-05-19 14:12:37','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(3857,110196,'2011-05-19 14:12:37','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(3858,110196,'2011-05-19 14:12:45','TEASER','<p>500 error</p>\r\n',NULL,NULL,NULL),(3859,110196,'2011-05-19 14:12:45','ENABLE_COMMENTS',NULL,0,NULL,NULL),(3860,110196,'2011-05-19 14:12:45','SHOW_SUBDOCS',NULL,0,NULL,NULL),(3861,110196,'2011-05-19 14:12:45','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(3862,110196,'2011-05-19 14:12:45','CONTENT','<p>500 error</p>',NULL,NULL,NULL),(3863,110196,'2011-05-19 14:12:45','ENHED_URL','',NULL,NULL,NULL),(3864,110196,'2011-05-19 14:12:45','KONTAKT_ADRESSE','',NULL,NULL,NULL),(3865,110196,'2011-05-19 14:12:45','KONTAKT_NAVN','',NULL,NULL,NULL),(3866,110196,'2011-05-19 14:12:45','CONTRIBUTORS','',NULL,NULL,NULL),(3867,110196,'2011-05-19 14:12:45','ROBOTSMETA','index,follow',NULL,NULL,NULL),(3868,110196,'2011-05-19 14:12:45','AUTHOR','admin',NULL,NULL,NULL),(3869,110196,'2011-05-19 14:12:45','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(3870,110196,'2011-05-19 14:12:45','TITLE','500 Fejl - Internal server error',NULL,NULL,NULL),(3871,110196,'2011-05-19 14:12:45','SORTORDER','+seq,+title',NULL,NULL,NULL),(3872,110196,'2011-05-19 14:12:45','KONTAKT_TLF','',NULL,NULL,NULL),(3873,110196,'2011-05-19 14:12:45','SHORT_TITLE','500 Fejl - Internal server error',NULL,NULL,NULL),(3874,110196,'2011-05-19 14:12:45','SOURCE','',NULL,NULL,NULL),(3875,110196,'2011-05-19 14:12:45','SUBSCRIBEABLE','none',NULL,NULL,NULL),(3876,110196,'2011-05-19 14:12:45','FREE_KEYWORDS','',NULL,NULL,NULL),(3877,110196,'2011-05-19 14:12:45','SHOW_NEWS',NULL,1,NULL,NULL),(3878,110196,'2011-05-19 14:12:45','DOCDATE',NULL,NULL,NULL,'2010-09-15 00:00:00'),(3879,110196,'2011-05-19 14:12:45','DOCREF','',NULL,NULL,NULL),(3880,110196,'2011-05-19 14:12:45','KONTAKT_EMAIL','',NULL,NULL,NULL),(3881,110196,'2011-05-19 14:12:45','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(3882,110196,'2011-05-19 14:12:45','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(3883,110196,'2011-05-19 14:12:45','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(3884,110196,'2011-05-19 14:12:45','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(3885,110196,'2011-05-19 14:12:45','SHOW_DATE',NULL,0,NULL,NULL),(3886,110196,'2011-05-19 14:12:45','SHOW_TEASER',NULL,1,NULL,NULL),(3887,110196,'2011-05-19 14:12:45','UPDATEALERTSENT',NULL,0,NULL,NULL),(3888,110196,'2011-05-19 14:12:45','SEQ',NULL,NULL,70,NULL),(3889,110196,'2011-05-19 14:12:45','UPDATEALERTUSER','admin',NULL,NULL,NULL),(3890,110196,'2011-05-19 14:12:45','ENHED','',NULL,NULL,NULL),(3891,110196,'2011-05-19 14:12:45','MIMETYPE',NULL,NULL,NULL,NULL),(3892,110196,'2011-05-19 14:12:45','FARVEVALG',NULL,NULL,NULL,NULL),(3893,110196,'2011-05-19 14:12:45','SEC',NULL,0,NULL,NULL),(3894,110196,'2011-05-19 14:12:45','PUBLISHED',NULL,NULL,NULL,'2011-05-19 14:12:45'),(3895,110196,'2011-05-19 14:12:45','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(3896,110196,'2011-05-19 14:12:45','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(7797,1,'2012-02-10 09:53:24','TEASER','<p>Test &aelig;&oslash;&aring;, &AElig;&Oslash;&Aring;</p>',NULL,NULL,NULL),(7798,1,'2012-02-10 09:53:24','ENABLE_COMMENTS',NULL,0,NULL,NULL),(7799,1,'2012-02-10 09:53:24','SHOW_SUBDOCS',NULL,0,NULL,NULL),(7800,1,'2012-02-10 09:53:24','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(7801,1,'2012-02-10 09:53:24','HTML_CONTENT','',NULL,NULL,NULL),(7802,1,'2012-02-10 09:53:24','CONTENT','',NULL,NULL,NULL),(7803,1,'2012-02-10 09:53:24','BANNER1',NULL,1,NULL,NULL),(7804,1,'2012-02-10 09:53:24','ENHED_URL','',NULL,NULL,NULL),(7805,1,'2012-02-10 09:53:24','KONTAKT_ADRESSE','',NULL,NULL,NULL),(7806,1,'2012-02-10 09:53:24','KONTAKT_NAVN','',NULL,NULL,NULL),(7807,1,'2012-02-10 09:53:24','ROBOTSMETA','index,follow',NULL,NULL,NULL),(7808,1,'2012-02-10 09:53:24','CONTRIBUTORS','',NULL,NULL,NULL),(7809,1,'2012-02-10 09:53:24','AUTHOR','create_root',NULL,NULL,NULL),(7810,1,'2012-02-10 09:53:24','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(7811,1,'2012-02-10 09:53:24','TITLE','Forside',NULL,NULL,NULL),(7812,1,'2012-02-10 09:53:24','SORTORDER','+seq,+title',NULL,NULL,NULL),(7813,1,'2012-02-10 09:53:24','KONTAKT_TLF','',NULL,NULL,NULL),(7814,1,'2012-02-10 09:53:24','SHORT_TITLE','Forside',NULL,NULL,NULL),(7815,1,'2012-02-10 09:53:24','SOURCE','Obvius',NULL,NULL,NULL),(7816,1,'2012-02-10 09:53:24','BANNER2',NULL,1,NULL,NULL),(7817,1,'2012-02-10 09:53:24','SUBSCRIBEABLE','none',NULL,NULL,NULL),(7818,1,'2012-02-10 09:53:24','FREE_KEYWORDS','',NULL,NULL,NULL),(7819,1,'2012-02-10 09:53:24','SHOW_NEWS',NULL,1,NULL,NULL),(7820,1,'2012-02-10 09:53:24','DOCDATE',NULL,NULL,NULL,'2010-02-01 00:00:00'),(7821,1,'2012-02-10 09:53:24','DOCREF','',NULL,NULL,NULL),(7822,1,'2012-02-10 09:53:24','KONTAKT_EMAIL','',NULL,NULL,NULL),(7823,1,'2012-02-10 09:53:24','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(7824,1,'2012-02-10 09:53:24','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(7825,1,'2012-02-10 09:53:24','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(7826,1,'2012-02-10 09:53:24','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(7827,1,'2012-02-10 09:53:24','BANNER3',NULL,1,NULL,NULL),(7828,1,'2012-02-10 09:53:24','SHOW_DATE',NULL,0,NULL,NULL),(7829,1,'2012-02-10 09:53:24','SHOW_TEASER',NULL,1,NULL,NULL),(7830,1,'2012-02-10 09:53:24','UPDATEALERTSENT',NULL,0,NULL,NULL),(7831,1,'2012-02-10 09:53:24','SEQ',NULL,NULL,10,NULL),(7832,1,'2012-02-10 09:53:24','UPDATEALERTUSER','admin',NULL,NULL,NULL),(7833,1,'2012-02-10 09:53:24','ENHED','',NULL,NULL,NULL),(7834,1,'2012-02-10 09:53:24','EAN',NULL,NULL,NULL,NULL),(7835,1,'2012-02-10 09:53:24','MIMETYPE',NULL,NULL,NULL,NULL),(7836,1,'2012-02-10 09:53:24','FARVEVALG',NULL,NULL,NULL,NULL),(34032,1,'2012-02-10 09:53:24','SEC',NULL,0,NULL,NULL),(34033,1,'2012-02-10 09:53:24','PUBLISHED',NULL,NULL,NULL,'2013-01-25 16:09:00'),(34034,1,'2012-02-10 09:53:24','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(34035,1,'2012-02-10 09:53:24','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(308459,120935,'2014-03-10 14:09:54','TEASER','',NULL,NULL,NULL),(308460,120935,'2014-03-10 14:09:54','ENABLE_COMMENTS',NULL,0,NULL,NULL),(308461,120935,'2014-03-10 14:09:54','SHOW_SUBDOCS',NULL,0,NULL,NULL),(308462,120935,'2014-03-10 14:09:54','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(308463,120935,'2014-03-10 14:09:54','CONTENT','',NULL,NULL,NULL),(308464,120935,'2014-03-10 14:09:54','ENHED_URL','',NULL,NULL,NULL),(308465,120935,'2014-03-10 14:09:54','KONTAKT_ADRESSE','',NULL,NULL,NULL),(308466,120935,'2014-03-10 14:09:54','KONTAKT_NAVN','',NULL,NULL,NULL),(308467,120935,'2014-03-10 14:09:54','CONTRIBUTORS','',NULL,NULL,NULL),(308468,120935,'2014-03-10 14:09:54','ROBOTSMETA','index,follow',NULL,NULL,NULL),(308469,120935,'2014-03-10 14:09:54','AUTHOR','admin',NULL,NULL,NULL),(308470,120935,'2014-03-10 14:09:54','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(308471,120935,'2014-03-10 14:09:54','TITLE','Previews',NULL,NULL,NULL),(308472,120935,'2014-03-10 14:09:54','SORTORDER','+seq,+title',NULL,NULL,NULL),(308473,120935,'2014-03-10 14:09:54','KONTAKT_TLF','',NULL,NULL,NULL),(308474,120935,'2014-03-10 14:09:54','SHORT_TITLE','Previews',NULL,NULL,NULL),(308475,120935,'2014-03-10 14:09:54','SOURCE','',NULL,NULL,NULL),(308476,120935,'2014-03-10 14:09:54','SUBSCRIBEABLE','none',NULL,NULL,NULL),(308477,120935,'2014-03-10 14:09:54','FREE_KEYWORDS','',NULL,NULL,NULL),(308478,120935,'2014-03-10 14:09:54','SHOW_NEWS',NULL,1,NULL,NULL),(308479,120935,'2014-03-10 14:09:54','DOCDATE',NULL,NULL,NULL,'2014-03-10 00:00:00'),(308480,120935,'2014-03-10 14:09:54','DOCREF','',NULL,NULL,NULL),(308481,120935,'2014-03-10 14:09:54','KONTAKT_EMAIL','',NULL,NULL,NULL),(308482,120935,'2014-03-10 14:09:54','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(308483,120935,'2014-03-10 14:09:54','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(308484,120935,'2014-03-10 14:09:54','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(308485,120935,'2014-03-10 14:09:54','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(308486,120935,'2014-03-10 14:09:54','SHOW_DATE',NULL,0,NULL,NULL),(308487,120935,'2014-03-10 14:09:54','SHOW_TEASER',NULL,1,NULL,NULL),(308488,120935,'2014-03-10 14:09:54','UPDATEALERTSENT',NULL,0,NULL,NULL),(308489,120935,'2014-03-10 14:09:54','SEQ',NULL,NULL,30,NULL),(308490,120935,'2014-03-10 14:09:54','UPDATEALERTUSER','admin',NULL,NULL,NULL),(308491,120935,'2014-03-10 14:09:54','ENHED','',NULL,NULL,NULL),(308492,120935,'2014-03-10 14:09:54','MIMETYPE',NULL,NULL,NULL,NULL),(308493,120935,'2014-03-10 14:09:54','FARVEVALG',NULL,NULL,NULL,NULL),(308494,120936,'2014-03-10 14:10:03','TEASER','',NULL,NULL,NULL),(308495,120936,'2014-03-10 14:10:03','ENABLE_COMMENTS',NULL,0,NULL,NULL),(308496,120936,'2014-03-10 14:10:03','SHOW_SUBDOCS',NULL,0,NULL,NULL),(308497,120936,'2014-03-10 14:10:03','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(308498,120936,'2014-03-10 14:10:03','HTML_CONTENT','<html>\r\n   <head></head>\r\n   <body>\r\n      <h1>En overskrift og hat</h1>\r\n   </body>\r\n</html>\r\n',NULL,NULL,NULL),(308499,120936,'2014-03-10 14:10:03','ENHED_URL','',NULL,NULL,NULL),(308500,120936,'2014-03-10 14:10:03','KONTAKT_ADRESSE','',NULL,NULL,NULL),(308501,120936,'2014-03-10 14:10:03','KONTAKT_NAVN','',NULL,NULL,NULL),(308502,120936,'2014-03-10 14:10:03','CONTRIBUTORS','',NULL,NULL,NULL),(308503,120936,'2014-03-10 14:10:03','ROBOTSMETA','index,follow',NULL,NULL,NULL),(308504,120936,'2014-03-10 14:10:03','AUTHOR','admin',NULL,NULL,NULL),(308505,120936,'2014-03-10 14:10:03','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(308506,120936,'2014-03-10 14:10:03','TITLE','Mit lille html document',NULL,NULL,NULL),(308507,120936,'2014-03-10 14:10:03','SORTORDER','+seq,+title',NULL,NULL,NULL),(308508,120936,'2014-03-10 14:10:03','KONTAKT_TLF','',NULL,NULL,NULL),(308509,120936,'2014-03-10 14:10:03','SHORT_TITLE','',NULL,NULL,NULL),(308510,120936,'2014-03-10 14:10:03','SOURCE','',NULL,NULL,NULL),(308511,120936,'2014-03-10 14:10:03','SUBSCRIBEABLE','none',NULL,NULL,NULL),(308512,120936,'2014-03-10 14:10:03','FREE_KEYWORDS','',NULL,NULL,NULL),(308513,120936,'2014-03-10 14:10:03','SHOW_NEWS',NULL,1,NULL,NULL),(308514,120936,'2014-03-10 14:10:03','DOCDATE',NULL,NULL,NULL,'2012-06-21 00:00:00'),(308515,120936,'2014-03-10 14:10:03','DOCREF','',NULL,NULL,NULL),(308516,120936,'2014-03-10 14:10:03','KONTAKT_EMAIL','',NULL,NULL,NULL),(308517,120936,'2014-03-10 14:10:03','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(308518,120936,'2014-03-10 14:10:03','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(308519,120936,'2014-03-10 14:10:03','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(308520,120936,'2014-03-10 14:10:03','SHOW_DATE',NULL,0,NULL,NULL),(308521,120936,'2014-03-10 14:10:03','SHOW_TEASER',NULL,1,NULL,NULL),(308522,120936,'2014-03-10 14:10:03','SEQ',NULL,NULL,230,NULL),(308523,120936,'2014-03-10 14:10:03','ENHED','',NULL,NULL,NULL),(308524,120936,'2014-03-10 14:10:03','MIMETYPE',NULL,NULL,NULL,NULL),(308525,120936,'2014-03-10 14:10:03','FARVEVALG',NULL,NULL,NULL,NULL),(308526,120935,'2014-03-10 14:09:54','SEC',NULL,110189,NULL,NULL),(308527,120935,'2014-03-10 14:09:54','PUBLISHED',NULL,NULL,NULL,'2014-03-10 14:10:19'),(308528,120935,'2014-03-10 14:09:54','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(308529,120935,'2014-03-10 14:09:54','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(308565,120938,'2014-03-10 14:11:37','TEASER','',NULL,NULL,NULL),(308566,120938,'2014-03-10 14:11:37','ENABLE_COMMENTS',NULL,0,NULL,NULL),(308567,120938,'2014-03-10 14:11:37','SHOW_SUBDOCS',NULL,0,NULL,NULL),(308568,120938,'2014-03-10 14:11:37','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(308569,120938,'2014-03-10 14:11:37','CONTENT','<p>Virker preview?</p>',NULL,NULL,NULL),(308570,120938,'2014-03-10 14:11:37','ENHED_URL','',NULL,NULL,NULL),(308571,120938,'2014-03-10 14:11:37','KONTAKT_ADRESSE','',NULL,NULL,NULL),(308572,120938,'2014-03-10 14:11:37','KONTAKT_NAVN','',NULL,NULL,NULL),(308573,120938,'2014-03-10 14:11:37','CONTRIBUTORS','',NULL,NULL,NULL),(308574,120938,'2014-03-10 14:11:37','ROBOTSMETA','index,follow',NULL,NULL,NULL),(308575,120938,'2014-03-10 14:11:37','AUTHOR','admin',NULL,NULL,NULL),(308576,120938,'2014-03-10 14:11:37','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(308577,120938,'2014-03-10 14:11:37','TITLE','Virker preview?',NULL,NULL,NULL),(308578,120938,'2014-03-10 14:11:37','SORTORDER','+seq,+title',NULL,NULL,NULL),(308579,120938,'2014-03-10 14:11:37','KONTAKT_TLF','',NULL,NULL,NULL),(308580,120938,'2014-03-10 14:11:37','SHORT_TITLE','Virker preview?',NULL,NULL,NULL),(308581,120938,'2014-03-10 14:11:37','SOURCE','',NULL,NULL,NULL),(308582,120938,'2014-03-10 14:11:37','SUBSCRIBEABLE','none',NULL,NULL,NULL),(308583,120938,'2014-03-10 14:11:37','FREE_KEYWORDS','',NULL,NULL,NULL),(308584,120938,'2014-03-10 14:11:37','SHOW_NEWS',NULL,1,NULL,NULL),(308585,120938,'2014-03-10 14:11:37','DOCDATE',NULL,NULL,NULL,'2014-03-10 00:00:00'),(308586,120938,'2014-03-10 14:11:37','DOCREF','',NULL,NULL,NULL),(308587,120938,'2014-03-10 14:11:37','KONTAKT_EMAIL','',NULL,NULL,NULL),(308588,120938,'2014-03-10 14:11:37','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(308589,120938,'2014-03-10 14:11:37','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(308590,120938,'2014-03-10 14:11:37','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(308591,120938,'2014-03-10 14:11:37','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(308592,120938,'2014-03-10 14:11:37','SHOW_DATE',NULL,0,NULL,NULL),(308593,120938,'2014-03-10 14:11:37','SHOW_TEASER',NULL,1,NULL,NULL),(308594,120938,'2014-03-10 14:11:37','UPDATEALERTSENT',NULL,0,NULL,NULL),(308595,120938,'2014-03-10 14:11:37','SEQ',NULL,NULL,10,NULL),(308596,120938,'2014-03-10 14:11:37','UPDATEALERTUSER','admin',NULL,NULL,NULL),(308597,120938,'2014-03-10 14:11:37','ENHED','',NULL,NULL,NULL),(308598,120938,'2014-03-10 14:11:37','MIMETYPE',NULL,NULL,NULL,NULL),(308599,120938,'2014-03-10 14:11:37','FARVEVALG',NULL,NULL,NULL,NULL),(1559719,158705,'2015-10-29 12:53:34','TEASER','',NULL,NULL,NULL),(1559720,158705,'2015-10-29 12:53:34','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1559721,158705,'2015-10-29 12:53:34','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1559722,158705,'2015-10-29 12:53:34','AJAX_FIELDS','',NULL,NULL,NULL),(1559723,158705,'2015-10-29 12:53:34','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1559724,158705,'2015-10-29 12:53:34','ENHED_URL','',NULL,NULL,NULL),(1559725,158705,'2015-10-29 12:53:34','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1559726,158705,'2015-10-29 12:53:34','KONTAKT_NAVN','',NULL,NULL,NULL),(1559727,158705,'2015-10-29 12:53:34','CONTRIBUTORS','',NULL,NULL,NULL),(1559728,158705,'2015-10-29 12:53:34','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1559729,158705,'2015-10-29 12:53:34','FORMTEXT','',NULL,NULL,NULL),(1559730,158705,'2015-10-29 12:53:34','AUTHOR','jubk',NULL,NULL,NULL),(1559731,158705,'2015-10-29 12:53:34','TITLE','Inforedigering',NULL,NULL,NULL),(1559732,158705,'2015-10-29 12:53:34','SORTORDER','+seq,+title',NULL,NULL,NULL),(1559733,158705,'2015-10-29 12:53:34','KONTAKT_TLF','',NULL,NULL,NULL),(1559734,158705,'2015-10-29 12:53:34','SHORT_TITLE','Inforedigering',NULL,NULL,NULL),(1559735,158705,'2015-10-29 12:53:34','SOURCE','',NULL,NULL,NULL),(1559736,158705,'2015-10-29 12:53:34','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1559737,158705,'2015-10-29 12:53:34','TILLAD_EXCEL',NULL,1,NULL,NULL),(1559738,158705,'2015-10-29 12:53:34','FREE_KEYWORDS','',NULL,NULL,NULL),(1559739,158705,'2015-10-29 12:53:34','SHOW_NEWS',NULL,1,NULL,NULL),(1559740,158705,'2015-10-29 12:53:34','DOCDATE',NULL,NULL,NULL,'2015-10-29 00:00:00'),(1559741,158705,'2015-10-29 12:53:34','FORMDATA','<fields><field><name>Navn</name>\r\n<title>Navn</title>\r\n<type>name</type>\r\n<mandatory>1</mandatory>\r\n<unique>0</unique>\r\n<imagepath></imagepath>\r\n<description></description>\r\n<validaterules></validaterules>\r\n<options></options>\r\n</field><field><name>E_mail</name>\r\n<title>E-mail</title>\r\n<type>email</type>\r\n<mandatory>1</mandatory>\r\n<unique>0</unique>\r\n<imagepath></imagepath>\r\n<description></description>\r\n<validaterules></validaterules>\r\n<options></options>\r\n</field><field><name>Kommentar</name>\r\n<title>Kommentar</title>\r\n<type>textarea</type>\r\n<mandatory>1</mandatory>\r\n<unique>0</unique>\r\n<imagepath></imagepath>\r\n<description></description>\r\n<validaterules></validaterules>\r\n<options></options>\r\n</field></fields>',NULL,NULL,NULL),(1559742,158705,'2015-10-29 12:53:34','AFTERSUBMITTEXT','',NULL,NULL,NULL),(1559743,158705,'2015-10-29 12:53:34','DOCREF','',NULL,NULL,NULL),(1559744,158705,'2015-10-29 12:53:34','KONTAKT_EMAIL','',NULL,NULL,NULL),(1559745,158705,'2015-10-29 12:53:34','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1559746,158705,'2015-10-29 12:53:34','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1559747,158705,'2015-10-29 12:53:34','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1559748,158705,'2015-10-29 12:53:34','OFFENTLIG_OPRETTELSE',NULL,1,NULL,NULL),(1559749,158705,'2015-10-29 12:53:34','INFORED_SORTORDER','Navn',NULL,NULL,NULL),(1559750,158705,'2015-10-29 12:53:34','SHOW_DATE',NULL,0,NULL,NULL),(1559751,158705,'2015-10-29 12:53:34','SHOW_TEASER',NULL,1,NULL,NULL),(1559752,158705,'2015-10-29 12:53:34','UPDATEALERTSENT',NULL,0,NULL,NULL),(1559753,158705,'2015-10-29 12:53:34','SEQ',NULL,NULL,460,NULL),(1559754,158705,'2015-10-29 12:53:34','OFFENTLIG',NULL,1,NULL,NULL),(1559755,158705,'2015-10-29 12:53:34','UPDATEALERTUSER','jubk',NULL,NULL,NULL),(1559756,158705,'2015-10-29 12:53:34','ENHED','',NULL,NULL,NULL),(1559757,158705,'2015-10-29 12:53:34','CAPTCHA',NULL,NULL,NULL,NULL),(1559758,158705,'2015-10-29 12:53:34','MIMETYPE',NULL,NULL,NULL,NULL),(1559759,158705,'2015-10-29 12:53:34','EXTRA_HTML_BODY_THISONLY',NULL,NULL,NULL,NULL),(1559760,158705,'2015-10-29 12:53:34','EXTRA_HTML_HEAD_THISONLY',NULL,NULL,NULL,NULL),(1559761,158705,'2015-10-29 12:53:34','FARVEVALG',NULL,NULL,NULL,NULL),(1559762,158705,'2015-10-29 12:53:34','SEC',NULL,0,NULL,NULL),(1559763,158705,'2015-10-29 12:53:34','PUBLISHED',NULL,NULL,NULL,'2015-10-29 12:53:31'),(1559764,158705,'2015-10-29 12:53:34','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1559765,158705,'2015-10-29 12:53:34','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1559766,158705,'2015-10-29 15:02:20','TEASER','',NULL,NULL,NULL),(1559767,158705,'2015-10-29 15:02:20','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1559768,158705,'2015-10-29 15:02:20','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1559769,158705,'2015-10-29 15:02:20','AJAX_FIELDS','',NULL,NULL,NULL),(1559770,158705,'2015-10-29 15:02:20','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1559771,158705,'2015-10-29 15:02:20','ENHED_URL','',NULL,NULL,NULL),(1559772,158705,'2015-10-29 15:02:20','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1559773,158705,'2015-10-29 15:02:20','KONTAKT_NAVN','',NULL,NULL,NULL),(1559774,158705,'2015-10-29 15:02:20','CONTRIBUTORS','',NULL,NULL,NULL),(1559775,158705,'2015-10-29 15:02:20','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1559776,158705,'2015-10-29 15:02:20','FORMTEXT','',NULL,NULL,NULL),(1559777,158705,'2015-10-29 15:02:20','AUTHOR','jubk',NULL,NULL,NULL),(1559778,158705,'2015-10-29 15:02:20','TITLE','Inforedigering',NULL,NULL,NULL),(1559779,158705,'2015-10-29 15:02:20','SORTORDER','+seq,+title',NULL,NULL,NULL),(1559780,158705,'2015-10-29 15:02:20','KONTAKT_TLF','',NULL,NULL,NULL),(1559781,158705,'2015-10-29 15:02:20','SHORT_TITLE','Inforedigering',NULL,NULL,NULL),(1559782,158705,'2015-10-29 15:02:20','SOURCE','',NULL,NULL,NULL),(1559783,158705,'2015-10-29 15:02:20','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1559784,158705,'2015-10-29 15:02:20','TILLAD_EXCEL',NULL,1,NULL,NULL),(1559785,158705,'2015-10-29 15:02:20','FREE_KEYWORDS','',NULL,NULL,NULL),(1559786,158705,'2015-10-29 15:02:20','SHOW_NEWS',NULL,1,NULL,NULL),(1559787,158705,'2015-10-29 15:02:20','DOCDATE',NULL,NULL,NULL,'2015-10-29 00:00:00'),(1559788,158705,'2015-10-29 15:02:20','FORMDATA','<fields><field><name>Navn</name>\r\n<title>Navn</title>\r\n<type>name</type>\r\n<mandatory>1</mandatory>\r\n<unique>0</unique>\r\n<imagepath></imagepath>\r\n<description></description>\r\n<validaterules></validaterules>\r\n<options></options>\r\n</field><field><name>E_mail</name>\r\n<title>E-mail</title>\r\n<type>email</type>\r\n<mandatory>1</mandatory>\r\n<unique>0</unique>\r\n<imagepath></imagepath>\r\n<description></description>\r\n<validaterules></validaterules>\r\n<options></options>\r\n</field><field><name>Kommentar</name>\r\n<title>Kommentar</title>\r\n<type>textarea</type>\r\n<mandatory>1</mandatory>\r\n<unique>0</unique>\r\n<imagepath></imagepath>\r\n<description></description>\r\n<validaterules></validaterules>\r\n<options></options>\r\n</field></fields>',NULL,NULL,NULL),(1559789,158705,'2015-10-29 15:02:20','AFTERSUBMITTEXT','',NULL,NULL,NULL),(1559790,158705,'2015-10-29 15:02:20','DOCREF','',NULL,NULL,NULL),(1559791,158705,'2015-10-29 15:02:20','KONTAKT_EMAIL','',NULL,NULL,NULL),(1559792,158705,'2015-10-29 15:02:20','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1559793,158705,'2015-10-29 15:02:20','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1559794,158705,'2015-10-29 15:02:20','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1559795,158705,'2015-10-29 15:02:20','OFFENTLIG_OPRETTELSE',NULL,0,NULL,NULL),(1559796,158705,'2015-10-29 15:02:20','INFORED_SORTORDER','Navn',NULL,NULL,NULL),(1559797,158705,'2015-10-29 15:02:20','SHOW_DATE',NULL,0,NULL,NULL),(1559798,158705,'2015-10-29 15:02:20','SHOW_TEASER',NULL,1,NULL,NULL),(1559799,158705,'2015-10-29 15:02:20','UPDATEALERTSENT',NULL,0,NULL,NULL),(1559800,158705,'2015-10-29 15:02:20','SEQ',NULL,NULL,460,NULL),(1559801,158705,'2015-10-29 15:02:20','OFFENTLIG',NULL,1,NULL,NULL),(1559802,158705,'2015-10-29 15:02:20','UPDATEALERTUSER','jubk',NULL,NULL,NULL),(1559803,158705,'2015-10-29 15:02:20','ENHED','',NULL,NULL,NULL),(1559804,158705,'2015-10-29 15:02:20','CAPTCHA',NULL,NULL,NULL,NULL),(1559805,158705,'2015-10-29 15:02:20','MIMETYPE',NULL,NULL,NULL,NULL),(1559806,158705,'2015-10-29 15:02:20','EXTRA_HTML_BODY_THISONLY',NULL,NULL,NULL,NULL),(1559807,158705,'2015-10-29 15:02:20','EXTRA_HTML_HEAD_THISONLY',NULL,NULL,NULL,NULL),(1559808,158705,'2015-10-29 15:02:20','FARVEVALG',NULL,NULL,NULL,NULL),(1559809,158705,'2015-10-29 15:02:20','SEC',NULL,0,NULL,NULL),(1559810,158705,'2015-10-29 15:02:20','PUBLISHED',NULL,NULL,NULL,'2015-10-29 15:02:20'),(1559811,158705,'2015-10-29 15:02:20','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1559812,158705,'2015-10-29 15:02:20','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1560208,158706,'2015-12-10 10:22:56','TEASER','<p>ere session!</p>\r\n<p>&aelig;alksdflkjhelkj as flkjashf</p>\r\n<div class=\"img-with-caption-left\" style=\"margin: 5px 20px 10px 0px; width: 295px; float: left;\"><a href=\"#asdf\" title=\"asdf\"><img alt=\"test\" src=\"/admin/subsite/test&aelig;&oslash;&aring;.jpg\" title=\"asdf\" /> </a>\r\n<p><a href=\"#asdf\" title=\"asdf\">heheheheh</a></p>\r\n</div>\r\n<p>asdf</p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p>asdfasdf</p>',NULL,NULL,NULL),(1560209,158706,'2015-12-10 10:22:56','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1560210,158706,'2015-12-10 10:22:56','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1560211,158706,'2015-12-10 10:22:56','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1560212,158706,'2015-12-10 10:22:56','HTML_CONTENT','<p>\r\n<a href=\"https://redmine.magenta-aps.dk/\" onclick=\"this.target=\'_blank\'\">Link der √•bner i nyt vindue</a>\r\n</p>\r\n',NULL,NULL,NULL),(1560213,158706,'2015-12-10 10:22:56','CONTENT','<p>Sadkfjhk <a href=\"/subsite/{rel}../subsite/\" title=\"Test\">ljhekjlasd</a> flkjeh lkjasdh flkjeh <a href=\"/110204.docid\" onclick=\"this.target=\'_blank\'\" title=\"Skal ikke &aring;bne i nyt vindue\">lkasdh </a>flkjah lkjh lkjasdh <a href=\"/110258.docid\" onclick=\"this.target=\'_blank\'\" title=\"Skal &aring;bne i nyt vindue\">flkhlkajjdhf</a>kjhgelagd flasdf</p>\r\n<p>Og ny session! <a href=\"/110258.docid\" onclick=\"this.target=\'_blank\'\">Og mere session</a>!</p>\r\n<p>&aelig;alksdflkjhelkj as flkjashf</p>\r\n<div class=\"img-with-caption-left\" style=\"float: left; width: 295px;\"><a href=\"#asdf\" title=\"asdf\"><img alt=\"test\" src=\"/admin/subsite/test&aelig;&oslash;&aring;.jpg\" title=\"asdf\" /> </a>\r\n<p>Mere test</p>\r\n</div>\r\n<p>asdf</p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p><img src=\"/110219.docid\" style=\"float: left; margin-top: 5px; margin-bottom: 10px; margin-left: 0px; margin-right: 20px;\" width=\"350\" /></p>\r\n<p></p>\r\n<p>asdfasdf</p>',NULL,NULL,NULL),(1560214,158706,'2015-12-10 10:22:56','BANNER1',NULL,1,NULL,NULL),(1560215,158706,'2015-12-10 10:22:56','ENHED_URL','',NULL,NULL,NULL),(1560216,158706,'2015-12-10 10:22:56','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1560217,158706,'2015-12-10 10:22:56','KONTAKT_NAVN','Et Navn',NULL,NULL,NULL),(1560218,158706,'2015-12-10 10:22:56','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1560219,158706,'2015-12-10 10:22:56','CONTRIBUTORS','',NULL,NULL,NULL),(1560220,158706,'2015-12-10 10:22:56','AUTHOR','jubk',NULL,NULL,NULL),(1560221,158706,'2015-12-10 10:22:56','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1560222,158706,'2015-12-10 10:22:56','KONTAKT_TLF','55 55 55 55',NULL,NULL,NULL),(1560223,158706,'2015-12-10 10:22:56','SORTORDER','+seq,+title',NULL,NULL,NULL),(1560224,158706,'2015-12-10 10:22:56','TITLE','A subsite',NULL,NULL,NULL),(1560225,158706,'2015-12-10 10:22:56','SHORT_TITLE','A subsite',NULL,NULL,NULL),(1560226,158706,'2015-12-10 10:22:56','BANNER2',NULL,1,NULL,NULL),(1560227,158706,'2015-12-10 10:22:56','SOURCE','',NULL,NULL,NULL),(1560228,158706,'2015-12-10 10:22:56','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1560229,158706,'2015-12-10 10:22:56','FREE_KEYWORDS','',NULL,NULL,NULL),(1560230,158706,'2015-12-10 10:22:56','SHOW_NEWS',NULL,1,NULL,NULL),(1560231,158706,'2015-12-10 10:22:56','DOCDATE',NULL,NULL,NULL,'2010-10-21 00:00:00'),(1560232,158706,'2015-12-10 10:22:56','DOCREF','',NULL,NULL,NULL),(1560233,158706,'2015-12-10 10:22:56','KONTAKT_EMAIL','email@example.com',NULL,NULL,NULL),(1560234,158706,'2015-12-10 10:22:56','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1560235,158706,'2015-12-10 10:22:56','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1560236,158706,'2015-12-10 10:22:56','EXTRA_HTML_BODY_FP','',NULL,NULL,NULL),(1560237,158706,'2015-12-10 10:22:56','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1560238,158706,'2015-12-10 10:22:56','BANNER3',NULL,1,NULL,NULL),(1560239,158706,'2015-12-10 10:22:56','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1560240,158706,'2015-12-10 10:22:56','RIGHTBOXES','1:/110233.docid',NULL,NULL,NULL),(1560241,158706,'2015-12-10 10:22:56','RIGHTBOXES','2:/110214.docid',NULL,NULL,NULL),(1560242,158706,'2015-12-10 10:22:56','RIGHTBOXES','3:/110220.docid',NULL,NULL,NULL),(1560243,158706,'2015-12-10 10:22:56','RIGHTBOXES','4:/110190.docid',NULL,NULL,NULL),(1560244,158706,'2015-12-10 10:22:56','RIGHTBOXES','5:/110221.docid',NULL,NULL,NULL),(1560245,158706,'2015-12-10 10:22:56','SHOW_DATE',NULL,0,NULL,NULL),(1560246,158706,'2015-12-10 10:22:56','SHOW_TEASER',NULL,1,NULL,NULL),(1560247,158706,'2015-12-10 10:22:56','UPDATEALERTSENT',NULL,0,NULL,NULL),(1560248,158706,'2015-12-10 10:22:56','SEQ',NULL,NULL,110,NULL),(1560249,158706,'2015-12-10 10:22:56','UPDATEALERTUSER','admin',NULL,NULL,NULL),(1560250,158706,'2015-12-10 10:22:56','ENHED','',NULL,NULL,NULL),(1560251,158706,'2015-12-10 10:22:56','EXTRA_HTML_HEAD_FP','',NULL,NULL,NULL),(1560252,158706,'2015-12-10 10:22:56','EAN',NULL,NULL,NULL,NULL),(1560253,158706,'2015-12-10 10:22:56','MIMETYPE',NULL,NULL,NULL,NULL),(1560254,158706,'2015-12-10 10:22:56','FARVEVALG',NULL,NULL,NULL,NULL),(1560255,158707,'2015-12-21 14:29:44','TEASER','',NULL,NULL,NULL),(1560256,158707,'2015-12-21 14:29:44','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1560257,158707,'2015-12-21 14:29:44','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1560258,158707,'2015-12-21 14:29:44','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1560259,158707,'2015-12-21 14:29:44','CONTENT','<p><a href=\"/subsite/broken_links_html/{rel}target/\">Relative link</a></p>\r\n<p><a href=\"/subsite/broken_links_html/{rel}./target/\">Relative link with ./</a></p>\r\n<p><a href=\"/subsite/broken_links_html/{rel}../target/\">Relative link with ../</a></p>\r\n<p><a href=\"/subsite/broken_links_html/{rel}/target/\">Relative subsite link</a></p>\r\n<p><a href=\"/subsite/broken_links_html/{rel}/target/\">Relative subsite link with ./</a></p>\r\n<p><a href=\"/110215.docid\">Relative subsite link with ../</a></p>\r\n<p><a href=\"/110201.docid\">Link with extra space</a></p>\r\n<p><a href=\"http://google.dk/\">http://google.dk/</a><br /><br /><a href=\"http://findesikkeasdfasdf.dk/\">http://findesikkeasdfasdf.dk/</a><br /><br /><a href=\"http://magenta.dk/skulle-gerne-give-404\">http://magenta.dk/skulle-gerne-give-404</a><br /><br /></p>',NULL,NULL,NULL),(1560260,158707,'2015-12-21 14:29:44','ENHED_URL','',NULL,NULL,NULL),(1560261,158707,'2015-12-21 14:29:44','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1560262,158707,'2015-12-21 14:29:44','KONTAKT_NAVN','',NULL,NULL,NULL),(1560263,158707,'2015-12-21 14:29:44','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1560264,158707,'2015-12-21 14:29:44','CONTRIBUTORS','',NULL,NULL,NULL),(1560265,158707,'2015-12-21 14:29:44','AUTHOR','admin',NULL,NULL,NULL),(1560266,158707,'2015-12-21 14:29:44','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1560267,158707,'2015-12-21 14:29:44','KONTAKT_TLF','',NULL,NULL,NULL),(1560268,158707,'2015-12-21 14:29:44','SORTORDER','+seq,+title',NULL,NULL,NULL),(1560269,158707,'2015-12-21 14:29:44','TITLE','Broken links page',NULL,NULL,NULL),(1560270,158707,'2015-12-21 14:29:44','SHORT_TITLE','Broken links page',NULL,NULL,NULL),(1560271,158707,'2015-12-21 14:29:44','SOURCE','',NULL,NULL,NULL),(1560272,158707,'2015-12-21 14:29:44','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1560273,158707,'2015-12-21 14:29:44','FREE_KEYWORDS','',NULL,NULL,NULL),(1560274,158707,'2015-12-21 14:29:44','SHOW_NEWS',NULL,1,NULL,NULL),(1560275,158707,'2015-12-21 14:29:44','DOCDATE',NULL,NULL,NULL,'2011-03-08 00:00:00'),(1560276,158707,'2015-12-21 14:29:44','DOCREF','',NULL,NULL,NULL),(1560277,158707,'2015-12-21 14:29:44','KONTAKT_EMAIL','',NULL,NULL,NULL),(1560278,158707,'2015-12-21 14:29:44','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1560279,158707,'2015-12-21 14:29:44','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1560280,158707,'2015-12-21 14:29:44','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1560281,158707,'2015-12-21 14:29:44','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1560282,158707,'2015-12-21 14:29:44','SHOW_DATE',NULL,0,NULL,NULL),(1560283,158707,'2015-12-21 14:29:44','SHOW_TEASER',NULL,1,NULL,NULL),(1560284,158707,'2015-12-21 14:29:44','UPDATEALERTSENT',NULL,0,NULL,NULL),(1560285,158707,'2015-12-21 14:29:44','SEQ',NULL,NULL,60,NULL),(1560286,158707,'2015-12-21 14:29:44','UPDATEALERTUSER','admin',NULL,NULL,NULL),(1560287,158707,'2015-12-21 14:29:44','ENHED','',NULL,NULL,NULL),(1560288,158707,'2015-12-21 14:29:44','MIMETYPE',NULL,NULL,NULL,NULL),(1560289,158707,'2015-12-21 14:29:44','FARVEVALG',NULL,NULL,NULL,NULL),(1561499,1,'2010-09-15 14:37:18','SHOW_TITLE',NULL,0,NULL,NULL),(1561500,1,'2010-11-02 10:38:25','SHOW_TITLE',NULL,0,NULL,NULL),(1561526,120935,'2014-03-10 14:09:54','SHOW_TITLE',NULL,0,NULL,NULL),(1561528,158707,'2015-12-21 14:29:44','SHOW_TITLE',NULL,0,NULL,NULL),(1561530,120938,'2014-03-10 14:11:37','SHOW_TITLE',NULL,0,NULL,NULL),(1561545,110197,'2010-09-15 17:51:50','SHOW_TITLE',NULL,0,NULL,NULL),(1561546,110196,'2010-09-15 17:51:19','SHOW_TITLE',NULL,0,NULL,NULL),(1561547,110196,'2010-09-15 17:52:17','SHOW_TITLE',NULL,0,NULL,NULL),(1561548,110196,'2011-05-19 14:12:37','SHOW_TITLE',NULL,0,NULL,NULL),(1561549,110196,'2011-05-19 14:12:45','SHOW_TITLE',NULL,0,NULL,NULL),(1601841,158705,'2015-10-29 12:53:34','SHOW_TITLE',NULL,0,NULL,NULL),(1601842,158705,'2015-10-29 15:02:20','SHOW_TITLE',NULL,0,NULL,NULL),(1611400,110197,'2016-10-31 12:02:03','TEASER','',NULL,NULL,NULL),(1611401,110197,'2016-10-31 12:02:03','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1611402,110197,'2016-10-31 12:02:03','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1611403,110197,'2016-10-31 12:02:03','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1611404,110197,'2016-10-31 12:02:03','CONTENT','<p>not found</p>',NULL,NULL,NULL),(1611405,110197,'2016-10-31 12:02:03','ENHED_URL','',NULL,NULL,NULL),(1611406,110197,'2016-10-31 12:02:03','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1611407,110197,'2016-10-31 12:02:03','KONTAKT_NAVN','',NULL,NULL,NULL),(1611408,110197,'2016-10-31 12:02:03','CONTRIBUTORS','',NULL,NULL,NULL),(1611409,110197,'2016-10-31 12:02:03','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1611410,110197,'2016-10-31 12:02:03','AUTHOR','admin',NULL,NULL,NULL),(1611411,110197,'2016-10-31 12:02:03','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1611412,110197,'2016-10-31 12:02:03','KONTAKT_TLF','',NULL,NULL,NULL),(1611413,110197,'2016-10-31 12:02:03','SORTORDER','+seq,+title',NULL,NULL,NULL),(1611414,110197,'2016-10-31 12:02:03','TITLE','404 Fejl - Not found',NULL,NULL,NULL),(1611415,110197,'2016-10-31 12:02:03','SHORT_TITLE','404 Fejl - Not Found',NULL,NULL,NULL),(1611416,110197,'2016-10-31 12:02:03','SOURCE','',NULL,NULL,NULL),(1611417,110197,'2016-10-31 12:02:03','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1611418,110197,'2016-10-31 12:02:03','FREE_KEYWORDS','',NULL,NULL,NULL),(1611419,110197,'2016-10-31 12:02:03','SHOW_NEWS',NULL,1,NULL,NULL),(1611420,110197,'2016-10-31 12:02:03','DOCDATE',NULL,NULL,NULL,'2010-09-15 00:00:00'),(1611421,110197,'2016-10-31 12:02:03','DOCREF','',NULL,NULL,NULL),(1611422,110197,'2016-10-31 12:02:03','SHOW_TITLE',NULL,0,NULL,NULL),(1611423,110197,'2016-10-31 12:02:03','KONTAKT_EMAIL','',NULL,NULL,NULL),(1611424,110197,'2016-10-31 12:02:03','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1611425,110197,'2016-10-31 12:02:03','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1611426,110197,'2016-10-31 12:02:03','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1611427,110197,'2016-10-31 12:02:03','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1611428,110197,'2016-10-31 12:02:03','SHOW_DATE',NULL,0,NULL,NULL),(1611429,110197,'2016-10-31 12:02:03','SHOW_TEASER',NULL,1,NULL,NULL),(1611430,110197,'2016-10-31 12:02:03','UPDATEALERTSENT',NULL,0,NULL,NULL),(1611431,110197,'2016-10-31 12:02:03','SEQ',NULL,NULL,80,NULL),(1611432,110197,'2016-10-31 12:02:03','UPDATEALERTUSER','admin',NULL,NULL,NULL),(1611433,110197,'2016-10-31 12:02:03','ENHED','',NULL,NULL,NULL),(1611434,110197,'2016-10-31 12:02:03','MIMETYPE',NULL,NULL,NULL,NULL),(1611435,110197,'2016-10-31 12:02:03','FARVEVALG',NULL,NULL,NULL,NULL),(1611436,110197,'2016-10-31 12:02:03','SEC',NULL,0,NULL,NULL),(1611437,110197,'2016-10-31 12:02:03','PUBLISHED',NULL,NULL,NULL,'2016-10-31 12:02:03'),(1611438,110197,'2016-10-31 12:02:03','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1611439,110197,'2016-10-31 12:02:03','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1616367,159014,'2017-03-13 16:33:45','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1616368,159014,'2017-03-13 16:33:45','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1616369,159014,'2017-03-13 16:33:45','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1616370,159014,'2017-03-13 16:33:45','CONTENT','',NULL,NULL,NULL),(1616371,159014,'2017-03-13 16:33:45','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1616372,159014,'2017-03-13 16:33:45','AUTHOR','jubk',NULL,NULL,NULL),(1616373,159014,'2017-03-13 16:33:45','TITLE','Mappe med bootstrap styling',NULL,NULL,NULL),(1616374,159014,'2017-03-13 16:33:45','SORTORDER','+seq,+title',NULL,NULL,NULL),(1616375,159014,'2017-03-13 16:33:45','SHORT_TITLE','',NULL,NULL,NULL),(1616376,159014,'2017-03-13 16:33:45','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1616377,159014,'2017-03-13 16:33:45','SHOW_NEWS',NULL,1,NULL,NULL),(1616378,159014,'2017-03-13 16:33:45','DOCDATE',NULL,NULL,NULL,'2017-03-13 00:00:00'),(1616379,159014,'2017-03-13 16:33:45','PAGESIZE',NULL,0,NULL,NULL),(1616380,159014,'2017-03-13 16:33:45','SHOW_TITLE',NULL,1,NULL,NULL),(1616381,159014,'2017-03-13 16:33:45','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1616382,159014,'2017-03-13 16:33:45','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1616383,159014,'2017-03-13 16:33:45','SHOW_DATE',NULL,0,NULL,NULL),(1616384,159014,'2017-03-13 16:33:45','SHOW_TEASER',NULL,1,NULL,NULL),(1616385,159014,'2017-03-13 16:33:45','SEQ',NULL,NULL,-1,NULL),(1616386,159014,'2017-03-13 16:33:45','TEASER',NULL,NULL,NULL,NULL),(1616387,159014,'2017-03-13 16:33:45','ENHED_URL',NULL,NULL,NULL,NULL),(1616388,159014,'2017-03-13 16:33:45','KONTAKT_ADRESSE',NULL,NULL,NULL,NULL),(1616389,159014,'2017-03-13 16:33:45','CONTRIBUTORS',NULL,NULL,NULL,NULL),(1616390,159014,'2017-03-13 16:33:45','MIMETYPE',NULL,NULL,NULL,NULL),(1616391,159014,'2017-03-13 16:33:45','EXTRA_HTML_BODY_THISONLY',NULL,NULL,NULL,NULL),(1616392,159014,'2017-03-13 16:33:45','SOURCE',NULL,NULL,NULL,NULL),(1616393,159014,'2017-03-13 16:33:45','FREE_KEYWORDS',NULL,NULL,NULL,NULL),(1616394,159014,'2017-03-13 16:33:45','DOCREF',NULL,NULL,NULL,NULL),(1616395,159014,'2017-03-13 16:33:45','EXTRA_HTML_HEAD_THISONLY',NULL,NULL,NULL,NULL),(1616396,159014,'2017-03-13 16:33:45','FARVEVALG',NULL,NULL,NULL,NULL),(1616397,159014,'2017-03-13 16:33:45','ENHED',NULL,NULL,NULL,NULL),(1616398,159014,'2017-03-13 16:33:45','SEC',NULL,0,NULL,NULL),(1616399,159014,'2017-03-13 16:33:45','PUBLISHED',NULL,NULL,NULL,'2017-03-13 16:33:44'),(1616400,159014,'2017-03-13 16:33:45','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1616401,159014,'2017-03-13 16:33:45','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1616402,159015,'2017-03-13 16:34:06','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1616403,159015,'2017-03-13 16:34:06','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1616404,159015,'2017-03-13 16:34:06','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1616405,159015,'2017-03-13 16:34:06','CONTENT','',NULL,NULL,NULL),(1616406,159015,'2017-03-13 16:34:06','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1616407,159015,'2017-03-13 16:34:06','AUTHOR','jubk',NULL,NULL,NULL),(1616408,159015,'2017-03-13 16:34:06','TITLE','Mappe med bootstrap fonts',NULL,NULL,NULL),(1616409,159015,'2017-03-13 16:34:06','SORTORDER','+seq,+title',NULL,NULL,NULL),(1616410,159015,'2017-03-13 16:34:06','SHORT_TITLE','',NULL,NULL,NULL),(1616411,159015,'2017-03-13 16:34:06','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1616412,159015,'2017-03-13 16:34:06','SHOW_NEWS',NULL,1,NULL,NULL),(1616413,159015,'2017-03-13 16:34:06','DOCDATE',NULL,NULL,NULL,'2017-03-13 00:00:00'),(1616414,159015,'2017-03-13 16:34:06','PAGESIZE',NULL,0,NULL,NULL),(1616415,159015,'2017-03-13 16:34:06','SHOW_TITLE',NULL,1,NULL,NULL),(1616416,159015,'2017-03-13 16:34:06','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1616417,159015,'2017-03-13 16:34:06','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1616418,159015,'2017-03-13 16:34:06','SHOW_DATE',NULL,0,NULL,NULL),(1616419,159015,'2017-03-13 16:34:06','SHOW_TEASER',NULL,1,NULL,NULL),(1616420,159015,'2017-03-13 16:34:06','SEQ',NULL,NULL,-1,NULL),(1616421,159015,'2017-03-13 16:34:06','TEASER',NULL,NULL,NULL,NULL),(1616422,159015,'2017-03-13 16:34:06','ENHED_URL',NULL,NULL,NULL,NULL),(1616423,159015,'2017-03-13 16:34:06','KONTAKT_ADRESSE',NULL,NULL,NULL,NULL),(1616424,159015,'2017-03-13 16:34:06','CONTRIBUTORS',NULL,NULL,NULL,NULL),(1616425,159015,'2017-03-13 16:34:06','MIMETYPE',NULL,NULL,NULL,NULL),(1616426,159015,'2017-03-13 16:34:06','EXTRA_HTML_BODY_THISONLY',NULL,NULL,NULL,NULL),(1616427,159015,'2017-03-13 16:34:06','SOURCE',NULL,NULL,NULL,NULL),(1616428,159015,'2017-03-13 16:34:06','FREE_KEYWORDS',NULL,NULL,NULL,NULL),(1616429,159015,'2017-03-13 16:34:06','DOCREF',NULL,NULL,NULL,NULL),(1616430,159015,'2017-03-13 16:34:06','EXTRA_HTML_HEAD_THISONLY',NULL,NULL,NULL,NULL),(1616431,159015,'2017-03-13 16:34:06','FARVEVALG',NULL,NULL,NULL,NULL),(1616432,159015,'2017-03-13 16:34:06','ENHED',NULL,NULL,NULL,NULL),(1616433,159015,'2017-03-13 16:34:06','SEC',NULL,0,NULL,NULL),(1616434,159015,'2017-03-13 16:34:06','PUBLISHED',NULL,NULL,NULL,'2017-03-13 16:34:06'),(1616435,159015,'2017-03-13 16:34:06','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1616436,159015,'2017-03-13 16:34:06','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1616437,159016,'2017-03-13 16:34:25','MIMETYPE','image/jpeg',NULL,NULL,NULL),(1616438,159016,'2017-03-13 16:34:25','SEQ',NULL,NULL,-100,NULL),(1616439,159016,'2017-03-13 16:34:25','EXPIRES',NULL,NULL,NULL,'2037-12-31 23:59:59'),(1616440,159016,'2017-03-13 16:34:25','HEIGHT',NULL,584,NULL,NULL),(1616441,159016,'2017-03-13 16:34:25','SIZE',NULL,59788,NULL,NULL),(1616442,159016,'2017-03-13 16:34:25','WIDTH',NULL,948,NULL,NULL),(1616443,159016,'2017-03-13 16:34:25','TITLE','image002.jpg',NULL,NULL,NULL),(1616444,159016,'2017-03-13 16:34:25','DOCDATE',NULL,NULL,NULL,'2017-03-13 16:34:25'),(1616445,159016,'2017-03-13 16:34:25','UPLOADFILE','/upload/image/jpeg/26/fa/26fad590/image002.jpg',NULL,NULL,NULL),(1645180,115658,'2018-09-10 13:03:16','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1645181,115658,'2018-09-10 13:03:16','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1645182,115658,'2018-09-10 13:03:16','SEQ',NULL,NULL,160,NULL),(1645183,115658,'2018-09-10 13:03:16','KONTAKT_EMAIL','',NULL,NULL,NULL),(1645184,115658,'2018-09-10 13:03:16','SHORT_TITLE','https subsite',NULL,NULL,NULL),(1645185,115658,'2018-09-10 13:03:16','SHOW_NEWS',NULL,1,NULL,NULL),(1645186,115658,'2018-09-10 13:03:16','CONTRIBUTORS','',NULL,NULL,NULL),(1645187,115658,'2018-09-10 13:03:16','SORTORDER','+seq,+title',NULL,NULL,NULL),(1645188,115658,'2018-09-10 13:03:16','CONTENT','',NULL,NULL,NULL),(1645189,115658,'2018-09-10 13:03:16','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1645190,115658,'2018-09-10 13:03:16','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1645191,115658,'2018-09-10 13:03:16','SHOW_TEASER',NULL,1,NULL,NULL),(1645192,115658,'2018-09-10 13:03:16','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1645193,115658,'2018-09-10 13:03:16','EXTRA_HTML_HEAD_FP','',NULL,NULL,NULL),(1645194,115658,'2018-09-10 13:03:16','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1645195,115658,'2018-09-10 13:03:16','ENHED_URL','',NULL,NULL,NULL),(1645196,115658,'2018-09-10 13:03:16','SOURCE','',NULL,NULL,NULL),(1645197,115658,'2018-09-10 13:03:16','SHOW_DATE',NULL,0,NULL,NULL),(1645198,115658,'2018-09-10 13:03:16','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1645199,115658,'2018-09-10 13:03:16','UPDATEALERTUSER','admin',NULL,NULL,NULL),(1645200,115658,'2018-09-10 13:03:16','TEASER','',NULL,NULL,NULL),(1645201,115658,'2018-09-10 13:03:16','HTML_CONTENT','',NULL,NULL,NULL),(1645202,115658,'2018-09-10 13:03:16','AUTHOR','admin',NULL,NULL,NULL),(1645203,115658,'2018-09-10 13:03:16','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1645204,115658,'2018-09-10 13:03:16','FREE_KEYWORDS','',NULL,NULL,NULL),(1645205,115658,'2018-09-10 13:03:16','UPDATEALERTSENT',NULL,0,NULL,NULL),(1645206,115658,'2018-09-10 13:03:16','KONTAKT_NAVN','',NULL,NULL,NULL),(1645207,115658,'2018-09-10 13:03:16','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1645208,115658,'2018-09-10 13:03:16','ENHED','',NULL,NULL,NULL),(1645209,115658,'2018-09-10 13:03:16','DOCDATE',NULL,NULL,NULL,'2013-12-18 00:00:00'),(1645210,115658,'2018-09-10 13:03:16','EXTRA_HTML_BODY_FP','',NULL,NULL,NULL),(1645211,115658,'2018-09-10 13:03:16','KONTAKT_TLF','',NULL,NULL,NULL),(1645212,115658,'2018-09-10 13:03:16','TITLE','https subsite',NULL,NULL,NULL),(1645213,115658,'2018-09-10 13:03:16','DOCREF','',NULL,NULL,NULL),(1645214,115658,'2018-09-10 13:03:16','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1645215,115658,'2018-09-10 13:03:16','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1645216,115658,'2018-09-10 13:03:16','EAN',NULL,NULL,NULL,NULL),(1645217,115658,'2018-09-10 13:03:16','MIMETYPE',NULL,NULL,NULL,NULL),(1645218,115658,'2018-09-10 13:03:16','FARVEVALG',NULL,NULL,NULL,NULL),(1645219,115658,'2018-09-10 13:03:16','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1645220,115658,'2018-09-10 13:03:16','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1645221,115658,'2018-09-10 13:03:16','SEC',NULL,0,NULL,NULL),(1645222,115658,'2018-09-10 13:03:16','PUBLISHED',NULL,NULL,NULL,'2018-09-10 13:03:16'),(1645223,110201,'2018-09-10 13:04:13','KONTAKT_ADRESSE','Adresse 55, 6666 En By',NULL,NULL,NULL),(1645224,110201,'2018-09-10 13:04:13','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1645225,110201,'2018-09-10 13:04:13','SEQ',NULL,NULL,110,NULL),(1645226,110201,'2018-09-10 13:04:13','KONTAKT_EMAIL','email@example.com',NULL,NULL,NULL),(1645227,110201,'2018-09-10 13:04:13','SHORT_TITLE','A subsite',NULL,NULL,NULL),(1645228,110201,'2018-09-10 13:04:13','SHOW_NEWS',NULL,1,NULL,NULL),(1645229,110201,'2018-09-10 13:04:13','CONTRIBUTORS','',NULL,NULL,NULL),(1645230,110201,'2018-09-10 13:04:13','SORTORDER','+seq,+title',NULL,NULL,NULL),(1645231,110201,'2018-09-10 13:04:13','CONTENT','<p>Sadkfjhk <a href=\"/admin/subsite/../subsite/\" title=\"Test\">ljhekjlasd</a> flkjeh lkjasdh flkjeh <a href=\"/110204.docid\" onclick=\"this.target=\'_blank\'\" rel=\"noopener\" title=\"Skal ikke &Atilde;&fnof;&Acirc;&yen;bne i nyt vindue\">lkasdh </a>flkjah lkjh lkjasdh <a href=\"/110258.docid\" onclick=\"this.target=\'_blank\'; this.target=\'_blank\';; this.target=\'_blank\';\" rel=\"noopener\" title=\"Skal &Atilde;&fnof;&Acirc;&yen;bne i nyt vindue\">flkhlkajjdhf</a>kjhgelagd flasdf</p>\r\n<p>Og ny session! <a href=\"/110258.docid\" onclick=\"this.target=\'_blank\'; this.target=\'_blank\';; this.target=\'_blank\';\" rel=\"noopener\">Og mere session</a>!</p>\r\n<p>&aelig;alksdflkjhelkj as flkjashf</p>\r\n<p><img alt=\"test\" src=\"/110205.docid\" title=\"asdf\">Billede caption</p>\r\n<div class=\"img-with-caption-left\" style=\"float: left; width: 295px;\">\r\n<p>Mere test</p>\r\n</div>\r\n<p>asdf</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p><img alt=\"\" src=\"/110219.docid\" style=\"margin: 5px 20px 10px 0px; float: left;\" width=\"350\"></p>\r\n<p>&nbsp;</p>\r\n<p>asdfasdf</p>',NULL,NULL,NULL),(1645232,110201,'2018-09-10 13:04:13','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1645233,110201,'2018-09-10 13:04:13','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1645234,110201,'2018-09-10 13:04:13','SHOW_TEASER',NULL,1,NULL,NULL),(1645235,110201,'2018-09-10 13:04:13','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1645236,110201,'2018-09-10 13:04:13','EXTRA_HTML_HEAD_FP','',NULL,NULL,NULL),(1645237,110201,'2018-09-10 13:04:13','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1645238,110201,'2018-09-10 13:04:13','ENHED_URL','http://ku-enhed.magenta-aps.dk/',NULL,NULL,NULL),(1645239,110201,'2018-09-10 13:04:13','BANNER2',NULL,1,NULL,NULL),(1645240,110201,'2018-09-10 13:04:13','SOURCE','',NULL,NULL,NULL),(1645241,110201,'2018-09-10 13:04:13','SHOW_DATE',NULL,0,NULL,NULL),(1645242,110201,'2018-09-10 13:04:13','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1645243,110201,'2018-09-10 13:04:13','UPDATEALERTUSER','admin',NULL,NULL,NULL),(1645244,110201,'2018-09-10 13:04:13','BANNER3',NULL,1,NULL,NULL),(1645245,110201,'2018-09-10 13:04:13','TEASER','<p>Teaser indhold</p>',NULL,NULL,NULL),(1645246,110201,'2018-09-10 13:04:13','HTML_CONTENT','<p>HTML indhold</p>',NULL,NULL,NULL),(1645247,110201,'2018-09-10 13:04:13','AUTHOR','jubk',NULL,NULL,NULL),(1645248,110201,'2018-09-10 13:04:13','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1645249,110201,'2018-09-10 13:04:13','FREE_KEYWORDS','',NULL,NULL,NULL),(1645250,110201,'2018-09-10 13:04:13','UPDATEALERTSENT',NULL,0,NULL,NULL),(1645251,110201,'2018-09-10 13:04:13','KONTAKT_NAVN','Et Navn',NULL,NULL,NULL),(1645252,110201,'2018-09-10 13:04:13','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1645253,110201,'2018-09-10 13:04:13','ENHED','Enhed',NULL,NULL,NULL),(1645254,110201,'2018-09-10 13:04:13','DOCDATE',NULL,NULL,NULL,'2010-10-21 00:00:00'),(1645255,110201,'2018-09-10 13:04:13','EXTRA_HTML_BODY_FP','',NULL,NULL,NULL),(1645256,110201,'2018-09-10 13:04:13','KONTAKT_TLF','55 55 55 55',NULL,NULL,NULL),(1645257,110201,'2018-09-10 13:04:13','TITLE','A subsite (changed)',NULL,NULL,NULL),(1645258,110201,'2018-09-10 13:04:13','DOCREF','',NULL,NULL,NULL),(1645259,110201,'2018-09-10 13:04:13','BANNER1',NULL,1,NULL,NULL),(1645260,110201,'2018-09-10 13:04:13','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1645261,110201,'2018-09-10 13:04:13','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1645262,110201,'2018-09-10 13:04:13','EAN',NULL,NULL,NULL,NULL),(1645263,110201,'2018-09-10 13:04:13','MIMETYPE',NULL,NULL,NULL,NULL),(1645264,110201,'2018-09-10 13:04:13','FARVEVALG',NULL,NULL,NULL,NULL),(1645265,110201,'2018-09-10 13:04:13','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1645266,110201,'2018-09-10 13:04:13','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1645267,110201,'2018-09-10 13:04:13','SEC',NULL,0,NULL,NULL),(1645268,110201,'2018-09-10 13:04:13','PUBLISHED',NULL,NULL,NULL,'2018-09-10 13:04:13'),(1645269,110189,'2018-09-10 13:11:44','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1645270,110189,'2018-09-10 13:11:44','SHOW_TEASER',NULL,1,NULL,NULL),(1645271,110189,'2018-09-10 13:11:44','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1645272,110189,'2018-09-10 13:11:44','ENHED_URL','',NULL,NULL,NULL),(1645273,110189,'2018-09-10 13:11:44','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1645274,110189,'2018-09-10 13:11:44','SHOW_DATE',NULL,0,NULL,NULL),(1645275,110189,'2018-09-10 13:11:44','EXPIRES',NULL,NULL,NULL,'9999-01-01 18:00:00'),(1645276,110189,'2018-09-10 13:11:44','SOURCE','',NULL,NULL,NULL),(1645277,110189,'2018-09-10 13:11:44','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1645278,110189,'2018-09-10 13:11:44','SEQ',NULL,NULL,-350,NULL),(1645279,110189,'2018-09-10 13:11:44','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1645280,110189,'2018-09-10 13:11:44','KONTAKT_EMAIL','',NULL,NULL,NULL),(1645281,110189,'2018-09-10 13:11:44','SHORT_TITLE','Administration',NULL,NULL,NULL),(1645282,110189,'2018-09-10 13:11:44','SHOW_NEWS',NULL,1,NULL,NULL),(1645283,110189,'2018-09-10 13:11:44','CONTRIBUTORS','',NULL,NULL,NULL),(1645284,110189,'2018-09-10 13:11:44','SORTORDER','+seq,+title',NULL,NULL,NULL),(1645285,110189,'2018-09-10 13:11:44','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1645286,110189,'2018-09-10 13:11:44','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1645287,110189,'2018-09-10 13:11:44','ENHED','',NULL,NULL,NULL),(1645288,110189,'2018-09-10 13:11:44','DOCDATE',NULL,NULL,NULL,'2005-05-10 00:00:00'),(1645289,110189,'2018-09-10 13:11:44','KONTAKT_TLF','',NULL,NULL,NULL),(1645290,110189,'2018-09-10 13:11:44','DOCREF','',NULL,NULL,NULL),(1645291,110189,'2018-09-10 13:11:44','TITLE','Administration',NULL,NULL,NULL),(1645292,110189,'2018-09-10 13:11:44','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1645293,110189,'2018-09-10 13:11:44','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1645294,110189,'2018-09-10 13:11:44','TEASER','',NULL,NULL,NULL),(1645295,110189,'2018-09-10 13:11:44','FARVEVALG','',NULL,NULL,NULL),(1645296,110189,'2018-09-10 13:11:44','HTML_CONTENT','<h3>Almindelige funktioner:</h3>\r\n<ul>\r\n<li><a href=\"./?obvius_command_users=1\">Brugere</a></li>\r\n<li><a href=\"./?obvius_command_groups=1\">Grupper</a></li>\r\n<li><a href=\"./?obvius_command_change_password=1\">Skift adgangskode</a></li>\r\n<li><a href=\"./?obvius_command_garbage=1\">Filskraldespand</a></li>\r\n<li><a href=\"./?obvius_command_import_files=1\">Masseupload af filer</a></li>\r\n</ul>\r\n\r\n<h3>Opdatering</h3>\r\n<ul>\r\n<li><a href=\"./?obvius_command_update_errorpages=1\">Opdat√©r statiske fejlsider</a></li>\r\n</ul>\r\n\r\n<h3>Funktioner for brugere med administrator rettigheder:</h3>\r\n<ul>\r\n<li><a href=\"./?obvius_command_universal_accessrules=1\">Universal adgangsregler</a></li>\r\n<li><a href=\"./?obvius_command_subscribers=1\">Abonnenter</a></li>\r\n<li><a href=\"./?obvius_command_keywords=1\">N√∏gleord</a></li>\r\n<li><a href=\"./?obvius_command_queue=1\">Kommando-k√∏</a></li>\r\n<li><a href=\"./?obvius_command_subsite=1\">Subsites</a></li>\r\n<li><a href=\"./?obvius_command_forbidden_areas=1\">Forbudte omr√•der</a></li>\r\n<li><a href=\"./?obvius_command_tags=1\">Rediger faste tags</a></li>\r\n<li><a href=\"./?obvius_command_list_inactive_users=1\">Liste over inaktive brugere</a></li>\r\n<li><a href=\"./?obvius_command_dynamic_redirects=1\">Redigering af dynamiske viderestillinger</a></li>\r\n<li><a href=\"./?obvius_command_footer_cleanup=1\">Sidefods-oprydning</a></li>\r\n<li><a href=\"./?obvius_command_protected_access_log=1\">Log over adgang til personf√∏lsomme data</a></li>\r\n<li><a href=\"./?obvius_command_driftinfo_edit=1\">Driftinfo-redigering</a></li>\r\n<li><a href=\"./?obvius_command_config_edit=1\">Global konfiguration</a></li>\r\n<li><a href=\"./?obvius_command_search_docparams=1\">S√∏g i dokumentparametre</a></li>\r\n<li><a href=\"./?obvius_command_search_by_user_or_group=1\">Find dokumenter ud fra bruger eller gruppe</a></li>\r\n<li><a href=\"./?obvius_command_bulk_protect=1\">Fred alle sider under en given sti</a></li>\r\n<li><a href=\"./?obvius_command_admin_users=1\">Administration af admin-brugere</a></li>\r\n<li><a href=\"./?obvius_command_export_styling=1\">Eksporter uploaded styling til statiske filer</a></li>\r\n\r\n</ul>\r\n\r\n<h3>V√¶rkt√∏jer:</h3>\r\n<ul>\r\n<li><a href=\"/system/update_bootstrap_git.mason\" target=\"_blank\">Opdater KU bootstrap filer (√•bner i nyt vindue)</a></li>\r\n</ul\r\n\r\n\r\n<h3>Bruger-udtr√¶ks lister:</h3>\r\n<ul>\r\n  <li><a href=\"./?obvius_command_user_extracts_admin=1\">H√•ndtering af bruger-udtr√¶ks filer</a></li>\r\n</ul>\r\n\r\n<h3>AdminJump:</h3>\r\n<p>\r\nH√∏jreklik p√• AdminJump-linket nedenfor og v√¶lg \"F√∏j til foretrukne...\".  Hvis v√¶rkt√∏jslinien \"Hyperlinks\" ikke er sl√•et til, s√• g√∏r det i menuen \"Vis/V√¶rkt√∏jslinier/Hyperlinks\" - og tr√¶k derefter linket fra foretrukne menuen ned i v√¶rkt√∏jslinien. Knappen \"AdminJump\" i v√¶rkt√∏jslinien kan nu bruges til at hoppe direkte fra en side p√• det offentlige website og til administrationsdelens tilsvarende side (og tilbage igen).\r\n</p>\r\n<ul>\r\n<li><a href=\"javascript:q=location.href;if(q&&q!=%22%22){q=String(q);r=new RegExp(%22http[s]?(://[^/]*/)(.*)%22);m=q.match(r);if(m){admin=%22admin/%22;ra=new RegExp(%22admin/([^?]*)%22);ma=m[2].match(ra);if(ma){admin=%22%22;m[2]=ma[1];}location.href=%22http%22+m[1]+admin+m[2];}else{alert(%22Dont know how to admin %22+q+%22, sorry%22);location.href=location.href;}}else{location.href=location.href;}\">AdminJump</a></li>\r\n</ul>\r\n\r\n<p>Admin-jump med direkte adgang til 1. redigeringsside</p>\r\n<ul><li><a href=\"javascript:q=location.href;if(q&&q!=%22%22){q=String(q);admin=%22admin/%22;r=new RegExp(%22^(https?://[^/]*/)([^?]*)%22);m=q.match(r);if(m){start=m[1];path=m[2];args=%22%22;ra=new RegExp(%22^%22+admin+%22(.*)%22);ma=path.match(ra);if(ma){path=ma[1];args=%22%22}else{path=admin+path;args=\'?obvius_command_edit=1\';}location.href=start+path+args;}else{alert(%22Dontknowhowtoadmin%22+q+%22,sorry%22)};}\">EditJump</a></li></ul>\r\n\r\n\r\n<!--<li><a href=\"./?obvius_command_flushcache=1\">Ryd server-cache</a></li>-->\r\n\r\n\r\n\r\n\r\n',NULL,NULL,NULL),(1645297,110189,'2018-09-10 13:11:44','AUTHOR','admin',NULL,NULL,NULL),(1645298,110189,'2018-09-10 13:11:44','FREE_KEYWORDS','',NULL,NULL,NULL),(1645299,110189,'2018-09-10 13:11:44','KONTAKT_NAVN','',NULL,NULL,NULL),(1645300,110189,'2018-09-10 13:11:44','MIMETYPE',NULL,NULL,NULL,NULL),(1645301,110189,'2018-09-10 13:11:44','SEC',NULL,0,NULL,NULL),(1645302,110189,'2018-09-10 13:11:44','PUBLISHED',NULL,NULL,NULL,'2018-09-10 13:11:44'),(1645303,110189,'2018-09-10 13:11:44','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1645304,110189,'2018-09-10 13:11:44','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00');
+INSERT INTO `vfields` VALUES (36,1,'2010-09-15 14:37:18','TEASER','',NULL,NULL,NULL),(37,1,'2010-09-15 14:37:18','ENABLE_COMMENTS',NULL,0,NULL,NULL),(38,1,'2010-09-15 14:37:18','SHOW_SUBDOCS',NULL,0,NULL,NULL),(39,1,'2010-09-15 14:37:18','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(40,1,'2010-09-15 14:37:18','CONTENT','',NULL,NULL,NULL),(41,1,'2010-09-15 14:37:18','ENHED_URL','',NULL,NULL,NULL),(42,1,'2010-09-15 14:37:18','KONTAKT_ADRESSE','',NULL,NULL,NULL),(43,1,'2010-09-15 14:37:18','KONTAKT_NAVN','',NULL,NULL,NULL),(44,1,'2010-09-15 14:37:18','CONTRIBUTORS','',NULL,NULL,NULL),(45,1,'2010-09-15 14:37:18','ROBOTSMETA','index,follow',NULL,NULL,NULL),(46,1,'2010-09-15 14:37:18','AUTHOR','create_root',NULL,NULL,NULL),(47,1,'2010-09-15 14:37:18','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(48,1,'2010-09-15 14:37:18','TITLE','Forside',NULL,NULL,NULL),(49,1,'2010-09-15 14:37:18','SORTORDER','+seq,+title',NULL,NULL,NULL),(50,1,'2010-09-15 14:37:18','KONTAKT_TLF','',NULL,NULL,NULL),(51,1,'2010-09-15 14:37:18','SHORT_TITLE','Forside',NULL,NULL,NULL),(52,1,'2010-09-15 14:37:18','SOURCE','Obvius',NULL,NULL,NULL),(53,1,'2010-09-15 14:37:18','SUBSCRIBEABLE','none',NULL,NULL,NULL),(54,1,'2010-09-15 14:37:18','FREE_KEYWORDS','',NULL,NULL,NULL),(55,1,'2010-09-15 14:37:18','SHOW_NEWS',NULL,1,NULL,NULL),(56,1,'2010-09-15 14:37:18','DOCDATE',NULL,NULL,NULL,'2010-02-01 00:00:00'),(57,1,'2010-09-15 14:37:18','DOCREF','',NULL,NULL,NULL),(58,1,'2010-09-15 14:37:18','KONTAKT_EMAIL','',NULL,NULL,NULL),(59,1,'2010-09-15 14:37:18','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(60,1,'2010-09-15 14:37:18','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(61,1,'2010-09-15 14:37:18','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(62,1,'2010-09-15 14:37:18','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(63,1,'2010-09-15 14:37:18','SHOW_DATE',NULL,0,NULL,NULL),(64,1,'2010-09-15 14:37:18','SHOW_TEASER',NULL,1,NULL,NULL),(65,1,'2010-09-15 14:37:18','UPDATEALERTSENT',NULL,0,NULL,NULL),(66,1,'2010-09-15 14:37:18','SEQ',NULL,NULL,10,NULL),(67,1,'2010-09-15 14:37:18','UPDATEALERTUSER','admin',NULL,NULL,NULL),(68,1,'2010-09-15 14:37:18','ENHED','',NULL,NULL,NULL),(69,1,'2010-09-15 14:37:18','MIMETYPE',NULL,NULL,NULL,NULL),(70,1,'2010-09-15 14:37:18','FARVEVALG',NULL,NULL,NULL,NULL),(71,1,'2010-09-15 14:37:18','SEC',NULL,0,NULL,NULL),(72,1,'2010-09-15 14:37:18','PUBLISHED',NULL,NULL,NULL,'2010-09-15 14:37:18'),(73,1,'2010-09-15 14:37:18','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(74,1,'2010-09-15 14:37:18','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(412,110196,'2010-09-15 17:51:19','TEASER','',NULL,NULL,NULL),(413,110196,'2010-09-15 17:51:19','ENABLE_COMMENTS',NULL,0,NULL,NULL),(414,110196,'2010-09-15 17:51:19','SHOW_SUBDOCS',NULL,0,NULL,NULL),(415,110196,'2010-09-15 17:51:19','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(416,110196,'2010-09-15 17:51:19','CONTENT','',NULL,NULL,NULL),(417,110196,'2010-09-15 17:51:19','ENHED_URL','',NULL,NULL,NULL),(418,110196,'2010-09-15 17:51:19','KONTAKT_ADRESSE','',NULL,NULL,NULL),(419,110196,'2010-09-15 17:51:19','KONTAKT_NAVN','',NULL,NULL,NULL),(420,110196,'2010-09-15 17:51:19','CONTRIBUTORS','',NULL,NULL,NULL),(421,110196,'2010-09-15 17:51:19','ROBOTSMETA','index,follow',NULL,NULL,NULL),(422,110196,'2010-09-15 17:51:19','AUTHOR','admin',NULL,NULL,NULL),(423,110196,'2010-09-15 17:51:19','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(424,110196,'2010-09-15 17:51:19','TITLE','Fejl fejl fejl!',NULL,NULL,NULL),(425,110196,'2010-09-15 17:51:19','SORTORDER','+seq,+title',NULL,NULL,NULL),(426,110196,'2010-09-15 17:51:19','KONTAKT_TLF','',NULL,NULL,NULL),(427,110196,'2010-09-15 17:51:19','SHORT_TITLE','Fejl fejl fejl!',NULL,NULL,NULL),(428,110196,'2010-09-15 17:51:19','SOURCE','',NULL,NULL,NULL),(429,110196,'2010-09-15 17:51:19','SUBSCRIBEABLE','none',NULL,NULL,NULL),(430,110196,'2010-09-15 17:51:19','FREE_KEYWORDS','',NULL,NULL,NULL),(431,110196,'2010-09-15 17:51:19','SHOW_NEWS',NULL,1,NULL,NULL),(432,110196,'2010-09-15 17:51:19','DOCDATE',NULL,NULL,NULL,'2010-09-15 00:00:00'),(433,110196,'2010-09-15 17:51:19','DOCREF','',NULL,NULL,NULL),(434,110196,'2010-09-15 17:51:19','KONTAKT_EMAIL','',NULL,NULL,NULL),(435,110196,'2010-09-15 17:51:19','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(436,110196,'2010-09-15 17:51:19','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(437,110196,'2010-09-15 17:51:19','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(438,110196,'2010-09-15 17:51:19','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(439,110196,'2010-09-15 17:51:19','SHOW_DATE',NULL,0,NULL,NULL),(440,110196,'2010-09-15 17:51:19','SHOW_TEASER',NULL,1,NULL,NULL),(441,110196,'2010-09-15 17:51:19','UPDATEALERTSENT',NULL,0,NULL,NULL),(442,110196,'2010-09-15 17:51:19','SEQ',NULL,NULL,70,NULL),(443,110196,'2010-09-15 17:51:19','UPDATEALERTUSER','admin',NULL,NULL,NULL),(444,110196,'2010-09-15 17:51:19','ENHED','',NULL,NULL,NULL),(445,110196,'2010-09-15 17:51:19','MIMETYPE',NULL,NULL,NULL,NULL),(446,110196,'2010-09-15 17:51:19','FARVEVALG',NULL,NULL,NULL,NULL),(447,110196,'2010-09-15 17:51:19','SEC',NULL,0,NULL,NULL),(448,110196,'2010-09-15 17:51:19','PUBLISHED',NULL,NULL,NULL,'2010-09-15 17:51:19'),(449,110196,'2010-09-15 17:51:19','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(450,110196,'2010-09-15 17:51:19','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(451,110197,'2010-09-15 17:51:50','TEASER','',NULL,NULL,NULL),(452,110197,'2010-09-15 17:51:50','ENABLE_COMMENTS',NULL,0,NULL,NULL),(453,110197,'2010-09-15 17:51:50','SHOW_SUBDOCS',NULL,0,NULL,NULL),(454,110197,'2010-09-15 17:51:50','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(455,110197,'2010-09-15 17:51:50','CONTENT','not found<br />\r\n',NULL,NULL,NULL),(456,110197,'2010-09-15 17:51:50','ENHED_URL','',NULL,NULL,NULL),(457,110197,'2010-09-15 17:51:50','KONTAKT_ADRESSE','',NULL,NULL,NULL),(458,110197,'2010-09-15 17:51:50','KONTAKT_NAVN','',NULL,NULL,NULL),(459,110197,'2010-09-15 17:51:50','CONTRIBUTORS','',NULL,NULL,NULL),(460,110197,'2010-09-15 17:51:50','ROBOTSMETA','index,follow',NULL,NULL,NULL),(461,110197,'2010-09-15 17:51:50','AUTHOR','admin',NULL,NULL,NULL),(462,110197,'2010-09-15 17:51:50','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(463,110197,'2010-09-15 17:51:50','TITLE','404 Fejl - Not found',NULL,NULL,NULL),(464,110197,'2010-09-15 17:51:50','SORTORDER','+seq,+title',NULL,NULL,NULL),(465,110197,'2010-09-15 17:51:50','KONTAKT_TLF','',NULL,NULL,NULL),(466,110197,'2010-09-15 17:51:50','SHORT_TITLE','404 Fejl - Not Found',NULL,NULL,NULL),(467,110197,'2010-09-15 17:51:50','SOURCE','',NULL,NULL,NULL),(468,110197,'2010-09-15 17:51:50','SUBSCRIBEABLE','none',NULL,NULL,NULL),(469,110197,'2010-09-15 17:51:50','FREE_KEYWORDS','',NULL,NULL,NULL),(470,110197,'2010-09-15 17:51:50','SHOW_NEWS',NULL,1,NULL,NULL),(471,110197,'2010-09-15 17:51:50','DOCDATE',NULL,NULL,NULL,'2010-09-15 00:00:00'),(472,110197,'2010-09-15 17:51:50','DOCREF','',NULL,NULL,NULL),(473,110197,'2010-09-15 17:51:50','KONTAKT_EMAIL','',NULL,NULL,NULL),(474,110197,'2010-09-15 17:51:50','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(475,110197,'2010-09-15 17:51:50','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(476,110197,'2010-09-15 17:51:50','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(477,110197,'2010-09-15 17:51:50','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(478,110197,'2010-09-15 17:51:50','SHOW_DATE',NULL,0,NULL,NULL),(479,110197,'2010-09-15 17:51:50','SHOW_TEASER',NULL,1,NULL,NULL),(480,110197,'2010-09-15 17:51:50','UPDATEALERTSENT',NULL,0,NULL,NULL),(481,110197,'2010-09-15 17:51:50','SEQ',NULL,NULL,80,NULL),(482,110197,'2010-09-15 17:51:50','UPDATEALERTUSER','admin',NULL,NULL,NULL),(483,110197,'2010-09-15 17:51:50','ENHED','',NULL,NULL,NULL),(484,110197,'2010-09-15 17:51:50','MIMETYPE',NULL,NULL,NULL,NULL),(485,110197,'2010-09-15 17:51:50','FARVEVALG',NULL,NULL,NULL,NULL),(486,110197,'2010-09-15 17:51:50','SEC',NULL,0,NULL,NULL),(487,110197,'2010-09-15 17:51:50','PUBLISHED',NULL,NULL,NULL,'2010-09-15 17:51:50'),(488,110197,'2010-09-15 17:51:50','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(489,110197,'2010-09-15 17:51:50','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(490,110196,'2010-09-15 17:52:17','TEASER','',NULL,NULL,NULL),(491,110196,'2010-09-15 17:52:17','ENABLE_COMMENTS',NULL,0,NULL,NULL),(492,110196,'2010-09-15 17:52:17','SHOW_SUBDOCS',NULL,0,NULL,NULL),(493,110196,'2010-09-15 17:52:17','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(494,110196,'2010-09-15 17:52:17','CONTENT','',NULL,NULL,NULL),(495,110196,'2010-09-15 17:52:17','ENHED_URL','',NULL,NULL,NULL),(496,110196,'2010-09-15 17:52:17','KONTAKT_ADRESSE','',NULL,NULL,NULL),(497,110196,'2010-09-15 17:52:17','KONTAKT_NAVN','',NULL,NULL,NULL),(498,110196,'2010-09-15 17:52:17','CONTRIBUTORS','',NULL,NULL,NULL),(499,110196,'2010-09-15 17:52:17','ROBOTSMETA','index,follow',NULL,NULL,NULL),(500,110196,'2010-09-15 17:52:17','AUTHOR','admin',NULL,NULL,NULL),(501,110196,'2010-09-15 17:52:17','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(502,110196,'2010-09-15 17:52:17','TITLE','500 Fejl - Internal server error',NULL,NULL,NULL),(503,110196,'2010-09-15 17:52:17','SORTORDER','+seq,+title',NULL,NULL,NULL),(504,110196,'2010-09-15 17:52:17','KONTAKT_TLF','',NULL,NULL,NULL),(505,110196,'2010-09-15 17:52:17','SHORT_TITLE','500 Fejl - Internal server error',NULL,NULL,NULL),(506,110196,'2010-09-15 17:52:17','SOURCE','',NULL,NULL,NULL),(507,110196,'2010-09-15 17:52:17','SUBSCRIBEABLE','none',NULL,NULL,NULL),(508,110196,'2010-09-15 17:52:17','FREE_KEYWORDS','',NULL,NULL,NULL),(509,110196,'2010-09-15 17:52:17','SHOW_NEWS',NULL,1,NULL,NULL),(510,110196,'2010-09-15 17:52:17','DOCDATE',NULL,NULL,NULL,'2010-09-15 00:00:00'),(511,110196,'2010-09-15 17:52:17','DOCREF','',NULL,NULL,NULL),(512,110196,'2010-09-15 17:52:17','KONTAKT_EMAIL','',NULL,NULL,NULL),(513,110196,'2010-09-15 17:52:17','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(514,110196,'2010-09-15 17:52:17','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(515,110196,'2010-09-15 17:52:17','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(516,110196,'2010-09-15 17:52:17','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(517,110196,'2010-09-15 17:52:17','SHOW_DATE',NULL,0,NULL,NULL),(518,110196,'2010-09-15 17:52:17','SHOW_TEASER',NULL,1,NULL,NULL),(519,110196,'2010-09-15 17:52:17','UPDATEALERTSENT',NULL,0,NULL,NULL),(520,110196,'2010-09-15 17:52:17','SEQ',NULL,NULL,70,NULL),(521,110196,'2010-09-15 17:52:17','UPDATEALERTUSER','admin',NULL,NULL,NULL),(522,110196,'2010-09-15 17:52:17','ENHED','',NULL,NULL,NULL),(523,110196,'2010-09-15 17:52:17','MIMETYPE',NULL,NULL,NULL,NULL),(524,110196,'2010-09-15 17:52:17','FARVEVALG',NULL,NULL,NULL,NULL),(525,110196,'2010-09-15 17:52:17','SEC',NULL,0,NULL,NULL),(526,110196,'2010-09-15 17:52:17','PUBLISHED',NULL,NULL,NULL,'2010-09-15 17:52:17'),(527,110196,'2010-09-15 17:52:17','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(528,110196,'2010-09-15 17:52:17','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1863,1,'2010-11-02 10:38:25','TEASER','Test √É¬¶√É¬∏√É¬•, √É‚Ä†√ÉÀú√É‚Ä¶\r\n',NULL,NULL,NULL),(1864,1,'2010-11-02 10:38:25','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1865,1,'2010-11-02 10:38:25','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1866,1,'2010-11-02 10:38:25','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1867,1,'2010-11-02 10:38:25','CONTENT','',NULL,NULL,NULL),(1868,1,'2010-11-02 10:38:25','ENHED_URL','',NULL,NULL,NULL),(1869,1,'2010-11-02 10:38:25','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1870,1,'2010-11-02 10:38:25','KONTAKT_NAVN','',NULL,NULL,NULL),(1871,1,'2010-11-02 10:38:25','CONTRIBUTORS','',NULL,NULL,NULL),(1872,1,'2010-11-02 10:38:25','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1873,1,'2010-11-02 10:38:25','AUTHOR','create_root',NULL,NULL,NULL),(1874,1,'2010-11-02 10:38:25','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1875,1,'2010-11-02 10:38:25','TITLE','Forside',NULL,NULL,NULL),(1876,1,'2010-11-02 10:38:25','SORTORDER','+seq,+title',NULL,NULL,NULL),(1877,1,'2010-11-02 10:38:25','KONTAKT_TLF','',NULL,NULL,NULL),(1878,1,'2010-11-02 10:38:25','SHORT_TITLE','Forside',NULL,NULL,NULL),(1879,1,'2010-11-02 10:38:25','SOURCE','Obvius',NULL,NULL,NULL),(1880,1,'2010-11-02 10:38:25','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1881,1,'2010-11-02 10:38:25','FREE_KEYWORDS','',NULL,NULL,NULL),(1882,1,'2010-11-02 10:38:25','SHOW_NEWS',NULL,1,NULL,NULL),(1883,1,'2010-11-02 10:38:25','DOCDATE',NULL,NULL,NULL,'2010-02-01 00:00:00'),(1884,1,'2010-11-02 10:38:25','DOCREF','',NULL,NULL,NULL),(1885,1,'2010-11-02 10:38:25','KONTAKT_EMAIL','',NULL,NULL,NULL),(1886,1,'2010-11-02 10:38:25','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1887,1,'2010-11-02 10:38:25','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1888,1,'2010-11-02 10:38:25','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1889,1,'2010-11-02 10:38:25','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1890,1,'2010-11-02 10:38:25','SHOW_DATE',NULL,0,NULL,NULL),(1891,1,'2010-11-02 10:38:25','SHOW_TEASER',NULL,1,NULL,NULL),(1892,1,'2010-11-02 10:38:25','UPDATEALERTSENT',NULL,0,NULL,NULL),(1893,1,'2010-11-02 10:38:25','SEQ',NULL,NULL,10,NULL),(1894,1,'2010-11-02 10:38:25','UPDATEALERTUSER','admin',NULL,NULL,NULL),(1895,1,'2010-11-02 10:38:25','ENHED','',NULL,NULL,NULL),(1896,1,'2010-11-02 10:38:25','MIMETYPE',NULL,NULL,NULL,NULL),(1897,1,'2010-11-02 10:38:25','FARVEVALG',NULL,NULL,NULL,NULL),(1898,1,'2010-11-02 10:38:25','SEC',NULL,0,NULL,NULL),(1899,1,'2010-11-02 10:38:25','PUBLISHED',NULL,NULL,NULL,'2010-11-02 10:38:25'),(1900,1,'2010-11-02 10:38:25','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1901,1,'2010-11-02 10:38:25','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(3819,110196,'2011-05-19 14:12:37','TEASER','<p>500 error</p>',NULL,NULL,NULL),(3820,110196,'2011-05-19 14:12:37','ENABLE_COMMENTS',NULL,0,NULL,NULL),(3821,110196,'2011-05-19 14:12:37','SHOW_SUBDOCS',NULL,0,NULL,NULL),(3822,110196,'2011-05-19 14:12:37','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(3823,110196,'2011-05-19 14:12:37','CONTENT','',NULL,NULL,NULL),(3824,110196,'2011-05-19 14:12:37','ENHED_URL','',NULL,NULL,NULL),(3825,110196,'2011-05-19 14:12:37','KONTAKT_ADRESSE','',NULL,NULL,NULL),(3826,110196,'2011-05-19 14:12:37','KONTAKT_NAVN','',NULL,NULL,NULL),(3827,110196,'2011-05-19 14:12:37','CONTRIBUTORS','',NULL,NULL,NULL),(3828,110196,'2011-05-19 14:12:37','ROBOTSMETA','index,follow',NULL,NULL,NULL),(3829,110196,'2011-05-19 14:12:37','AUTHOR','admin',NULL,NULL,NULL),(3830,110196,'2011-05-19 14:12:37','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(3831,110196,'2011-05-19 14:12:37','TITLE','500 Fejl - Internal server error',NULL,NULL,NULL),(3832,110196,'2011-05-19 14:12:37','SORTORDER','+seq,+title',NULL,NULL,NULL),(3833,110196,'2011-05-19 14:12:37','KONTAKT_TLF','',NULL,NULL,NULL),(3834,110196,'2011-05-19 14:12:37','SHORT_TITLE','500 Fejl - Internal server error',NULL,NULL,NULL),(3835,110196,'2011-05-19 14:12:37','SOURCE','',NULL,NULL,NULL),(3836,110196,'2011-05-19 14:12:37','SUBSCRIBEABLE','none',NULL,NULL,NULL),(3837,110196,'2011-05-19 14:12:37','FREE_KEYWORDS','',NULL,NULL,NULL),(3838,110196,'2011-05-19 14:12:37','SHOW_NEWS',NULL,1,NULL,NULL),(3839,110196,'2011-05-19 14:12:37','DOCDATE',NULL,NULL,NULL,'2010-09-15 00:00:00'),(3840,110196,'2011-05-19 14:12:37','DOCREF','',NULL,NULL,NULL),(3841,110196,'2011-05-19 14:12:37','KONTAKT_EMAIL','',NULL,NULL,NULL),(3842,110196,'2011-05-19 14:12:37','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(3843,110196,'2011-05-19 14:12:37','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(3844,110196,'2011-05-19 14:12:37','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(3845,110196,'2011-05-19 14:12:37','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(3846,110196,'2011-05-19 14:12:37','SHOW_DATE',NULL,0,NULL,NULL),(3847,110196,'2011-05-19 14:12:37','SHOW_TEASER',NULL,1,NULL,NULL),(3848,110196,'2011-05-19 14:12:37','UPDATEALERTSENT',NULL,0,NULL,NULL),(3849,110196,'2011-05-19 14:12:37','SEQ',NULL,NULL,70,NULL),(3850,110196,'2011-05-19 14:12:37','UPDATEALERTUSER','admin',NULL,NULL,NULL),(3851,110196,'2011-05-19 14:12:37','ENHED','',NULL,NULL,NULL),(3852,110196,'2011-05-19 14:12:37','MIMETYPE',NULL,NULL,NULL,NULL),(3853,110196,'2011-05-19 14:12:37','FARVEVALG',NULL,NULL,NULL,NULL),(3854,110196,'2011-05-19 14:12:37','SEC',NULL,0,NULL,NULL),(3855,110196,'2011-05-19 14:12:37','PUBLISHED',NULL,NULL,NULL,'2011-05-19 14:12:37'),(3856,110196,'2011-05-19 14:12:37','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(3857,110196,'2011-05-19 14:12:37','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(3858,110196,'2011-05-19 14:12:45','TEASER','<p>500 error</p>\r\n',NULL,NULL,NULL),(3859,110196,'2011-05-19 14:12:45','ENABLE_COMMENTS',NULL,0,NULL,NULL),(3860,110196,'2011-05-19 14:12:45','SHOW_SUBDOCS',NULL,0,NULL,NULL),(3861,110196,'2011-05-19 14:12:45','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(3862,110196,'2011-05-19 14:12:45','CONTENT','<p>500 error</p>',NULL,NULL,NULL),(3863,110196,'2011-05-19 14:12:45','ENHED_URL','',NULL,NULL,NULL),(3864,110196,'2011-05-19 14:12:45','KONTAKT_ADRESSE','',NULL,NULL,NULL),(3865,110196,'2011-05-19 14:12:45','KONTAKT_NAVN','',NULL,NULL,NULL),(3866,110196,'2011-05-19 14:12:45','CONTRIBUTORS','',NULL,NULL,NULL),(3867,110196,'2011-05-19 14:12:45','ROBOTSMETA','index,follow',NULL,NULL,NULL),(3868,110196,'2011-05-19 14:12:45','AUTHOR','admin',NULL,NULL,NULL),(3869,110196,'2011-05-19 14:12:45','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(3870,110196,'2011-05-19 14:12:45','TITLE','500 Fejl - Internal server error',NULL,NULL,NULL),(3871,110196,'2011-05-19 14:12:45','SORTORDER','+seq,+title',NULL,NULL,NULL),(3872,110196,'2011-05-19 14:12:45','KONTAKT_TLF','',NULL,NULL,NULL),(3873,110196,'2011-05-19 14:12:45','SHORT_TITLE','500 Fejl - Internal server error',NULL,NULL,NULL),(3874,110196,'2011-05-19 14:12:45','SOURCE','',NULL,NULL,NULL),(3875,110196,'2011-05-19 14:12:45','SUBSCRIBEABLE','none',NULL,NULL,NULL),(3876,110196,'2011-05-19 14:12:45','FREE_KEYWORDS','',NULL,NULL,NULL),(3877,110196,'2011-05-19 14:12:45','SHOW_NEWS',NULL,1,NULL,NULL),(3878,110196,'2011-05-19 14:12:45','DOCDATE',NULL,NULL,NULL,'2010-09-15 00:00:00'),(3879,110196,'2011-05-19 14:12:45','DOCREF','',NULL,NULL,NULL),(3880,110196,'2011-05-19 14:12:45','KONTAKT_EMAIL','',NULL,NULL,NULL),(3881,110196,'2011-05-19 14:12:45','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(3882,110196,'2011-05-19 14:12:45','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(3883,110196,'2011-05-19 14:12:45','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(3884,110196,'2011-05-19 14:12:45','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(3885,110196,'2011-05-19 14:12:45','SHOW_DATE',NULL,0,NULL,NULL),(3886,110196,'2011-05-19 14:12:45','SHOW_TEASER',NULL,1,NULL,NULL),(3887,110196,'2011-05-19 14:12:45','UPDATEALERTSENT',NULL,0,NULL,NULL),(3888,110196,'2011-05-19 14:12:45','SEQ',NULL,NULL,70,NULL),(3889,110196,'2011-05-19 14:12:45','UPDATEALERTUSER','admin',NULL,NULL,NULL),(3890,110196,'2011-05-19 14:12:45','ENHED','',NULL,NULL,NULL),(3891,110196,'2011-05-19 14:12:45','MIMETYPE',NULL,NULL,NULL,NULL),(3892,110196,'2011-05-19 14:12:45','FARVEVALG',NULL,NULL,NULL,NULL),(3893,110196,'2011-05-19 14:12:45','SEC',NULL,0,NULL,NULL),(3894,110196,'2011-05-19 14:12:45','PUBLISHED',NULL,NULL,NULL,'2011-05-19 14:12:45'),(3895,110196,'2011-05-19 14:12:45','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(3896,110196,'2011-05-19 14:12:45','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(7797,1,'2012-02-10 09:53:24','TEASER','<p>Test &aelig;&oslash;&aring;, &AElig;&Oslash;&Aring;</p>',NULL,NULL,NULL),(7798,1,'2012-02-10 09:53:24','ENABLE_COMMENTS',NULL,0,NULL,NULL),(7799,1,'2012-02-10 09:53:24','SHOW_SUBDOCS',NULL,0,NULL,NULL),(7800,1,'2012-02-10 09:53:24','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(7801,1,'2012-02-10 09:53:24','HTML_CONTENT','',NULL,NULL,NULL),(7802,1,'2012-02-10 09:53:24','CONTENT','',NULL,NULL,NULL),(7803,1,'2012-02-10 09:53:24','BANNER1',NULL,1,NULL,NULL),(7804,1,'2012-02-10 09:53:24','ENHED_URL','',NULL,NULL,NULL),(7805,1,'2012-02-10 09:53:24','KONTAKT_ADRESSE','',NULL,NULL,NULL),(7806,1,'2012-02-10 09:53:24','KONTAKT_NAVN','',NULL,NULL,NULL),(7807,1,'2012-02-10 09:53:24','ROBOTSMETA','index,follow',NULL,NULL,NULL),(7808,1,'2012-02-10 09:53:24','CONTRIBUTORS','',NULL,NULL,NULL),(7809,1,'2012-02-10 09:53:24','AUTHOR','create_root',NULL,NULL,NULL),(7810,1,'2012-02-10 09:53:24','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(7811,1,'2012-02-10 09:53:24','TITLE','Forside',NULL,NULL,NULL),(7812,1,'2012-02-10 09:53:24','SORTORDER','+seq,+title',NULL,NULL,NULL),(7813,1,'2012-02-10 09:53:24','KONTAKT_TLF','',NULL,NULL,NULL),(7814,1,'2012-02-10 09:53:24','SHORT_TITLE','Forside',NULL,NULL,NULL),(7815,1,'2012-02-10 09:53:24','SOURCE','Obvius',NULL,NULL,NULL),(7816,1,'2012-02-10 09:53:24','BANNER2',NULL,1,NULL,NULL),(7817,1,'2012-02-10 09:53:24','SUBSCRIBEABLE','none',NULL,NULL,NULL),(7818,1,'2012-02-10 09:53:24','FREE_KEYWORDS','',NULL,NULL,NULL),(7819,1,'2012-02-10 09:53:24','SHOW_NEWS',NULL,1,NULL,NULL),(7820,1,'2012-02-10 09:53:24','DOCDATE',NULL,NULL,NULL,'2010-02-01 00:00:00'),(7821,1,'2012-02-10 09:53:24','DOCREF','',NULL,NULL,NULL),(7822,1,'2012-02-10 09:53:24','KONTAKT_EMAIL','',NULL,NULL,NULL),(7823,1,'2012-02-10 09:53:24','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(7824,1,'2012-02-10 09:53:24','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(7825,1,'2012-02-10 09:53:24','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(7826,1,'2012-02-10 09:53:24','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(7827,1,'2012-02-10 09:53:24','BANNER3',NULL,1,NULL,NULL),(7828,1,'2012-02-10 09:53:24','SHOW_DATE',NULL,0,NULL,NULL),(7829,1,'2012-02-10 09:53:24','SHOW_TEASER',NULL,1,NULL,NULL),(7830,1,'2012-02-10 09:53:24','UPDATEALERTSENT',NULL,0,NULL,NULL),(7831,1,'2012-02-10 09:53:24','SEQ',NULL,NULL,10,NULL),(7832,1,'2012-02-10 09:53:24','UPDATEALERTUSER','admin',NULL,NULL,NULL),(7833,1,'2012-02-10 09:53:24','ENHED','',NULL,NULL,NULL),(7834,1,'2012-02-10 09:53:24','EAN',NULL,NULL,NULL,NULL),(7835,1,'2012-02-10 09:53:24','MIMETYPE',NULL,NULL,NULL,NULL),(7836,1,'2012-02-10 09:53:24','FARVEVALG',NULL,NULL,NULL,NULL),(34032,1,'2012-02-10 09:53:24','SEC',NULL,0,NULL,NULL),(34033,1,'2012-02-10 09:53:24','PUBLISHED',NULL,NULL,NULL,'2013-01-25 16:09:00'),(34034,1,'2012-02-10 09:53:24','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(34035,1,'2012-02-10 09:53:24','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(308459,120935,'2014-03-10 14:09:54','TEASER','',NULL,NULL,NULL),(308460,120935,'2014-03-10 14:09:54','ENABLE_COMMENTS',NULL,0,NULL,NULL),(308461,120935,'2014-03-10 14:09:54','SHOW_SUBDOCS',NULL,0,NULL,NULL),(308462,120935,'2014-03-10 14:09:54','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(308463,120935,'2014-03-10 14:09:54','CONTENT','',NULL,NULL,NULL),(308464,120935,'2014-03-10 14:09:54','ENHED_URL','',NULL,NULL,NULL),(308465,120935,'2014-03-10 14:09:54','KONTAKT_ADRESSE','',NULL,NULL,NULL),(308466,120935,'2014-03-10 14:09:54','KONTAKT_NAVN','',NULL,NULL,NULL),(308467,120935,'2014-03-10 14:09:54','CONTRIBUTORS','',NULL,NULL,NULL),(308468,120935,'2014-03-10 14:09:54','ROBOTSMETA','index,follow',NULL,NULL,NULL),(308469,120935,'2014-03-10 14:09:54','AUTHOR','admin',NULL,NULL,NULL),(308470,120935,'2014-03-10 14:09:54','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(308471,120935,'2014-03-10 14:09:54','TITLE','Previews',NULL,NULL,NULL),(308472,120935,'2014-03-10 14:09:54','SORTORDER','+seq,+title',NULL,NULL,NULL),(308473,120935,'2014-03-10 14:09:54','KONTAKT_TLF','',NULL,NULL,NULL),(308474,120935,'2014-03-10 14:09:54','SHORT_TITLE','Previews',NULL,NULL,NULL),(308475,120935,'2014-03-10 14:09:54','SOURCE','',NULL,NULL,NULL),(308476,120935,'2014-03-10 14:09:54','SUBSCRIBEABLE','none',NULL,NULL,NULL),(308477,120935,'2014-03-10 14:09:54','FREE_KEYWORDS','',NULL,NULL,NULL),(308478,120935,'2014-03-10 14:09:54','SHOW_NEWS',NULL,1,NULL,NULL),(308479,120935,'2014-03-10 14:09:54','DOCDATE',NULL,NULL,NULL,'2014-03-10 00:00:00'),(308480,120935,'2014-03-10 14:09:54','DOCREF','',NULL,NULL,NULL),(308481,120935,'2014-03-10 14:09:54','KONTAKT_EMAIL','',NULL,NULL,NULL),(308482,120935,'2014-03-10 14:09:54','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(308483,120935,'2014-03-10 14:09:54','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(308484,120935,'2014-03-10 14:09:54','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(308485,120935,'2014-03-10 14:09:54','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(308486,120935,'2014-03-10 14:09:54','SHOW_DATE',NULL,0,NULL,NULL),(308487,120935,'2014-03-10 14:09:54','SHOW_TEASER',NULL,1,NULL,NULL),(308488,120935,'2014-03-10 14:09:54','UPDATEALERTSENT',NULL,0,NULL,NULL),(308489,120935,'2014-03-10 14:09:54','SEQ',NULL,NULL,30,NULL),(308490,120935,'2014-03-10 14:09:54','UPDATEALERTUSER','admin',NULL,NULL,NULL),(308491,120935,'2014-03-10 14:09:54','ENHED','',NULL,NULL,NULL),(308492,120935,'2014-03-10 14:09:54','MIMETYPE',NULL,NULL,NULL,NULL),(308493,120935,'2014-03-10 14:09:54','FARVEVALG',NULL,NULL,NULL,NULL),(308494,120936,'2014-03-10 14:10:03','TEASER','',NULL,NULL,NULL),(308495,120936,'2014-03-10 14:10:03','ENABLE_COMMENTS',NULL,0,NULL,NULL),(308496,120936,'2014-03-10 14:10:03','SHOW_SUBDOCS',NULL,0,NULL,NULL),(308497,120936,'2014-03-10 14:10:03','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(308498,120936,'2014-03-10 14:10:03','HTML_CONTENT','<html>\r\n   <head></head>\r\n   <body>\r\n      <h1>En overskrift og hat</h1>\r\n   </body>\r\n</html>\r\n',NULL,NULL,NULL),(308499,120936,'2014-03-10 14:10:03','ENHED_URL','',NULL,NULL,NULL),(308500,120936,'2014-03-10 14:10:03','KONTAKT_ADRESSE','',NULL,NULL,NULL),(308501,120936,'2014-03-10 14:10:03','KONTAKT_NAVN','',NULL,NULL,NULL),(308502,120936,'2014-03-10 14:10:03','CONTRIBUTORS','',NULL,NULL,NULL),(308503,120936,'2014-03-10 14:10:03','ROBOTSMETA','index,follow',NULL,NULL,NULL),(308504,120936,'2014-03-10 14:10:03','AUTHOR','admin',NULL,NULL,NULL),(308505,120936,'2014-03-10 14:10:03','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(308506,120936,'2014-03-10 14:10:03','TITLE','Mit lille html document',NULL,NULL,NULL),(308507,120936,'2014-03-10 14:10:03','SORTORDER','+seq,+title',NULL,NULL,NULL),(308508,120936,'2014-03-10 14:10:03','KONTAKT_TLF','',NULL,NULL,NULL),(308509,120936,'2014-03-10 14:10:03','SHORT_TITLE','',NULL,NULL,NULL),(308510,120936,'2014-03-10 14:10:03','SOURCE','',NULL,NULL,NULL),(308511,120936,'2014-03-10 14:10:03','SUBSCRIBEABLE','none',NULL,NULL,NULL),(308512,120936,'2014-03-10 14:10:03','FREE_KEYWORDS','',NULL,NULL,NULL),(308513,120936,'2014-03-10 14:10:03','SHOW_NEWS',NULL,1,NULL,NULL),(308514,120936,'2014-03-10 14:10:03','DOCDATE',NULL,NULL,NULL,'2012-06-21 00:00:00'),(308515,120936,'2014-03-10 14:10:03','DOCREF','',NULL,NULL,NULL),(308516,120936,'2014-03-10 14:10:03','KONTAKT_EMAIL','',NULL,NULL,NULL),(308517,120936,'2014-03-10 14:10:03','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(308518,120936,'2014-03-10 14:10:03','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(308519,120936,'2014-03-10 14:10:03','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(308520,120936,'2014-03-10 14:10:03','SHOW_DATE',NULL,0,NULL,NULL),(308521,120936,'2014-03-10 14:10:03','SHOW_TEASER',NULL,1,NULL,NULL),(308522,120936,'2014-03-10 14:10:03','SEQ',NULL,NULL,230,NULL),(308523,120936,'2014-03-10 14:10:03','ENHED','',NULL,NULL,NULL),(308524,120936,'2014-03-10 14:10:03','MIMETYPE',NULL,NULL,NULL,NULL),(308525,120936,'2014-03-10 14:10:03','FARVEVALG',NULL,NULL,NULL,NULL),(308526,120935,'2014-03-10 14:09:54','SEC',NULL,110189,NULL,NULL),(308527,120935,'2014-03-10 14:09:54','PUBLISHED',NULL,NULL,NULL,'2014-03-10 14:10:19'),(308528,120935,'2014-03-10 14:09:54','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(308529,120935,'2014-03-10 14:09:54','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(308565,120938,'2014-03-10 14:11:37','TEASER','',NULL,NULL,NULL),(308566,120938,'2014-03-10 14:11:37','ENABLE_COMMENTS',NULL,0,NULL,NULL),(308567,120938,'2014-03-10 14:11:37','SHOW_SUBDOCS',NULL,0,NULL,NULL),(308568,120938,'2014-03-10 14:11:37','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(308569,120938,'2014-03-10 14:11:37','CONTENT','<p>Virker preview?</p>',NULL,NULL,NULL),(308570,120938,'2014-03-10 14:11:37','ENHED_URL','',NULL,NULL,NULL),(308571,120938,'2014-03-10 14:11:37','KONTAKT_ADRESSE','',NULL,NULL,NULL),(308572,120938,'2014-03-10 14:11:37','KONTAKT_NAVN','',NULL,NULL,NULL),(308573,120938,'2014-03-10 14:11:37','CONTRIBUTORS','',NULL,NULL,NULL),(308574,120938,'2014-03-10 14:11:37','ROBOTSMETA','index,follow',NULL,NULL,NULL),(308575,120938,'2014-03-10 14:11:37','AUTHOR','admin',NULL,NULL,NULL),(308576,120938,'2014-03-10 14:11:37','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(308577,120938,'2014-03-10 14:11:37','TITLE','Virker preview?',NULL,NULL,NULL),(308578,120938,'2014-03-10 14:11:37','SORTORDER','+seq,+title',NULL,NULL,NULL),(308579,120938,'2014-03-10 14:11:37','KONTAKT_TLF','',NULL,NULL,NULL),(308580,120938,'2014-03-10 14:11:37','SHORT_TITLE','Virker preview?',NULL,NULL,NULL),(308581,120938,'2014-03-10 14:11:37','SOURCE','',NULL,NULL,NULL),(308582,120938,'2014-03-10 14:11:37','SUBSCRIBEABLE','none',NULL,NULL,NULL),(308583,120938,'2014-03-10 14:11:37','FREE_KEYWORDS','',NULL,NULL,NULL),(308584,120938,'2014-03-10 14:11:37','SHOW_NEWS',NULL,1,NULL,NULL),(308585,120938,'2014-03-10 14:11:37','DOCDATE',NULL,NULL,NULL,'2014-03-10 00:00:00'),(308586,120938,'2014-03-10 14:11:37','DOCREF','',NULL,NULL,NULL),(308587,120938,'2014-03-10 14:11:37','KONTAKT_EMAIL','',NULL,NULL,NULL),(308588,120938,'2014-03-10 14:11:37','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(308589,120938,'2014-03-10 14:11:37','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(308590,120938,'2014-03-10 14:11:37','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(308591,120938,'2014-03-10 14:11:37','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(308592,120938,'2014-03-10 14:11:37','SHOW_DATE',NULL,0,NULL,NULL),(308593,120938,'2014-03-10 14:11:37','SHOW_TEASER',NULL,1,NULL,NULL),(308594,120938,'2014-03-10 14:11:37','UPDATEALERTSENT',NULL,0,NULL,NULL),(308595,120938,'2014-03-10 14:11:37','SEQ',NULL,NULL,10,NULL),(308596,120938,'2014-03-10 14:11:37','UPDATEALERTUSER','admin',NULL,NULL,NULL),(308597,120938,'2014-03-10 14:11:37','ENHED','',NULL,NULL,NULL),(308598,120938,'2014-03-10 14:11:37','MIMETYPE',NULL,NULL,NULL,NULL),(308599,120938,'2014-03-10 14:11:37','FARVEVALG',NULL,NULL,NULL,NULL),(1559719,158705,'2015-10-29 12:53:34','TEASER','',NULL,NULL,NULL),(1559720,158705,'2015-10-29 12:53:34','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1559721,158705,'2015-10-29 12:53:34','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1559722,158705,'2015-10-29 12:53:34','AJAX_FIELDS','',NULL,NULL,NULL),(1559723,158705,'2015-10-29 12:53:34','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1559724,158705,'2015-10-29 12:53:34','ENHED_URL','',NULL,NULL,NULL),(1559725,158705,'2015-10-29 12:53:34','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1559726,158705,'2015-10-29 12:53:34','KONTAKT_NAVN','',NULL,NULL,NULL),(1559727,158705,'2015-10-29 12:53:34','CONTRIBUTORS','',NULL,NULL,NULL),(1559728,158705,'2015-10-29 12:53:34','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1559729,158705,'2015-10-29 12:53:34','FORMTEXT','',NULL,NULL,NULL),(1559730,158705,'2015-10-29 12:53:34','AUTHOR','jubk',NULL,NULL,NULL),(1559731,158705,'2015-10-29 12:53:34','TITLE','Inforedigering',NULL,NULL,NULL),(1559732,158705,'2015-10-29 12:53:34','SORTORDER','+seq,+title',NULL,NULL,NULL),(1559733,158705,'2015-10-29 12:53:34','KONTAKT_TLF','',NULL,NULL,NULL),(1559734,158705,'2015-10-29 12:53:34','SHORT_TITLE','Inforedigering',NULL,NULL,NULL),(1559735,158705,'2015-10-29 12:53:34','SOURCE','',NULL,NULL,NULL),(1559736,158705,'2015-10-29 12:53:34','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1559737,158705,'2015-10-29 12:53:34','TILLAD_EXCEL',NULL,1,NULL,NULL),(1559738,158705,'2015-10-29 12:53:34','FREE_KEYWORDS','',NULL,NULL,NULL),(1559739,158705,'2015-10-29 12:53:34','SHOW_NEWS',NULL,1,NULL,NULL),(1559740,158705,'2015-10-29 12:53:34','DOCDATE',NULL,NULL,NULL,'2015-10-29 00:00:00'),(1559741,158705,'2015-10-29 12:53:34','FORMDATA','<fields><field><name>Navn</name>\r\n<title>Navn</title>\r\n<type>name</type>\r\n<mandatory>1</mandatory>\r\n<unique>0</unique>\r\n<imagepath></imagepath>\r\n<description></description>\r\n<validaterules></validaterules>\r\n<options></options>\r\n</field><field><name>E_mail</name>\r\n<title>E-mail</title>\r\n<type>email</type>\r\n<mandatory>1</mandatory>\r\n<unique>0</unique>\r\n<imagepath></imagepath>\r\n<description></description>\r\n<validaterules></validaterules>\r\n<options></options>\r\n</field><field><name>Kommentar</name>\r\n<title>Kommentar</title>\r\n<type>textarea</type>\r\n<mandatory>1</mandatory>\r\n<unique>0</unique>\r\n<imagepath></imagepath>\r\n<description></description>\r\n<validaterules></validaterules>\r\n<options></options>\r\n</field></fields>',NULL,NULL,NULL),(1559742,158705,'2015-10-29 12:53:34','AFTERSUBMITTEXT','',NULL,NULL,NULL),(1559743,158705,'2015-10-29 12:53:34','DOCREF','',NULL,NULL,NULL),(1559744,158705,'2015-10-29 12:53:34','KONTAKT_EMAIL','',NULL,NULL,NULL),(1559745,158705,'2015-10-29 12:53:34','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1559746,158705,'2015-10-29 12:53:34','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1559747,158705,'2015-10-29 12:53:34','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1559748,158705,'2015-10-29 12:53:34','OFFENTLIG_OPRETTELSE',NULL,1,NULL,NULL),(1559749,158705,'2015-10-29 12:53:34','INFORED_SORTORDER','Navn',NULL,NULL,NULL),(1559750,158705,'2015-10-29 12:53:34','SHOW_DATE',NULL,0,NULL,NULL),(1559751,158705,'2015-10-29 12:53:34','SHOW_TEASER',NULL,1,NULL,NULL),(1559752,158705,'2015-10-29 12:53:34','UPDATEALERTSENT',NULL,0,NULL,NULL),(1559753,158705,'2015-10-29 12:53:34','SEQ',NULL,NULL,460,NULL),(1559754,158705,'2015-10-29 12:53:34','OFFENTLIG',NULL,1,NULL,NULL),(1559755,158705,'2015-10-29 12:53:34','UPDATEALERTUSER','jubk',NULL,NULL,NULL),(1559756,158705,'2015-10-29 12:53:34','ENHED','',NULL,NULL,NULL),(1559757,158705,'2015-10-29 12:53:34','CAPTCHA',NULL,NULL,NULL,NULL),(1559758,158705,'2015-10-29 12:53:34','MIMETYPE',NULL,NULL,NULL,NULL),(1559759,158705,'2015-10-29 12:53:34','EXTRA_HTML_BODY_THISONLY',NULL,NULL,NULL,NULL),(1559760,158705,'2015-10-29 12:53:34','EXTRA_HTML_HEAD_THISONLY',NULL,NULL,NULL,NULL),(1559761,158705,'2015-10-29 12:53:34','FARVEVALG',NULL,NULL,NULL,NULL),(1559762,158705,'2015-10-29 12:53:34','SEC',NULL,0,NULL,NULL),(1559763,158705,'2015-10-29 12:53:34','PUBLISHED',NULL,NULL,NULL,'2015-10-29 12:53:31'),(1559764,158705,'2015-10-29 12:53:34','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1559765,158705,'2015-10-29 12:53:34','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1559766,158705,'2015-10-29 15:02:20','TEASER','',NULL,NULL,NULL),(1559767,158705,'2015-10-29 15:02:20','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1559768,158705,'2015-10-29 15:02:20','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1559769,158705,'2015-10-29 15:02:20','AJAX_FIELDS','',NULL,NULL,NULL),(1559770,158705,'2015-10-29 15:02:20','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1559771,158705,'2015-10-29 15:02:20','ENHED_URL','',NULL,NULL,NULL),(1559772,158705,'2015-10-29 15:02:20','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1559773,158705,'2015-10-29 15:02:20','KONTAKT_NAVN','',NULL,NULL,NULL),(1559774,158705,'2015-10-29 15:02:20','CONTRIBUTORS','',NULL,NULL,NULL),(1559775,158705,'2015-10-29 15:02:20','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1559776,158705,'2015-10-29 15:02:20','FORMTEXT','',NULL,NULL,NULL),(1559777,158705,'2015-10-29 15:02:20','AUTHOR','jubk',NULL,NULL,NULL),(1559778,158705,'2015-10-29 15:02:20','TITLE','Inforedigering',NULL,NULL,NULL),(1559779,158705,'2015-10-29 15:02:20','SORTORDER','+seq,+title',NULL,NULL,NULL),(1559780,158705,'2015-10-29 15:02:20','KONTAKT_TLF','',NULL,NULL,NULL),(1559781,158705,'2015-10-29 15:02:20','SHORT_TITLE','Inforedigering',NULL,NULL,NULL),(1559782,158705,'2015-10-29 15:02:20','SOURCE','',NULL,NULL,NULL),(1559783,158705,'2015-10-29 15:02:20','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1559784,158705,'2015-10-29 15:02:20','TILLAD_EXCEL',NULL,1,NULL,NULL),(1559785,158705,'2015-10-29 15:02:20','FREE_KEYWORDS','',NULL,NULL,NULL),(1559786,158705,'2015-10-29 15:02:20','SHOW_NEWS',NULL,1,NULL,NULL),(1559787,158705,'2015-10-29 15:02:20','DOCDATE',NULL,NULL,NULL,'2015-10-29 00:00:00'),(1559788,158705,'2015-10-29 15:02:20','FORMDATA','<fields><field><name>Navn</name>\r\n<title>Navn</title>\r\n<type>name</type>\r\n<mandatory>1</mandatory>\r\n<unique>0</unique>\r\n<imagepath></imagepath>\r\n<description></description>\r\n<validaterules></validaterules>\r\n<options></options>\r\n</field><field><name>E_mail</name>\r\n<title>E-mail</title>\r\n<type>email</type>\r\n<mandatory>1</mandatory>\r\n<unique>0</unique>\r\n<imagepath></imagepath>\r\n<description></description>\r\n<validaterules></validaterules>\r\n<options></options>\r\n</field><field><name>Kommentar</name>\r\n<title>Kommentar</title>\r\n<type>textarea</type>\r\n<mandatory>1</mandatory>\r\n<unique>0</unique>\r\n<imagepath></imagepath>\r\n<description></description>\r\n<validaterules></validaterules>\r\n<options></options>\r\n</field></fields>',NULL,NULL,NULL),(1559789,158705,'2015-10-29 15:02:20','AFTERSUBMITTEXT','',NULL,NULL,NULL),(1559790,158705,'2015-10-29 15:02:20','DOCREF','',NULL,NULL,NULL),(1559791,158705,'2015-10-29 15:02:20','KONTAKT_EMAIL','',NULL,NULL,NULL),(1559792,158705,'2015-10-29 15:02:20','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1559793,158705,'2015-10-29 15:02:20','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1559794,158705,'2015-10-29 15:02:20','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1559795,158705,'2015-10-29 15:02:20','OFFENTLIG_OPRETTELSE',NULL,0,NULL,NULL),(1559796,158705,'2015-10-29 15:02:20','INFORED_SORTORDER','Navn',NULL,NULL,NULL),(1559797,158705,'2015-10-29 15:02:20','SHOW_DATE',NULL,0,NULL,NULL),(1559798,158705,'2015-10-29 15:02:20','SHOW_TEASER',NULL,1,NULL,NULL),(1559799,158705,'2015-10-29 15:02:20','UPDATEALERTSENT',NULL,0,NULL,NULL),(1559800,158705,'2015-10-29 15:02:20','SEQ',NULL,NULL,460,NULL),(1559801,158705,'2015-10-29 15:02:20','OFFENTLIG',NULL,1,NULL,NULL),(1559802,158705,'2015-10-29 15:02:20','UPDATEALERTUSER','jubk',NULL,NULL,NULL),(1559803,158705,'2015-10-29 15:02:20','ENHED','',NULL,NULL,NULL),(1559804,158705,'2015-10-29 15:02:20','CAPTCHA',NULL,NULL,NULL,NULL),(1559805,158705,'2015-10-29 15:02:20','MIMETYPE',NULL,NULL,NULL,NULL),(1559806,158705,'2015-10-29 15:02:20','EXTRA_HTML_BODY_THISONLY',NULL,NULL,NULL,NULL),(1559807,158705,'2015-10-29 15:02:20','EXTRA_HTML_HEAD_THISONLY',NULL,NULL,NULL,NULL),(1559808,158705,'2015-10-29 15:02:20','FARVEVALG',NULL,NULL,NULL,NULL),(1559809,158705,'2015-10-29 15:02:20','SEC',NULL,0,NULL,NULL),(1559810,158705,'2015-10-29 15:02:20','PUBLISHED',NULL,NULL,NULL,'2015-10-29 15:02:20'),(1559811,158705,'2015-10-29 15:02:20','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1559812,158705,'2015-10-29 15:02:20','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1560208,158706,'2015-12-10 10:22:56','TEASER','<p>ere session!</p>\r\n<p>&aelig;alksdflkjhelkj as flkjashf</p>\r\n<div class=\"img-with-caption-left\" style=\"margin: 5px 20px 10px 0px; width: 295px; float: left;\"><a href=\"#asdf\" title=\"asdf\"><img alt=\"test\" src=\"/admin/subsite/test&aelig;&oslash;&aring;.jpg\" title=\"asdf\" /> </a>\r\n<p><a href=\"#asdf\" title=\"asdf\">heheheheh</a></p>\r\n</div>\r\n<p>asdf</p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p>asdfasdf</p>',NULL,NULL,NULL),(1560209,158706,'2015-12-10 10:22:56','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1560210,158706,'2015-12-10 10:22:56','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1560211,158706,'2015-12-10 10:22:56','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1560212,158706,'2015-12-10 10:22:56','HTML_CONTENT','<p>\r\n<a href=\"https://redmine.magenta-aps.dk/\" onclick=\"this.target=\'_blank\'\">Link der √•bner i nyt vindue</a>\r\n</p>\r\n',NULL,NULL,NULL),(1560213,158706,'2015-12-10 10:22:56','CONTENT','<p>Sadkfjhk <a href=\"/subsite/{rel}../subsite/\" title=\"Test\">ljhekjlasd</a> flkjeh lkjasdh flkjeh <a href=\"/110204.docid\" onclick=\"this.target=\'_blank\'\" title=\"Skal ikke &aring;bne i nyt vindue\">lkasdh </a>flkjah lkjh lkjasdh <a href=\"/110258.docid\" onclick=\"this.target=\'_blank\'\" title=\"Skal &aring;bne i nyt vindue\">flkhlkajjdhf</a>kjhgelagd flasdf</p>\r\n<p>Og ny session! <a href=\"/110258.docid\" onclick=\"this.target=\'_blank\'\">Og mere session</a>!</p>\r\n<p>&aelig;alksdflkjhelkj as flkjashf</p>\r\n<div class=\"img-with-caption-left\" style=\"float: left; width: 295px;\"><a href=\"#asdf\" title=\"asdf\"><img alt=\"test\" src=\"/admin/subsite/test&aelig;&oslash;&aring;.jpg\" title=\"asdf\" /> </a>\r\n<p>Mere test</p>\r\n</div>\r\n<p>asdf</p>\r\n<p></p>\r\n<p></p>\r\n<p></p>\r\n<p><img src=\"/110219.docid\" style=\"float: left; margin-top: 5px; margin-bottom: 10px; margin-left: 0px; margin-right: 20px;\" width=\"350\" /></p>\r\n<p></p>\r\n<p>asdfasdf</p>',NULL,NULL,NULL),(1560214,158706,'2015-12-10 10:22:56','BANNER1',NULL,1,NULL,NULL),(1560215,158706,'2015-12-10 10:22:56','ENHED_URL','',NULL,NULL,NULL),(1560216,158706,'2015-12-10 10:22:56','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1560217,158706,'2015-12-10 10:22:56','KONTAKT_NAVN','Et Navn',NULL,NULL,NULL),(1560218,158706,'2015-12-10 10:22:56','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1560219,158706,'2015-12-10 10:22:56','CONTRIBUTORS','',NULL,NULL,NULL),(1560220,158706,'2015-12-10 10:22:56','AUTHOR','jubk',NULL,NULL,NULL),(1560221,158706,'2015-12-10 10:22:56','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1560222,158706,'2015-12-10 10:22:56','KONTAKT_TLF','55 55 55 55',NULL,NULL,NULL),(1560223,158706,'2015-12-10 10:22:56','SORTORDER','+seq,+title',NULL,NULL,NULL),(1560224,158706,'2015-12-10 10:22:56','TITLE','A subsite',NULL,NULL,NULL),(1560225,158706,'2015-12-10 10:22:56','SHORT_TITLE','A subsite',NULL,NULL,NULL),(1560226,158706,'2015-12-10 10:22:56','BANNER2',NULL,1,NULL,NULL),(1560227,158706,'2015-12-10 10:22:56','SOURCE','',NULL,NULL,NULL),(1560228,158706,'2015-12-10 10:22:56','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1560229,158706,'2015-12-10 10:22:56','FREE_KEYWORDS','',NULL,NULL,NULL),(1560230,158706,'2015-12-10 10:22:56','SHOW_NEWS',NULL,1,NULL,NULL),(1560231,158706,'2015-12-10 10:22:56','DOCDATE',NULL,NULL,NULL,'2010-10-21 00:00:00'),(1560232,158706,'2015-12-10 10:22:56','DOCREF','',NULL,NULL,NULL),(1560233,158706,'2015-12-10 10:22:56','KONTAKT_EMAIL','email@example.com',NULL,NULL,NULL),(1560234,158706,'2015-12-10 10:22:56','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1560235,158706,'2015-12-10 10:22:56','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1560236,158706,'2015-12-10 10:22:56','EXTRA_HTML_BODY_FP','',NULL,NULL,NULL),(1560237,158706,'2015-12-10 10:22:56','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1560238,158706,'2015-12-10 10:22:56','BANNER3',NULL,1,NULL,NULL),(1560239,158706,'2015-12-10 10:22:56','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1560240,158706,'2015-12-10 10:22:56','RIGHTBOXES','1:/110233.docid',NULL,NULL,NULL),(1560241,158706,'2015-12-10 10:22:56','RIGHTBOXES','2:/110214.docid',NULL,NULL,NULL),(1560242,158706,'2015-12-10 10:22:56','RIGHTBOXES','3:/110220.docid',NULL,NULL,NULL),(1560243,158706,'2015-12-10 10:22:56','RIGHTBOXES','4:/110190.docid',NULL,NULL,NULL),(1560244,158706,'2015-12-10 10:22:56','RIGHTBOXES','5:/110221.docid',NULL,NULL,NULL),(1560245,158706,'2015-12-10 10:22:56','SHOW_DATE',NULL,0,NULL,NULL),(1560246,158706,'2015-12-10 10:22:56','SHOW_TEASER',NULL,1,NULL,NULL),(1560247,158706,'2015-12-10 10:22:56','UPDATEALERTSENT',NULL,0,NULL,NULL),(1560248,158706,'2015-12-10 10:22:56','SEQ',NULL,NULL,110,NULL),(1560249,158706,'2015-12-10 10:22:56','UPDATEALERTUSER','admin',NULL,NULL,NULL),(1560250,158706,'2015-12-10 10:22:56','ENHED','',NULL,NULL,NULL),(1560251,158706,'2015-12-10 10:22:56','EXTRA_HTML_HEAD_FP','',NULL,NULL,NULL),(1560252,158706,'2015-12-10 10:22:56','EAN',NULL,NULL,NULL,NULL),(1560253,158706,'2015-12-10 10:22:56','MIMETYPE',NULL,NULL,NULL,NULL),(1560254,158706,'2015-12-10 10:22:56','FARVEVALG',NULL,NULL,NULL,NULL),(1560255,158707,'2015-12-21 14:29:44','TEASER','',NULL,NULL,NULL),(1560256,158707,'2015-12-21 14:29:44','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1560257,158707,'2015-12-21 14:29:44','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1560258,158707,'2015-12-21 14:29:44','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1560259,158707,'2015-12-21 14:29:44','CONTENT','<p><a href=\"/subsite/broken_links_html/{rel}target/\">Relative link</a></p>\r\n<p><a href=\"/subsite/broken_links_html/{rel}./target/\">Relative link with ./</a></p>\r\n<p><a href=\"/subsite/broken_links_html/{rel}../target/\">Relative link with ../</a></p>\r\n<p><a href=\"/subsite/broken_links_html/{rel}/target/\">Relative subsite link</a></p>\r\n<p><a href=\"/subsite/broken_links_html/{rel}/target/\">Relative subsite link with ./</a></p>\r\n<p><a href=\"/110215.docid\">Relative subsite link with ../</a></p>\r\n<p><a href=\"/110201.docid\">Link with extra space</a></p>\r\n<p><a href=\"http://google.dk/\">http://google.dk/</a><br /><br /><a href=\"http://findesikkeasdfasdf.dk/\">http://findesikkeasdfasdf.dk/</a><br /><br /><a href=\"http://magenta.dk/skulle-gerne-give-404\">http://magenta.dk/skulle-gerne-give-404</a><br /><br /></p>',NULL,NULL,NULL),(1560260,158707,'2015-12-21 14:29:44','ENHED_URL','',NULL,NULL,NULL),(1560261,158707,'2015-12-21 14:29:44','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1560262,158707,'2015-12-21 14:29:44','KONTAKT_NAVN','',NULL,NULL,NULL),(1560263,158707,'2015-12-21 14:29:44','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1560264,158707,'2015-12-21 14:29:44','CONTRIBUTORS','',NULL,NULL,NULL),(1560265,158707,'2015-12-21 14:29:44','AUTHOR','admin',NULL,NULL,NULL),(1560266,158707,'2015-12-21 14:29:44','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1560267,158707,'2015-12-21 14:29:44','KONTAKT_TLF','',NULL,NULL,NULL),(1560268,158707,'2015-12-21 14:29:44','SORTORDER','+seq,+title',NULL,NULL,NULL),(1560269,158707,'2015-12-21 14:29:44','TITLE','Broken links page',NULL,NULL,NULL),(1560270,158707,'2015-12-21 14:29:44','SHORT_TITLE','Broken links page',NULL,NULL,NULL),(1560271,158707,'2015-12-21 14:29:44','SOURCE','',NULL,NULL,NULL),(1560272,158707,'2015-12-21 14:29:44','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1560273,158707,'2015-12-21 14:29:44','FREE_KEYWORDS','',NULL,NULL,NULL),(1560274,158707,'2015-12-21 14:29:44','SHOW_NEWS',NULL,1,NULL,NULL),(1560275,158707,'2015-12-21 14:29:44','DOCDATE',NULL,NULL,NULL,'2011-03-08 00:00:00'),(1560276,158707,'2015-12-21 14:29:44','DOCREF','',NULL,NULL,NULL),(1560277,158707,'2015-12-21 14:29:44','KONTAKT_EMAIL','',NULL,NULL,NULL),(1560278,158707,'2015-12-21 14:29:44','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1560279,158707,'2015-12-21 14:29:44','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1560280,158707,'2015-12-21 14:29:44','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1560281,158707,'2015-12-21 14:29:44','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1560282,158707,'2015-12-21 14:29:44','SHOW_DATE',NULL,0,NULL,NULL),(1560283,158707,'2015-12-21 14:29:44','SHOW_TEASER',NULL,1,NULL,NULL),(1560284,158707,'2015-12-21 14:29:44','UPDATEALERTSENT',NULL,0,NULL,NULL),(1560285,158707,'2015-12-21 14:29:44','SEQ',NULL,NULL,60,NULL),(1560286,158707,'2015-12-21 14:29:44','UPDATEALERTUSER','admin',NULL,NULL,NULL),(1560287,158707,'2015-12-21 14:29:44','ENHED','',NULL,NULL,NULL),(1560288,158707,'2015-12-21 14:29:44','MIMETYPE',NULL,NULL,NULL,NULL),(1560289,158707,'2015-12-21 14:29:44','FARVEVALG',NULL,NULL,NULL,NULL),(1561499,1,'2010-09-15 14:37:18','SHOW_TITLE',NULL,0,NULL,NULL),(1561500,1,'2010-11-02 10:38:25','SHOW_TITLE',NULL,0,NULL,NULL),(1561526,120935,'2014-03-10 14:09:54','SHOW_TITLE',NULL,0,NULL,NULL),(1561528,158707,'2015-12-21 14:29:44','SHOW_TITLE',NULL,0,NULL,NULL),(1561530,120938,'2014-03-10 14:11:37','SHOW_TITLE',NULL,0,NULL,NULL),(1561545,110197,'2010-09-15 17:51:50','SHOW_TITLE',NULL,0,NULL,NULL),(1561546,110196,'2010-09-15 17:51:19','SHOW_TITLE',NULL,0,NULL,NULL),(1561547,110196,'2010-09-15 17:52:17','SHOW_TITLE',NULL,0,NULL,NULL),(1561548,110196,'2011-05-19 14:12:37','SHOW_TITLE',NULL,0,NULL,NULL),(1561549,110196,'2011-05-19 14:12:45','SHOW_TITLE',NULL,0,NULL,NULL),(1601841,158705,'2015-10-29 12:53:34','SHOW_TITLE',NULL,0,NULL,NULL),(1601842,158705,'2015-10-29 15:02:20','SHOW_TITLE',NULL,0,NULL,NULL),(1611400,110197,'2016-10-31 12:02:03','TEASER','',NULL,NULL,NULL),(1611401,110197,'2016-10-31 12:02:03','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1611402,110197,'2016-10-31 12:02:03','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1611403,110197,'2016-10-31 12:02:03','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1611404,110197,'2016-10-31 12:02:03','CONTENT','<p>not found</p>',NULL,NULL,NULL),(1611405,110197,'2016-10-31 12:02:03','ENHED_URL','',NULL,NULL,NULL),(1611406,110197,'2016-10-31 12:02:03','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1611407,110197,'2016-10-31 12:02:03','KONTAKT_NAVN','',NULL,NULL,NULL),(1611408,110197,'2016-10-31 12:02:03','CONTRIBUTORS','',NULL,NULL,NULL),(1611409,110197,'2016-10-31 12:02:03','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1611410,110197,'2016-10-31 12:02:03','AUTHOR','admin',NULL,NULL,NULL),(1611411,110197,'2016-10-31 12:02:03','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1611412,110197,'2016-10-31 12:02:03','KONTAKT_TLF','',NULL,NULL,NULL),(1611413,110197,'2016-10-31 12:02:03','SORTORDER','+seq,+title',NULL,NULL,NULL),(1611414,110197,'2016-10-31 12:02:03','TITLE','404 Fejl - Not found',NULL,NULL,NULL),(1611415,110197,'2016-10-31 12:02:03','SHORT_TITLE','404 Fejl - Not Found',NULL,NULL,NULL),(1611416,110197,'2016-10-31 12:02:03','SOURCE','',NULL,NULL,NULL),(1611417,110197,'2016-10-31 12:02:03','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1611418,110197,'2016-10-31 12:02:03','FREE_KEYWORDS','',NULL,NULL,NULL),(1611419,110197,'2016-10-31 12:02:03','SHOW_NEWS',NULL,1,NULL,NULL),(1611420,110197,'2016-10-31 12:02:03','DOCDATE',NULL,NULL,NULL,'2010-09-15 00:00:00'),(1611421,110197,'2016-10-31 12:02:03','DOCREF','',NULL,NULL,NULL),(1611422,110197,'2016-10-31 12:02:03','SHOW_TITLE',NULL,0,NULL,NULL),(1611423,110197,'2016-10-31 12:02:03','KONTAKT_EMAIL','',NULL,NULL,NULL),(1611424,110197,'2016-10-31 12:02:03','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1611425,110197,'2016-10-31 12:02:03','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1611426,110197,'2016-10-31 12:02:03','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1611427,110197,'2016-10-31 12:02:03','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1611428,110197,'2016-10-31 12:02:03','SHOW_DATE',NULL,0,NULL,NULL),(1611429,110197,'2016-10-31 12:02:03','SHOW_TEASER',NULL,1,NULL,NULL),(1611430,110197,'2016-10-31 12:02:03','UPDATEALERTSENT',NULL,0,NULL,NULL),(1611431,110197,'2016-10-31 12:02:03','SEQ',NULL,NULL,80,NULL),(1611432,110197,'2016-10-31 12:02:03','UPDATEALERTUSER','admin',NULL,NULL,NULL),(1611433,110197,'2016-10-31 12:02:03','ENHED','',NULL,NULL,NULL),(1611434,110197,'2016-10-31 12:02:03','MIMETYPE',NULL,NULL,NULL,NULL),(1611435,110197,'2016-10-31 12:02:03','FARVEVALG',NULL,NULL,NULL,NULL),(1611436,110197,'2016-10-31 12:02:03','SEC',NULL,0,NULL,NULL),(1611437,110197,'2016-10-31 12:02:03','PUBLISHED',NULL,NULL,NULL,'2016-10-31 12:02:03'),(1611438,110197,'2016-10-31 12:02:03','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1611439,110197,'2016-10-31 12:02:03','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1616367,159014,'2017-03-13 16:33:45','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1616368,159014,'2017-03-13 16:33:45','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1616369,159014,'2017-03-13 16:33:45','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1616370,159014,'2017-03-13 16:33:45','CONTENT','',NULL,NULL,NULL),(1616371,159014,'2017-03-13 16:33:45','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1616372,159014,'2017-03-13 16:33:45','AUTHOR','jubk',NULL,NULL,NULL),(1616373,159014,'2017-03-13 16:33:45','TITLE','Mappe med bootstrap styling',NULL,NULL,NULL),(1616374,159014,'2017-03-13 16:33:45','SORTORDER','+seq,+title',NULL,NULL,NULL),(1616375,159014,'2017-03-13 16:33:45','SHORT_TITLE','',NULL,NULL,NULL),(1616376,159014,'2017-03-13 16:33:45','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1616377,159014,'2017-03-13 16:33:45','SHOW_NEWS',NULL,1,NULL,NULL),(1616378,159014,'2017-03-13 16:33:45','DOCDATE',NULL,NULL,NULL,'2017-03-13 00:00:00'),(1616379,159014,'2017-03-13 16:33:45','PAGESIZE',NULL,0,NULL,NULL),(1616380,159014,'2017-03-13 16:33:45','SHOW_TITLE',NULL,1,NULL,NULL),(1616381,159014,'2017-03-13 16:33:45','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1616382,159014,'2017-03-13 16:33:45','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1616383,159014,'2017-03-13 16:33:45','SHOW_DATE',NULL,0,NULL,NULL),(1616384,159014,'2017-03-13 16:33:45','SHOW_TEASER',NULL,1,NULL,NULL),(1616385,159014,'2017-03-13 16:33:45','SEQ',NULL,NULL,-1,NULL),(1616386,159014,'2017-03-13 16:33:45','TEASER',NULL,NULL,NULL,NULL),(1616387,159014,'2017-03-13 16:33:45','ENHED_URL',NULL,NULL,NULL,NULL),(1616388,159014,'2017-03-13 16:33:45','KONTAKT_ADRESSE',NULL,NULL,NULL,NULL),(1616389,159014,'2017-03-13 16:33:45','CONTRIBUTORS',NULL,NULL,NULL,NULL),(1616390,159014,'2017-03-13 16:33:45','MIMETYPE',NULL,NULL,NULL,NULL),(1616391,159014,'2017-03-13 16:33:45','EXTRA_HTML_BODY_THISONLY',NULL,NULL,NULL,NULL),(1616392,159014,'2017-03-13 16:33:45','SOURCE',NULL,NULL,NULL,NULL),(1616393,159014,'2017-03-13 16:33:45','FREE_KEYWORDS',NULL,NULL,NULL,NULL),(1616394,159014,'2017-03-13 16:33:45','DOCREF',NULL,NULL,NULL,NULL),(1616395,159014,'2017-03-13 16:33:45','EXTRA_HTML_HEAD_THISONLY',NULL,NULL,NULL,NULL),(1616396,159014,'2017-03-13 16:33:45','FARVEVALG',NULL,NULL,NULL,NULL),(1616397,159014,'2017-03-13 16:33:45','ENHED',NULL,NULL,NULL,NULL),(1616398,159014,'2017-03-13 16:33:45','SEC',NULL,0,NULL,NULL),(1616399,159014,'2017-03-13 16:33:45','PUBLISHED',NULL,NULL,NULL,'2017-03-13 16:33:44'),(1616400,159014,'2017-03-13 16:33:45','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1616401,159014,'2017-03-13 16:33:45','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1616402,159015,'2017-03-13 16:34:06','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1616403,159015,'2017-03-13 16:34:06','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1616404,159015,'2017-03-13 16:34:06','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1616405,159015,'2017-03-13 16:34:06','CONTENT','',NULL,NULL,NULL),(1616406,159015,'2017-03-13 16:34:06','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1616407,159015,'2017-03-13 16:34:06','AUTHOR','jubk',NULL,NULL,NULL),(1616408,159015,'2017-03-13 16:34:06','TITLE','Mappe med bootstrap fonts',NULL,NULL,NULL),(1616409,159015,'2017-03-13 16:34:06','SORTORDER','+seq,+title',NULL,NULL,NULL),(1616410,159015,'2017-03-13 16:34:06','SHORT_TITLE','',NULL,NULL,NULL),(1616411,159015,'2017-03-13 16:34:06','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1616412,159015,'2017-03-13 16:34:06','SHOW_NEWS',NULL,1,NULL,NULL),(1616413,159015,'2017-03-13 16:34:06','DOCDATE',NULL,NULL,NULL,'2017-03-13 00:00:00'),(1616414,159015,'2017-03-13 16:34:06','PAGESIZE',NULL,0,NULL,NULL),(1616415,159015,'2017-03-13 16:34:06','SHOW_TITLE',NULL,1,NULL,NULL),(1616416,159015,'2017-03-13 16:34:06','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1616417,159015,'2017-03-13 16:34:06','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1616418,159015,'2017-03-13 16:34:06','SHOW_DATE',NULL,0,NULL,NULL),(1616419,159015,'2017-03-13 16:34:06','SHOW_TEASER',NULL,1,NULL,NULL),(1616420,159015,'2017-03-13 16:34:06','SEQ',NULL,NULL,-1,NULL),(1616421,159015,'2017-03-13 16:34:06','TEASER',NULL,NULL,NULL,NULL),(1616422,159015,'2017-03-13 16:34:06','ENHED_URL',NULL,NULL,NULL,NULL),(1616423,159015,'2017-03-13 16:34:06','KONTAKT_ADRESSE',NULL,NULL,NULL,NULL),(1616424,159015,'2017-03-13 16:34:06','CONTRIBUTORS',NULL,NULL,NULL,NULL),(1616425,159015,'2017-03-13 16:34:06','MIMETYPE',NULL,NULL,NULL,NULL),(1616426,159015,'2017-03-13 16:34:06','EXTRA_HTML_BODY_THISONLY',NULL,NULL,NULL,NULL),(1616427,159015,'2017-03-13 16:34:06','SOURCE',NULL,NULL,NULL,NULL),(1616428,159015,'2017-03-13 16:34:06','FREE_KEYWORDS',NULL,NULL,NULL,NULL),(1616429,159015,'2017-03-13 16:34:06','DOCREF',NULL,NULL,NULL,NULL),(1616430,159015,'2017-03-13 16:34:06','EXTRA_HTML_HEAD_THISONLY',NULL,NULL,NULL,NULL),(1616431,159015,'2017-03-13 16:34:06','FARVEVALG',NULL,NULL,NULL,NULL),(1616432,159015,'2017-03-13 16:34:06','ENHED',NULL,NULL,NULL,NULL),(1616433,159015,'2017-03-13 16:34:06','SEC',NULL,0,NULL,NULL),(1616434,159015,'2017-03-13 16:34:06','PUBLISHED',NULL,NULL,NULL,'2017-03-13 16:34:06'),(1616435,159015,'2017-03-13 16:34:06','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1616436,159015,'2017-03-13 16:34:06','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1616437,159016,'2017-03-13 16:34:25','MIMETYPE','image/jpeg',NULL,NULL,NULL),(1616438,159016,'2017-03-13 16:34:25','SEQ',NULL,NULL,-100,NULL),(1616439,159016,'2017-03-13 16:34:25','EXPIRES',NULL,NULL,NULL,'2037-12-31 23:59:59'),(1616440,159016,'2017-03-13 16:34:25','HEIGHT',NULL,584,NULL,NULL),(1616441,159016,'2017-03-13 16:34:25','SIZE',NULL,59788,NULL,NULL),(1616442,159016,'2017-03-13 16:34:25','WIDTH',NULL,948,NULL,NULL),(1616443,159016,'2017-03-13 16:34:25','TITLE','image002.jpg',NULL,NULL,NULL),(1616444,159016,'2017-03-13 16:34:25','DOCDATE',NULL,NULL,NULL,'2017-03-13 16:34:25'),(1616445,159016,'2017-03-13 16:34:25','UPLOADFILE','/upload/image/jpeg/26/fa/26fad590/image002.jpg',NULL,NULL,NULL),(1645180,115658,'2018-09-10 13:03:16','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1645181,115658,'2018-09-10 13:03:16','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1645182,115658,'2018-09-10 13:03:16','SEQ',NULL,NULL,160,NULL),(1645183,115658,'2018-09-10 13:03:16','KONTAKT_EMAIL','',NULL,NULL,NULL),(1645184,115658,'2018-09-10 13:03:16','SHORT_TITLE','https subsite',NULL,NULL,NULL),(1645185,115658,'2018-09-10 13:03:16','SHOW_NEWS',NULL,1,NULL,NULL),(1645186,115658,'2018-09-10 13:03:16','CONTRIBUTORS','',NULL,NULL,NULL),(1645187,115658,'2018-09-10 13:03:16','SORTORDER','+seq,+title',NULL,NULL,NULL),(1645188,115658,'2018-09-10 13:03:16','CONTENT','',NULL,NULL,NULL),(1645189,115658,'2018-09-10 13:03:16','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1645190,115658,'2018-09-10 13:03:16','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1645191,115658,'2018-09-10 13:03:16','SHOW_TEASER',NULL,1,NULL,NULL),(1645192,115658,'2018-09-10 13:03:16','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1645193,115658,'2018-09-10 13:03:16','EXTRA_HTML_HEAD_FP','',NULL,NULL,NULL),(1645194,115658,'2018-09-10 13:03:16','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1645195,115658,'2018-09-10 13:03:16','ENHED_URL','',NULL,NULL,NULL),(1645196,115658,'2018-09-10 13:03:16','SOURCE','',NULL,NULL,NULL),(1645197,115658,'2018-09-10 13:03:16','SHOW_DATE',NULL,0,NULL,NULL),(1645198,115658,'2018-09-10 13:03:16','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1645199,115658,'2018-09-10 13:03:16','UPDATEALERTUSER','admin',NULL,NULL,NULL),(1645200,115658,'2018-09-10 13:03:16','TEASER','',NULL,NULL,NULL),(1645201,115658,'2018-09-10 13:03:16','HTML_CONTENT','',NULL,NULL,NULL),(1645202,115658,'2018-09-10 13:03:16','AUTHOR','admin',NULL,NULL,NULL),(1645203,115658,'2018-09-10 13:03:16','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1645204,115658,'2018-09-10 13:03:16','FREE_KEYWORDS','',NULL,NULL,NULL),(1645205,115658,'2018-09-10 13:03:16','UPDATEALERTSENT',NULL,0,NULL,NULL),(1645206,115658,'2018-09-10 13:03:16','KONTAKT_NAVN','',NULL,NULL,NULL),(1645207,115658,'2018-09-10 13:03:16','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1645208,115658,'2018-09-10 13:03:16','ENHED','',NULL,NULL,NULL),(1645209,115658,'2018-09-10 13:03:16','DOCDATE',NULL,NULL,NULL,'2013-12-18 00:00:00'),(1645210,115658,'2018-09-10 13:03:16','EXTRA_HTML_BODY_FP','',NULL,NULL,NULL),(1645211,115658,'2018-09-10 13:03:16','KONTAKT_TLF','',NULL,NULL,NULL),(1645212,115658,'2018-09-10 13:03:16','TITLE','https subsite',NULL,NULL,NULL),(1645213,115658,'2018-09-10 13:03:16','DOCREF','',NULL,NULL,NULL),(1645214,115658,'2018-09-10 13:03:16','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1645215,115658,'2018-09-10 13:03:16','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1645216,115658,'2018-09-10 13:03:16','EAN',NULL,NULL,NULL,NULL),(1645217,115658,'2018-09-10 13:03:16','MIMETYPE',NULL,NULL,NULL,NULL),(1645218,115658,'2018-09-10 13:03:16','FARVEVALG',NULL,NULL,NULL,NULL),(1645219,115658,'2018-09-10 13:03:16','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1645220,115658,'2018-09-10 13:03:16','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1645221,115658,'2018-09-10 13:03:16','SEC',NULL,0,NULL,NULL),(1645222,115658,'2018-09-10 13:03:16','PUBLISHED',NULL,NULL,NULL,'2018-09-10 13:03:16'),(1645223,110201,'2018-09-10 13:04:13','KONTAKT_ADRESSE','Adresse 55, 6666 En By',NULL,NULL,NULL),(1645224,110201,'2018-09-10 13:04:13','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1645225,110201,'2018-09-10 13:04:13','SEQ',NULL,NULL,110,NULL),(1645226,110201,'2018-09-10 13:04:13','KONTAKT_EMAIL','email@example.com',NULL,NULL,NULL),(1645227,110201,'2018-09-10 13:04:13','SHORT_TITLE','A subsite',NULL,NULL,NULL),(1645228,110201,'2018-09-10 13:04:13','SHOW_NEWS',NULL,1,NULL,NULL),(1645229,110201,'2018-09-10 13:04:13','CONTRIBUTORS','',NULL,NULL,NULL),(1645230,110201,'2018-09-10 13:04:13','SORTORDER','+seq,+title',NULL,NULL,NULL),(1645231,110201,'2018-09-10 13:04:13','CONTENT','<p>Sadkfjhk <a href=\"/admin/subsite/../subsite/\" title=\"Test\">ljhekjlasd</a> flkjeh lkjasdh flkjeh <a href=\"/110204.docid\" onclick=\"this.target=\'_blank\'\" rel=\"noopener\" title=\"Skal ikke &Atilde;&fnof;&Acirc;&yen;bne i nyt vindue\">lkasdh </a>flkjah lkjh lkjasdh <a href=\"/110258.docid\" onclick=\"this.target=\'_blank\'; this.target=\'_blank\';; this.target=\'_blank\';\" rel=\"noopener\" title=\"Skal &Atilde;&fnof;&Acirc;&yen;bne i nyt vindue\">flkhlkajjdhf</a>kjhgelagd flasdf</p>\r\n<p>Og ny session! <a href=\"/110258.docid\" onclick=\"this.target=\'_blank\'; this.target=\'_blank\';; this.target=\'_blank\';\" rel=\"noopener\">Og mere session</a>!</p>\r\n<p>&aelig;alksdflkjhelkj as flkjashf</p>\r\n<p><img alt=\"test\" src=\"/110205.docid\" title=\"asdf\">Billede caption</p>\r\n<div class=\"img-with-caption-left\" style=\"float: left; width: 295px;\">\r\n<p>Mere test</p>\r\n</div>\r\n<p>asdf</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>\r\n<p><img alt=\"\" src=\"/110219.docid\" style=\"margin: 5px 20px 10px 0px; float: left;\" width=\"350\"></p>\r\n<p>&nbsp;</p>\r\n<p>asdfasdf</p>',NULL,NULL,NULL),(1645232,110201,'2018-09-10 13:04:13','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1645233,110201,'2018-09-10 13:04:13','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1645234,110201,'2018-09-10 13:04:13','SHOW_TEASER',NULL,1,NULL,NULL),(1645235,110201,'2018-09-10 13:04:13','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1645236,110201,'2018-09-10 13:04:13','EXTRA_HTML_HEAD_FP','',NULL,NULL,NULL),(1645237,110201,'2018-09-10 13:04:13','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1645238,110201,'2018-09-10 13:04:13','ENHED_URL','http://ku-enhed.magenta-aps.dk/',NULL,NULL,NULL),(1645239,110201,'2018-09-10 13:04:13','BANNER2',NULL,1,NULL,NULL),(1645240,110201,'2018-09-10 13:04:13','SOURCE','',NULL,NULL,NULL),(1645241,110201,'2018-09-10 13:04:13','SHOW_DATE',NULL,0,NULL,NULL),(1645242,110201,'2018-09-10 13:04:13','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1645243,110201,'2018-09-10 13:04:13','UPDATEALERTUSER','admin',NULL,NULL,NULL),(1645244,110201,'2018-09-10 13:04:13','BANNER3',NULL,1,NULL,NULL),(1645245,110201,'2018-09-10 13:04:13','TEASER','<p>Teaser indhold</p>',NULL,NULL,NULL),(1645246,110201,'2018-09-10 13:04:13','HTML_CONTENT','<p>HTML indhold</p>',NULL,NULL,NULL),(1645247,110201,'2018-09-10 13:04:13','AUTHOR','jubk',NULL,NULL,NULL),(1645248,110201,'2018-09-10 13:04:13','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1645249,110201,'2018-09-10 13:04:13','FREE_KEYWORDS','',NULL,NULL,NULL),(1645250,110201,'2018-09-10 13:04:13','UPDATEALERTSENT',NULL,0,NULL,NULL),(1645251,110201,'2018-09-10 13:04:13','KONTAKT_NAVN','Et Navn',NULL,NULL,NULL),(1645252,110201,'2018-09-10 13:04:13','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1645253,110201,'2018-09-10 13:04:13','ENHED','Enhed',NULL,NULL,NULL),(1645254,110201,'2018-09-10 13:04:13','DOCDATE',NULL,NULL,NULL,'2010-10-21 00:00:00'),(1645255,110201,'2018-09-10 13:04:13','EXTRA_HTML_BODY_FP','',NULL,NULL,NULL),(1645256,110201,'2018-09-10 13:04:13','KONTAKT_TLF','55 55 55 55',NULL,NULL,NULL),(1645257,110201,'2018-09-10 13:04:13','TITLE','A subsite (changed)',NULL,NULL,NULL),(1645258,110201,'2018-09-10 13:04:13','DOCREF','',NULL,NULL,NULL),(1645259,110201,'2018-09-10 13:04:13','BANNER1',NULL,1,NULL,NULL),(1645260,110201,'2018-09-10 13:04:13','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1645261,110201,'2018-09-10 13:04:13','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1645262,110201,'2018-09-10 13:04:13','EAN',NULL,NULL,NULL,NULL),(1645263,110201,'2018-09-10 13:04:13','MIMETYPE',NULL,NULL,NULL,NULL),(1645264,110201,'2018-09-10 13:04:13','FARVEVALG',NULL,NULL,NULL,NULL),(1645265,110201,'2018-09-10 13:04:13','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1645266,110201,'2018-09-10 13:04:13','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1645267,110201,'2018-09-10 13:04:13','SEC',NULL,0,NULL,NULL),(1645268,110201,'2018-09-10 13:04:13','PUBLISHED',NULL,NULL,NULL,'2018-09-10 13:04:13'),(1645269,110189,'2018-09-10 13:11:44','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1645270,110189,'2018-09-10 13:11:44','SHOW_TEASER',NULL,1,NULL,NULL),(1645271,110189,'2018-09-10 13:11:44','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1645272,110189,'2018-09-10 13:11:44','ENHED_URL','',NULL,NULL,NULL),(1645273,110189,'2018-09-10 13:11:44','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1645274,110189,'2018-09-10 13:11:44','SHOW_DATE',NULL,0,NULL,NULL),(1645275,110189,'2018-09-10 13:11:44','EXPIRES',NULL,NULL,NULL,'9999-01-01 18:00:00'),(1645276,110189,'2018-09-10 13:11:44','SOURCE','',NULL,NULL,NULL),(1645277,110189,'2018-09-10 13:11:44','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1645278,110189,'2018-09-10 13:11:44','SEQ',NULL,NULL,-350,NULL),(1645279,110189,'2018-09-10 13:11:44','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1645280,110189,'2018-09-10 13:11:44','KONTAKT_EMAIL','',NULL,NULL,NULL),(1645281,110189,'2018-09-10 13:11:44','SHORT_TITLE','Administration',NULL,NULL,NULL),(1645282,110189,'2018-09-10 13:11:44','SHOW_NEWS',NULL,1,NULL,NULL),(1645283,110189,'2018-09-10 13:11:44','CONTRIBUTORS','',NULL,NULL,NULL),(1645284,110189,'2018-09-10 13:11:44','SORTORDER','+seq,+title',NULL,NULL,NULL),(1645285,110189,'2018-09-10 13:11:44','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1645286,110189,'2018-09-10 13:11:44','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1645287,110189,'2018-09-10 13:11:44','ENHED','',NULL,NULL,NULL),(1645288,110189,'2018-09-10 13:11:44','DOCDATE',NULL,NULL,NULL,'2005-05-10 00:00:00'),(1645289,110189,'2018-09-10 13:11:44','KONTAKT_TLF','',NULL,NULL,NULL),(1645290,110189,'2018-09-10 13:11:44','DOCREF','',NULL,NULL,NULL),(1645291,110189,'2018-09-10 13:11:44','TITLE','Administration',NULL,NULL,NULL),(1645292,110189,'2018-09-10 13:11:44','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1645293,110189,'2018-09-10 13:11:44','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1645294,110189,'2018-09-10 13:11:44','TEASER','',NULL,NULL,NULL),(1645295,110189,'2018-09-10 13:11:44','FARVEVALG','',NULL,NULL,NULL),(1645296,110189,'2018-09-10 13:11:44','HTML_CONTENT','<h3>Almindelige funktioner:</h3>\r\n<ul>\r\n<li><a href=\"./?obvius_command_users=1\">Brugere</a></li>\r\n<li><a href=\"./?obvius_command_groups=1\">Grupper</a></li>\r\n<li><a href=\"./?obvius_command_change_password=1\">Skift adgangskode</a></li>\r\n<li><a href=\"./?obvius_command_garbage=1\">Filskraldespand</a></li>\r\n<li><a href=\"./?obvius_command_import_files=1\">Masseupload af filer</a></li>\r\n</ul>\r\n\r\n<h3>Opdatering</h3>\r\n<ul>\r\n<li><a href=\"./?obvius_command_update_errorpages=1\">Opdat√©r statiske fejlsider</a></li>\r\n</ul>\r\n\r\n<h3>Funktioner for brugere med administrator rettigheder:</h3>\r\n<ul>\r\n<li><a href=\"./?obvius_command_universal_accessrules=1\">Universal adgangsregler</a></li>\r\n<li><a href=\"./?obvius_command_subscribers=1\">Abonnenter</a></li>\r\n<li><a href=\"./?obvius_command_keywords=1\">N√∏gleord</a></li>\r\n<li><a href=\"./?obvius_command_queue=1\">Kommando-k√∏</a></li>\r\n<li><a href=\"./?obvius_command_subsite=1\">Subsites</a></li>\r\n<li><a href=\"./?obvius_command_forbidden_areas=1\">Forbudte omr√•der</a></li>\r\n<li><a href=\"./?obvius_command_tags=1\">Rediger faste tags</a></li>\r\n<li><a href=\"./?obvius_command_list_inactive_users=1\">Liste over inaktive brugere</a></li>\r\n<li><a href=\"./?obvius_command_dynamic_redirects=1\">Redigering af dynamiske viderestillinger</a></li>\r\n<li><a href=\"./?obvius_command_footer_cleanup=1\">Sidefods-oprydning</a></li>\r\n<li><a href=\"./?obvius_command_protected_access_log=1\">Log over adgang til personf√∏lsomme data</a></li>\r\n<li><a href=\"./?obvius_command_driftinfo_edit=1\">Driftinfo-redigering</a></li>\r\n<li><a href=\"./?obvius_command_config_edit=1\">Global konfiguration</a></li>\r\n<li><a href=\"./?obvius_command_search_docparams=1\">S√∏g i dokumentparametre</a></li>\r\n<li><a href=\"./?obvius_command_search_by_user_or_group=1\">Find dokumenter ud fra bruger eller gruppe</a></li>\r\n<li><a href=\"./?obvius_command_bulk_protect=1\">Fred alle sider under en given sti</a></li>\r\n<li><a href=\"./?obvius_command_admin_users=1\">Administration af admin-brugere</a></li>\r\n<li><a href=\"./?obvius_command_export_styling=1\">Eksporter uploaded styling til statiske filer</a></li>\r\n\r\n</ul>\r\n\r\n<h3>V√¶rkt√∏jer:</h3>\r\n<ul>\r\n<li><a href=\"/system/update_bootstrap_git.mason\" target=\"_blank\">Opdater KU bootstrap filer (√•bner i nyt vindue)</a></li>\r\n</ul\r\n\r\n\r\n<h3>Bruger-udtr√¶ks lister:</h3>\r\n<ul>\r\n  <li><a href=\"./?obvius_command_user_extracts_admin=1\">H√•ndtering af bruger-udtr√¶ks filer</a></li>\r\n</ul>\r\n\r\n<h3>AdminJump:</h3>\r\n<p>\r\nH√∏jreklik p√• AdminJump-linket nedenfor og v√¶lg \"F√∏j til foretrukne...\".  Hvis v√¶rkt√∏jslinien \"Hyperlinks\" ikke er sl√•et til, s√• g√∏r det i menuen \"Vis/V√¶rkt√∏jslinier/Hyperlinks\" - og tr√¶k derefter linket fra foretrukne menuen ned i v√¶rkt√∏jslinien. Knappen \"AdminJump\" i v√¶rkt√∏jslinien kan nu bruges til at hoppe direkte fra en side p√• det offentlige website og til administrationsdelens tilsvarende side (og tilbage igen).\r\n</p>\r\n<ul>\r\n<li><a href=\"javascript:q=location.href;if(q&&q!=%22%22){q=String(q);r=new RegExp(%22http[s]?(://[^/]*/)(.*)%22);m=q.match(r);if(m){admin=%22admin/%22;ra=new RegExp(%22admin/([^?]*)%22);ma=m[2].match(ra);if(ma){admin=%22%22;m[2]=ma[1];}location.href=%22http%22+m[1]+admin+m[2];}else{alert(%22Dont know how to admin %22+q+%22, sorry%22);location.href=location.href;}}else{location.href=location.href;}\">AdminJump</a></li>\r\n</ul>\r\n\r\n<p>Admin-jump med direkte adgang til 1. redigeringsside</p>\r\n<ul><li><a href=\"javascript:q=location.href;if(q&&q!=%22%22){q=String(q);admin=%22admin/%22;r=new RegExp(%22^(https?://[^/]*/)([^?]*)%22);m=q.match(r);if(m){start=m[1];path=m[2];args=%22%22;ra=new RegExp(%22^%22+admin+%22(.*)%22);ma=path.match(ra);if(ma){path=ma[1];args=%22%22}else{path=admin+path;args=\'?obvius_command_edit=1\';}location.href=start+path+args;}else{alert(%22Dontknowhowtoadmin%22+q+%22,sorry%22)};}\">EditJump</a></li></ul>\r\n\r\n\r\n<!--<li><a href=\"./?obvius_command_flushcache=1\">Ryd server-cache</a></li>-->\r\n\r\n\r\n\r\n\r\n',NULL,NULL,NULL),(1645297,110189,'2018-09-10 13:11:44','AUTHOR','admin',NULL,NULL,NULL),(1645298,110189,'2018-09-10 13:11:44','FREE_KEYWORDS','',NULL,NULL,NULL),(1645299,110189,'2018-09-10 13:11:44','KONTAKT_NAVN','',NULL,NULL,NULL),(1645300,110189,'2018-09-10 13:11:44','MIMETYPE',NULL,NULL,NULL,NULL),(1645301,110189,'2018-09-10 13:11:44','SEC',NULL,0,NULL,NULL),(1645302,110189,'2018-09-10 13:11:44','PUBLISHED',NULL,NULL,NULL,'2018-09-10 13:11:44'),(1645303,110189,'2018-09-10 13:11:44','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1645304,110189,'2018-09-10 13:11:44','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1645305,159029,'2019-02-25 11:44:01','CONTRIBUTORS','',NULL,NULL,NULL),(1645306,159029,'2019-02-25 11:44:01','UPDATEALERTUSER','admin',NULL,NULL,NULL),(1645307,159029,'2019-02-25 11:44:01','KONTAKT_EMAIL','',NULL,NULL,NULL),(1645308,159029,'2019-02-25 11:44:01','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1645309,159029,'2019-02-25 11:44:01','KONTAKT_NAVN','',NULL,NULL,NULL),(1645310,159029,'2019-02-25 11:44:01','ENHED_URL','',NULL,NULL,NULL),(1645311,159029,'2019-02-25 11:44:01','DOCDATE',NULL,NULL,NULL,'2019-02-25 00:00:00'),(1645312,159029,'2019-02-25 11:44:01','DOCREF','',NULL,NULL,NULL),(1645313,159029,'2019-02-25 11:44:01','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1645314,159029,'2019-02-25 11:44:01','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1645315,159029,'2019-02-25 11:44:01','SOURCE','',NULL,NULL,NULL),(1645316,159029,'2019-02-25 11:44:01','SORTORDER','+seq,+title',NULL,NULL,NULL),(1645317,159029,'2019-02-25 11:44:01','AUTHOR','admin',NULL,NULL,NULL),(1645318,159029,'2019-02-25 11:44:01','SHOW_TEASER',NULL,1,NULL,NULL),(1645319,159029,'2019-02-25 11:44:01','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1645320,159029,'2019-02-25 11:44:01','FREE_KEYWORDS','',NULL,NULL,NULL),(1645321,159029,'2019-02-25 11:44:01','ENHED','',NULL,NULL,NULL),(1645322,159029,'2019-02-25 11:44:01','KONTAKT_TLF','',NULL,NULL,NULL),(1645323,159029,'2019-02-25 11:44:01','TITLE','Forside',NULL,NULL,NULL),(1645324,159029,'2019-02-25 11:44:01','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1645325,159029,'2019-02-25 11:44:01','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1645326,159029,'2019-02-25 11:44:01','CONTENT','<p>Hej med dig.</p>',NULL,NULL,NULL),(1645327,159029,'2019-02-25 11:44:01','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1645328,159029,'2019-02-25 11:44:01','SHORT_TITLE','',NULL,NULL,NULL),(1645329,159029,'2019-02-25 11:44:01','SEQ',NULL,NULL,170,NULL),(1645330,159029,'2019-02-25 11:44:01','UPDATEALERTSENT',NULL,0,NULL,NULL),(1645331,159029,'2019-02-25 11:44:01','TEASER','',NULL,NULL,NULL),(1645332,159029,'2019-02-25 11:44:01','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1645333,159029,'2019-02-25 11:44:01','SHOW_DATE',NULL,0,NULL,NULL),(1645334,159029,'2019-02-25 11:44:01','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1645335,159029,'2019-02-25 11:44:01','SHOW_TITLE',NULL,1,NULL,NULL),(1645336,159029,'2019-02-25 11:44:01','SHOW_NEWS',NULL,1,NULL,NULL),(1645337,159029,'2019-02-25 11:44:01','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1645338,159029,'2019-02-25 11:44:01','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1645339,159029,'2019-02-25 11:44:01','MIMETYPE',NULL,NULL,NULL,NULL),(1645340,159029,'2019-02-25 11:44:01','FARVEVALG',NULL,NULL,NULL,NULL),(1645341,159029,'2019-02-25 11:44:01','PUBLISHED',NULL,NULL,NULL,'2019-02-25 11:44:01'),(1645342,159029,'2019-02-25 11:44:01','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1645343,159029,'2019-02-25 11:44:01','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1645344,159029,'2019-02-25 11:44:01','SEC',NULL,0,NULL,NULL),(1645345,159030,'2019-02-25 11:46:01','ENHED','',NULL,NULL,NULL),(1645346,159030,'2019-02-25 11:46:01','ENHED_URL','',NULL,NULL,NULL),(1645347,159030,'2019-02-25 11:46:01','SHOW_DATE',NULL,0,NULL,NULL),(1645348,159030,'2019-02-25 11:46:01','SORTORDER','+seq,+title',NULL,NULL,NULL),(1645349,159030,'2019-02-25 11:46:01','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1645350,159030,'2019-02-25 11:46:01','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1645351,159030,'2019-02-25 11:46:01','AUTHOR','admin',NULL,NULL,NULL),(1645352,159030,'2019-02-25 11:46:01','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1645353,159030,'2019-02-25 11:46:01','KONTAKT_NAVN','',NULL,NULL,NULL),(1645354,159030,'2019-02-25 11:46:01','TEASER','',NULL,NULL,NULL),(1645355,159030,'2019-02-25 11:46:01','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1645356,159030,'2019-02-25 11:46:01','SHORT_TITLE','',NULL,NULL,NULL),(1645357,159030,'2019-02-25 11:46:01','UPDATEALERTSENT',NULL,0,NULL,NULL),(1645358,159030,'2019-02-25 11:46:01','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1645359,159030,'2019-02-25 11:46:01','DOCREF','',NULL,NULL,NULL),(1645360,159030,'2019-02-25 11:46:01','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1645361,159030,'2019-02-25 11:46:01','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1645362,159030,'2019-02-25 11:46:01','SEQ',NULL,NULL,10,NULL),(1645363,159030,'2019-02-25 11:46:01','KONTAKT_TLF','',NULL,NULL,NULL),(1645364,159030,'2019-02-25 11:46:01','SHOW_TEASER',NULL,1,NULL,NULL),(1645365,159030,'2019-02-25 11:46:01','FREE_KEYWORDS','',NULL,NULL,NULL),(1645366,159030,'2019-02-25 11:46:01','CONTRIBUTORS','',NULL,NULL,NULL),(1645367,159030,'2019-02-25 11:46:01','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1645368,159030,'2019-02-25 11:46:01','UPDATEALERTUSER','admin',NULL,NULL,NULL),(1645369,159030,'2019-02-25 11:46:01','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1645370,159030,'2019-02-25 11:46:01','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1645371,159030,'2019-02-25 11:46:01','SHOW_TITLE',NULL,1,NULL,NULL),(1645372,159030,'2019-02-25 11:46:01','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1645373,159030,'2019-02-25 11:46:01','TITLE','En underside',NULL,NULL,NULL),(1645374,159030,'2019-02-25 11:46:01','DOCDATE',NULL,NULL,NULL,'2019-02-25 00:00:00'),(1645375,159030,'2019-02-25 11:46:01','SHOW_NEWS',NULL,1,NULL,NULL),(1645376,159030,'2019-02-25 11:46:01','SOURCE','',NULL,NULL,NULL),(1645377,159030,'2019-02-25 11:46:01','CONTENT','<p>Med lidt indhold.</p>',NULL,NULL,NULL),(1645378,159030,'2019-02-25 11:46:01','KONTAKT_EMAIL','',NULL,NULL,NULL),(1645379,159030,'2019-02-25 11:46:01','MIMETYPE',NULL,NULL,NULL,NULL),(1645380,159030,'2019-02-25 11:46:01','FARVEVALG',NULL,NULL,NULL,NULL),(1645381,159030,'2019-02-25 11:46:01','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1645382,159030,'2019-02-25 11:46:01','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1645383,159030,'2019-02-25 11:46:01','SEC',NULL,0,NULL,NULL),(1645384,159030,'2019-02-25 11:46:01','PUBLISHED',NULL,NULL,NULL,'2019-02-25 11:46:01'),(1645385,159031,'2019-02-25 12:02:38','ENHED','',NULL,NULL,NULL),(1645386,159031,'2019-02-25 12:02:38','ENHED_URL','',NULL,NULL,NULL),(1645387,159031,'2019-02-25 12:02:38','SHOW_DATE',NULL,0,NULL,NULL),(1645388,159031,'2019-02-25 12:02:38','SORTORDER','+seq,+title',NULL,NULL,NULL),(1645389,159031,'2019-02-25 12:02:38','SHOW_SUBDOC_DATE',NULL,0,NULL,NULL),(1645390,159031,'2019-02-25 12:02:38','EXTRA_HTML_BODY_THISONLY','',NULL,NULL,NULL),(1645391,159031,'2019-02-25 12:02:38','AUTHOR','admin',NULL,NULL,NULL),(1645392,159031,'2019-02-25 12:02:38','ROBOTSMETA','index,follow',NULL,NULL,NULL),(1645393,159031,'2019-02-25 12:02:38','KONTAKT_NAVN','',NULL,NULL,NULL),(1645394,159031,'2019-02-25 12:02:38','TEASER','',NULL,NULL,NULL),(1645395,159031,'2019-02-25 12:02:38','ENABLE_COMMENTS',NULL,0,NULL,NULL),(1645396,159031,'2019-02-25 12:02:38','SHORT_TITLE','',NULL,NULL,NULL),(1645397,159031,'2019-02-25 12:02:38','UPDATEALERTSENT',NULL,0,NULL,NULL),(1645398,159031,'2019-02-25 12:02:38','KONTAKT_ADRESSE','',NULL,NULL,NULL),(1645399,159031,'2019-02-25 12:02:38','DOCREF','',NULL,NULL,NULL),(1645400,159031,'2019-02-25 12:02:38','SHOW_SUBDOCS',NULL,0,NULL,NULL),(1645401,159031,'2019-02-25 12:02:38','EXTRA_HTML_HEAD_THISONLY','',NULL,NULL,NULL),(1645402,159031,'2019-02-25 12:02:38','SEQ',NULL,NULL,20,NULL),(1645403,159031,'2019-02-25 12:02:38','KONTAKT_TLF','',NULL,NULL,NULL),(1645404,159031,'2019-02-25 12:02:38','SHOW_TEASER',NULL,1,NULL,NULL),(1645405,159031,'2019-02-25 12:02:38','FREE_KEYWORDS','',NULL,NULL,NULL),(1645406,159031,'2019-02-25 12:02:38','CONTRIBUTORS','',NULL,NULL,NULL),(1645407,159031,'2019-02-25 12:02:38','SHOW_SUBDOC_TEASER',NULL,0,NULL,NULL),(1645408,159031,'2019-02-25 12:02:38','UPDATEALERTUSER','admin',NULL,NULL,NULL),(1645409,159031,'2019-02-25 12:02:38','EXPIRES',NULL,NULL,NULL,'9999-01-01 00:00:00'),(1645410,159031,'2019-02-25 12:02:38','SUBSCRIBEABLE','none',NULL,NULL,NULL),(1645411,159031,'2019-02-25 12:02:38','SHOW_TITLE',NULL,1,NULL,NULL),(1645412,159031,'2019-02-25 12:02:38','UPDATEALERTTIME',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1645413,159031,'2019-02-25 12:02:38','TITLE','En side mere',NULL,NULL,NULL),(1645414,159031,'2019-02-25 12:02:38','DOCDATE',NULL,NULL,NULL,'2019-02-25 00:00:00'),(1645415,159031,'2019-02-25 12:02:38','SHOW_NEWS',NULL,1,NULL,NULL),(1645416,159031,'2019-02-25 12:02:38','SOURCE','',NULL,NULL,NULL),(1645417,159031,'2019-02-25 12:02:38','CONTENT','<p>Med lidt indhold.</p>',NULL,NULL,NULL),(1645418,159031,'2019-02-25 12:02:38','KONTAKT_EMAIL','',NULL,NULL,NULL),(1645419,159031,'2019-02-25 12:02:38','MIMETYPE',NULL,NULL,NULL,NULL),(1645420,159031,'2019-02-25 12:02:38','FARVEVALG',NULL,NULL,NULL,NULL),(1645421,159031,'2019-02-25 12:02:38','PUBLISH_ON',NULL,NULL,NULL,'0000-00-00 00:00:00'),(1645422,159031,'2019-02-25 12:02:38','IN_SUBSCRIPTION',NULL,0,NULL,NULL),(1645423,159031,'2019-02-25 12:02:38','SEC',NULL,0,NULL,NULL),(1645424,159031,'2019-02-25 12:02:38','PUBLISHED',NULL,NULL,NULL,'2019-02-25 12:02:38');
 /*!40000 ALTER TABLE `vfields` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -3711,7 +3747,7 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 trigger post_vfield_insert after insert on vfields 
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger post_vfield_insert after insert on vfields 
 for each row begin
     if new.name = 'tags' then
        insert ignore into all_tags values (new.text_value);
@@ -3731,7 +3767,7 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = '' */ ;
 DELIMITER ;;
-/*!50003 CREATE*/ /*!50003 trigger post_vfield_delete after delete on vfields
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 trigger post_vfield_delete after delete on vfields
 for each row
 begin 
       insert into vfields_backup (docid, version, name, text_value, int_value, 
@@ -3754,10 +3790,10 @@ DROP TABLE IF EXISTS `vfields_backup`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `vfields_backup` (
   `vfields_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `docid` int(8) unsigned NOT NULL DEFAULT '0',
+  `docid` int(8) unsigned NOT NULL DEFAULT 0,
   `version` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `name` varchar(127) NOT NULL DEFAULT '',
-  `text_value` longtext,
+  `text_value` longtext DEFAULT NULL,
   `int_value` int(8) DEFAULT NULL,
   `double_value` double DEFAULT NULL,
   `date_value` datetime DEFAULT NULL,
@@ -3788,7 +3824,7 @@ DROP TABLE IF EXISTS `videresend_stats`;
 CREATE TABLE `videresend_stats` (
   `videresend_stats_id` int(8) unsigned NOT NULL AUTO_INCREMENT,
   `url` text NOT NULL,
-  `counter` int(32) NOT NULL DEFAULT '0',
+  `counter` int(32) NOT NULL DEFAULT 0,
   PRIMARY KEY (`videresend_stats_id`),
   KEY `count` (`counter`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -3811,7 +3847,7 @@ DROP TABLE IF EXISTS `voters`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `voters` (
-  `docid` int(8) unsigned NOT NULL DEFAULT '0',
+  `docid` int(8) unsigned NOT NULL DEFAULT 0,
   `cookie` char(64) NOT NULL DEFAULT '',
   PRIMARY KEY (`docid`,`cookie`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 PACK_KEYS=1;
@@ -3835,9 +3871,9 @@ DROP TABLE IF EXISTS `votes`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `votes` (
-  `docid` int(8) unsigned NOT NULL DEFAULT '0',
+  `docid` int(8) unsigned NOT NULL DEFAULT 0,
   `answer` char(32) NOT NULL DEFAULT '',
-  `total` int(10) unsigned NOT NULL DEFAULT '0',
+  `total` int(10) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`docid`,`answer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 PACK_KEYS=1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3853,1819 +3889,29 @@ INSERT INTO `votes` VALUES (110226,'2',1);
 UNLOCK TABLES;
 
 --
--- Dumping routines for database 'ku'
+-- Table structure for table `website_categories`
 --
-/*!50003 DROP FUNCTION IF EXISTS `intervals_overlap` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE FUNCTION `intervals_overlap`(siv1 datetime, eiv1 datetime, siv2 datetime, eiv2 datetime) RETURNS int(11)
-    DETERMINISTIC
-begin
-	if eiv1 is null or eiv1 = '0000-00-00' then
-	   set eiv1 = siv1;
-	end if;
 
-	if eiv2 is null or eiv2 = '0000-00-00' then
-	   set eiv2 = siv2;
-	end if;
-
-
-	return not ((eiv2 < siv1 and eiv2 < eiv1) or (eiv1 < siv2 and eiv1 < eiv2));
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `is_public_path` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE FUNCTION `is_public_path`(docid int unsigned) RETURNS int(10) unsigned
-    DETERMINISTIC
-begin
-    
-    select versions.docid into docid
-    from
-        documents
-        left join versions on (
-            documents.id = versions.docid
-            and
-            versions.public = 1
-        )
-    where
-        documents.id = docid;
-
-    while docid is not null and docid != 1 do
-        select
-            versions.docid into docid
-        from
-            documents
-            left join versions on (
-                documents.parent = versions.docid
-                and
-                versions.public = 1
-            )
-        where
-            documents.id = docid;
-    end while;
-
-    if docid is null then
-        return 0;
-    else
-        return 1;
-    end if;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `add_vfield` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `add_vfield`(docid integer unsigned, version datetime, name varchar(1024), text_value varchar(16384), int_value integer, double_value double, date_value datetime)
-begin
-	insert into vfields 
-	       (docid, version, name, text_value, int_value, double_value, date_value) values
-	       (docid, version, ucase(name), text_value, int_value, double_value, date_value);
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `backup_recursive_subdocs` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `backup_recursive_subdocs`()
-begin 
-	declare id integer unsigned default 0;
-
-	create temporary table if not exists 
-	       recursive_subdocs_table (id integer unsigned primary key auto_increment) engine=heap;
-	create temporary table if not exists 
-	       recursive_subdocs_backup_list (id integer unsigned primary key auto_increment) engine=heap;
-	create temporary table if not exists
-	       recursive_subdocs_backup (backup_id integer unsigned, recursive_id integer unsigned) engine=heap;
-	
-	insert into recursive_subdocs_backup_list values ();
-	set id = last_insert_id();
-	
-	insert into recursive_subdocs_backup (backup_id, recursive_id) 
-	       select id,recursive_subdocs_table.id from recursive_subdocs_table;
-	
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `check_internal_proxy_status` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `check_internal_proxy_status`(out good integer unsigned)
-begin
-	declare times integer unsigned default 10;
-	create temporary table if not exists internal_proxy_status_table (docid integer unsigned, version datetime, primary key (docid, version) ) engine = heap;
-	create temporary table if not exists internal_proxy_status_table2 (docid integer unsigned, version datetime, primary key (docid, version) ) engine = heap;
-
-	delete ip from internal_proxy_status_table ip;
-	delete ip2 from internal_proxy_status_table ip2;
-
-	insert ignore into internal_proxy_status_table (docid) 
-	       select docid from internal_proxy_documents i2;
-	
-	while times > 0 and not good do
-	      set times = times - 1;
-	      delete ip2 from internal_proxy_status_table2 ip2;
-
-	      insert ignore into internal_proxy_status_table2 
-	      	     select i.docid, i.version from internal_proxy_documents i 
-		     join internal_proxy_status_table ip on
-		     (i.dependent_on = ip.docid);
-
-	      delete ip from internal_proxy_status_table ip;
-
-	      insert ignore into internal_proxy_status_table 
-	      	     select * from internal_proxy_status_table2 ip2;
-              call cleanup_internal_proxy_status_table();
-	      select not count(*) into good from internal_proxy_status_table ip;
-	end while;
-
-	delete ip from internal_proxy_status_table ip;
-	delete ip2 from internal_proxy_status_table ip2;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `cleanup_internal_proxy_status_table` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `cleanup_internal_proxy_status_table`()
-begin
-	declare done integer unsigned default 0;
-	declare v2 datetime default null;
-	declare d integer unsigned default null;
-	declare v datetime default null;
-	declare c cursor for (select d.docid, d.version from internal_proxy_status_table ip);
-	declare continue handler for not found set done=1;
-	
-	create temporary table if not exists to_be_deleted (docid integer unsigned, version datetime, primary key( docid, version));
-	delete t from to_be_deleted t;
-
-	open c;
-	fetch c into d,v;
-
-	while not done do
-	      call public_or_latest_version(d, v2);
-	      if v2 != v then
-	      	 insert into to_be_deleted values (d,v);
-	      end if;     
-	      fetch c into d,v;
-       end while;
-       
-       close c;
-
-       delete ip from internal_proxy_status_table ip natural join to_be_deleted;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `clean_internal_proxies` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `clean_internal_proxies`(docid integer unsigned)
-begin
-	declare a integer unsigned default null;
-	declare done integer unsigned default 0;
-	declare c cursor for (select i.id from internal_proxy_documents i where i.docid = docid);
-	declare c2 cursor for (select i.id from internal_proxy_documents i where i.dependent_on = docid);
-        declare continue handler for not found set done=1;
-	
-	open c;
-	fetch c into a;
-	
-	while not done do
-	   update internal_proxy_documents i join internal_proxy_documents i2 on 
-	   	      (i.docid = i2.dependent_on) set i2.dependent_on = i.dependent_on 
-		      where i.id = a;
-	   delete i from internal_proxy_fields i  where i.relation_id = a;
-	   delete i from internal_proxy_documents i where i.id = a;
-	   fetch c into a;
-	end while;
-	close c;
-
-	set done = 0;
-	open c2;
-	fetch c2 into a;
-	
-	while not done do
-	   delete from internal_proxy_fields  where i.relation_id = a;
-	   delete i from internal_proxy_documents i where i.id = a;
-	   fetch c2 into a;
-	end while;
-	close c2;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `copy_batch` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `copy_batch`(out finally integer)
-begin 
-      declare done integer default 0;
-      declare cur_id integer unsigned;
-      declare cur_parent integer unsigned;
-      declare new_docid integer unsigned;
-
-      declare curs cursor for 
-              (select recursive_subdocs_table.id, t.new_docid from 
-                      documents d join recursive_subdocs_table on (recursive_subdocs_table.id = d.id)
-                      join tree_copier_helper t on (d.parent = t.old_docid) 
-                      where not exists (select * from batch_copier_helper b where b.id = recursive_subdocs_table.id));
-     declare continue handler for not found set done=1;
-
-     create temporary table if not exists batch_copier_helper (id integer unsigned primary key) engine=heap;
-     delete b from batch_copier_helper b;
-     insert into batch_copier_helper (id) select old_docid from tree_copier_helper t;
-
-     select not count(*) into finally from 
-             recursive_subdocs_table left join tree_copier_helper t on (t.old_docid = recursive_subdocs_table.id) 
-             where t.old_docid is null;
-
-     if not finally then
-         open curs;
-         fetch curs into cur_id, cur_parent;
-
-         while not done do
-               call copy_id(cur_id, cur_parent, NULL, new_docid);
-               insert into tree_copier_helper (old_docid, new_docid) values (cur_id, new_docid);
-               fetch curs into cur_id, cur_parent;
-         end while;
-
-         close curs;
-       end if;  
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `copy_docparams` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `copy_docparams`(fromid integer unsigned, toid integer unsigned)
-begin
-	replace into docparms (docid, name, value, type) select toid, name, value, type from docparms where docid=fromid;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `copy_id` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `copy_id`(did integer unsigned, 
-                         new_parent integer unsigned, 
-                         new_name varchar(1024), 
-                         out new_docid integer unsigned)
-begin
-        insert into documents (parent, name, type, owner, grp, accessrules) 
-	        select coalesce(new_parent, d.parent), coalesce(new_name, d.name), d.type, d.owner, d.grp, d.accessrules 
-        	from documents d where d.id=did;
-	set new_docid = last_insert_id();
-		     
-        insert into versions (docid, version,type,public,valid,lang, user)
-        select new_docid, version, type, public,valid,lang, user from versions where docid=did;
-        
-        insert into vfields (docid, version,name,text_value,int_value, double_value,date_value)
-        select new_docid,version,name,text_value,int_value,double_value,date_value from vfields where docid=did; 
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `copy_tree` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `copy_tree`(docid integer unsigned, new_parent integer unsigned, new_name varchar(1024))
-begin 
-      declare done integer default 0;
-      declare new_did integer unsigned;
-      
-      create temporary table if not exists tree_copier_helper (old_docid integer unsigned, new_docid integer unsigned, index (old_docid), index (new_docid)) engine=heap;
-      delete t from tree_copier_helper t;
-      call backup_recursive_subdocs();
-      call recursive_subdocs(docid);
-      
-      call copy_id(docid, new_parent, new_name, new_did);
-      insert into tree_copier_helper (old_docid, new_docid) values (docid, new_did);
-      
-      while not done do call copy_batch(done); end while;
-      call restore_recursive_subdocs();
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `create_internal_proxy_docid_update_table` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `create_internal_proxy_docid_update_table`(docid integer unsigned, v datetime)
-begin
-	declare old_len integer unsigned default 0;
-	declare new_len integer unsigned default 1;
-
-	create temporary table if not exists internal_proxy_docid_update_table(id integer unsigned auto_increment primary key, 
-	       		       					               docid integer unsigned, 
-									       version datetime,
-								               unique(docid, version)) engine=heap;
-	create temporary table if not exists internal_proxy_docid_update_table2(id integer unsigned auto_increment primary key, 
-	       		       					                docid integer unsigned, 
-										version datetime,
-								                unique (docid,version)) engine=heap;
-	delete d from internal_proxy_docid_update_table d;
-	delete d2 from internal_proxy_docid_update_table2 d2;
-	
-	insert into internal_proxy_docid_update_table (docid, version) values (docid, v);
-	
-	while old_len != new_len do
-	      set old_len = new_len;
-	      insert ignore into internal_proxy_docid_update_table2 select * from 
-	      	     internal_proxy_docid_update_table d;
-	      insert ignore into internal_proxy_docid_update_table (docid, version) 
-	      	     select i.docid, i.version from 
-	      	     internal_proxy_documents i join internal_proxy_docid_update_table2 d2 
-		     on (i.dependent_on = d2.docid);
-	      select count(*) into new_len from internal_proxy_docid_update_table d;
-	end while;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `create_user_surveillance` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `create_user_surveillance`(user_id integer unsigned, surveillance_data text)
-begin
-    declare len integer unsigned;
-    declare pos integer unsigned default 0;
-    declare cur_data text;
-    declare did text;
-    declare site_or_page text;
-    declare sd text;
-
-    set sd = concat(surveillance_data, ';');
-    set len = length(sd) - length(replace(sd, ';', ''));
-    while pos < len do
-        set cur_data = substring_index(substring_index(sd, ';', pos + 1), ';', -1);
-        set did = substring_index(cur_data, ':', -1);
-        set site_or_page = substring_index(cur_data, ':', 1);
-        set pos = pos + 1;
-
-        if 'omrade' = site_or_page then
-            replace into user_surveillance_sites (docid, user_id)
-                values (did, user_id);
-        elseif 'webside' = site_or_page then
-            replace into user_surveillance_docs (docid, user_id)
-                values (did, user_id);
-        end if;
-    end while;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `delete_document` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `delete_document`(did integer unsigned)
-begin
-	delete d from documents d where id=did;
-	delete vf from vfields vf where docid=did;
-	delete ver from versions ver where docid=did;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `delete_tree` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `delete_tree`(docid integer unsigned)
-begin
-       call backup_recursive_subdocs();
-       call recursive_subdocs(docid);
-       call really_delete_tree();
-
-       call restore_recursive_subdocs();
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `delete_user_surveillance` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `delete_user_surveillance`(user_id integer unsigned)
-begin
-	delete from user_surveillance_docs where user_surveillance_docs.user_id = user_id;
-        delete from user_surveillance_sites where user_surveillance_sites.user_id = user_id;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `do_search` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `do_search`(in_path varchar(1024), 
-                           in_pattern varchar(1024), 
-                           owner integer unsigned, 
-                           grp integer unsigned, 
-                           newer_than datetime, 
-                           older_than datetime
-                           )
-begin
-        declare pattern varchar(1024);
-        declare path varchar(1026);
-
-        set path = concat(in_path, "%");
-        set pattern = concat('%', replace(in_pattern, '*', '%'), '%');
-
-        select distinct(d.id) from
-               documents d join docid_path dp on (d.id = dp.docid and dp.path like path)
-               join versions v on (d.id = v.docid and (v.public = 1 or v.version = (select max(v2.version) from versions v2 where v2.docid  = d.id)))
-               left join vfields vf1 on 
-                    (v.docid = vf1.docid and vf1.version = v.version and 
-                    vf1.name in ('content', 'title', 'short_title'))
-        where    
-                (pattern is null or vf1.text_value like pattern or d.name like pattern) and
-                (owner is null or d.owner = owner) and
-                (grp is null or d.grp = grp) and
-                (older_than is null or v.version < older_than) and
-                (newer_than is null or v.version > newer_than);
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `find_doc_by_path` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `find_doc_by_path`(path varchar(1024), out docid integer unsigned)
-begin
-     declare len integer unsigned;
-     declare pos integer unsigned default 1;
-     declare tid integer unsigned;
-     declare cid integer unsigned default 1;
-     declare pp varchar(255);
-
-     if not path regexp "/$" then
-        set path = concat(path, "/");
-     end if;
-
-     if trim(path) = '/' then
-        set docid = 1;
-     else         
-        set len = length(path) - length(replace(path, '/', ''));
-        scanner:while pos < len do 
-           set pp = substring_index(substring_index(path, '/', pos + 1), '/', -1);
-           set pos = pos + 1;
-           if pp = '' then iterate scanner; end if;
-           set tid = 0;
-           
-           select d.id into tid from documents d
-                  where d.name = pp AND d.parent = cid;
-           if tid = 0 then leave scanner; end if;
-           set cid = tid;
-     end while ;
-     set docid = tid;
-   end if;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `find_path_by_docid` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `find_path_by_docid`(docid integer, out outpath varchar(1024))
-begin 
-      declare res text default '';
-      declare docid2 integer unsigned;
-      while docid != 1 do
-            set docid2 = null;
-            select concat(d.name,'/', res), d.parent into res, docid2 from documents d where d.id = docid;
-            set docid = docid2;
-      end while;
-      
-      select case when docid = 1 then concat('/', res) end path into outpath;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `insert_docid_path` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `insert_docid_path`(did integer unsigned)
-begin
-        declare path varchar(1024);
-        call find_path_by_docid(did, path);
-        delete docid_path from docid_path where docid=did;
-        insert into docid_path (docid, path) values (did, path);
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `insert_internal_proxy_entry` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `insert_internal_proxy_entry`(docid integer unsigned, version datetime, dependent_on integer unsigned, fields varchar(16384))
-begin
-	declare cur varchar(128) default '';
-	declare good integer default 0;
-	declare len integer unsigned default 0;
-	declare pos integer unsigned default 0;
-	declare id integer unsigned;
-	
-	insert into internal_proxy_documents (docid, version, dependent_on) values (docid, version, dependent_on);
-	set id = last_insert_id();
-	
-	call check_internal_proxy_status(good);
-	
-	if not good then
-	   call ERROR_YOU_HAVE_CREATED_A_CYCLE();
-	end if;
-
-	delete i from internal_proxy_fields i where relation_id = id;
-	set len = length(fields) - length(replace(fields, ',', ''));
-	while pos < len + 1 do
-	      set cur = substring_index(substring_index(fields, ',', pos + 1), ',', -1);
-	      insert into internal_proxy_fields (relation_id, name) values (id, cur);
-	      set pos = pos + 1;
-	end while;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `insert_path_tree_link` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `insert_path_tree_link`(
-    in_parent int(8) unsigned,
-    in_child int(8) unsigned
-)
-begin
-    insert into path_tree (`parent`, `child`, `depth`)
-        select
-            p.parent, c.child, p.depth+c.depth+1
-        from
-            path_tree p, path_tree c
-        where
-            p.child=in_parent and c.parent=in_child;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `internal_proxy_when_document_updated` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `internal_proxy_when_document_updated`(docid integer unsigned)
-begin
-        declare done integer default 0;
-        declare a integer unsigned;
-	declare v datetime;
-        declare c cursor for (select d.docid, d.version from internal_proxy_documents d where d.dependent_on = docid);
-        declare continue handler for not found set done=1;
-        
-        open c;
-        fetch c into a,v;
-        while not done do
-              call update_internal_proxies(a, v);
-              fetch c into a,v;
-        end while;
-        close c;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `is_forbidden_doc` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `is_forbidden_doc`(docid integer unsigned)
-begin
-     declare tid integer unsigned;
-     declare cid integer unsigned;
-     declare is_forbidden boolean default false;
- 
-     set tid = docid;
-     set cid = tid;
-     scanner:while tid != 0 do
-           select true into is_forbidden from forbidden_docs fd where fd.docid = tid;
-           if is_forbidden then
-              leave scanner;
-           end if;
-           select d.parent into tid from documents d
-                  where d.id = tid;
-           if cid = tid then
-              leave scanner;
-           end if;
-           set cid = tid;
-     end while ;
-     select is_forbidden;             
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `is_internal_proxy_document` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `is_internal_proxy_document`(docid integer unsigned)
-begin
-	select count(*) as is_ from internal_proxy_documents i where i.docid = docid;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `move_document` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `move_document`(docid integer unsigned, new_parent integer unsigned, new_name varchar(1024))
-begin
-        update documents set parent=new_parent,name=coalesce(new_name,name)  where id=docid;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `new_internal_proxy_entry` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `new_internal_proxy_entry`(docid integer unsigned, version datetime, depends_on integer unsigned, fields varchar(16384))
-begin
-	call insert_internal_proxy_entry(docid, version, depends_on, fields);
-	call update_internal_proxy_document(docid, version);
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `public_or_latest_version` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `public_or_latest_version`(did integer unsigned, out version datetime)
-begin
-        select v.version into version from versions v 
-               where v.docid = did and 
-                     (v.public = 1 or 
-                     ((not exists 
-                          (select * from versions v2 where 
-                                  v2.docid = did and 
-                                  v2.public = 1))
-                      and (v.version in (select max(v3.version) 
-                          from versions v3 where v3.docid = did)))) limit 1;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `publish_version` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `publish_version`(docid integer unsigned, version datetime, lang varchar(100))
-begin
-        update versions v set public = 0 where (lang is null or (v.lang = lang));
-        update versions v set public = 1 where (v.docid = docid and v.version = version);
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `read_vfields` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `read_vfields`(docid integer unsigned, version datetime, names varchar(16384))
-begin
-	declare pos integer unsigned default 0;
-	declare len integer unsigned default 0;
-	
-	create temporary table if not exists read_vfields_helper (name varchar(1024) primary key) engine = heap;
-	delete r from read_vfields_helper r;
-
-	set len = length(names) - length(replace(names, ",", ""));
-	while pos < len or (pos = 0 and len = 0) do
-	      insert into read_vfields_helper values (substring_index(substring_index(names, ",", pos + 1), ",", -1));
-	end while;
-	
-	select vf.* from vfields vf join read_vfields_helper r on (vf.docid = docid and vf.version = version and vf.name = r.name);
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `read_vfields_from_pol` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `read_vfields_from_pol`(docid integer unsigned, names varchar(16384))
-begin
-	declare version datetime default null;
-	
-	call public_or_latest_version(docid, version);
-	if version is null then
-	   call ERROR_NO_PUBLIC_OR_LATEST_VERSION();
-	end if;	
-	
-	call read_vfields(docid, version, names);
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `really_delete_tree` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `really_delete_tree`()
-begin 
-	declare done integer default 0;
-	declare a integer unsigned;
-     	declare c cursor for (select * from recursive_subdocs_table);
-        declare continue handler for not found set done=1;
-		
-	open c;
-	fetch c into a;
-	while not done do call delete_document(a); fetch c into a; end while;
-	delete from recursive_subdocs_table;
-
-	close c;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `rebuild_path_tree` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `rebuild_path_tree`()
-begin
-    declare num_todo integer unsigned;
-    declare insert_depth integer unsigned;
-
-    set insert_depth = 0;
-
-    
-    delete from path_tree;
-
-    
-    insert into path_tree (parent, child, depth)
-        select id, id, insert_depth from documents;
-
-    set num_todo = ROW_COUNT();
-    while num_todo != 0 do
-        
-        insert into path_tree (parent, child, depth)
-            select
-                t.parent, c.id, t.depth+1
-            from
-                path_tree t
-                join documents c on c.parent = t.child
-            where
-                t.depth = insert_depth;
-            set num_todo = ROW_COUNT();
-            set insert_depth = insert_depth + 1;
-    end while;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `recursive_subdocs` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `recursive_subdocs`(docid integer unsigned)
-begin
-        declare old_len integer unsigned default 0;
-        declare new_len integer unsigned default 1;
-	
-	create temporary table if not exists recursive_subdocs_table2 
-	       (id integer unsigned primary key) engine=heap;
-	
-	delete from recursive_subdocs_table;
-        insert into recursive_subdocs_table set id=docid;
-	
-        subdocs:while old_len != new_len do
-                      set old_len = new_len;
-		      delete r2 from recursive_subdocs_table2 r2;
-		      insert ignore into recursive_subdocs_table2 (id)
-		      	     select id from recursive_subdocs_table;
-                      insert ignore into recursive_subdocs_table (id) select                 
-                             d.id from recursive_subdocs_table2 r2 join 
-                             documents d on (r2.id = d.parent); 
-                       select count(*) into new_len from recursive_subdocs_table;
-         end while;
-	 drop temporary table recursive_subdocs_table2;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `recursive_subdocs_trigger` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `recursive_subdocs_trigger`(docid integer unsigned)
-begin
-        declare old_len integer unsigned default 0;
-        declare new_len integer unsigned default 1;
-	
-	create temporary table if not exists recursive_subdocs_table2 
-	       (id integer unsigned primary key) engine=heap;
-	
-	delete from recursive_subdocs_trigger_table;
-        insert into recursive_subdocs_trigger_table set id=docid;
-	
-        subdocs:while old_len != new_len do
-                      set old_len = new_len;
-		      delete r2 from recursive_subdocs_table2 r2;
-		      insert ignore into recursive_subdocs_table2 (id)
-		      	     select id from recursive_subdocs_trigger_table;
-                      insert ignore into recursive_subdocs_trigger_table (id) select
-                             d.id from recursive_subdocs_table2 r2 join 
-                             documents d on (r2.id = d.parent); 
-                      select count(*) into new_len from recursive_subdocs_trigger_table;
-         end while;
-	 drop temporary table recursive_subdocs_table2;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `remove_path_tree_link` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `remove_path_tree_link`(
-    in_parent int(8) unsigned,
-    in_child int(8) unsigned
-)
-begin
-    delete link
-        from
-            path_tree p, path_tree link, path_tree c
-        where
-            p.parent = link.parent and c.child = link.child
-        and
-            p.child=in_parent and c.parent=in_child;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `reset_closest_subsite` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `reset_closest_subsite`()
-begin
-
-    declare max_depth integer unsigned;
-    declare current_depth integer unsigned;
-
-    
-    update
-        docs_with_extra documents
-    set
-        closest_subsite = (select id from subsites2 where root_docid = 1)
-    where
-        documents.id = 1;
-
-
-    set current_depth = 1;
-    select max(depth) from path_tree into max_depth;
-
-    while current_depth <= max_depth do
-        update
-            docs_with_extra documents
-            join path_tree on (
-                documents.id = path_tree.child and
-                `depth` = current_depth
-            )
-            join docs_with_extra parent on documents.parent = parent.id
-            left join subsites2 on documents.id = subsites2.root_docid
-        set
-            documents.closest_subsite = COALESCE(
-                subsites2.id, parent.closest_subsite
-            )
-        where
-            path_tree.parent = 1;
-
-        set current_depth = current_depth + 1;
-    end while;
-
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `reset_public_or_latest` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `reset_public_or_latest`()
-begin
-
-    update
-        documents_extra
-        left join versions on (
-            documents_extra.id = versions.docid
-            and
-            versions.public = 1
-        )
-    set
-        documents_extra.public_or_latest_version = COALESCE(
-            versions.id,
-            (
-                select
-                    max(mv.id)
-                from
-                    versions mv
-                where
-                    mv.docid = documents_extra.id
-            )
-        );
-
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `restore_recursive_subdocs` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `restore_recursive_subdocs`()
-begin
-	declare id integer unsigned;
-
-	drop temporary table recursive_subdocs_table;
-	create temporary table if not exists recursive_subdocs_table (id integer unsigned primary key auto_increment);
-
-	select max(id) into id from recursive_subdocs_backup_list rl;
-	insert into recursive_subdocs_table
-	       select recursive_id from recursive_subdocs_backup rsb where rsb.backup_id = id;
-	
-	delete rl from recursive_subdocs_backup_list rl where rl.id = id;
-	delete rsb from recursive_subdocs_backup rsb where rsb.backup_id = id;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `stupid` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `stupid`(n integer unsigned)
-begin
-        while n > 0 do
-              set n = n - 1;
-              select true;
-        end while;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `unpublish_document` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `unpublish_document`(docid integer unsigned, lang varchar(100))
-begin
-        update versions v set public = 0 where v.docid = docid and (lang is null or (v.lang = lang));
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `update_closest_subsite_recursive` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `update_closest_subsite_recursive`(for_docid int(8) unsigned)
-begin
-
-    declare num_todo integer unsigned;
-    declare depth_below integer unsigned;
-
-    
-    update
-        docs_with_extra documents
-        left join docs_with_extra parent on documents.parent = parent.id
-        left join subsites2 on documents.id = subsites2.root_docid
-    set
-        documents.closest_subsite = COALESCE(
-            subsites2.id, parent.closest_subsite
-        )
-    where
-        documents.id = for_docid
-    ;
-
-    set num_todo = ROW_COUNT();
-    set depth_below = 1;
-
-    while num_todo != 0 do
-        update
-            docs_with_extra documents
-            join path_tree on (
-                documents.id = path_tree.child and
-                `depth` = depth_below
-            )
-            join docs_with_extra parent on documents.parent = parent.id
-            left join subsites2 on documents.id = subsites2.root_docid
-        set
-            documents.closest_subsite = COALESCE(
-                subsites2.id, parent.closest_subsite
-            )
-        where
-            path_tree.parent = for_docid;
-
-        set num_todo = ROW_COUNT();
-        set depth_below = depth_below + 1;
-    end while;
-
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `update_docid_path_recursive` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `update_docid_path_recursive`(for_docid int(8) unsigned)
-begin
-
-    declare max_depth integer unsigned;
-    declare current_depth integer unsigned;
-
-    
-    delete
-        docid_path
-    from
-        docid_path
-        left join documents on docid_path.docid = documents.id
-    where
-        docid_path.docid = for_docid
-        AND
-        documents.id IS NULL;
-
-    
-    insert into docid_path (docid, path)
-        select
-            documents.id docid,
-            IF(
-                parent_path.path IS NOT NULL,
-                CONCAT(parent_path.path, documents.name, '/'),
-                '/'
-            ) new_path
-        from
-            documents
-            left join documents parent_doc on (
-                documents.parent = parent_doc.id
-            )
-            left join docid_path parent_path on (
-                parent_doc.id = parent_path.docid
-            )
-        where
-            documents.id = for_docid
-    on duplicate key
-        update docid_path.path = IF(
-            parent_path.path IS NOT NULL,
-            CONCAT(parent_path.path, documents.name, '/'),
-            '/'
-        );
-
-    set current_depth = 1;
-    select max(depth) from path_tree where parent = for_docid into max_depth;
-
-    while current_depth <= max_depth do
-        
-        update
-            docid_path
-            join documents on (docid_path.docid = documents.id)
-            join path_tree on (
-                documents.id = path_tree.child and
-                `depth` = current_depth and
-                path_tree.parent = for_docid
-            )
-            join documents parent_doc on (
-                documents.parent = parent_doc.id
-            )
-            join docid_path parent_path on (
-                parent_doc.id = parent_path.docid
-            )
-            join docid_path existing_path on (
-                documents.id = existing_path.docid
-            )
-        set
-            docid_path.path = CONCAT(parent_path.path, documents.name, '/')
-        where
-            existing_path.path != CONCAT(
-                parent_path.path, documents.name, '/'
-            );
-
-        
-        insert into docid_path (docid, path)
-            select
-                documents.id docid,
-                CONCAT(parent_path.path, documents.name, '/') new_path
-            from
-                documents
-                join path_tree on (
-                    documents.id = path_tree.child and
-                    `depth` = current_depth and
-                    path_tree.parent = for_docid
-                )
-                join documents parent_doc on (
-                    documents.parent = parent_doc.id
-                )
-                join docid_path parent_path on (
-                    parent_doc.id = parent_path.docid
-                )
-                left join docid_path existing_path on (
-                    documents.id = existing_path.docid
-                )
-            where
-                existing_path.path is NULL;
-
-        set current_depth = current_depth + 1;
-    end while;
-
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `update_has_public_path_recursive` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `update_has_public_path_recursive`(for_docid int(8) unsigned)
-begin
-    declare num_todo integer unsigned;
-    declare depth_below integer unsigned;
-
-    
-    update
-        docs_with_extra documents
-        left join docs_with_extra parent on documents.parent = parent.id
-        left join versions on (
-            versions.docid = documents.id
-            and
-            versions.public = 1
-        )
-    set
-        documents.has_public_path = (
-            versions.public
-            AND (
-                not documents.parent
-                OR
-                parent.has_public_path
-            )
-        )
-    where
-        documents.id = for_docid
-    ;
-
-    set num_todo = ROW_COUNT();
-    set depth_below = 1;
-
-    
-    IF num_todo > 0 and NOT EXISTS(
-        select
-            1
-        from
-            docs_with_extra documents
-        where
-            id = for_docid
-            and
-            has_public_path = true
-    ) THEN
-
-        update
-            docs_with_extra documents
-            join path_tree on path_tree.child = documents.id
-        set
-            has_public_path = false
-        where
-            path_tree.parent = for_docid;
-
-        set num_todo = 0;
-
-    END IF;
-
-    while num_todo != 0 do
-        update
-            docs_with_extra documents
-            join path_tree on (
-                documents.id = path_tree.child and
-                `depth` = depth_below
-            )
-            left join versions on (
-                versions.docid = documents.id and
-                versions.public = 1
-            )
-            join docs_with_extra parent on documents.parent = parent.id
-        set
-            documents.has_public_path = (
-                versions.public is not null and
-                versions.public and
-                parent.has_public_path
-            )
-        where
-            path_tree.parent = for_docid;
-
-        set num_todo = ROW_COUNT();
-        set depth_below = depth_below + 1;
-    end while;
-
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `update_internal_proxies` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `update_internal_proxies`(docid integer unsigned, version datetime)
-begin 
-      call create_internal_proxy_docid_update_table(docid, version);
-      call update_internal_proxies_do();
-      delete d from internal_proxy_docid_update_table d;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `update_internal_proxies_do` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `update_internal_proxies_do`()
-begin
-	declare done integer default 0;
-	declare a integer unsigned;
-	declare v datetime;
-	declare c cursor for (select d.docid, d.version from internal_proxy_docid_update_table d order by id asc);
-        declare continue handler for not found set done=1;
-	
-	open c;
-	fetch c into a, v;
-
-	while not done do
-	      call update_internal_proxy_document(a, v);
-	      fetch c into a, v;
-	end while;
-
-	close c;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `update_internal_proxy_docids` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `update_internal_proxy_docids`(docids varchar(16384))
-begin
-      declare len integer unsigned;
-      declare cur varchar(128) default '';
-      declare pos integer unsigned default 0;
-      
-      start transaction;
-      set len = length(docids) - length(replace(docids, ',', ''));
-      while pos < len + 1 do
-            set cur = substring_index(substring_index(docids, ',', pos + 1), ',', -1);
-	    call internal_proxy_when_document_updated(convert(cur, unsigned));
-	    set pos = pos + 1;
-      end while;
-      commit;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `update_internal_proxy_document` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `update_internal_proxy_document`(docid integer unsigned, version datetime)
-begin
-	declare dep_docid integer unsigned default 0;
-	declare dep_version datetime default null;
-	
-	if version is null then
-	   call ERROR_NO_PUBLIC_OR_LATEST_VERSION();
-	end if;
-
-	select dependent_on into dep_docid from internal_proxy_documents i
-	       where i.docid = docid and i.version = version;
-	call public_or_latest_version(dep_docid, dep_version);
-	       	
-	if dep_version is null then
-	   call ERROR_NO_PUBLIC_OR_LATEST_VERSION();
-	end if;
-
-	delete vf from vfields vf where
-	       vf.docid = docid and vf.version = version and
-	       vf.name not in (select ipf.name from internal_proxy_documents ipd join internal_proxy_fields ipf on 
-	       	   	  (ipf.relation_id = ipd.id) where ipd.version = version and ipd.docid = docid);
-	insert ignore into vfields (docid, version, name, text_value, double_value, date_value, int_value)
-	       select docid, version, vf.name, vf.text_value, vf.double_value, vf.date_value, vf.int_value
-	       from vfields vf where 
-	       vf.docid = dep_docid and vf.version = dep_version and vf.name not in 
-	       (select ipf.name from internal_proxy_documents ipd join internal_proxy_fields ipf on 
-	       	   	  (ipf.relation_id = ipd.id) where ipd.docid = docid and ipd.version = version);
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `update_move` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `update_move`(docid integer unsigned)
-begin
-    call update_docid_path_recursive(docid);
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `update_move_internal` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = latin1 */ ;
-/*!50003 SET character_set_results = latin1 */ ;
-/*!50003 SET collation_connection  = latin1_swedish_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `update_move_internal`()
-begin
-        declare path varchar(1024);
-        declare a int unsigned default 0;
-        declare done int default 0;
-        declare curs cursor for (select * from recursive_subdocs_trigger_table);
-        declare continue handler for not found set done=1;
-
-        open curs;
-        fetch curs into a;
-
-        while not done do
-              call find_path_by_docid(a, path);
-	      delete docid_path from docid_path where docid=a;
-              replace into docid_path (docid, path) values (a, path);
-              fetch curs into a;
-        end while;
-        
-        close curs;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `update_public_or_latest` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = '' */ ;
-DELIMITER ;;
-CREATE PROCEDURE `update_public_or_latest`(for_docid int(8) unsigned)
-begin
-
-    update
-        documents_extra
-        left join versions on (
-            documents_extra.id = versions.docid
-            and
-            versions.public = 1
-        )
-    set
-        documents_extra.public_or_latest_version = COALESCE(
-            versions.id,
-            (
-                select
-                    max(mv.id)
-                from
-                    versions mv
-                where
-                    mv.docid = documents_extra.id
-            )
-        )
-    where
-        documents_extra.id = for_docid;
-
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
+DROP TABLE IF EXISTS `website_categories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `website_categories` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `category_name_da` varchar(60) NOT NULL,
+  `category_name_en` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `website_categories`
+--
+
+LOCK TABLES `website_categories` WRITE;
+/*!40000 ALTER TABLE `website_categories` DISABLE KEYS */;
+INSERT INTO `website_categories` VALUES (1,'Ukategoriseret','Uncategorized'),(2,'Fakultetswebsted','Faculty web site'),(3,'Institutwebsted','Department web site'),(4,'F√¶lles KU-portal','University portal'),(5,'Uddannelsesbeskrivelse','Programme description'),(6,'Forskningsbeskrivelse, udvidet','Research presentation, extended'),(7,'Forskningsbeskrivelse, lille','Research presentation, short'),(8,'Samarbejdswebsted','Collaboration'),(9,'Digitalt arkiv eller database','Digital archive or database'),(10,'Andet','Other');
+/*!40000 ALTER TABLE `website_categories` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Final view structure for view `calculated_path`
@@ -5680,7 +3926,8 @@ DELIMITER ;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50001 VIEW `calculated_path` AS select `c`.`id` AS `docid`,group_concat(concat(coalesce(`p`.`name`,''),'/') order by `t`.`depth` DESC separator '') AS `path` from ((`documents` `c` join `path_tree` `t` on((`t`.`child` = `c`.`id`))) left join `documents` `p` on(((`t`.`parent` = `p`.`id`) and (`p`.`id` <> 1)))) group by `c`.`id` */;
+/*!50013 DEFINER=`ku`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `calculated_path` AS select `c`.`id` AS `docid`,group_concat(concat(coalesce(`p`.`name`,''),'/') order by `t`.`depth` DESC separator '') AS `path` from ((`documents` `c` join `path_tree` `t` on(`t`.`child` = `c`.`id`)) left join `documents` `p` on(`t`.`parent` = `p`.`id` and `p`.`id` <> 1)) group by `c`.`id` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5698,7 +3945,8 @@ DELIMITER ;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50001 VIEW `closest_subsite` AS select `documents`.`id` AS `docid`,(select `subsites_above`.`id` from `subsites_above` where (`subsites_above`.`child_docid` = `documents`.`id`) order by `subsites_above`.`subsite_path` desc limit 1) AS `subsite_id` from `documents` */;
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `closest_subsite` AS select `documents`.`id` AS `docid`,(select `subsites_above`.`id` from `subsites_above` where `subsites_above`.`child_docid` = `documents`.`id` order by `subsites_above`.`subsite_path` desc limit 1) AS `subsite_id` from `documents` */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5716,7 +3964,8 @@ DELIMITER ;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50001 VIEW `cron_servers_full` AS select `s`.`id` AS `id`,`s`.`hostname` AS `hostname`,`t`.`id` AS `type_id`,`t`.`name` AS `type`,`e`.`id` AS `environment_id`,`e`.`name` AS `environment`,`s`.`is_primary` AS `is_primary`,`s`.`last_run` AS `last_run` from ((`cron_servers` `s` left join `cron_server_types` `t` on((`s`.`type_id` = `t`.`id`))) left join `cron_environments` `e` on((`s`.`environment_id` = `e`.`id`))) */;
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `cron_servers_full` AS select `s`.`id` AS `id`,`s`.`hostname` AS `hostname`,`t`.`id` AS `type_id`,`t`.`name` AS `type`,`e`.`id` AS `environment_id`,`e`.`name` AS `environment`,`s`.`is_primary` AS `is_primary`,`s`.`last_run` AS `last_run` from ((`cron_servers` `s` left join `cron_server_types` `t` on(`s`.`type_id` = `t`.`id`)) left join `cron_environments` `e` on(`s`.`environment_id` = `e`.`id`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5734,7 +3983,8 @@ DELIMITER ;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50001 VIEW `docs_with_extra` AS select `documents`.`id` AS `id`,`documents`.`parent` AS `parent`,`documents`.`name` AS `name`,`documents`.`type` AS `type`,`documents`.`owner` AS `owner`,`documents`.`grp` AS `grp`,`documents`.`accessrules` AS `accessrules`,`documents`.`inherit_access` AS `inherit_access`,`documents_extra`.`public_or_latest_version` AS `public_or_latest_version`,`documents_extra`.`has_public_path` AS `has_public_path`,`documents_extra`.`closest_subsite` AS `closest_subsite` from (`documents` join `documents_extra` on((`documents`.`id` = `documents_extra`.`id`))) */;
+/*!50013 DEFINER=`ku`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `docs_with_extra` AS select `documents`.`id` AS `id`,`documents`.`parent` AS `parent`,`documents`.`name` AS `name`,`documents`.`type` AS `type`,`documents`.`owner` AS `owner`,`documents`.`grp` AS `grp`,`documents`.`accessrules` AS `accessrules`,`documents`.`inherit_access` AS `inherit_access`,`documents_extra`.`public_or_latest_version` AS `public_or_latest_version`,`documents_extra`.`has_public_path` AS `has_public_path`,`documents_extra`.`closest_subsite` AS `closest_subsite` from (`documents` join `documents_extra` on(`documents`.`id` = `documents_extra`.`id`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5752,7 +4002,8 @@ DELIMITER ;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50001 VIEW `path_tree_with_paths` AS select `t`.`id` AS `id`,`t`.`parent` AS `parent`,`t`.`child` AS `child`,`t`.`depth` AS `depth`,`pp`.`path` AS `parent_path`,`cp`.`path` AS `child_path` from ((`path_tree` `t` join `docid_path` `pp` on((`t`.`parent` = `pp`.`docid`))) join `docid_path` `cp` on((`t`.`child` = `cp`.`docid`))) */;
+/*!50013 DEFINER=`ku`@`%` SQL SECURITY DEFINER */
+/*!50001 VIEW `path_tree_with_paths` AS select `t`.`id` AS `id`,`t`.`parent` AS `parent`,`t`.`child` AS `child`,`t`.`depth` AS `depth`,`pp`.`path` AS `parent_path`,`cp`.`path` AS `child_path` from ((`path_tree` `t` join `docid_path` `pp` on(`t`.`parent` = `pp`.`docid`)) join `docid_path` `cp` on(`t`.`child` = `cp`.`docid`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5770,7 +4021,8 @@ DELIMITER ;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50001 VIEW `public_path_docid` AS select `documents`.`id` AS `docid` from `documents` where (not(exists(select 1 from (`path_tree` left join `versions` on(((`path_tree`.`parent` = `versions`.`docid`) and (`versions`.`public` = 1)))) where (isnull(`versions`.`docid`) and (`path_tree`.`child` = `documents`.`id`))))) */;
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `public_path_docid` AS select `documents`.`id` AS `docid` from `documents` where !exists(select 1 from (`path_tree` left join `versions` on(`path_tree`.`parent` = `versions`.`docid` and `versions`.`public` = 1)) where `versions`.`docid` is null and `path_tree`.`child` = `documents`.`id`) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5788,7 +4040,8 @@ DELIMITER ;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50001 VIEW `public_versions_with_path` AS select `versions`.`docid` AS `docid`,`versions`.`version` AS `version`,`versions`.`type` AS `type`,`versions`.`public` AS `public`,`versions`.`valid` AS `valid`,`versions`.`lang` AS `lang`,`versions`.`user` AS `user`,`docid_path`.`path` AS `path` from (`docid_path` join `versions` on(((`docid_path`.`docid` = `versions`.`docid`) and (`versions`.`public` = 1)))) */;
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `public_versions_with_path` AS select `versions`.`docid` AS `docid`,`versions`.`version` AS `version`,`versions`.`type` AS `type`,`versions`.`public` AS `public`,`versions`.`valid` AS `valid`,`versions`.`lang` AS `lang`,`versions`.`user` AS `user`,`docid_path`.`path` AS `path` from (`docid_path` join `versions` on(`docid_path`.`docid` = `versions`.`docid` and `versions`.`public` = 1)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5806,7 +4059,8 @@ DELIMITER ;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50001 VIEW `public_vfields_with_path` AS select `dp_v`.`path` AS `path`,`vfields`.`docid` AS `docid`,`vfields`.`version` AS `version`,`vfields`.`name` AS `name`,`vfields`.`text_value` AS `text_value`,`vfields`.`int_value` AS `int_value`,`vfields`.`double_value` AS `double_value`,`vfields`.`date_value` AS `date_value` from (`public_versions_with_path` `dp_v` join `vfields` on(((`dp_v`.`docid` = `vfields`.`docid`) and (`dp_v`.`version` = `vfields`.`version`)))) */;
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `public_vfields_with_path` AS select `dp_v`.`path` AS `path`,`vfields`.`docid` AS `docid`,`vfields`.`version` AS `version`,`vfields`.`name` AS `name`,`vfields`.`text_value` AS `text_value`,`vfields`.`int_value` AS `int_value`,`vfields`.`double_value` AS `double_value`,`vfields`.`date_value` AS `date_value` from (`public_versions_with_path` `dp_v` join `vfields` on(`dp_v`.`docid` = `vfields`.`docid` and `dp_v`.`version` = `vfields`.`version`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5824,7 +4078,8 @@ DELIMITER ;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50001 VIEW `subsites_above` AS select `below_subsites`.`id` AS `id`,`below_subsites`.`user_id` AS `user_id`,`below_subsites`.`domain` AS `domain`,`below_subsites`.`is_https` AS `is_https`,`below_subsites`.`old_path` AS `old_path`,`below_subsites`.`root_docid` AS `root_docid`,`below_subsites`.`title` AS `title`,`below_subsites`.`alt_title` AS `alt_title`,`below_subsites`.`front_faculty` AS `front_faculty`,`below_subsites`.`front_faculty_id` AS `front_faculty_id`,`below_subsites`.`backend_faculty` AS `backend_faculty`,`below_subsites`.`backend_faculty_id` AS `backend_faculty_id`,`below_subsites`.`comments` AS `comments`,`below_subsites`.`lang` AS `lang`,`below_subsites`.`local_analytics` AS `local_analytics`,`below_subsites`.`local_analytics_use_local_domain` AS `local_analytics_use_local_domain`,`below_subsites`.`global_menu` AS `global_menu`,`below_subsites`.`other_language_link` AS `other_language_link`,`below_subsites`.`own_leftmenu` AS `own_leftmenu`,`below_subsites`.`responsive` AS `responsive`,`below_subsites`.`dont_inherit_local_analytics` AS `dont_inherit_local_analytics`,`below_subsites`.`brandingunit` AS `brandingunit`,`below_subsites`.`webteam_id` AS `webteam_id`,`below_subsites`.`warning_banner` AS `warning_banner`,`below_subsites`.`dont_inherit_warning_banner` AS `dont_inherit_warning_banner`,`below_subsites`.`branding_text1` AS `branding_text1`,`below_subsites`.`branding_text2` AS `branding_text2`,`below_subsite_paths`.`child` AS `child_docid`,`below_subsite_paths`.`child_path` AS `child_path`,`below_subsite_paths`.`parent` AS `subsite_docid`,`below_subsite_paths`.`parent_path` AS `subsite_path` from (`path_tree_with_paths` `below_subsite_paths` join `subsites2` `below_subsites` on((`below_subsite_paths`.`parent` = `below_subsites`.`root_docid`))) */;
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `subsites_above` AS select `below_subsites`.`id` AS `id`,`below_subsites`.`user_id` AS `user_id`,`below_subsites`.`domain` AS `domain`,`below_subsites`.`is_https` AS `is_https`,`below_subsites`.`old_path` AS `old_path`,`below_subsites`.`root_docid` AS `root_docid`,`below_subsites`.`title` AS `title`,`below_subsites`.`alt_title` AS `alt_title`,`below_subsites`.`front_faculty` AS `front_faculty`,`below_subsites`.`front_faculty_id` AS `front_faculty_id`,`below_subsites`.`backend_faculty` AS `backend_faculty`,`below_subsites`.`backend_faculty_id` AS `backend_faculty_id`,`below_subsites`.`comments` AS `comments`,`below_subsites`.`lang` AS `lang`,`below_subsites`.`local_analytics` AS `local_analytics`,`below_subsites`.`local_analytics_use_local_domain` AS `local_analytics_use_local_domain`,`below_subsites`.`global_menu` AS `global_menu`,`below_subsites`.`other_language_link` AS `other_language_link`,`below_subsites`.`own_leftmenu` AS `own_leftmenu`,`below_subsites`.`responsive` AS `responsive`,`below_subsites`.`dont_inherit_local_analytics` AS `dont_inherit_local_analytics`,`below_subsites`.`brandingunit` AS `brandingunit`,`below_subsites`.`webteam_id` AS `webteam_id`,`below_subsites`.`warning_banner` AS `warning_banner`,`below_subsites`.`dont_inherit_warning_banner` AS `dont_inherit_warning_banner`,`below_subsites`.`branding_text1` AS `branding_text1`,`below_subsites`.`branding_text2` AS `branding_text2`,`below_subsite_paths`.`child` AS `child_docid`,`below_subsite_paths`.`child_path` AS `child_path`,`below_subsite_paths`.`parent` AS `subsite_docid`,`below_subsite_paths`.`parent_path` AS `subsite_path` from (`path_tree_with_paths` `below_subsite_paths` join `subsites2` `below_subsites` on(`below_subsite_paths`.`parent` = `below_subsites`.`root_docid`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5842,7 +4097,8 @@ DELIMITER ;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50001 VIEW `subsites_below` AS select `below_subsites`.`id` AS `id`,`below_subsites`.`user_id` AS `user_id`,`below_subsites`.`domain` AS `domain`,`below_subsites`.`is_https` AS `is_https`,`below_subsites`.`old_path` AS `old_path`,`below_subsites`.`root_docid` AS `root_docid`,`below_subsites`.`title` AS `title`,`below_subsites`.`alt_title` AS `alt_title`,`below_subsites`.`front_faculty` AS `front_faculty`,`below_subsites`.`front_faculty_id` AS `front_faculty_id`,`below_subsites`.`backend_faculty` AS `backend_faculty`,`below_subsites`.`backend_faculty_id` AS `backend_faculty_id`,`below_subsites`.`comments` AS `comments`,`below_subsites`.`lang` AS `lang`,`below_subsites`.`local_analytics` AS `local_analytics`,`below_subsites`.`local_analytics_use_local_domain` AS `local_analytics_use_local_domain`,`below_subsites`.`global_menu` AS `global_menu`,`below_subsites`.`other_language_link` AS `other_language_link`,`below_subsites`.`own_leftmenu` AS `own_leftmenu`,`below_subsites`.`responsive` AS `responsive`,`below_subsites`.`dont_inherit_local_analytics` AS `dont_inherit_local_analytics`,`below_subsites`.`brandingunit` AS `brandingunit`,`below_subsites`.`webteam_id` AS `webteam_id`,`below_subsites`.`warning_banner` AS `warning_banner`,`below_subsites`.`dont_inherit_warning_banner` AS `dont_inherit_warning_banner`,`below_subsites`.`branding_text1` AS `branding_text1`,`below_subsites`.`branding_text2` AS `branding_text2`,`below_subsite_paths`.`child` AS `subsite_docid`,`below_subsite_paths`.`child_path` AS `subsite_path`,`below_subsite_paths`.`parent` AS `parent_docid`,`below_subsite_paths`.`parent_path` AS `parent_path` from (`path_tree_with_paths` `below_subsite_paths` join `subsites2` `below_subsites` on((`below_subsite_paths`.`child` = `below_subsites`.`root_docid`))) */;
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `subsites_below` AS select `below_subsites`.`id` AS `id`,`below_subsites`.`user_id` AS `user_id`,`below_subsites`.`domain` AS `domain`,`below_subsites`.`is_https` AS `is_https`,`below_subsites`.`old_path` AS `old_path`,`below_subsites`.`root_docid` AS `root_docid`,`below_subsites`.`title` AS `title`,`below_subsites`.`alt_title` AS `alt_title`,`below_subsites`.`front_faculty` AS `front_faculty`,`below_subsites`.`front_faculty_id` AS `front_faculty_id`,`below_subsites`.`backend_faculty` AS `backend_faculty`,`below_subsites`.`backend_faculty_id` AS `backend_faculty_id`,`below_subsites`.`comments` AS `comments`,`below_subsites`.`lang` AS `lang`,`below_subsites`.`local_analytics` AS `local_analytics`,`below_subsites`.`local_analytics_use_local_domain` AS `local_analytics_use_local_domain`,`below_subsites`.`global_menu` AS `global_menu`,`below_subsites`.`other_language_link` AS `other_language_link`,`below_subsites`.`own_leftmenu` AS `own_leftmenu`,`below_subsites`.`responsive` AS `responsive`,`below_subsites`.`dont_inherit_local_analytics` AS `dont_inherit_local_analytics`,`below_subsites`.`brandingunit` AS `brandingunit`,`below_subsites`.`webteam_id` AS `webteam_id`,`below_subsites`.`warning_banner` AS `warning_banner`,`below_subsites`.`dont_inherit_warning_banner` AS `dont_inherit_warning_banner`,`below_subsites`.`branding_text1` AS `branding_text1`,`below_subsites`.`branding_text2` AS `branding_text2`,`below_subsite_paths`.`child` AS `subsite_docid`,`below_subsite_paths`.`child_path` AS `subsite_path`,`below_subsite_paths`.`parent` AS `parent_docid`,`below_subsite_paths`.`parent_path` AS `parent_path` from (`path_tree_with_paths` `below_subsite_paths` join `subsites2` `below_subsites` on(`below_subsite_paths`.`child` = `below_subsites`.`root_docid`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5860,7 +4116,8 @@ DELIMITER ;
 /*!50001 SET character_set_results     = utf8 */;
 /*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50001 VIEW `subsites_with_new_path` AS select `subsites2`.`id` AS `id`,`subsites2`.`user_id` AS `user_id`,`subsites2`.`domain` AS `domain`,`subsites2`.`is_https` AS `is_https`,`subsites2`.`old_path` AS `old_path`,`subsites2`.`root_docid` AS `root_docid`,`subsites2`.`title` AS `title`,`subsites2`.`alt_title` AS `alt_title`,`subsites2`.`front_faculty` AS `front_faculty`,`subsites2`.`front_faculty_id` AS `front_faculty_id`,`subsites2`.`backend_faculty` AS `backend_faculty`,`subsites2`.`backend_faculty_id` AS `backend_faculty_id`,`subsites2`.`comments` AS `comments`,`subsites2`.`lang` AS `lang`,`subsites2`.`local_analytics` AS `local_analytics`,`subsites2`.`global_menu` AS `global_menu`,`subsites2`.`other_language_link` AS `other_language_link`,`subsites2`.`own_leftmenu` AS `own_leftmenu`,`subsites2`.`responsive` AS `responsive`,`subsites2`.`dont_inherit_local_analytics` AS `dont_inherit_local_analytics`,`subsites2`.`brandingunit` AS `brandingunit`,`subsites2`.`webteam_id` AS `webteam_id`,convert(coalesce(convert(`docid_path`.`path` using utf8),`subsites2`.`old_path`) using utf8) AS `path` from (`subsites2` left join `docid_path` on((`subsites2`.`root_docid` = `docid_path`.`docid`))) */;
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `subsites_with_new_path` AS select `subsites2`.`id` AS `id`,`subsites2`.`user_id` AS `user_id`,`subsites2`.`domain` AS `domain`,`subsites2`.`is_https` AS `is_https`,`subsites2`.`old_path` AS `old_path`,`subsites2`.`root_docid` AS `root_docid`,`subsites2`.`title` AS `title`,`subsites2`.`alt_title` AS `alt_title`,`subsites2`.`front_faculty` AS `front_faculty`,`subsites2`.`front_faculty_id` AS `front_faculty_id`,`subsites2`.`backend_faculty` AS `backend_faculty`,`subsites2`.`backend_faculty_id` AS `backend_faculty_id`,`subsites2`.`comments` AS `comments`,`subsites2`.`lang` AS `lang`,`subsites2`.`local_analytics` AS `local_analytics`,`subsites2`.`global_menu` AS `global_menu`,`subsites2`.`other_language_link` AS `other_language_link`,`subsites2`.`own_leftmenu` AS `own_leftmenu`,`subsites2`.`responsive` AS `responsive`,`subsites2`.`dont_inherit_local_analytics` AS `dont_inherit_local_analytics`,`subsites2`.`brandingunit` AS `brandingunit`,`subsites2`.`webteam_id` AS `webteam_id`,convert(coalesce(convert(`docid_path`.`path` using utf8),`subsites2`.`old_path`) using utf8) AS `path` from (`subsites2` left join `docid_path` on(`subsites2`.`root_docid` = `docid_path`.`docid`)) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -5874,4 +4131,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-09-10 14:52:50
+-- Dump completed on 2019-02-25 12:45:24

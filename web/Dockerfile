@@ -10,11 +10,11 @@ RUN set -x \
 RUN set -x \
     && apt-get install -y libfile-spec-native-perl make gcc libperl-dev
 
-RUN apt-get install -y libapache2-mod-apreq2
-RUN apt-get install -y libapache2-request-perl
-RUN apt-get install -y libapache-session-perl
-RUN apt-get install -y libcatalyst-devel-perl
-RUN apt-get install -y libcatalyst-modules-perl
+RUN apt-get install -y libapache2-mod-apreq2 \
+libapache2-request-perl \
+libapache-session-perl \
+libcatalyst-devel-perl \
+libcatalyst-modules-perl
 
 ADD etc/apache2 /etc/apache2
 
@@ -47,9 +47,9 @@ COPY full_import_json.pl /full_import_json.pl
 
 RUN apt-get install nano -y
 
-# Clean up
-RUN apt-get purge -y --auto-remove make gcc libperl-dev \
-    && rm -rf /var/lib/apt/lists/*
+# Clean up (NOTE: temporarily removed for dev purposes)
+#RUN apt-get purge -y --auto-remove make gcc libperl-dev \
+#    && rm -rf /var/lib/apt/lists/*
 
 RUN rm -f /usr/local/apache2/logs/httpd.pid
 

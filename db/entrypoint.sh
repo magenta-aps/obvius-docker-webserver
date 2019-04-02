@@ -164,6 +164,7 @@ if [ "$1" = 'mysqld' -a -z "$wantHelp" ]; then
 				echo "GRANT ALL ON \`$MYSQL_DATABASE\`.* TO '$MYSQL_USER'@'%' ;" | "${mysql[@]}"
 			fi
 			echo "USE ku ; source /tmp/ku_initial_database.sql ;" | "${mysql[@]}"
+			echo "USE ku ; source /tmp/functions_and_procedures.sql ;" | "${mysql[@]}"
 		fi
 
 		echo

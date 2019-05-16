@@ -4,9 +4,20 @@ FROM debian:stable-slim
 RUN set -x \
     && apt-get update
 
+#Install Apache
+RUN set -x \
+    && apt-get install -y apache2 \
+    && apt-get install -y apache2-dev
+
 # Add mod_perl build dependencies
 RUN set -x \
     && apt-get install -y libfile-spec-native-perl make gcc libperl-dev
+
+RUN apt-get install -y libapache2-mod-apreq2 \
+libapache2-request-perl \
+libapache-session-perl \
+libcatalyst-devel-perl \
+libcatalyst-modules-perl
 
 #Install obvius package dependencies
 RUN apt-get install -y build-essential \

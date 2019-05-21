@@ -95,6 +95,7 @@ JSON::PP \
 Locale::Messages \
 Apache2::SizeLimit \
 Net::IDN::Encode \
+Apache2::FakeRequest \
 forks
 
 #Copy obvius and ku specific conf files

@@ -83,7 +83,8 @@ software-properties-common \
 perlmagick \
 vim \
 net-tools \
-locales
+locales \
+awstats
 
 #Install CPAN modules
 RUN cpanm Crypt::TripleDES \
@@ -119,3 +120,5 @@ COPY ./src /var/www
 ENV PERL5LIB=/var/www/www.ku.dk/perl:/var/www/obvius/perl
 
 RUN cp /usr/share/zoneinfo/Europe/Copenhagen /etc/localtime
+
+COPY entrypoint_cron.sh /

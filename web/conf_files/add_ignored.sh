@@ -1,10 +1,16 @@
 #!/bin/bash
 cd /var/www/
 
-#mkdir -p www.ku.dk/docs/upload
-mkdir -p www.ku.dk/var 
-#mkdir -p www.ku.dk/logs
-mkdir -p www.ku.dk/var/document_cache
+test -d /var/www/www.ku.dk/var && rm -rf /var/www/www.ku.dk/var
+
+if [[ ! -e /var/www/www.ku.dk/var ]]; then
+    echo "Creating var directory in /var/obvius_var_files"
+    mkdir -p /var/obvius_var_files
+    echo "Symlinking /var/www/www.ku.dk/var to /var/obvius_var_files"
+    ln -s /var/obvius_var_files /var/www/www.ku.dk/var
+fi
+
+test -e www.ku.dk/var/document_cache || mkdir -p www.ku.dk/var/document_cache
 
 cd www.ku.dk/docs
 rm cache

@@ -6,9 +6,14 @@ CATALOG_URL=$(jq -r '.catalog_url' "$CONFIG_FILE")
 TAG_LIST_SUFFIX=$(jq -r '.tag_list_uri' "$CONFIG_FILE")
 
 if [[ -z "$1" ]]; then
-    echo "Usage:"
+    echo "###USAGE###"
+    echo "Push \"latest\" tag as well as new version:"
     echo "./build_tag_and_push <image_name>"
-    echo "or"
+    echo ""
+    echo "Push new version but skip \"latest\":"
+    echo "./build_tag_and_push <image_name> 1"
+    echo ""
+    echo "List versions:"
     echo "./build_tag_and_push list_versions"
     exit 0
 fi
@@ -84,4 +89,4 @@ build_and_tag () {
    fi
 }
 
-build_and_tag $1
+build_and_tag $1 $2

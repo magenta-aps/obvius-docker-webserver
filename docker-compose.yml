@@ -18,7 +18,6 @@ services:
         container_name: "web"
         command: "bash entrypoint.sh"
         volumes: 
-            - cmsdata:/var/www/www.ku.dk/data
             - logs:/var/www/www.ku.dk/logs
             - uploaddata:/var/www/www.ku.dk/docs/upload
 #Optional dev setup with bind mounted codebase. Adjust ku_code and obvius_code in the 'volumes' section to match your local path
@@ -26,8 +25,9 @@ services:
 #            - obvius_code:/var/www/obvius
         environment:
             - ALLOW_OVERRIDE=true
+#           Should only be this high on first start - adjust to a lower value when db container is already running
             - WAIT_FOR_DB_TIMER=11
-#           Uncomment this to change the root domain the site will use
+#           Change the root domain the site will use
             - OBVIUS_ROOT_DOMAIN=cmstest04.ku.dk
             - OBVIUS_HTTP_PREFIX=
             - OBVIUS_HTTPS_PREFIX=cms.secure.
@@ -58,18 +58,21 @@ services:
             - "3307:3306"
 
     solr:
+        build: ./solr
         image: solr
         hostname: solr
         container_name: "solr"
         networks:
             - obvius
-        volumes:
-            - ./solr/obvius-conf:/opt/solr/server/solr/configsets/obvius
-        entrypoint:
-            - docker-entrypoint.sh
-            - solr-precreate
-            - obvius
-            - /opt/solr/server/solr/configsets/obvius
+### BIND MOUNT VOLUMES TO OVERRIDE DEFAULT CONFIGURATION
+#        volumes:
+#            - ./solr/obvius-conf:/opt/solr/server/solr/configsets/obvius
+### ADD CUSTOM ENTRYPOINT IF NEEDED
+#        entrypoint:
+#            - docker-entrypoint.sh
+#            - solr-precreate
+ #           - obvius
+ #           - /opt/solr/server/solr/configsets/obvius
         ports:
             - "18983:8983"
 
@@ -82,8 +85,6 @@ services:
         restart: always
         networks:
             - obvius
-        volumes:
-            - "cmsdata:/data"
         ports:
             - "5544:5544"
         depends_on:
@@ -93,7 +94,6 @@ networks:
     obvius:
 
 volumes:
-    cmsdata:
     uploaddata:
     logs:
     #Adjust according to local code path!
@@ -101,11 +101,9 @@ volumes:
         driver: local
         driver_opts:
             device: /var/www/www.ku.dk
-#            device: ${PWD}/obvius/src/www.ku.dk
             o: bind
     obvius_code:
         driver: local
         driver_opts:
             device: /var/www/obvius
- #           device: ${PWD}/obvius/src/obvius
             o: bind

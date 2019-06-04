@@ -51,8 +51,8 @@ fi
 build_and_tag () {
     local IMAGE=$1
     local SKIP_LATEST=$2
-    local DIR=$(jq -r ".images.$1.directory | select (.!=null)" "$CONFIG_FILE")
-    local URI=$(jq -r ".images.$1.uri | select (.!=null)" "$CONFIG_FILE")
+    local DIR=$(jq -r ".images.\"$1\".directory | select (.!=null)" "$CONFIG_FILE")
+    local URI=$(jq -r ".images.\"$1\".uri | select (.!=null)" "$CONFIG_FILE")
     if [[ -z "$DIR" ]]; then
         echo "$IMAGE is not listed in the config file."
         echo ""

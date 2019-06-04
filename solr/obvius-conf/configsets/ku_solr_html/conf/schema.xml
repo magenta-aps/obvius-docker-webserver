@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="obvius_html_search" version="1.6">
+
+  <field name="_version_" type="long" indexed="true" stored="false" />
+  <field name="_root_" type="string" indexed="true" stored="false" docValues="false" />
+
+
+  <types>
+    <fieldType name="string"
+               class="solr.TextField"
+               sortMissingLast="true"
+               omitNorms="true">
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory" />
+        <filter class="solr.WordDelimiterGraphFilterFactory"
+                generateWordParts="1"
+                generateNumberParts="1"
+                catenateWords="0"
+                catenateNumbers="0"
+                catenateAll="0"
+                preserveOriginal="1"
+        />
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
+    
+    <fieldType name="text"
+               class="solr.TextField"
+               indexed="true" >
+      <analyzer>
+        <tokenizer class="solr.StandardTokenizerFactory" />
+        <filter class="solr.WordDelimiterGraphFilterFactory"
+                generateWordParts="1"
+                generateNumberParts="1"
+                catenateWords="0"
+                catenateNumbers="0"
+                catenateAll="0"
+                preserveOriginal="1"
+        />
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
+	
+    <fieldtype name="long" class="LongPointField" docValues="true" />
+
+    <fieldType name="pdate" class="solr.DatePointField" indexed="true" docValues="true" />
+
+    <fieldType name="bool" class="solr.BoolField" indexed="true" />
+  </types>
+  <fields>
+    <!-- Document meta fields -->
+	<field name="id"           type="string" indexed="true"  stored="true" required="true" multiValued="false" />
+	<field name="closest_subsite" type="string" indexed="true"  stored="true" />
+	<field name="has_public_path" type="bool" indexed="true"  stored="true" />
+	<field name="version" type="string" indexed="true"  stored="true" />
+	<field name="type"         type="string" indexed="true"  stored="true" />
+	<field name="doctype"    type="string" indexed="true" stored="true" />
+    
+	<!-- Content fields -->
+    <field name="published"    type="pdate"   indexed="true"  stored="true" />
+    <field name="docdate"      type="pdate"   indexed="true"  stored="true" /> 
+    <field name="content"      type="text"   indexed="true"  stored="true" /> 
+	<field name="html_content" type="text"   indexed="true"  stored="true" />
+    <field name="title"        type="text"   indexed="true"  stored="true" />
+    <field name="path"         type="string" indexed="true" stored="true" />
+    
+   <!-- Dynamic field declarations -->
+   <dynamicField name="vf_t_*" type="text" stored="true" multiValued="true" />
+   <copyField source="vf_t_*" dest="vfields_static" />
+   <copyField source="content" dest="vfields_static" />
+   <copyField source="html_content" dest="vfields_static" />
+   <field name="vfields_static" indexed="true" multiValued="true" stored="true" type="text" />
+   </fields>
+
+  <uniqueKey>id</uniqueKey>
+  <df>content</df>
+</schema>
+

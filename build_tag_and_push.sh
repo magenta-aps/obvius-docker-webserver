@@ -31,7 +31,6 @@ if [[ ! "$STATUS" -eq 200 ]]; then
 fi
 
 get_current_version () {
-  #echo "https://$CATALOG_URL$1$TAG_LIST_SUFFIX"
   local CURRENT_VERSION=$(curl -s --user "$CREDENTIALS" "https://$CATALOG_URL$1$TAG_LIST_SUFFIX" | jq -r '[ .tags[] ] | map(select(. != "latest" and . != "dev")) | max')
   echo "$CURRENT_VERSION"
 }
@@ -54,16 +53,16 @@ build_and_tag () {
     local SKIP_LATEST=$2
     local DIR=$(jq -r ".images.$1.directory | select (.!=null)" "$CONFIG_FILE")
     local URI=$(jq -r ".images.$1.uri | select (.!=null)" "$CONFIG_FILE")
-    if [ -z "$DIR" ]; then
-        echo "$IMAGE is not listed in the config file"
+    if [[ -z "$DIR" ]]; then
+        echo "$IMAGE is not listed in the config file, aborting"
         exit 0
     fi
-    if [ -z "$URI" ]; then
-        echo "No uri specified for $IMAGE"
+    if [[ -z "$URI" ]]; then
+        echo "No uri specified for $IMAGE, aborting"
         exit 0
     fi
     if [[ ! -f "$DIR/CHANGELOG" ]]; then
-        echo "No changelog found in $DIR, aborting"
+        echo "No CHANGELOG found in $DIR, aborting"
         exit 0
     fi
     local VERSION=$(head -n 1 "$DIR/CHANGELOG" | sed 's/[][]//g')

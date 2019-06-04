@@ -54,7 +54,14 @@ build_and_tag () {
     local DIR=$(jq -r ".images.$1.directory | select (.!=null)" "$CONFIG_FILE")
     local URI=$(jq -r ".images.$1.uri | select (.!=null)" "$CONFIG_FILE")
     if [[ -z "$DIR" ]]; then
-        echo "$IMAGE is not listed in the config file, aborting"
+        echo "$IMAGE is not listed in the config file."
+        local SUGGESTION=$(jq -r ".images | with_entries( select(.key|contains(\"$IMAGE\"))) | keys[0] | select (.!=null)" "$CONFIG_FILE")
+        if [[ ! -z "$SUGGESTION" ]]; then
+            echo "Did you mean $SUGGESTION?"
+        else
+            echo "These are the images and directories I am aware of:"
+            jq -r '.images | keys[] as $k | "\($k) \(.[$k] | .directory)"' "$CONFIG_FILE"
+        fi
         exit 0
     fi
     if [[ -z "$URI" ]]; then

@@ -1,0 +1,27 @@
+{
+  "base_url": "dockerreg.magenta.dk/",
+  "catalog_url":"dockerreg.magenta.dk/v2/",
+  "tag_list_uri": "/tags/list",
+  "images": {
+    "obvius": {
+      "directory": "./obvius",
+      "uri": "obvius/obvius"
+    },
+    "web-obvius": {
+      "directory": "./web",
+      "uri": "ku/web-obvius"
+    },
+    "solr": {
+      "directory": "./solr",
+      "uri": "ku/solr"
+    },
+    "db": {
+      "directory": "./db",
+      "uri": "ku/db"
+    },
+    "awstats": {
+      "directory": "./awstats-docker",
+      "uri": "ku/awstats"
+    }
+  }
+}

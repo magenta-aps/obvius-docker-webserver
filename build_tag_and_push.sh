@@ -27,7 +27,7 @@ fi
 
 get_current_version () {
   #echo "https://$CATALOG_URL$1$TAG_LIST_SUFFIX"
-  local CURRENT_VERSION=$(curl -s --user "$CREDENTIALS" "https://$CATALOG_URL$1$TAG_LIST_SUFFIX" | jq '[ .tags[] ] | map(select(. != "latest" and . != "dev")) | max')
+  local CURRENT_VERSION=$(curl -s --user "$CREDENTIALS" "https://$CATALOG_URL$1$TAG_LIST_SUFFIX" | jq -r '[ .tags[] ] | map(select(. != "latest" and . != "dev")) | max')
   echo "$CURRENT_VERSION"
 }
 
@@ -61,7 +61,7 @@ build_and_tag () {
         echo "No changelog found in $DIR, aborting"
         exit 0
     fi
-    local VERSION=$(head -n 1 "$DIR/CHANGELOG")
+    local VERSION=$(head -n 1 "$DIR/CHANGELOG" | sed 's/[][]//g')
     local REMOTE_VERSION=$(get_current_version "$URI")
 
    echo -n "You are about to build $IMAGE from $DIR. Your specified version is $VERSION and the latest remote version is $REMOTE_VERSION. Are you happy with this? [Y/n] "

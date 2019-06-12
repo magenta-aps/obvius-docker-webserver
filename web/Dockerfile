@@ -37,9 +37,15 @@ RUN apt-get install nano -y
 
 RUN rm -f /usr/local/apache2/logs/httpd.pid
 
-COPY conf_files/ /var/conf_files/
+COPY conf_files/* /var/conf_files/
 
 RUN a2dissite 000-default
 
 # Set global servername
 RUN a2enconf global-servername
+
+VOLUME /var/www/www.ku.dk/var
+
+#RUN bash /var/conf_files/add_ignored.sh
+
+ENTRYPOINT ["/entrypoint.sh"]

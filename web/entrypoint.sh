@@ -2,6 +2,11 @@
 
 echo 'Entering entrypoint.sh'
 
+echo 'Modifying apache user'
+APACHE_USER_ID="${OBVIUS_CONFIG_APACHE_USER_ID:-1000}"
+APACHE_USER_NAME="${OBVIUS_CONFIG_APACHE_USER_NAME:-"www-data"}"
+usermod -u $APACHE_USER_ID $APACHE_USER_NAME
+
 echo 'Building obvius translations'
 
 perl /var/www/obvius/bin/obvius_translations.pl sort_translations ku

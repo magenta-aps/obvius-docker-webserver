@@ -1,7 +1,7 @@
-FROM centos:7
-MAINTAINER ome-devel@lists.openmicroscopy.org.uk
+FROM registry.access.redhat.com/rhscl/perl-526-rhel7:latest
 
-RUN yum -y install epel-release && \
+USER root
+RUN yum update -y && \
     yum -y install awstats httpd && \
     yum clean all
 

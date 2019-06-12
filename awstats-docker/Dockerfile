@@ -1,15 +1,20 @@
 FROM registry.access.redhat.com/rhscl/perl-526-rhel7:latest
 
 USER root
-RUN yum update -y && \
-    yum -y install awstats httpd && \
+COPY ./search-disabled-repos.conf /etc/yum/pluginconf.d/search-disabled-repos.conf
+RUN wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
+    rpm -ivh epel-release-latest-7.noarch.rpm && \
+    yum update -y && \
+    yum install awstats httpd -y && \
     yum clean all
 
+# Disabled because MaxMind no longer supports old GeoIP data - will need workaround!
 #RUN mkdir -p /opt/GeoIP && \
 #    curl -L https://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz \
 #        | gunzip -c - > /opt/GeoIP/GeoIP.dat && \
 #    curl -L https://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz \
 #        | gunzip -c - > /opt/GeoIP/GeoLiteCity.dat
+
 RUN useradd -M -d /var/lib/awstats awstats && \
     chown awstats:awstats /var/lib/awstats /etc/awstats /run/httpd && \
     bash -O extglob -c 'rm /etc/awstats/!(awstats.model.conf)'

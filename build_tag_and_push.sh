@@ -4,6 +4,7 @@ CONFIG_FILE="build_config.json"
 BASE_URL=$(jq -r '.base_url' "$CONFIG_FILE")
 CATALOG_URL=$(jq -r '.catalog_url' "$CONFIG_FILE")
 TAG_LIST_SUFFIX=$(jq -r '.tag_list_uri' "$CONFIG_FILE")
+DOCKER_BUILD_FLAGS=$(jq -r '.docker_build_flags' "$CONFIG_FILE")
 
 if [[ -z "$1" ]]; then
     echo "###USAGE###"
@@ -79,7 +80,11 @@ build_and_tag () {
    echo -n "You are about to build $IMAGE from $DIR. Your specified version is $VERSION and the latest remote version is $REMOTE_VERSION. Are you happy with this? [Y/n] "
    read OK;
    if [[ "${OK}" == "" ]] || [[ "${OK}" == "y" ]] || [[ "${OK}" == "Y" ]]; then
-        docker build "$DIR" -q -t "$IMAGE:latest"
+        if [[ "$DOCKER_BUILD_FLAGS" == "null" ]]; then
+            docker build "$DIR" -q -t "$IMAGE:latest"
+        else
+            docker build "$DIR" ${DOCKER_BUILD_FLAGS} -t "$IMAGE:latest"
+        fi
         local IMAGE_TAG="$BASE_URL$URI"
         docker tag ${IMAGE} ${IMAGE_TAG}:${VERSION}
         echo "Created $IMAGE_TAG:$VERSION tag"

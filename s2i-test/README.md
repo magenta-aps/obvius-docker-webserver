@@ -6,6 +6,9 @@ Pull the latest version of the rh-perl526 image:
 Build a new s2i base image using cpanfile in src/  
 `s2i build --context-dir=src . registry.access.redhat.com/rhscl/perl-526-rhel7 s2i-baseimage`
 
+Build a new Docker image and push to Magenta registry (run the command from this project's root directory):  
+`./build_tag_and_push.sh obvius-rhel`
+
 ### Sample Dockerfile
 ```dockerfile
 FROM s2i-baseimage:latest

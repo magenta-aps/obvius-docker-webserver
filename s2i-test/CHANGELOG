@@ -1,2 +1,5 @@
+[0.2]
+Copy DBIx::Recordset
+
 [0.1]
 First implementation with most packages installed, slim Dockerfile wrapper

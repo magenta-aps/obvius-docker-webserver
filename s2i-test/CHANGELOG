@@ -1,3 +1,13 @@
+[0.5]
+Compile apreq, freetds, DBD::Sybase and ImageMagick from source code.
+Set up basic structure for Obvius files and directories.
+
+[0.4]
+Compile remaining modules
+
+[0.3]
+Compile apreq2 from source
+
 [0.2]
 Copy DBIx::Recordset
 

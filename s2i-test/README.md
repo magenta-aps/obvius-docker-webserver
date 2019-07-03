@@ -1,32 +1,25 @@
 ### Commands to run
 
-Pull the latest version of the rh-perl526 image:  
+Pull the latest version of the rh-perl526 image:
 `docker pull registry.access.redhat.com/rhscl/perl-526-rhel7:latest`
 
-Build a new s2i base image using cpanfile in src/  
-`s2i build --context-dir=src . registry.access.redhat.com/rhscl/perl-526-rhel7 s2i-baseimage`
+Build a new s2i base image using cpanfile in src/
+`s2i build --context-dir=src . registry.access.redhat.com/rhscl/perl-526-rhel7 obvius-rhel-s2i-baseimage`
 
-Build a new Docker image and push to Magenta registry (run the command from this project's root directory):  
+This image contains the Obvius and KU source code as well as any dependencies that can be installed
+without special configuration options.
+
+Build a new obvius-rhel image and push to Magenta registry (run the command from this project's root directory):  
 `./build_tag_and_push.sh obvius-rhel`
+
+This builds an image based on the above with additional dependencies that requires extra installation.
+This image will also have symlinks and directory structures set up for a "classic" Obvius environment.
+
+After the above steps are complete Obvius images can be built from the obvius-rhel image:
 
 ### Sample Dockerfile
 ```dockerfile
-FROM s2i-baseimage:latest
+FROM obvius-rhel:latest
 
-ENTRYPOINT ["sleep", "infinity"]
+CMD ["sleep", "infinity"]
 ```
-
-
-### Failed packages
-
-The following packages cannot be installed using `s2i`, most likely	because	of unresolved system package dependencies:
-```
-#requires 'Apache2::Request';
-#requires 'Apache2::FakeRequest';
-#requires 'BerkeleyDB';
-#requires 'DBD::Sybase';
-#requires 'Image::Magick';
-#requires 'SOAP::Lite';
-#requires 'Term::ReadLine::Gnu';
-```
-

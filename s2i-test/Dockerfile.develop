@@ -1,0 +1,37 @@
+FROM obvius-rhel-s2i-baseimage:latest
+
+USER root
+
+
+COPY src/docker_build_tasks/020-extra-yum-repositories.sh /opt/app-root/src/docker_build_tasks
+RUN /bin/bash /opt/app-root/src/docker_build_tasks/020-extra-yum-repositories.sh
+
+COPY src/docker_build_tasks/030-extra-yum-packages.sh /opt/app-root/src/docker_build_tasks
+RUN /bin/bash /opt/app-root/src/docker_build_tasks/030-extra-yum-packages.sh
+
+COPY src/docker_build_tasks/040-install-libapreq.sh /opt/app-root/src/docker_build_tasks
+RUN /bin/bash /opt/app-root/src/docker_build_tasks/040-install-libapreq.sh
+
+COPY src/docker_build_tasks/050-extra-cpan-packages.sh /opt/app-root/src/docker_build_tasks
+RUN /bin/bash /opt/app-root/src/docker_build_tasks/050-extra-cpan-packages.sh
+
+COPY src/docker_build_tasks/060-install-freetds.sh /opt/app-root/src/docker_build_tasks
+RUN /bin/bash /opt/app-root/src/docker_build_tasks/060-install-freetds.sh
+
+COPY src/docker_build_tasks/070-install-dbd-sybase.sh /opt/app-root/src/docker_build_tasks
+RUN /bin/bash /opt/app-root/src/docker_build_tasks/070-install-dbd-sybase.sh
+
+COPY src/docker_build_tasks/080-install-imagemagick.sh /opt/app-root/src/docker_build_tasks
+RUN /bin/bash /opt/app-root/src/docker_build_tasks/080-install-imagemagick.sh
+
+COPY src/docker_build_tasks/090-obvius-files-and-symlinks.sh /opt/app-root/src/docker_build_tasks
+RUN /bin/bash /opt/app-root/src/docker_build_tasks/090-obvius-files-and-symlinks.sh
+
+COPY src/docker_build_tasks/100-locale-and-timezone.sh /opt/app-root/src/docker_build_tasks
+RUN /bin/bash /opt/app-root/src/docker_build_tasks/100-locale-and-timezone.sh
+
+USER default
+
+ENV PERL5LIB=/var/www/www.ku.dk/perl:/var/www/obvius/perl:/opt/app-root/src/extlib/lib/perl5
+
+CMD ["sleep", "infinity"]

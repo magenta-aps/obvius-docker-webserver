@@ -2,4 +2,3 @@
 web/volumes/*
 obvius/src/*
 .idea/*
-s2i-test/src/*

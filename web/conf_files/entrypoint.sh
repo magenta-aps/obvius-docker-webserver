@@ -2,6 +2,9 @@
 
 echo 'Entering entrypoint.sh'
 
+# Call setup_config_files.sh to ensure configuration files are in place
+/bin/bash /var/conf_files/setup_config_files.sh
+
 if [[ -z "${OBVIUS_LOGNAME}" ]]; then
     OBVIUS_LOGNAME=`hostname`
     if [[ -z "${OBVIUS_LOGNAME}" ]]; then
@@ -91,22 +94,6 @@ fi
 # Make sure log directory exists
 if [[ ! -d "/var/www/www.ku.dk/logs/${OBVIUS_LOGNAME}" ]]; then
     mkdir -p "/var/www/www.ku.dk/logs/${OBVIUS_LOGNAME}"
-fi
-
-# Copy some default files
-for x in \
-    httpd.conf \
-    preload_obvius_modules.pl \
-; do
-    if [[ ! -e "/var/www/www.ku.dk/local/conf/${x}" ]]; then
-        cp "/var/conf_files/${x}" "/var/www/www.ku.dk/local/conf/${x}"
-    fi
-done
-
-# Make sure apache configuration is symlinked to file in www.ku.dk/local
-if [[ ! -h /opt/rh/httpd24/root/etc/httpd/conf/httpd.conf ]]; then
-    mv /opt/rh/httpd24/root/etc/httpd/conf/httpd.conf /opt/rh/httpd24/root/etc/httpd/conf/httpd.conf.orig
-    ln -s /var/www/www.ku.dk/local/conf/httpd.conf /opt/rh/httpd24/root/etc/httpd/conf/httpd.conf
 fi
 
 exec "$@"

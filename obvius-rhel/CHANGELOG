@@ -1,3 +1,9 @@
+[0.7]
+Update obvius code to get support for netscaler cache
+
+[0.6]
+Move additional dependencies from web image to obvius-rhel.
+
 [0.5]
 Compile apreq, freetds, DBD::Sybase and ImageMagick from source code.
 Set up basic structure for Obvius files and directories.

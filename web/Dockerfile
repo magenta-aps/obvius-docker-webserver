@@ -1,24 +1,51 @@
-FROM dockerreg.magenta.dk/obvius/obvius-rhel:latest
+FROM obvius:latest
 
-USER root
+ADD etc/apache2 /etc/apache2
 
-RUN yum install -y mc nano
+# Enable KU site in apache config
+RUN a2ensite ku
+
+#Disable conflicting Apache Module
+RUN a2dismod mpm_event
+
+#Enable Apache Modules
+RUN a2enmod apreq2
+RUN a2enmod expires 
+RUN a2enmod headers 
+RUN a2enmod proxy 
+RUN a2enmod proxy_http 
+RUN a2enmod proxy_connect
+RUN a2enmod rewrite
+RUN a2enmod access_compat
+RUN a2enmod mpm_prefork
+RUN a2enmod perl
+
+#Enable Apache custom configuration files
+RUN a2enconf obvius
+RUN a2enconf actualhost-logformat
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 COPY full_import_json.pl /full_import_json.pl
 
-# Copy configuration for apache modules
-COPY apache_modules.d/* /opt/rh/httpd24/root/etc/httpd/conf.modules.d/
+RUN apt-get install nano -y
 
-# Copy defaults for various configuration files
+# Clean up (NOTE: temporarily removed for dev purposes)
+#RUN apt-get purge -y --auto-remove make gcc libperl-dev \
+#    && rm -rf /var/lib/apt/lists/*
+
+RUN rm -f /usr/local/apache2/logs/httpd.pid
+
 COPY conf_files/* /var/conf_files/
 
-RUN /bin/bash /var/conf_files/setup_config_files.sh && \
-    chmod +x /var/conf_files/entrypoint.sh
+RUN a2dissite 000-default
 
-RUN chown -R default /var/www/www.ku.dk/local
+# Set global servername
+RUN a2enconf global-servername
 
-USER default
+VOLUME /var/www/www.ku.dk/var
 
-ENTRYPOINT ["/var/conf_files/entrypoint.sh"]
+#RUN bash /var/conf_files/add_ignored.sh
 
-CMD ["/opt/rh/httpd24/root/sbin/httpd", "-D", "NO_SMALL_APACHES", "-D", "FOREGROUND"]
+ENTRYPOINT ["/entrypoint.sh"]

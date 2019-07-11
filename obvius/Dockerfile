@@ -97,7 +97,8 @@ Locale::Messages \
 Apache2::SizeLimit \
 Net::IDN::Encode \
 Apache2::FakeRequest \
-forks
+forks \
+Geo::IPfree
 
 #Copy obvius and ku specific conf files
 COPY etc/ /etc

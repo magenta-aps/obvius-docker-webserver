@@ -92,6 +92,7 @@ build_and_tag () {
            docker tag ${IMAGE} ${IMAGE_TAG}:latest
            echo "Created $IMAGE_TAG:latest tag"
         fi
+        echo "Pushing docker image to remote registry, please hang tight. If no more output is produced, please run docker login dockerreg.magenta.dk"
         docker push ${IMAGE_TAG}:${VERSION} &> /dev/null
         echo "Pushed $IMAGE_TAG:$VERSION"
         if [[ -z "$SKIP_LATEST" ]]; then

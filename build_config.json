@@ -2,7 +2,7 @@
   "base_url": "dockerreg.magenta.dk/",
   "catalog_url":"dockerreg.magenta.dk/v2/",
   "tag_list_uri": "/tags/list",
-  "docker_build_flags": "--no-cache",
+  "docker_build_flags": "",
   "images": {
     "obvius": {
       "directory": "./obvius",
@@ -25,8 +25,12 @@
       "uri": "ku/awstats"
     },
     "obvius-rhel": {
-      "directory": "./s2i-test",
+      "directory": "./obvius-rhel",
       "uri": "obvius/obvius-rhel"
+    },
+    "web-rhel": {
+      "directory": "./web-rhel",
+      "uri": "ku/web-obvius-rhel"
     }
   }
 }

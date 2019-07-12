@@ -68,3 +68,6 @@ fi
 # Make a wrapper around rewriter.pl so it runs in the right perl environment
 perl -p -i -e 's{prg:/var/www/www.ku.dk/conf/rewriter.pl}{prg:/var/www/www.ku.dk/local/conf/rewriter_script_wrapper.sh}' /var/www/www.ku.dk/conf/rewriter.conf
 chmod +x /var/www/www.ku.dk/local/conf/rewriter_script_wrapper.sh
+
+# Chown obvius config folder so default user can modify at runtime
+chown -R default /etc/obvius

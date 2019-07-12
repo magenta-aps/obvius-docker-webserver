@@ -1,2 +1,11 @@
-[0.9]
-Move Apache packages to Obvius base image
+[0.1.3]
+Removed unnecessary full_import_json.pl, updated base image
+
+[0.1.2]
+Added HTTPS header setup for the navigator
+
+[0.1.1]
+Chown obvius conf folder to default user
+
+[0.1]
+Initial RHEL-based version

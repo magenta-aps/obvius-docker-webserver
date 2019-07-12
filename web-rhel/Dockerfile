@@ -4,8 +4,6 @@ USER root
 
 RUN yum install -y mc nano
 
-COPY full_import_json.pl /full_import_json.pl
-
 # Copy configuration for apache modules
 COPY apache_modules.d/* /opt/rh/httpd24/root/etc/httpd/conf.modules.d/
 

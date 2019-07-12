@@ -1,3 +1,9 @@
+[0.7.2]
+Update rhel7 base image to 5.26-44.1561731202
+
+[0.7.1]
+Merge master branches into docker branches.
+
 [0.7]
 Update obvius code to get support for netscaler cache
 

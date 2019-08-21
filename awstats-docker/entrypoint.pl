@@ -8,7 +8,7 @@ sub env_default {
 }
 
 my $default_config = env_default('ROOTHOST', 'localhost');
-my $filename = "etc/httpd/conf.d/welcome.conf";
+my $filename = "/etc/httpd/conf.d/welcome.conf";
 open my $fh, ">", $filename or die("Cannot open welcome.conf");
 print $fh 'RedirectMatch ^/$ /awstats/awstats.pl?config=' . $default_config . "\n";
 close $fh;

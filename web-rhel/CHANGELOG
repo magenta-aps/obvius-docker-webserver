@@ -1,3 +1,6 @@
+[0.1.4]
+Updated base image with new navigator code
+
 [0.1.3]
 Removed unnecessary full_import_json.pl, updated base image
 
